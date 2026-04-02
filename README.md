@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&pause=1000&color=1ABC9C&center=true&vCenter=true&multiline=true&repeat=true&width=650&height=55&lines=Resúmenes+%7C+Prácticas+%7C+Evaluaciones;Todo+el+material+organizado+en+un+solo+lugar+📚" />
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&pause=1000&color=1ABC9C&center=true&vCenter=true&repeat=true&width=650&height=50&lines=Resumenes+%7C+Practicas+%7C+Evaluaciones;Todo+el+material+organizado+en+un+solo+lugar" />
 </p>
 
 ---
