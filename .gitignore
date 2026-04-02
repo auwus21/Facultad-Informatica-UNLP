@@ -1,0 +1,21 @@
+# === macOS ===
+.DS_Store
+
+# === Python virtual environments ===
+venv_pdf/
+
+# === IDEs ===
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# === Compiled / Temp ===
+*.class
+*.o
+*.exe
+__pycache__/
+*.pyc
+
+# === Logs / Temp files ===
+*.log
