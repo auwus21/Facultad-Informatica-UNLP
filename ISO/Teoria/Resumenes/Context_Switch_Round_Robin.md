@@ -1,10 +1,21 @@
 # 🔄 Cambio de Contexto (Context Switch) en Round Robin: De P1 a P2
 
 **Materia**: Introducción a los Sistemas Operativos (ISO)
+---
+## Explicado en Criollo
+Se acaba el tiempo (Interrupción): El reloj avisa que P1 consumió su quantum. El Sistema Operativo frena a P1 y toma el control.
+
+Guardar a P1: El SO anota exactamente en qué línea y con qué datos se quedo P1, y guarda esa informacion en su archivo personal (en la PCB).
+
+Turno del siguiente (Planificador): El SO mira la cola de espera y, como es Round Robin, llama al que sigue en la ronda, que en este caso es P2.
+
+Cargar a P2: El SO busca el archivo (PCB) de P2, lee dónde se había quedado la última vez y carga esos datos en el procesador.
+
+A correr de nuevo: El SO reinicia el reloj (quantum) y le da play a P2 para que siga trabajando.
 
 ---
 
-## 🕒 Desarrollo Paso a Paso
+## 🕒 Desarrollo Paso a Paso (IA)
 
 En un algoritmo de planificación **Round Robin**, cada proceso recibe un intervalo de tiempo fijo de CPU llamado **quantum**. Cuando el proceso en ejecución (llamémoslo **P1**) consume todo su *quantum* y debe cederle el lugar al proceso siguiente en la cola (llamémoslo **P2**), ocurre el siguiente procedimiento a muy bajo nivel:
 
