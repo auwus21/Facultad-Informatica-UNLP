@@ -15,8 +15,10 @@ Repositorio de estudio personal para la materia **Orientación a Objetos 2**, co
 ### 📖 Teoría
 Contiene los resúmenes y apuntes teóricos de las clases.
 
+* **Resúmenes en Markdown:**
+  * [Clase 1: Introducción a Refactoring y Patrones de Diseño](Teoria/Resumenes/Clase1.md)
 * **Material Oficial Cátedra:**
-  * [Directorio de PDFs y Diapositivas](Teoria/)
+  * [Directorio de PDFs y Diapositivas](Teoria/Material_Original/)
 
 ### 💻 Prácticas
 Todo el código asociado a las guías prácticas y ejercicios resueltos en Java.
