@@ -16,7 +16,9 @@ Repositorio de estudio personal para la materia **Orientación a Objetos 2**, co
 Contiene los resúmenes y apuntes teóricos de las clases.
 
 * **Resúmenes en Markdown:**
-  * [Clase 1: Introducción a Refactoring y Patrones de Diseño](Teoria/Resumenes/Clase1.md)
+  * [Clase 1: Introducción a Refactoring](Teoria/Resumenes/Clase1.md)
+  * [Clase 2: Catálogo de Refactoring y Herramientas](Teoria/Resumenes/Clase2.md)
+  * [Clase 3: Introducción a Patrones de Diseño](Teoria/Resumenes/Clase3.md)
 * **Material Oficial Cátedra:**
   * [Directorio de PDFs y Diapositivas](Teoria/Material_Original/)
 
