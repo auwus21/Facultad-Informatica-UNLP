@@ -17,6 +17,8 @@ Contiene los resúmenes y apuntes teóricos de las clases.
 * **Resúmenes en Markdown:**
   * [Tema 1: Introducción a los Sistemas Operativos](Teoria/Resumenes/Introduccion_Tema_1.md)
   * [Tema 2: Procesos - Parte 1](Teoria/Resumenes/Procesos_1.md)
+  * [Tema 2: Procesos - Parte 2](Teoria/Resumenes/Procesos_2.md)
+  * [Tema 2: Procesos - Parte 3](Teoria/Resumenes/Procesos_3.md)
   * [Cambio de Contexto en Round Robin](Teoria/Resumenes/Context_Switch_Round_Robin.md)
 
 * **Material Oficial Cátedra:**
