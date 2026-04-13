@@ -1,165 +1,232 @@
-# 📝 Clase 1: Repaso de Conceptos Básicos de JAVA
+# 📘 Repaso de conceptos básicos de JAVA
 
-Esta clase introductoria repasa los conceptos fundamentales de la Programación Orientada a Objetos (POO) y su implementación en el lenguaje Java.
-
-## 🏗️ La Plataforma JAVA
-
-En Java, el código fuente se escribe en archivos con extensión `.java`. Luego, el compilador transforma este código en **bytecodes**, que es el lenguaje comprensible por la Máquina Virtual de Java (JVM).
-* **`javac.exe`**: Es el compilador. Genera un archivo `.class`.
-* **`java.exe`**: Es el intérprete que ejecuta los bytecodes contenidos en el archivo `.class`.
+**Materia:** Algoritmos y Estructuras de Datos (AyED) — UNLP 2026  
+**Temas:** Clases e instancias, Tipos de datos, Variables estáticas, Arreglos, Pasaje de parámetros
 
 ---
 
-## 🧩 Programación Orientada a Objetos
+## 🎯 Programación Orientada a Objetos (POO)
 
-Los programas están compuestos por varios **objetos** que se comunican entre sí mediante el envío de mensajes.
-Cuando el programa se ejecuta, estos objetos se van creando dinámicamente en la memoria **HEAP**.
+Los programas orientados a objetos están compuestos por varios objetos. Estos objetos se comunican entre ellos mediante el envío de mensajes. Cuando un programa se está ejecutando, los objetos necesarios se van creando en la memoria **HEAP**.
 
-* **Objeto:** Es una entidad que combina un **estado** (datos/atributos) y un **comportamiento** (métodos/acciones).
-* **Clase:** Es el "molde" o plantilla a partir del cual se instancian o crean los objetos.
+> *"Cada uno de estos objetos es una entidad de software que combina un estado o datos y comportamiento o métodos. Estos objetos se crean a partir de un molde o clase."*
 
-### Declaración de una Clase
-Un archivo de origen Java debe coincidir en nombre con la clase que define, respetando mayúsculas y minúsculas. 
+En criollo: Una **clase** es como el plano de una casa (define cómo va a ser), y un **objeto** (o instancia) es la casa ya construida en la memoria, lista para ser usada.
+
+---
+
+## ⚙️ Declaración de una Clase en JAVA
+
+Una clase describe el estado (variables de instancia) y el comportamiento (métodos de instancia) que tendrán los objetos que con ella se creen.
+
+**Reglas principales:**
+1. En la primera línea: palabra clave `package` seguida del nombre del paquete.
+2. Palabra clave `class` seguida del nombre de la clase.
+3. El archivo origen debe guardarse con el mismo nombre que la clase y extensión `.java`.
+
+### 📦 Ejemplo: Clase Contacto
 
 ```java
 package whatsapp;
 import java.awt.Image;
 
 public class Contacto {
-    // 1. Estado (Variables de instancia)
-    private String nombre;
-    private Image imagen;
-    private String estado;
-    private int id;
-    
-    // 2. Comportamiento (Métodos)
-    public String getNombre() {
-        return nombre;
-    }
-    
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
+ private String nombre;
+ private Image imagen;
+ private String estado;
+ private int id;
+ 
+ public String getNombre() {
+  return nombre;
+ }
+ 
+ public void setNombre(String nombre) {
+  this.nombre = nombre;
+ }
+ // ...
 }
 ```
 
 ---
 
-## 📦 Tipos de Datos en Java
+## 📊 Tipos de datos en Java
 
-Java clasifica los tipos de datos en dos grandes categorías:
+En Java hay dos categorías de tipos de datos: **tipo primitivo** y **tipo referencial**.
 
-1. **Tipos Primitivos:** Mantienen valores simples por eficiencia y no son objetos. Existen 8:
-   * **Enteros:** `byte`, `short`, `int`, `long`
-   * **Flotantes:** `float`, `double`
-   * **Caracteres:** `char`
-   * **Lógicos:** `boolean`
-   * *Valores por defecto:* Numéricos inician en `0`, booleanos en `false`.
+| Tipo | Descripción | Ejemplo de declaración |
+|---|---|---|
+| **Primitivos** | Mantienen valores simples y NO son objetos. Por razones de eficiencia. | `int hora = 12;` |
+| **Referenciales** | Mantienen la dirección de memoria de objetos (instancias de clases). | `Cliente cli = new Cliente();` |
 
-2. **Tipos Referenciales (Objetos):** Las variables de este tipo contienen la **dirección de memoria** (referencia) al objeto real creado en la memoria HEAP.
-   * *Valor por defecto:* Inician en `null`.
+### Valores por Defecto e Inicialización
 
-### Clases Wrappers (Envolventes)
-Para poder tratar a los tipos primitivos como objetos, Java proporciona sus respectivas clases **wrappers** (ej. `Integer`, `Double`, `Character`, `Boolean`). Estas clases son **inmutables**.
+Si la definición de una clase no inicializa variables de instancia, toman los siguientes valores por defecto:
 
-* **Autoboxing:** Conversión automática de un primitivo a su clase wrapper. Ejemplo: `Integer i = 7;`
-* **Unboxing:** Conversión automática de wrapper a primitivo. Ejemplo: `int num = i;`
+| Tipo | Valor por defecto |
+|---|---|
+| `boolean` | `false` |
+| `char` | `\u0000` (nulo) |
+| `byte` / `short` / `int` / `long` | `0` |
+| `float` / `double` | `0.0` |
+| Tipos referenciales | `null` |
+
+> 💡 **Nota:** Las **variables locales** (declaradas dentro de un método) deben inicializarse explícitamente antes de usarse, ya que NO toman valores por defecto.
 
 ---
 
-## 🛠️ Creación de Objetos y Constructores
+## 🎯 Clases Wrappers y Autoboxing
 
-El operador **`new`** se encarga de crear el objeto, reservando memoria en la HEAP e invocando a su **constructor**. 
+Java proporciona clases "wrappers" (envoltorios) en el paquete `java.lang` para manipular a los datos primitivos como si fueran objetos. Las clases wrapper y la clase `String` son **inmutables**.
 
-### Constructores
-* Tienen exactamente el **mismo nombre que la clase**.
-* **No retornan valor** (ni siquiera `void`).
-* Son llamados automáticamente al instanciar el objeto.
-* Si no declaras ningún constructor, Java inserta automáticamente uno _por defecto_ (vacío).
+| Tipo primitivo | Clase Wrapper correspondiente |
+|---|---|
+| `char` | `Character` |
+| `boolean` | `Boolean` |
+| `byte` | `Byte` |
+| `short` | `Short` |
+| `int` | `Integer` |
+| `long` | `Long` |
+| `float` | `Float` |
+| `double` | `Double` |
 
-### Sobrecarga de Constructores
-Permite construir objetos de distintas maneras, creando varios constructores con **distinta cantidad y/o tipo de parámetros**.
+### Autoboxing y Unboxing
+
+- **Autoboxing:** Conversión automática que realiza el compilador entre los tipos primitivos y sus clases wrappers. (Ej: `Integer i = 7;`).
+- **Unboxing:** Conversión inversa, de un wrapper a un tipo primitivo. (Ej: `int i1 = i;`).
+
+---
+
+## ⚙️ Creación e Instanciación de Objetos
+
+Para instanciar una clase (crear un objeto), se usa el operador `new`.
+
+**Pasos de instanciación:**
+1. Se aloca espacio para la variable.
+2. Se aloca espacio para el objeto en la **HEAP** y se inicializan los atributos con valores por defecto.
+3. Se inicializan explícitamente los atributos del objeto.
+4. Se ejecuta el **constructor**.
+5. Se asigna la referencia del nuevo objeto a la variable en el **STACK**.
+
+### 🏗️ Constructores
+
+Son piezas de código que permiten definir un estado inicial al momento de crear el objeto. 
+- Deben llamarse **igual** que la clase (empiezan con mayúscula).
+- **No retornan** valor (ni siquiera `void`).
+- Son invocados **automáticamente** por el operador `new`.
 
 ```java
 public class Vehiculo {
-    private String marca;
-    private double precio;
-    
-    // Constructor sin parámetros
-    public Vehiculo() {}
-    
-    // Constructor 1 (Sobrecarga)
-    public Vehiculo(String marca) {
-        this.marca = marca;
-    }
-    
-    // Constructor 2 (Sobrecarga)
-    public Vehiculo(String marca, double precio) {
-        this.marca = marca;
-        this.precio = precio;
-    }
+  private String marca;
+  private double precio;
+
+  // Constructor con parámetros
+  public Vehiculo(String marca, double precio) {
+     this.marca = marca;
+     this.precio = precio;
+  } 
+}
+```
+
+> 💡 **Sobrecarga de constructores:** Se pueden definir múltiples constructores que difieran en la cantidad o tipo de sus parámetros. Si la clase NO tiene constructores, Java le inserta uno "default" sin parámetros. Si le definís uno, el compilador NO inserta el default.
+
+---
+
+## 🎯 Variables de instancia vs locales
+
+| Ubicación | Nombre | Ciclo de vida |
+|---|---|---|
+| Fuera de cualquier método | **Variable de instancia** | Existen mientras exista el objeto al que pertenecen. |
+| Dentro de un método o parámetros | **Variable local** | Existen solo durante la ejecución de ese método (se destruyen al finalizarla). |
+
+---
+
+## 🎯 La palabra clave `static` (Variables y Métodos de Clase)
+
+La palabra clave `static` asocia atributos o métodos directamente **con la clase**, en lugar de asociarlos a una instancia (objeto) particular.
+
+- **Variables estáticas:** Son compartidas por *todas* las instancias de la clase.
+- **Métodos estáticos:** Pueden invocarse mediante el nombre de la clase sin crear un objeto (ej: `Contacto.getUltCont()`).
+  - ❌ Los métodos de clase **no tienen acceso** a las variables de instancia (no pueden usar `this`). Podrían usar solo las variables estáticas y las variables locales.
+
+### 📦 Ejemplo: Atributo estático
+
+```java
+public class Contacto {
+ private static int ultCont = 0; // Variable compartida de clase
+ private int id;
+ 
+ public Contacto() {
+  ultCont++;
+  this.id = ultCont;
+ }
 }
 ```
 
 ---
 
-## 🎯 Alcance de las Variables (Scope)
+## 📊 Arreglos en JAVA
 
-1. **Variables de Instancia:** Definidas dentro de la clase, pero fuera de cualquier método. Representan el estado del objeto. Existen mientras el objeto exista en la memoria HEAP.
-2. **Variables Locales:** Definidas dentro de un método (incluyendo parámetros). Se guardan en la memoria **STACK**. Existen estrictamente durante la ejecución del método y deben ser inicializadas a mano.
+Un arreglo es un objeto de tamaño **fijo** que agrupa un conjunto de valores del mismo tipo en memoria contigua. La dimensión la conocemos a través de la propiedad `.length`.
 
----
+### 📦 Ejemplo: Declaración, Creación e Inicialización
 
-## 🌟 La Palabra Clave `static`
-
-El modificador `static` asocia variables o métodos **a la clase misma**, no a una instancia particular.
-
-* **Variables estáticas:** Son compartidas por todas las instancias de la clase.
-* **Métodos estáticos:** Pueden invocarse apuntando directamente a la clase (Ej: `SumaEnteros.sumaValores()`) sin necesidad de intanciar el objeto. *Atención: los métodos estáticos no pueden usar variables o atributos de instancia.*
-
----
-
-## 📚 Arreglos (Arrays)
-
-Los arreglos manipulan un conjunto de datos (primitivos u objetos) del **mismo tipo** bajo un único nombre en posiciones contiguas.
- Tienen un tamaño **fijo** que, una vez creado el arreglo, no puede alterarse.
-
-### Declaración e Inicialización
 ```java
-// Forma 1: Declarar y crear especificando tamaño
-int[] intArray = new int[5];  
+// Varias líneas
+int[] intArray; 
+intArray = new int[5]; // Se crea con ceros por defecto
 intArray[0] = 6;
+// ...
 
-// Forma 2: Un solo paso infiriendo el tamaño por los elementos
-int[] numeros = {6, 3, 2, 4, 9};
-
-// Arreglos de Objetos
-Cliente[] clientes = {new Cliente(), new Cliente()};
+// Todo en un paso:
+int[] arrayDirecto = {6, 3, 2, 4, 9};
+Cliente[] cliArray = {new Cliente(), new Cliente(), new Cliente()};
 ```
 
-### Recorrido de Arreglos
-Podemos recorrer arreglos iterando por sus índices, o usando un **for-each** para mayor legibilidad:
+### Recorridos
+Se pueden recorrer con el `for` tradicional, o con el `for-each` (mucho más legible):
 
 ```java
-// Recorrido Tradicional
-for (int i = 0; i < datos.length; i++) {
-    System.out.println(datos[i]);
+// Bucle for-each
+for (int elto : arrayDirecto) {
+    result = result + elto; 
 }
+```
 
-// Recorrido For-Each (Lee: Para cada elemento de la colección "datos")
-for (int elto : datos) {
-    System.out.println(elto);
+### Matrices (Arreglos Multidimensionales)
+
+En Java las matrices son esencialmente "arreglos de arreglos".
+
+```java
+int[][] notas = {
+    {66, 78, 78}, // Fila 0
+    {76, 80, 80}  // Fila 1
+};
+
+// Recorrido multidimensional con for-each
+for (int[] fila : notas) {
+    for (int elto : fila) {
+        System.out.print(elto);
+    }
 }
 ```
 
 ---
 
-## 🔄 Pasaje de Parámetros en Java
+## ⚙️ Pasaje de parámetros en Java
 
-En Java, **TODO EL PASAJE DE PARÁMETROS ES POR VALOR.** Lo que esto significa depende del tipo de dato:
+En Java **los parámetros siempre se pasan por valor**, es decir, se envía una *copia*. La clave y confusión suelen venir con el tipo de dato que se está copiando.
 
-1. **Tipos Primitivos:** Se pasa una **copia** del valor exacto. Alterarlo dentro del método no afecta a la variable original.
-2. **Wrappers y Strings:** Como son inmutables, cualquier cambio genera una nueva variable dentro del método, sin modificar la variable referenciada desde donde se llamó.
-3. **Tipos Referenciales (Objetos):** Se pasa una **copia de la dirección de memoria**. ¡Cuidado! Si dentro del método usas esa dirección para alterar el estado del objeto (ej. `miObjeto.setNombre("Nuevo")`), este cambio **SÍ se reflejará exteriormente**, porque tanto la variable original como la copia referencian al mismo objeto de la HEAP. 
+| Tipo de parámetro | ¿Qué se copia? | ¿Afecta al parámetro original? |
+|---|---|---|
+| **Primitivos (`int`, `float`, etc.)** | Se pasa una copia del valor numérico/lógico. | ❌ No. Las modificaciones del valor ocurren solo en la copia local al método. |
+| **Clases Wrapper y `String`** | Se pasa una copia de la referencia. Como son inmutables, la reasignación crea un objeto nuevo. | ❌ No afecta al original por inmutabilidad. |
+| **Objetos (Tipos Referenciales)** | Se pasa una **copia de la referencia** (de la flecha a la HEAP). | ✅ Sí se puede alterar su **estado** interno mediante sus métodos (Ej: `c.setNombre("Pilar")`). Pero NO se puede hacer que la variable original apunte a otro objeto con un `new`. |
 
-Sin embargo, si a la _referencia_ interna se le asigna un `new Objeto()`, se rompe el vínculo con la variable externa.
+En criollo: Si pasás un objeto a una función, le estás dando al método una copia de las "llaves" de la misma casa. Si desde esa función repintan paredes (cambian el estado de sus propiedades), vos vas a ver esos cambios en tu casa. Pero si ellos tiran sus llaves y compran una casa nueva adentro del método (`o = new Objeto()`), tus llaves originales van a seguir abriendo la casa vieja.
+
+---
+
+## 📚 Recursos y Referencias
+
+- **Cátedra:** *Algoritmos y Estructuras de Datos* — UNLP. 2026.
+- PDFs elaborados por Prof. Alejandra Schiavoni y equipo.

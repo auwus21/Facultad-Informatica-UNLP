@@ -1,11 +1,11 @@
 package io.github.unlp_oo.RedSocial;
 
 public class ReTweet extends Publicacion {
-    
+
     private Tweet origen;
 
     public ReTweet(Tweet origen) {
-        super(); 
+        super();
         this.origen = origen;
     }
 
@@ -13,4 +13,3 @@ public class ReTweet extends Publicacion {
         return this.origen;
     }
 }
-2

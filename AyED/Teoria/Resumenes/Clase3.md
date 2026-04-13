@@ -1,71 +1,144 @@
-# 📝 Clase 3: Árboles Binarios y de Expresión
+# 📘 Árboles Binarios y de Expresión
 
-Esta clase avanza sobre las estructuras de datos no lineales, ingresando al mundo de los Árboles Binarios.
-
----
-
-## 🌳 Árboles Binarios (Teoría y Conceptos)
-
-Un árbol binario es una colección de nodos que puede estar vacía o formada por un nodo distinguido (la **raíz**) y dos subárboles (izquierdo y derecho) que a su vez son también árboles binarios.
-
-### Terminología Principal
-* **Hojas:** Nodos que no tienen ningún hijo (su grado es 0).
-* **Hermanos:** Nodos que comparten el mismo nodo padre.
-* **Profundidad de un nodo:** La longitud del único camino desde la raíz hasta dicho nodo. La raíz tiene profundidad 0.
-* **Altura de un árbol:** La longitud del camino más largo desde la raíz hasta la hoja más lejana. Las hojas tienen altura 0.
-* **Grado de un nodo:** La cantidad de hijos que posee (en un árbol binario puede ser 0, 1 o 2).
-
-### Tipos Especiales de Árboles Binarios
-
-1. **Árbol Binario Lleno:**
-   Aquel donde TODOS los nodos internos tienen exactamente 2 hijos, y todas las hojas se encuentran en el mismo nivel (la altura máxima del árbol).
-   * Tiene un máximo de nodos definido como: `N = 2^(h+1) - 1` (donde `h` es la altura).
-
-2. **Árbol Binario Completo:**
-   Aquel que esta totalmente lleno en todos sus niveles hasta la altura `h-1`, y el último nivel `h` se va llenando estrictamente de **izquierda a derecha**, sin saltear espacios.
+**Materia:** Algoritmos y Estructuras de Datos (AyED) — UNLP 2026  
+**Temas:** Árbol Binario, Lleno y Completo, Recorridos (Pre, In, Post, Niveles), Árboles de Expresión
 
 ---
 
-## 🔄 Recorridos de Árboles Binarios
+# Parte A: Árboles Binarios
 
-Un árbol no se puede recorrer con un simple "for" iterando desde `i=0` a `len` como un arreglo. Existen algoritmos estandarizados denominados **recorridos** (usualmente recursivos).
+## 🎯 Definición y Terminología
 
-1. **Preorden:** `Raíz -> Hijo Izquierdo -> Hijo Derecho`
-   * Útil para copiar árboles o guardar estructura.
-2. **Inorden:** `Hijo Izquierdo -> Raíz -> Hijo Derecho`
-   * En árboles ordenados, este recorrido visita los nodos en orden ascendente (de menor a mayor).
-3. **Postorden:** `Hijo Izquierdo -> Hijo Derecho -> Raíz`
-   * Se procesan primero los hijos y de último los padres. Usado para eliminar el árbol de memoria.
-4. **Por Niveles (BFS - Breadth First Search):**
-   * Visita el nivel 0 entero, luego el nivel 1, etc. Se implementa iterativamente utilizando una **Cola** extra de apoyo y no recursividad.
+Un **árbol binario** es una colección de nodos que puede estar vacía o estar formada por un nodo distinguido (la raíz) y dos sub-árboles (izquierdo y derecho) conectados a la raíz por medio de una arista.
+Cada nodo puede tener a lo sumo dos nodos hijos.
 
+### Conceptos Fundamentales
+
+| Término | Definición |
+|---|---|
+| **Hoja** | Un nodo que no tiene ningún hijo (grado 0). |
+| **Camino** | Secuencia de nodos desde n1 hasta nk donde cada n es padre del siguiente. La *longitud* del camino es su número de aristas. |
+| **Profundidad** | De un nodo n: es la longitud del único camino desde la raíz hasta n. La raíz tiene profundidad cero. |
+| **Grado** | Número de hijos de un nodo (en binarios, puede ser 0, 1 o 2). |
+| **Altura** | De un nodo n: la longitud del camino *más largo* desde n hasta una hoja. Las hojas tienen altura 0. |
+
+En criollo: La **profundidad** se mide "de arriba para abajo" (qué tan hundido está el nodo debajo de la raíz). La **altura** se mide "de abajo para arriba" (qué tan alto está el nodo respecto a la hoja más lejana debajo de él).
+
+---
+
+## 📊 Clasificación de Árboles Binarios
+
+### 1. Árbol Binario Lleno
+
+Un árbol de altura `h` es **lleno** si cada nodo interno tiene grado 2 y *todas* las hojas están en el mismo nivel `h`.
+- Cantidad de nodos exactos: `N = 2^(h+1) - 1`
+
+### 2. Árbol Binario Completo
+
+Un árbol de altura `h` es **completo** si es lleno hasta el nivel `h-1`, y el último nivel `h` se va llenando estrictamente de *izquierda a derecha*.
+- Cantidad de nodos varía entre `2^h` (mínimo) y `2^(h+1) - 1` (lleno).
+
+---
+
+## ⚙️ Representación y Recorridos
+
+### 🏗️ Representación en Memoria
+
+Cada nodo guarda su dato y dos punteros o referencias:
+- Referencia a su hijo izquierdo.
+- Referencia a su hijo derecho.
+
+### ⚙️ Algoritmos de Recorrido
+
+| Recorrido | Orden de Procesamiento | Caso de Uso principal |
+|---|---|---|
+| **Preorden** | **Raíz** ➔ Hijo Izquierdo ➔ Hijo Derecho | Hacer copias del árbol (clonación). |
+| **Inorden** | Hijo Izquierdo ➔ **Raíz** ➔ Hijo Derecho | En árboles de búsqueda, devuelve los elementos ordenados ascendentes. |
+| **Postorden** | Hijo Izquierdo ➔ Hijo Derecho ➔ **Raíz** | Cálculos dependientes de los hijos (ej. calcular altura o tamaño total). |
+| **Por Niveles** | Nivel 0, luego Nivel 1... (Usando Cola) | Búsquedas horizontales en amplitud (BFS). |
+
+#### 📦 Código: Recorrido por Niveles (BFS)
 ```java
-// Ejemplo de recorrido Inorden recursivo
-public void inorden() {
-    if (this.tieneHijoIzquierdo()) { this.hijoIzquierdo.inorden(); }
-    System.out.println(this.dato); // Procesa la raíz (en el medio)
-    if (this.tieneHijoDerecho()) { this.hijoDerecho.inorden(); }
+public void porNiveles(Nodo raiz) {
+  Cola cola = new Cola();
+  cola.encolar(raiz);
+  
+  while (!cola.isEmpty()) {
+    Nodo v = cola.desencolar();
+    System.out.println(v.getDato());
+    if (v.tieneHijoIzquierdo()) cola.encolar(v.getHijoIzquierdo());
+    if (v.tieneHijoDerecho()) cola.encolar(v.getHijoDerecho());
+  }
 }
 ```
 
 ---
+---
 
-## 🧮 Árboles de Expresión
+# Parte B: Árboles de Expresión
 
-Un caso de uso práctico de un árbol binario para representar expresiones aritméticas y matemáticas, evitando la ambigüedad que causan los operadores si no se usan paréntesis.
+## 🎯 Definición
 
-* **Nodos Internos:** Representan los **operadores** (Ej: `+`, `-`, `*`, `/`).
-* **Nodos Externos (Hojas):** Representan los **operandos** (las variables o números).
+Un árbol de expresión es un árbol binario asociado a una expresión matemática o algebraica.
+- **Nodos internos:** Representan **operadores** (`+`, `-`, `*`, `/`).
+- **Nodos externos (Hojas):** Representan **operandos** (números o variables como `a`, `b`, `5`).
 
-### Leyendo las expresiones
-Dependiendo del recorrido que se le aplique al árbol, obtendremos notaciones útiles:
-* Recorrido Inorden: Produce una expresión Infija (la usual: `(a + b) * c`). Requiere meter paréntesis.
-* Recorrido Preorden: Produce una expresión Prefija (ej: `* + a b c`).
-* Recorrido Postorden: Produce una expresión Postfija (ej: `a b + c *`).
+**Ventaja principal:** No necesitan paréntesis temporales para indicar precedencia, la precedencia es inyectada en la misma estructura del árbol (los nodos más abajo se resuelven antes).
 
-### Construcción y Evaluación
-* Para evaluar una **expresión postfija** e ir produciendo un resultado, el algoritmo clásico consume los caracteres uno a uno apoyándose en una estructura clásica de **PILA** (`Stack`):
-  * Mientas haya elementos, se leen.
-  * Si es un número (operando), se mete (`push`) a la pila.
-  * Si es un símbolo (operador), se extraen (`pop`) de la pila los **dos topes**, se aplica la operación sobre ellos, y el resultado se vuelve a meter a la pila. 
-  * Al concluir la lectura, el resultado global será simplemente el último valor restante en la cima de la Pila.
+---
+
+## ⚙️ Generación de Recorridos y Notaciones
+
+Si agarramos un árbol de expresión matemático y lo recorremos:
+- **Inorden:** Obtenemos la notación infija (ej: `(a + b) * c`).
+- **Preorden:** Obtenemos la notación prefija (Notación Polaca) (ej: `* + a b c`).
+- **Postorden:** Obtenemos la notación postfija (Polaca Inversa) (ej: `a b + c *`).
+
+---
+
+## ⚙️ Construcción desde Expresión Postfija
+
+Para armar el árbol a partir de una cadena "postfija" (ej. `a b d * c + *`), leemos de izquierda a derecha usando una **Pila de Nodos**.
+
+**Algoritmo paso a paso:**
+1. Tomar un carácter. Si es operando: crear un nodo `Hoja` y apilarlo.
+2. Si es operador:
+   - Crear un nodo `R` con ese operador.
+   - Desapilar elemento 1: hacer que sea hijo **derecho** de `R`.
+   - Desapilar elemento 2: hacer que sea hijo **izquierdo** de `R`.
+   - Apilar al nuevo nodo `R`.
+3. Repetir hasta terminar la cadena. Lo que queda en la pila (1 solo nodo) es la Raíz del árbol.
+
+---
+
+## ⚙️ Evaluación del Árbol de Expresión
+
+Para evaluar matemáticamente el árbol (calcular el resultado numérico), se hace un recorrido en **Postorden**.
+
+**Algoritmo Recursivo:**
+```java
+public int evaluarAE(Nodo A) {
+  if (A.esHoja()) {
+      return A.getDatoNumerico();
+  } else {
+      int valorIzq = evaluarAE(A.getSubArbolIzquierdo());
+      int valorDer = evaluarAE(A.getSubArbolDerecho());
+      
+      switch (A.getOperador()) {
+          case "+": return valorIzq + valorDer;
+          case "-": return valorIzq - valorDer;
+          case "*": return valorIzq * valorDer;
+          case "/": return valorIzq / valorDer;
+      }
+  }
+}
+```
+
+En criollo: La función de cálculo mira un nodo y dice: "Si soy un número, lo devuelvo crudo. Si soy un suma (`+`), como no sé todavía mis partes, pido obligatoriamente el resultado numérico calculado de toda mi rama izquierda, luego toda mi rama derecha, y los sumo. Y así sucesivamente hasta abajo."
+
+---
+
+## 📚 Recursos y Referencias
+
+- **Cátedra:** *Algoritmos y Estructuras de Datos* — UNLP. 2026.
+- PDFs elaborados por Prof. Alejandra Schiavoni y Prof. Catalina Mostaccio.
