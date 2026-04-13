@@ -72,6 +72,52 @@ Cada resumen incluye explicaciones estructuradas, código Java y resúmenes de l
   </tr>
 </table>
 
+<!-- ═══════════════ CLASE 4 ═══════════════ -->
+
+<table>
+  <tr>
+    <td width="900">
+      <h3>📄 <a href="Teoria/Resumenes/Clase4.md">Clase 4: Árboles Binarios y de Expresión en JAVA</a></h3>
+      <blockquote>Implementación práctica en Java, recorridos acumulativos y resoluciones postfijas.</blockquote>
+      <p>
+        <img src="https://img.shields.io/badge/Java_Trees-2ECC71?style=flat-square" />
+        <img src="https://img.shields.io/badge/Expresiones_Postfijas-2C3E50?style=flat-square" />
+      </p>
+    </td>
+  </tr>
+</table>
+
+<!-- ═══════════════ CLASE 5 ═══════════════ -->
+
+<table>
+  <tr>
+    <td width="900">
+      <h3>📄 <a href="Teoria/Resumenes/Clase5.md">Clase 5: Árboles Generales</a></h3>
+      <blockquote>Estructuras k-arias, representación matemática y en memoria, y recorridos.</blockquote>
+      <p>
+        <img src="https://img.shields.io/badge/Árboles_Generales-2ECC71?style=flat-square" />
+        <img src="https://img.shields.io/badge/K_Arios-2C3E50?style=flat-square" />
+      </p>
+    </td>
+  </tr>
+</table>
+
+<!-- ═══════════════ CLASE 6 ═══════════════ -->
+
+<table>
+  <tr>
+    <td width="900">
+      <h3>📄 <a href="Teoria/Resumenes/Clase6.md">Clase 6: Colas de Prioridad (Heap)</a></h3>
+      <blockquote>Estructuras de MinHeap/MaxHeap sobre arreglos y algoritmos de filtrado (Percolate).</blockquote>
+      <p>
+        <img src="https://img.shields.io/badge/Colas_de_Prioridad-2ECC71?style=flat-square" />
+        <img src="https://img.shields.io/badge/Heap_Binaria-2C3E50?style=flat-square" />
+        <img src="https://img.shields.io/badge/Percolate-2ECC71?style=flat-square" />
+      </p>
+    </td>
+  </tr>
+</table>
+
 <br>
 
 > 📂 **Material oficial de cátedra (PDFs):** [Abrir directorio](Teoria/Material_Original/)
