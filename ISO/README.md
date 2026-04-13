@@ -31,105 +31,30 @@ Cada resumen incluye explicaciones estructuradas, diagramas extraídos de las di
 <table>
   <tr>
     <td width="900">
-      <h3>📄 <a href="Teoria/Resumenes/Intro_1_Que_es_un_SO.md">Tema 1 — Parte 1: ¿Qué es un SO?</a></h3>
-      <blockquote>Definición, perspectivas, objetivos, componentes y servicios del Sistema Operativo.</blockquote>
+      <h3>📄 <a href="Teoria/Resumenes/Introduccion_Tema_1.md">Tema 1: Introducción a los Sistemas Operativos</a></h3>
+      <blockquote>Definición, perspectivas, componentes, servicios, arquitectura, modos de ejecución y syscalls.</blockquote>
       <p>
         <img src="https://img.shields.io/badge/Definición_de_SO-2C3E50?style=flat-square" />
-        <img src="https://img.shields.io/badge/Kernel-2C3E50?style=flat-square" />
-        <img src="https://img.shields.io/badge/Servicios-E67E22?style=flat-square" />
+        <img src="https://img.shields.io/badge/Arquitectura-2C3E50?style=flat-square" />
+        <img src="https://img.shields.io/badge/Modos_y_Protección-E67E22?style=flat-square" />
+        <img src="https://img.shields.io/badge/Syscalls-E67E22?style=flat-square" />
       </p>
     </td>
   </tr>
 </table>
 
-<table>
-  <tr>
-    <td width="900">
-      <h3>📄 <a href="Teoria/Resumenes/Intro_Anexo_Arquitectura.md">Tema 1 — Anexo: Arquitectura de Computadoras</a></h3>
-      <blockquote>Elementos básicos, registros, ciclo de instrucción e interrupciones.</blockquote>
-      <p>
-        <img src="https://img.shields.io/badge/Registros-2C3E50?style=flat-square" />
-        <img src="https://img.shields.io/badge/Ciclo_Instrucción-2C3E50?style=flat-square" />
-        <img src="https://img.shields.io/badge/Interrupciones-E67E22?style=flat-square" />
-      </p>
-    </td>
-  </tr>
-</table>
+<!-- ═══════════════ PROCESOS ═══════════════ -->
 
 <table>
   <tr>
     <td width="900">
-      <h3>📄 <a href="Teoria/Resumenes/Intro_2_Modos_Proteccion_Syscalls.md">Tema 1 — Parte 2: Modos, Protección y System Calls</a></h3>
-      <blockquote>Modos Kernel/Usuario, protección de memoria, E/S y CPU, llamadas al sistema.</blockquote>
+      <h3>📄 <a href="Teoria/Resumenes/Procesos_Tema_2.md">Tema 2: Procesos</a></h3>
+      <blockquote>Concepto de proceso, PCB, planificación, schedulers, estados, jerarquía, fork y exec.</blockquote>
       <p>
-        <img src="https://img.shields.io/badge/Modo_Kernel_vs_Usuario-2C3E50?style=flat-square" />
-        <img src="https://img.shields.io/badge/Protección-2C3E50?style=flat-square" />
-        <img src="https://img.shields.io/badge/System_Calls-E67E22?style=flat-square" />
-      </p>
-    </td>
-  </tr>
-</table>
-
-<table>
-  <tr>
-    <td width="900">
-      <h3>📄 <a href="Teoria/Resumenes/Intro_Anexo_Syscalls.md">Tema 1 — Anexo: Syscalls en Detalle</a></h3>
-      <blockquote>Programación directa de syscalls, Hello World en ASM, diferencias x86 vs x86-64.</blockquote>
-      <p>
-        <img src="https://img.shields.io/badge/x86_vs_x86--64-2C3E50?style=flat-square" />
-        <img src="https://img.shields.io/badge/Assembler-E67E22?style=flat-square" />
-      </p>
-    </td>
-  </tr>
-</table>
-
-<!-- ═══════════════ PROCESOS 1 ═══════════════ -->
-
-<table>
-  <tr>
-    <td width="900">
-      <h3>📄 <a href="Teoria/Resumenes/Procesos_1.md">Tema 2: Procesos - Parte 1</a></h3>
-      <blockquote>Definición de proceso, componentes, PCB, espacio de direcciones y cambio de contexto.</blockquote>
-      <p>
-        <img src="https://img.shields.io/badge/Proceso_vs_Programa-2C3E50?style=flat-square" />
         <img src="https://img.shields.io/badge/PCB-2C3E50?style=flat-square" />
-        <img src="https://img.shields.io/badge/Context_Switch-E67E22?style=flat-square" />
-        <img src="https://img.shields.io/badge/Kernel-E67E22?style=flat-square" />
-      </p>
-    </td>
-  </tr>
-</table>
-
-<!-- ═══════════════ PROCESOS 2 ═══════════════ -->
-
-<table>
-  <tr>
-    <td width="900">
-      <h3>📄 <a href="Teoria/Resumenes/Procesos_2.md">Tema 2: Procesos - Parte 2</a></h3>
-      <blockquote>Planificación de CPU, colas, schedulers, estados y transiciones de procesos.</blockquote>
-      <p>
         <img src="https://img.shields.io/badge/Schedulers-2C3E50?style=flat-square" />
-        <img src="https://img.shields.io/badge/Estados_del_Proceso-2C3E50?style=flat-square" />
-        <img src="https://img.shields.io/badge/CPU_Bound_vs_IO_Bound-E67E22?style=flat-square" />
-        <img src="https://img.shields.io/badge/Apropiativos_vs_No_Apropiativos-E67E22?style=flat-square" />
-        <img src="https://img.shields.io/badge/Swapping-E67E22?style=flat-square" />
-      </p>
-    </td>
-  </tr>
-</table>
-
-<!-- ═══════════════ PROCESOS 3 ═══════════════ -->
-
-<table>
-  <tr>
-    <td width="900">
-      <h3>📄 <a href="Teoria/Resumenes/Procesos_3.md">Tema 2: Procesos - Parte 3</a></h3>
-      <blockquote>Creación y terminación de procesos, relación padre-hijo, fork, execve y syscalls.</blockquote>
-      <p>
-        <img src="https://img.shields.io/badge/fork()-2C3E50?style=flat-square" />
-        <img src="https://img.shields.io/badge/execve()-2C3E50?style=flat-square" />
-        <img src="https://img.shields.io/badge/Padre_e_Hijo-E67E22?style=flat-square" />
-        <img src="https://img.shields.io/badge/UNIX_vs_Windows-E67E22?style=flat-square" />
+        <img src="https://img.shields.io/badge/Estados-E67E22?style=flat-square" />
+        <img src="https://img.shields.io/badge/fork_y_exec-E67E22?style=flat-square" />
       </p>
     </td>
   </tr>
