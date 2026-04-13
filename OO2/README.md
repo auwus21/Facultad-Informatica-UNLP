@@ -1,181 +1,211 @@
-<p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:E67E22,50:E74C3C,100:8E44AD&height=200&section=header&text=Orientación%20a%20Objetos%202&fontSize=38&fontColor=FFFFFF&fontAlignY=35&desc=Patrones%20de%20Diseño%20·%20Refactoring%20·%20Testing&descSize=16&descAlignY=55&animation=twinkling" />
-</p>
+<h1 align="center">
+  <br>
+  <code>OO2</code>
+  <br>
+  <sub>Orientación a Objetos 2 — UNLP</sub>
+  <br>
+</h1>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Universidad-UNLP-8E44AD?style=for-the-badge&logo=institution" />
-  <img src="https://img.shields.io/badge/Lenguaje-Java_17-E74C3C?style=for-the-badge&logo=openjdk&logoColor=white" />
-  <img src="https://img.shields.io/badge/Build-Maven-E67E22?style=for-the-badge&logo=apachemaven&logoColor=white" />
-  <img src="https://img.shields.io/badge/Status-Cursando_2026-1ABC9C?style=for-the-badge" />
+  <img src="https://img.shields.io/github/last-commit/auwus21/Facultad-Informatica-UNLP?style=flat-square&color=E74C3C&label=última%20actualización" />
+  <img src="https://img.shields.io/badge/año-3°_1er_semestre-8E44AD?style=flat-square" />
+  <img src="https://img.shields.io/badge/java_17-☕-black?style=flat-square" />
+  <img src="https://img.shields.io/badge/JUnit_5-✅-1ABC9C?style=flat-square" />
+  <img src="https://img.shields.io/badge/maven-📦-E67E22?style=flat-square" />
 </p>
 
-<p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=20&pause=1000&color=E74C3C&center=true&vCenter=true&repeat=true&width=600&height=45&lines=Refactoring+%7C+Code+Smells+%7C+Clean+Code;Adapter+%7C+Template+Method+%7C+Composite;Factory+Method+%7C+Builder+%7C+Strategy;Resúmenes+completos+clase+por+clase" />
-</p>
+<br>
+
+> *"Each pattern describes a problem which occurs over and over again in our environment, and then describes the core of the solution to that problem, in such a way that you can use this solution a million times over, without ever doing it the same way twice."*
+>
+> — Christopher Alexander, 1977
+
+<br>
 
 ---
 
-Repositorio de estudio personal para la materia **Orientación a Objetos 2**, correspondiente a las carreras Licenciatura en Sistemas y Analista en TIC (UNLP).  
-**Docentes:** Dra. Alejandra Garrido · Federico Balaguer
+## `>_ roadmap`
 
-<br>
-
-## 📖 Teoría — Resúmenes por Clase
-
-Cada resumen incluye diagramas UML en Mermaid, tablas comparativas, código Java y explicaciones "en criollo".
-
-<table>
-  <tr>
-    <th width="60">Clase</th>
-    <th width="350">Contenido</th>
-    <th width="250">Temas Clave</th>
-  </tr>
-  <tr>
-    <td align="center"><b>1</b></td>
-    <td>
-      <a href="Teoria/Resumenes/Clase1.md">📄 Introducción a Refactoring</a>
-    </td>
-    <td>
-      <img src="https://img.shields.io/badge/Leyes_de_Lehman-8E44AD?style=flat-square" />
-      <img src="https://img.shields.io/badge/Pull_Up_Field-E74C3C?style=flat-square" />
-      <img src="https://img.shields.io/badge/Pull_Up_Method-E67E22?style=flat-square" />
-    </td>
-  </tr>
-  <tr>
-    <td align="center"><b>2</b></td>
-    <td>
-      <a href="Teoria/Resumenes/Clase2.md">📄 Catálogo de Refactoring y Herramientas</a>
-    </td>
-    <td>
-      <img src="https://img.shields.io/badge/Code_Smells-8E44AD?style=flat-square" />
-      <img src="https://img.shields.io/badge/Extract_Method-E74C3C?style=flat-square" />
-      <img src="https://img.shields.io/badge/Move_Method-E67E22?style=flat-square" />
-      <img src="https://img.shields.io/badge/AST-1ABC9C?style=flat-square" />
-    </td>
-  </tr>
-  <tr>
-    <td align="center"><b>3</b></td>
-    <td>
-      <a href="Teoria/Resumenes/Clase3.md">📄 Introducción a Patrones de Diseño</a>
-    </td>
-    <td>
-      <img src="https://img.shields.io/badge/GoF-8E44AD?style=flat-square" />
-      <img src="https://img.shields.io/badge/Adapter-E74C3C?style=flat-square" />
-      <img src="https://img.shields.io/badge/Template_Method-E67E22?style=flat-square" />
-    </td>
-  </tr>
-  <tr>
-    <td align="center"><b>4</b></td>
-    <td>
-      <a href="Teoria/Resumenes/Clase4.md">📄 Composite, Factory Method & Builder</a>
-    </td>
-    <td>
-      <img src="https://img.shields.io/badge/Composite-8E44AD?style=flat-square" />
-      <img src="https://img.shields.io/badge/Factory_Method-E74C3C?style=flat-square" />
-      <img src="https://img.shields.io/badge/Builder-E67E22?style=flat-square" />
-    </td>
-  </tr>
-</table>
-
-> 📂 **Material oficial de cátedra:** [PDFs y Diapositivas originales](Teoria/Material_Original/)
-
-<br>
-
-## 💻 Prácticas — Ejercicios Resueltos en Java
-
-<table>
-  <tr>
-    <th width="60">#</th>
-    <th width="300">Tema</th>
-    <th width="200">Contenido</th>
-    <th width="100">Link</th>
-  </tr>
-  <tr>
-    <td align="center"><b>1</b></td>
-    <td>Red Social (OO1 Repaso)</td>
-    <td>
-      <img src="https://img.shields.io/badge/Proyecto_Java-E74C3C?style=flat-square&logo=openjdk&logoColor=white" />
-    </td>
-    <td align="center"><a href="Practicas/Practica_1/">📁 Abrir</a></td>
-  </tr>
-  <tr>
-    <td align="center"><b>2</b></td>
-    <td>Refactoring (Code Smells)</td>
-    <td>
-      <img src="https://img.shields.io/badge/Resolución_MD-8E44AD?style=flat-square" />
-      <img src="https://img.shields.io/badge/PDF_Consigna-E67E22?style=flat-square" />
-    </td>
-    <td align="center"><a href="Practicas/Practica_2/">📁 Abrir</a></td>
-  </tr>
-  <tr>
-    <td align="center"><b>3</b></td>
-    <td>Patrones de Diseño</td>
-    <td>
-      <img src="https://img.shields.io/badge/Proyecto_Maven-E74C3C?style=flat-square&logo=apachemaven&logoColor=white" />
-      <img src="https://img.shields.io/badge/Tests_JUnit-1ABC9C?style=flat-square" />
-      <img src="https://img.shields.io/badge/UML-8E44AD?style=flat-square" />
-    </td>
-    <td align="center"><a href="Practicas/Practica_3/">📁 Abrir</a></td>
-  </tr>
-</table>
-
-<br>
-
-## 📝 Evaluaciones
-
-Material de preparación extra, simulacros y resolución de exámenes pasados.
-
-* [📁 Directorio de Evaluaciones](Evaluaciones/)
-
-<br>
-
-## 🧩 Mapa de Patrones Cubiertos
+El recorrido de la materia puede pensarse como un viaje de 3 etapas. Primero aprendemos a **limpiar** código existente. Después aprendemos a **diseñar** con patrones probados. Finalmente, combinamos ambas disciplinas.
 
 ```mermaid
 graph LR
-    subgraph Creacionales
-        FM[Factory Method]
-        B[Builder]
-    end
-    subgraph Estructurales
-        A[Adapter]
-        C[Composite]
-    end
-    subgraph Comportamiento
-        TM[Template Method]
-    end
+    A["🧹 Refactoring"] --> B["🧩 Patrones de Diseño"]
+    B --> C["🏗️ Arquitectura Limpia"]
 
-    style Creacionales fill:#E74C3C22,stroke:#E74C3C
-    style Estructurales fill:#8E44AD22,stroke:#8E44AD
-    style Comportamiento fill:#E67E2222,stroke:#E67E22
+    style A fill:#2C3E50,stroke:#E74C3C,color:#ECF0F1
+    style B fill:#2C3E50,stroke:#8E44AD,color:#ECF0F1
+    style C fill:#2C3E50,stroke:#1ABC9C,color:#ECF0F1
 ```
 
+---
+
+## `>_ teoría`
+
+<details open>
+<summary><b>🧹 Etapa 1 — Refactoring</b> <sub><i>Clases 1 y 2</i></sub></summary>
 <br>
 
-## 🛠️ Stack Tecnológico
+<table>
+  <tr>
+    <td width="50" align="center">📄</td>
+    <td><a href="Teoria/Resumenes/Clase1.md"><b>Clase 1</b> — Introducción a Refactoring</a></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+      Leyes de Lehman · Big Ball of Mud · Definición formal de Refactoring<br>
+      <code>Encapsulate Field</code> · <code>Pull Up Field</code> · <code>Pull Up Method</code>
+    </td>
+  </tr>
+  <tr><td colspan="2"><br></td></tr>
+  <tr>
+    <td width="50" align="center">📄</td>
+    <td><a href="Teoria/Resumenes/Clase2.md"><b>Clase 2</b> — Catálogo de Refactoring & Herramientas</a></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+      Code Smells (7 categorías) · Código CLEAN · Metáfora de los 2 sombreros<br>
+      <code>Extract Method</code> · <code>Move Method</code> · <code>Replace Conditional w/ Polymorphism</code><br>
+      Ejemplo integrador: Club de Tenis 🎾 · AST & herramientas automáticas
+    </td>
+  </tr>
+</table>
 
-<p align="center">
-  <img src="https://skillicons.dev/icons?i=java,eclipse,maven,git,github" height="45" />
-</p>
+</details>
+
+<details open>
+<summary><b>🧩 Etapa 2 — Patrones de Diseño</b> <sub><i>Clases 3 y 4</i></sub></summary>
+<br>
+
+<table>
+  <tr>
+    <td width="50" align="center">📄</td>
+    <td><a href="Teoria/Resumenes/Clase3.md"><b>Clase 3</b> — Intro a Patrones: Adapter & Template Method</a></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+      Origen de los patrones (Christopher Alexander) · Catálogo GoF<br>
+      <code>Adapter</code> <sub>estructural</sub> · <code>Template Method</code> <sub>comportamiento</sub><br>
+      Ejemplo: Sensores IoT + TelegramNotifier · Exportadores de Reportes
+    </td>
+  </tr>
+  <tr><td colspan="2"><br></td></tr>
+  <tr>
+    <td width="50" align="center">📄</td>
+    <td><a href="Teoria/Resumenes/Clase4.md"><b>Clase 4</b> — Composite, Factory Method & Builder</a></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+      <code>Composite</code> <sub>estructural</sub> · <code>Factory Method</code> <sub>creacional</sub> · <code>Builder</code> <sub>creacional</sub><br>
+      Ejemplo: Elementos Químicos · Mezclador de Pinturas · Viajes de Egresados<br>
+      Tabla comparativa FM vs Builder · Errores comunes de parciales y finales
+    </td>
+  </tr>
+</table>
+
+</details>
+
+> 📂 [Material original de cátedra (PDFs)](Teoria/Material_Original/)
+
+---
+
+## `>_ prácticas`
+
+```
+Practicas/
+├── Practica_1/    Red Social (repaso OO1)          → proyecto Java
+├── Practica_2/    Refactoring & Code Smells         → resolución .md + consigna
+└── Practica_3/    Patrones de Diseño (Strategy)     → proyecto Maven + tests JUnit
+```
+
+| # | Proyecto | Qué hay | Link |
+|:-:|---|---|:-:|
+| **1** | Red Social | Clases Java, herencia, polimorfismo | [→](Practicas/Practica_1/) |
+| **2** | Refactoring | Resolución de ejercicios de Code Smells con antes/después | [→](Practicas/Practica_2/) |
+| **3** | Biblioteca (BJSON) | Proyecto Maven con `Exporter` (Strategy), tests JUnit 5, diagrama UML | [→](Practicas/Practica_3/) |
+
+---
+
+## `>_ patrones`
+
+Mapa visual de todos los patrones de diseño cubiertos hasta ahora en la cursada:
+
+```mermaid
+classDiagram
+    direction LR
+
+    class Creacionales {
+        Factory Method
+        Builder
+    }
+    class Estructurales {
+        Adapter
+        Composite
+    }
+    class Comportamiento {
+        Template Method
+        Strategy
+    }
+
+    Creacionales .. Estructurales
+    Estructurales .. Comportamiento
+```
 
 <table align="center">
   <tr>
-    <td align="center"><b>Java 17</b><br><sub>Lenguaje</sub></td>
-    <td align="center"><b>Eclipse</b><br><sub>IDE</sub></td>
-    <td align="center"><b>Maven</b><br><sub>Build</sub></td>
-    <td align="center"><b>JUnit 5</b><br><sub>Testing</sub></td>
-    <td align="center"><b>Git</b><br><sub>Versionado</sub></td>
+    <td align="center">
+      <b>Adapter</b><br>
+      <sub>Convertir interfaces<br>incompatibles</sub>
+    </td>
+    <td align="center">
+      <b>Template Method</b><br>
+      <sub>Esqueleto de algoritmo<br>pasos variables</sub>
+    </td>
+    <td align="center">
+      <b>Composite</b><br>
+      <sub>Jerarquía parte-todo<br>trato uniforme</sub>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <b>Factory Method</b><br>
+      <sub>Delegar instanciación<br>a subclases</sub>
+    </td>
+    <td align="center">
+      <b>Builder</b><br>
+      <sub>Separar construcción<br>de representación</sub>
+    </td>
+    <td align="center">
+      <b>Strategy</b><br>
+      <sub>Intercambiar algoritmos<br>en runtime</sub>
+    </td>
   </tr>
 </table>
 
 ---
 
-<p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:E67E22,50:E74C3C,100:8E44AD&height=100&section=footer" />
-</p>
+## `>_ evaluaciones`
+
+Material de preparación extra, simulacros y resolución de exámenes pasados.
+
+[📁 Directorio de Evaluaciones](Evaluaciones/)
+
+---
+
+## `>_ stack`
 
 <p align="center">
-  <sub>Este repositorio es de uso personal y académico · Material de cátedra © sus respectivos autores</sub>
+  <img src="https://skillicons.dev/icons?i=java,eclipse,maven,git,github&theme=dark" height="50" />
+</p>
+
+---
+
+<p align="center">
+  <sub>Repositorio de uso personal y académico · Material de cátedra © sus respectivos autores</sub>
   <br>
-  <sub>Hecho con 🧡 por <a href="https://github.com/auwus21">@auwus21</a></sub>
+  <sub><a href="https://github.com/auwus21">@auwus21</a> · Facultad de Informática · UNLP</sub>
 </p>
