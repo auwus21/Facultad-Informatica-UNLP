@@ -5,7 +5,7 @@
 ---
 
 <details>
-<summary><b>1. Algoritmos de Scheduling (Planificación)</b></summary>
+<summary><b>Ejercicio 1: Algoritmos de Scheduling (Planificación)</b></summary>
 
 **a. Funcionamiento básico**
 - **FCFS**: Atiende por orden de llegada. No apropiativo.
@@ -42,7 +42,7 @@
 ---
 
 <details>
-<summary><b>3. Ejercicio 3: Lote de procesos y Gantt</b></summary>
+<summary><b>Ejercicio 3: Lote de procesos y Gantt</b></summary>
 
 ### a. Diagramas de Gantt
 *(Simulación gráfica del lote).*
@@ -85,7 +85,7 @@ Si elegís un quantum gigante $\rightarrow$ obtenés FCFS. Si elegís un quantum
 ---
 
 <details>
-<summary><b>4. Ejercicio 4: Variante SRTF (Shortest Remaining Time First)</b></summary>
+<summary><b>Ejercicio 4: Variante SRTF (Shortest Remaining Time First)</b></summary>
 
 ### a. Diagrama de Gantt
 <img src="./P2-ejer4.png" width="600"/>
@@ -99,7 +99,7 @@ Si elegís un quantum gigante $\rightarrow$ obtenés FCFS. Si elegís un quantum
 ---
 
 <details>
-<summary><b>5. Ejercicio 5: Algoritmo por Prioridades</b></summary>
+<summary><b>Ejercicio 5: Algoritmo por Prioridades</b></summary>
 
 ### a. Diagramas de Gantt
 *(Simulación gráfica de prioridades con el mismo lote anterior).*
@@ -122,6 +122,26 @@ Si elegís un quantum gigante $\rightarrow$ obtenés FCFS. Si elegís un quantum
 - **Ventaja general:** Otorga el control de urgencia absoluto al SO. Permite frenar todo para despachar procesos críticos inmediatamente (J4 tuvo espera `0` en modo apropiativo).
 - **Cuándo usarlo:** Ejemplos drásticos como un Sistema de Tiempo Real (RTOS) (marcapasos, freno ABS de auto) o comandos masivos de Sistema (Root). Importa la meta crítica de pocos procesos, no la matemática general.
 - **Cuándo NO usarlo:** En servidores en lote o máquinas de uso general. Brinda métricas promedios pobres (el TPE apropiativo de `6.6` es malo) y condena a los usuarios terrenales (como a `J2`) a la terrible **Inanición o Starvation** perpetua si no paran de llegar prioridades altas.
+
+</details>
+
+---
+
+<details>
+<summary><b>Ejercicio 6: Inanición (Starvation)</b></summary>
+
+### a. ¿Qué significa Inanición?
+Es el fenómeno indeseado en el cual un proceso que está **listo y esperando por CPU, es pospuesto indefinidamente** por el SO. Literalmente se "muere de hambre" en la cola porque el planificador prefiere sistemáticamente darle el hardware a otros procesos.
+
+### b. ¿Cuáles algoritmos vistos pueden provocarla?
+- **SJF y SRTF**: Padecen inanición los **procesos largos**. Si arriban sin parar programas cortitos, el proceso pesado nunca obtendrá la CPU.
+- **Prioridades**: Padecen inanición los **procesos de prioridad baja/terrenal**. Un flujo infinito de programas de alta prioridad (como requerimientos del OS) nunca lo dejará avanzar.
+
+*(Nota: FCFS y Round Robin son algoritmos inmunes a la inanición porque garantizan matemática y equitativamente tiempo de ejecución).*
+
+### c. Técnica para evitarla (Envejecimiento)
+Para arreglar este defecto se utiliza la técnica de **Envejecimiento (Aging)**. 
+Radica en **subir progresivamente la prioridad** de un proceso silencioso en base al tiempo que lleva trabado en el sistema. Así, tarde o temprano "envejece" artificialmente lo suficiente como para ganar la prioridad máxima superando a sus arribos rivales.
 
 </details>
 
