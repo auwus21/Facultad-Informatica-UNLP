@@ -31,13 +31,53 @@ Cada resumen incluye explicaciones estructuradas, diagramas extraídos de las di
 <table>
   <tr>
     <td width="900">
-      <h3>📄 <a href="Teoria/Resumenes/Introduccion_Tema_1.md">Tema 1: Introducción a los Sistemas Operativos</a></h3>
-      <blockquote>Conceptos fundamentales del SO, su evolución histórica y clasificaciones.</blockquote>
+      <h3>📄 <a href="Teoria/Resumenes/Intro_1_Que_es_un_SO.md">Tema 1 — Parte 1: ¿Qué es un SO?</a></h3>
+      <blockquote>Definición, perspectivas, objetivos, componentes y servicios del Sistema Operativo.</blockquote>
       <p>
         <img src="https://img.shields.io/badge/Definición_de_SO-2C3E50?style=flat-square" />
-        <img src="https://img.shields.io/badge/Evolución_Histórica-2C3E50?style=flat-square" />
-        <img src="https://img.shields.io/badge/Multiprogramación-E67E22?style=flat-square" />
-        <img src="https://img.shields.io/badge/Modo_Kernel_vs_Usuario-E67E22?style=flat-square" />
+        <img src="https://img.shields.io/badge/Kernel-2C3E50?style=flat-square" />
+        <img src="https://img.shields.io/badge/Servicios-E67E22?style=flat-square" />
+      </p>
+    </td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <td width="900">
+      <h3>📄 <a href="Teoria/Resumenes/Intro_Anexo_Arquitectura.md">Tema 1 — Anexo: Arquitectura de Computadoras</a></h3>
+      <blockquote>Elementos básicos, registros, ciclo de instrucción e interrupciones.</blockquote>
+      <p>
+        <img src="https://img.shields.io/badge/Registros-2C3E50?style=flat-square" />
+        <img src="https://img.shields.io/badge/Ciclo_Instrucción-2C3E50?style=flat-square" />
+        <img src="https://img.shields.io/badge/Interrupciones-E67E22?style=flat-square" />
+      </p>
+    </td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <td width="900">
+      <h3>📄 <a href="Teoria/Resumenes/Intro_2_Modos_Proteccion_Syscalls.md">Tema 1 — Parte 2: Modos, Protección y System Calls</a></h3>
+      <blockquote>Modos Kernel/Usuario, protección de memoria, E/S y CPU, llamadas al sistema.</blockquote>
+      <p>
+        <img src="https://img.shields.io/badge/Modo_Kernel_vs_Usuario-2C3E50?style=flat-square" />
+        <img src="https://img.shields.io/badge/Protección-2C3E50?style=flat-square" />
+        <img src="https://img.shields.io/badge/System_Calls-E67E22?style=flat-square" />
+      </p>
+    </td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <td width="900">
+      <h3>📄 <a href="Teoria/Resumenes/Intro_Anexo_Syscalls.md">Tema 1 — Anexo: Syscalls en Detalle</a></h3>
+      <blockquote>Programación directa de syscalls, Hello World en ASM, diferencias x86 vs x86-64.</blockquote>
+      <p>
+        <img src="https://img.shields.io/badge/x86_vs_x86--64-2C3E50?style=flat-square" />
+        <img src="https://img.shields.io/badge/Assembler-E67E22?style=flat-square" />
       </p>
     </td>
   </tr>
