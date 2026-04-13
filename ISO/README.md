@@ -88,8 +88,8 @@ Cada resumen incluye explicaciones estructuradas, diagramas extraídos de las di
 
 | # | Tema | Contenido | Link |
 |:-:|---|---|:-:|
-| **1** | Comandos Básicos de Linux | GNU/Linux, Shell, File System, procesos, permisos, scripting | [📁](Practicas/Resolucion_Practica_1.md) |
-| **2** | Planificación y Memoria | Algoritmos de scheduling (FCFS, SJF, RR, Prioridades), TR, TE, TPR, TPE | [📁](Practicas/Resolucion_Practica_2.md) |
+| **1** | Comandos Básicos de Linux | GNU/Linux, Shell, File System, procesos, permisos, scripting | [📁](Practicas/Practica_1/) |
+| **2** | Planificación y Memoria | Algoritmos de scheduling (FCFS, SJF, RR, Prioridades), TR, TE, TPR, TPE | [📁](Practicas/Practica_2/) |
 
 ---
 
