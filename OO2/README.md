@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=20&pause=1000&color=E74C3C&center=true&vCenter=true&repeat=true&width=600&height=45&lines=Refactoring+%7C+Code+Smells+%7C+Clean+Code;Adapter+%7C+Template+Method+%7C+Composite;Factory+Method+%7C+Builder+%7C+Strategy;Resúmenes+completos+clase+por+clase" />
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=20&pause=1000&color=E74C3C&center=true&vCenter=true&repeat=true&width=600&height=45&lines=Refactoring+%7C+Code+Smells+%7C+Clean+Code;Adapter+%7C+Template+Method+%7C+Composite;Factory+Method+%7C+Builder+%7C+Strategy;Resumenes+completos+clase+por+clase" />
 </p>
 
 ---
