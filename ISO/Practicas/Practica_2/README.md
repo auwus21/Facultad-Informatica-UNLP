@@ -85,6 +85,35 @@ Si elegís un quantum gigante $\rightarrow$ obtenés FCFS. Si elegís un quantum
 ---
 
 <details>
+<summary><b>5. Ejercicio 5: Algoritmo por Prioridades</b></summary>
+
+### a. Diagramas de Gantt
+*(Simulación gráfica de prioridades con el mismo lote anterior).*
+
+**i. Prioridades NO Apropiativo**  
+<img src="./P2-ejer5-a-i.png" width="600"/>
+
+**ii. Prioridades Apropiativo**  
+<img src="./P2-ejer5-a-ii.png" width="600"/>
+
+### b. Resultados Matemáticos (TR y TE)
+*(Récordatorio: prioridad menor = mayor peso. J4=1 es el rey).*
+
+| Modalidad | J1 | J2 | J3 | J4 | J5 | **TPR** | **TPE** |
+|---|---|---|---|---|---|---|---|
+| **NO Apropiativo** | 4 / 0 | 19 / 13 | 5 / 1 | 7 / 2 | 7 / 5 | **8.4** | **4.2** |
+| **Apropiativo** | 15 / 11 | 19 / 13 | 9 / 5 | 5 / 0 | 6 / 4 | **10.8** | **6.6** |
+
+### c. Análisis de resultados (Ventajas y Contexto)
+- **Ventaja general:** Otorga el control de urgencia absoluto al SO. Permite frenar todo para despachar procesos críticos inmediatamente (J4 tuvo espera `0` en modo apropiativo).
+- **Cuándo usarlo:** Ejemplos drásticos como un Sistema de Tiempo Real (RTOS) (marcapasos, freno ABS de auto) o comandos masivos de Sistema (Root). Importa la meta crítica de pocos procesos, no la matemática general.
+- **Cuándo NO usarlo:** En servidores en lote o máquinas de uso general. Brinda métricas promedios pobres (el TPE apropiativo de `6.6` es malo) y condena a los usuarios terrenales (como a `J2`) a la terrible **Inanición o Starvation** perpetua si no paran de llegar prioridades altas.
+
+</details>
+
+---
+
+<details>
 <summary><b>4. Ejercicio 4: Variante SRTF (Shortest Remaining Time First)</b></summary>
 
 ### a. Diagrama de Gantt
