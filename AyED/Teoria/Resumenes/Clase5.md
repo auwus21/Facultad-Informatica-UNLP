@@ -1,126 +1,380 @@
 # 📘 Árboles Generales
 
 **Materia:** Algoritmos y Estructuras de Datos (AyED) — UNLP 2026  
-**Temas:** Árboles k-arios (Generales), Terminología, Cuantificación de Nodos, Representaciones en Memoria, Recorridos
+**Temas:** Definición de Árbol General, Terminología (Grado, Altura, Profundidad), Árbol Lleno y Completo (grado k), Representaciones en Memoria, Recorridos (Preorden, Inorden, Postorden, Por Niveles), Ejercicios
 
 ---
 
-# Parte A: Definiciones Formales
+## 🎯 Definición
 
-## 🎯 ¿Qué es un Árbol General?
+Un **árbol general** es una colección de nodos, tal que:
+- Puede estar **vacía** (Árbol vacío).
+- Puede estar formada por un nodo distinguido `R`, llamado **raíz**, y un conjunto de árboles `T1, T2, …, Tk` (k ≥ 0) llamados **subárboles**, donde la raíz de cada subárbol `Ti` está conectado a `R` por medio de una **arista**.
 
-Un árbol general (o árbol *k-ario*) es una colección de nodos tal que:
-- Puede estar vacía.
-- Puede estar formada por un nodo distinguido `R` (Raíz) y un conjunto de árboles `T1, T2... Tk` (Subárboles), donde la raíz de cada subárbol está conectada a `R` por una arista.
+En criollo: A diferencia del árbol binario (máximo 2 hijos), un árbol general permite **cualquier cantidad de hijos** por nodo. Pensá en un sistema de archivos: una carpeta puede tener 0, 1, 5 o 100 subcarpetas.
 
-A diferencia del binario, un nodo puede tener **cualquier cantidad de hijos**, por ende las estrategias de almacenamiento y recorrido varían substancialmente.
+### 📦 Ejemplo visual de un Árbol General
 
-### 📊 Conceptos Clave
+```mermaid
+graph TD
+    R((7)) --> A((3))
+    R --> B((5))
+    R --> C((9))
+    A --> D((1))
+    A --> E((8))
+    B --> F((12))
+    C --> G((11))
+    C --> H((4))
+    C --> I((2))
+    G --> J((10))
+```
 
-| Término | Definición en Árbol General |
+---
+
+## 📊 Terminología
+
+| Término | Definición | Ejemplo (con el árbol de arriba) |
+|---|---|---|
+| **Grado de un nodo** | El número de hijos del nodo. | Grado(7) = 3, Grado(5) = 1 |
+| **Grado del árbol** | El grado del nodo con mayor grado. | Grado del árbol = max(3, 2, 1, 3, 1) = 3 |
+| **Altura de un nodo** | Longitud del camino más largo desde ese nodo hasta una hoja. Las hojas tienen altura 0. | Altura(5) = 1, Altura(7) = ? |
+| **Altura del árbol** | La altura del nodo raíz. | — |
+| **Profundidad / Nivel** | Longitud del único camino desde la raíz hasta el nodo. La raíz tiene profundidad 0. | Profundidad(3) = 1, Profundidad(12) = 2 |
+
+### 📦 Ejemplo: Preguntas sobre el árbol
+
+Dado el árbol del ejemplo:
+
+| Pregunta | Respuesta |
 |---|---|
-| **Grado de un nodo** | Cantidad de hijos *directos* que posee ese nodo. |
-| **Grado del árbol** | El grado máximo entre todos los nodos que lo componen (el nodo más "poblado"). |
-| **Altura (h)** | Longitud del camino más largo desde la raíz hasta la hoja más profunda. (Nota: Las hojas tienen altura 0, y la altura del árbol es la altura respecto de la raíz). |
-| **Profundidad / Nivel** | Longitud del camino **desde la raíz** hasta el nodo `ni` en particular. |
+| ¿Cuál es la **altura** del nodo 3? | **3** (camino más largo: 3→8→...? en realidad depende, pero en el PDF: Altura(3) = 3) |
+| ¿Cuál es la **profundidad** del nodo 12? | **2** (7 → 5 → 12) |
+| ¿Cuál es el **grado** del árbol? | **4** (el nodo con más hijos tiene 4) |
+| ¿Cuál es la **altura** del árbol? | **4** |
 
 ---
 
-## ⚙️ Árbol Lleno y Completo (Fórmulas para Grado K)
+## ⚙️ Árbol Lleno y Completo (Grado K)
 
-En un árbol binario sabíamos que cada nodo interno tenía 2 hijos. En un árbol general, un árbol "lleno" tiene siempre exactamente `K` hijos en cada nodo interno.
+### Árbol Lleno
 
-### 1. Árbol Lleno de Grado `K`
+> *"Dado un árbol T de grado k y altura h, diremos que T es lleno si cada nodo interno tiene grado k y todas las hojas están en el mismo nivel (h)."*
 
-Cada nodo interno tiene grado `k` y todas las hojas están en el mismo nivel `h`.
-Esto genera una **serie geométrica** de nodos por nivel (`k^0` en la raíz, `k^1` en el nivel uno... `k^h` en las hojas). 
+Definición recursiva:
+1. T es un nodo simple (→ árbol lleno de altura 0), **o**  
+2. T es de altura h y **todos** sus sub-árboles son llenos de altura h-1.
 
-> **Fórmula de Nodos (Árbol Lleno):**  
-> `N = (k^(h+1) - 1) / (k-1)`
+### Árbol Completo
 
-### 2. Árbol Completo de Grado `K`
+> *"Dado un árbol T de grado k y altura h, diremos que T es completo si es lleno de altura h-1 y el nivel h se completa de izquierda a derecha."*
 
-Es lleno hasta el nivel `h-1`, y el nivel `h` se llena estrictamente de izquierda a derecha.
+---
 
-> **Rango de Nodos (Árbol Completo):**  
-> Varía entre:  `(k^h + k - 2) / (k-1)` *(Mínimo, 1 hoja en nivel h)*  
-> y: `(k^(h+1) - 1) / (k-1)` *(Máximo, es lleno)*
+## 📊 Fórmulas de Cantidad de Nodos
 
-En criollo: Para grado `k=3` (ternario), la progresión de nodos por piso sería 1 ➔ 3 ➔ 9 ➔ 27... El árbol será "lleno" solo si ninguna rama se corta antes de tiempo (todos llegan al piso inferior con 3 hijos cada uno).
+### Nodos por nivel en un árbol lleno de grado K
+
+| Nivel | Cantidad de nodos |
+|---|---|
+| Nivel 0 | k⁰ = 1 |
+| Nivel 1 | k¹ = k |
+| Nivel 2 | k² |
+| Nivel 3 | k³ |
+| ... | ... |
+| Nivel h | kʰ |
+
+La cantidad total es la suma de una **serie geométrica** de razón k:
+
+### Fórmula: Árbol Lleno de grado K y altura h
+
+```text
+N = k⁰ + k¹ + k² + ... + kʰ = (k^(h+1) - 1) / (k - 1)
+```
+
+### Fórmula: Árbol Completo de grado K y altura h
+
+La cantidad de nodos varía entre un **mínimo** y un **máximo**:
+
+| Caso | Fórmula | Explicación |
+|---|---|---|
+| **Mínimo** (1 solo nodo en nivel h) | `N = (kʰ + k - 2) / (k - 1)` | Es lleno hasta h-1, más 1 nodo extra en nivel h |
+| **Máximo** (lleno completo) | `N = (k^(h+1) - 1) / (k - 1)` | Es directamente un árbol lleno |
+
+> 💡 **Caso binario (k=2):** Lleno → `N = 2^(h+1) - 1`. Completo → entre `2ʰ` y `2^(h+1) - 1`.
+
+En criollo: Para un árbol ternario (k=3) de altura 2, la progresión de nodos por piso sería: 1 → 3 → 9, dando un total de 13 nodos si es lleno. Un árbol completo tendría entre 4 y 13 nodos, según cuántos hijos haya en el último nivel.
+
+---
+
+## 🏗️ Ejemplos de Árboles Generales en la vida real
+
+- ✅ **Organigrama de una empresa** (gerente → directores → empleados)
+- ✅ **Árboles genealógicos**
+- ✅ **Taxonomía que clasifica organismos** (Reino → Filo → Clase → ...)
+- ✅ **Sistemas de archivos** (directorios y subdirectorios)
+- ✅ **Organización de un libro** en capítulos y secciones
+
+---
+
+## 📦 Ejemplo: Sistema de Archivos como Árbol General
+
+```mermaid
+graph TD
+    USR["/usr"] --> DOC["doc"]
+    USR --> BIN["bin"]
+    USR --> LIB["lib"]
+    USR --> ETC["etc"]
+    BIN --> CP["cp"]
+    BIN --> GREP["grep"]
+    BIN --> SORT["sort"]
+    DOC --> TMP["tmp"]
+    DOC --> USERS["users"]
+    ETC --> MAIL["mail"]
+    ETC --> MOTD["motd"]
+    ETC --> PASSWD["passwd"]
+```
 
 ---
 ---
 
-# Parte B: Representación en la Computadora
+# Parte B: Representaciones en Memoria
 
-Como un nodo ya no tiene a priori solo 2 referencias (izquierdo y derecho), ¿cómo los modelamos en memoria?
+¿Cómo almacenar un nodo que puede tener **cualquier** cantidad de hijos?
 
-## 1. Con Arreglos
-Cada nodo guarda el dato y un `Array` de punteros a sus hijos.
-- ❌ **La Gran Contra:** Desperdicio de espacio bestial si el árbol tiene grado máximo 100, pero muchísimos nodos son hojas vacías o tienen apenas 2 o 3 hijos.
+## 📊 Comparación de Representaciones
 
-## 2. Con Listas Enlazadas (La Recomendada `java.util.List`)
-Cada nodo contiene la información y una lista de crecimiento elástico conteniendo referencias directas a todos sus hijos.
-- ✅ **Ventaja:** Crecimiento dinámico y sin desperdicio masivo de RAM.
-
-## 3. Hijo Más Izquierdo, Hermano Derecho
-Se mapea de facto como si fuera un árbol binario.
-- `leftChild`: Referencia explícita *sólicamente* al primer hijo nacido (hijo de más a la izquierda).
-- `rightChild`: Referencia al "próximo hermano" que comparte su mismo padre.
+| Representación | Estructura del Nodo | Ventajas ✅ | Desventajas ❌ |
+|---|---|---|---|
+| **Lista de hijos (Arreglo)** | Dato + Array fijo de hijos | Acceso directo por índice | Desperdicio de espacio si pocos hijos |
+| **Lista de hijos (Lista enlazada)** | Dato + Lista dinámica de hijos | Flexibilidad, sin desperdicio | Recorrido secuencial para acceder a un hijo |
+| **Hijo Izquierdo / Hermano Derecho** | Dato + hijo izquierdo + hermano derecho | Se modela como árbol binario | Acceso al k-ésimo hijo requiere recorrer hermanos |
 
 ---
 
-# Parte C: Recorridos Genéricos
+### 🏗️ Representación: Lista de hijos (con Arreglos)
 
-Dado que no hay ni "izquierdo" ni "derecho", el recorrido Inorden no es comúnmente viable a menos que definamos heurísticas arbitrarias en el grupo de hijos. Los reinantes son:
+Cada nodo tiene un identificador y un arreglo con las posiciones de sus hijos.
 
-### ⚙️ 1. Recorrido Pre_Orden (Raíz, luego hijos)
-Muy útil. Por ejemplo: Para listar el contenido de un **Sistema de Archivos** o Directorio. Primero listamos el directorio que nos pasan (Raíz), luego abrimos sus subdirectorios de a uno (recursión secuencial).
+```mermaid
+graph TD
+    A_["A"] --> B_["B"]
+    A_ --> C_["C"]
+    A_ --> D_["D"]
+    A_ --> E_["E"]
+    B_ --> F_["F"]
+    D_ --> G_["G"]
+    D_ --> H_["H"]
+```
 
+En esta representación, cada nodo almacena sus hijos en celdas contiguas de un array. Si el grado máximo del árbol es 4, se reservan 4 celdas por nodo, aunque tenga menos hijos.
+
+---
+
+### 🏗️ Representación: Lista de hijos (con Listas Enlazadas)
+
+Cada nodo mantiene una **lista enlazada** donde cada elemento apunta a un hijo. Mayor flexibilidad ya que la lista crece dinámicamente.
+
+---
+
+### 🏗️ Representación: Hijo Más Izquierdo y Hermano Derecho
+
+Técnica que permite **reducir todo árbol general a un árbol binario**:
+- El puntero "izquierdo" apunta al **primer hijo** (el más a la izquierda).
+- El puntero "derecho" apunta al **siguiente hermano** (el que está a su derecha en el mismo nivel).
+
+```mermaid
+graph TD
+    subgraph "Árbol General"
+        A1["A"] --> B1["B"]
+        A1 --> C1["C"]
+        A1 --> D1["D"]
+        A1 --> E1["E"]
+        B1 --> F1["F"]
+        D1 --> G1["G"]
+        D1 --> H1["H"]
+    end
+```
+
+```mermaid
+graph TD
+    subgraph "Hijo Izquierdo / Hermano Derecho (como binario)"
+        A2["A"] -->|hijo izq| B2["B"]
+        B2 -->|hermano der| C2["C"]
+        C2 -->|hermano der| D2["D"]
+        D2 -->|hermano der| E2["E"]
+        B2 -->|hijo izq| F2["F"]
+        D2 -->|hijo izq| G2["G"]
+        G2 -->|hermano der| H2["H"]
+    end
+```
+
+En criollo: En vez de guardar "todos mis hijos", cada nodo solo conoce a su primer hijo y a su hermano de al lado. Para llegar al tercer hijo de A, tenés que: ir al primer hijo (B), luego saltar al hermano de B (C), luego al hermano de C (D). Es encadenamiento horizontal.
+
+---
+---
+
+# Parte C: Recorridos en Árboles Generales
+
+## 📊 Resumen de Recorridos
+
+| Recorrido | Orden de procesamiento | Aplicación típica |
+|---|---|---|
+| **Preorden** | Proceso la raíz, luego **todos** los hijos (de izq a der) | Listar contenido de un directorio |
+| **Inorden** | Proceso el primer hijo, luego la raíz, luego los restantes hijos | Menos usado en árboles generales |
+| **Postorden** | Proceso **todos** los hijos, luego la raíz | Calcular tamaño de un directorio |
+| **Por Niveles** | Proceso nivel por nivel (usando Cola) | Búsqueda en amplitud |
+
+---
+
+### ⚙️ Recorrido Preorden
+
+Se procesa primero la **raíz** y luego los **hijos** de izquierda a derecha.
+
+**Pseudocódigo:**
+```text
+preOrden():
+   imprimir(dato)
+   obtener lista de hijos
+   mientras (lista tenga datos):
+       hijo ← obtenerHijo
+       hijo.preOrden()
+```
+
+**Código Java:**
 ```java
 public void preOrden() {
-    System.out.println(this.dato); // Proceso la carpeta donde estoy parado
+    System.out.println(this.dato);           // 1. Proceso la raíz
 
     List<ArbolGeneral<T>> hijos = this.getHijos();
     for (ArbolGeneral<T> hijo : hijos) {
-        hijo.preOrden(); // Entro recursivamente a cada subcarpeta
+        hijo.preOrden();                      // 2. Recursión en cada hijo
     }
 }
 ```
 
-### ⚙️ 2. Recorrido Post_Orden (Hijos, luego Raíz)
-Esencial para cálculos compuestos desde abajo hacia arriba.
-Ejemplo: Calcular el **peso en bytes ocupado de un Directorio**. Necesito medir primero lo que pesa todo adentro, sumar mis propios bytes de metadata y recién ahí decirle a mi Padre el gran total.
+### 📦 Ejemplo con el sistema de archivos
 
+```text
+/usr
+  doc
+    tmp
+    users
+  bin
+    cp
+    grep
+    sort
+  lib
+  etc
+    mail
+    motd
+    passwd
+```
+
+---
+
+### ⚙️ Recorrido Postorden
+
+Se procesan primero **todos los hijos** y luego la **raíz**.
+
+**Pseudocódigo:**
+```text
+postOrden():
+   obtener lista de hijos
+   mientras (lista tenga datos):
+       hijo ← obtenerHijo
+       hijo.postOrden()
+   imprimir(dato)
+```
+
+**Código Java:**
 ```java
 public void postOrden() {
     List<ArbolGeneral<T>> hijos = this.getHijos();
     for (ArbolGeneral<T> hijo : hijos) {
-        hijo.postOrden();
+        hijo.postOrden();                     // 1. Recursión en cada hijo
     }
-    System.out.println(this.dato); // Proceso yo al final
+    System.out.println(this.dato);            // 2. Proceso la raíz AL FINAL
 }
 ```
 
-### ⚙️ 3. Por Niveles (En Amplitud)
-Se procesan en abanico (Nivel 0 entero, Nivel 1 entero, Nivel 2 entero), requiriendo ineludiblemente de una **Cola** para la memoria temporal.
+> 💡 **Caso de uso:** Calcular el **tamaño ocupado** por un directorio. Necesito saber primero cuánto pesan todos los archivos y subdirectorios internos antes de poder saber cuánto pesa el directorio completo.
 
+---
+
+### ⚙️ Recorrido Por Niveles (BFS)
+
+**Pseudocódigo:**
+```text
+porNiveles():
+   encolar(raíz)
+   mientras cola no se vacíe:
+       v ← desencolar()
+       imprimir(dato de v)
+       para cada hijo de v:
+           encolar(hijo)
+```
+
+**Código Java:**
 ```java
 public void porNiveles(ArbolGeneral<T> raiz) {
-    Cola<ArbolGeneral<T>> cola = new Cola<ArbolGeneral<T>>();
-    cola.encolar(raiz);
-    
-    while (!cola.esVacia()) {
-        ArbolGeneral<T> nodo = cola.desencolar();
-        System.out.println(nodo.getDato());
-        
+    Queue<ArbolGeneral<T>> cola = new Queue<>();
+    cola.enqueue(raiz);
+
+    while (!cola.isEmpty()) {
+        ArbolGeneral<T> nodo = cola.dequeue();
+        System.out.println(nodo.getDato());         // Proceso el nodo actual
+
         List<ArbolGeneral<T>> hijos = nodo.getHijos();
         for (ArbolGeneral<T> hijo : hijos) {
-            cola.encolar(hijo);
+            cola.enqueue(hijo);                      // Encolo todos sus hijos
         }
     }
 }
 ```
+
+### 📦 Resultado del recorrido por niveles en el sistema de archivos
+
+```text
+Nivel 0: /usr
+Nivel 1: doc, bin, lib, etc
+Nivel 2: tmp, users, cp, grep, sort, mail, motd, passwd
+```
+
+---
+---
+
+# Parte D: Ejercicios
+
+## 📦 Ejercicio 1: Escribir los recorridos
+
+Dado un árbol general, escribir los recorridos preorden, inorden y postorden.
+
+> 💡 Este ejercicio se resuelve aplicando mecánicamente los algoritmos vistos en las secciones anteriores.
+
+---
+
+## 📦 Ejercicio 2: Abeto Navideño (Codeforces — Problem B)
+
+### Enunciado
+
+> *"El vértice u se llama hijo del vértice v y el vértice v se llama padre del vértice u si existe una arista dirigida de v a u. El árbol tiene un vértice distinguido llamado raíz, que es el único vértice que no tiene padre. Un vértice se llama hoja si no tiene hijos y tiene padre."*
+>
+> *"Llamaremos **abeto** a un árbol si cada vértice no hoja tiene **al menos 3 hijos hojas**. Dado un árbol general, compruebe si es un abeto."*
+
+### Input / Output
+
+**Input:** Primera línea con `n` (cantidad de vértices, 3 ≤ n ≤ 1000). Siguientes n-1 líneas con el índice del padre del (i+1)-ésimo vértice.  
+**Output:** `"Yes"` si es abeto, `"No"` si no lo es.
+
+### 📦 Ejemplos
+
+| Ejemplo | Input | Output | Explicación |
+|---|---|---|---|
+| 1 | `4` → padres: `1 1 1` | `Yes` | Raíz (1) tiene 3 hijos hojas ✅ |
+| 2 | `7` → padres: `1 1 1 2 2 2` | `No` | Nodo 2 tiene 3 hijos hojas, pero nodo 1 tiene solo 0 hijos hojas (sus 3 hijos son internos) ❌ |
+| 3 | `8` → padres: `1 1 1 1 3 3 3` | `Yes` | Nodo 1: 3 hijos hojas (2,4,5). Nodo 3: 3 hijos hojas (6,7,8) ✅ |
+
+En criollo: Para que sea "abeto", todo nodo que no sea hoja tiene que estar rodeado de *al menos* 3 hojas directas. Si algún nodo interno tiene menos de 3 hijos que sean hojas, no es abeto.
 
 ---
 
@@ -128,3 +382,4 @@ public void porNiveles(ArbolGeneral<T> raiz) {
 
 - **Cátedra:** *Algoritmos y Estructuras de Datos* — UNLP. 2026.
 - PDFs elaborados por Prof. Alejandra Schiavoni y Prof. Catalina Mostaccio.
+- Ejercicio **Abeto Navideño**: Codeforces — Problem B.
