@@ -85,6 +85,20 @@ Si elegís un quantum gigante $\rightarrow$ obtenés FCFS. Si elegís un quantum
 ---
 
 <details>
+<summary><b>4. Ejercicio 4: Variante SRTF (Shortest Remaining Time First)</b></summary>
+
+### a. Diagrama de Gantt
+<img src="./P2-ejer4.png" width="600"/>
+
+### b. ¿Qué ventaja ofrece SRTF frente a otros algoritmos?
+- ✔️ **Respuesta interactiva instantánea**: Al ser un modelo *Apropiativo*, si llega repentinamente un trabajito corto (ej. una operación de teclado), el SO pisa el freno, suspende el bloque masivo pesado que estuviese corriendo e inserta el corto. 
+- ✔️ **Mínimo TPE absoluto**: A diferencia del humilde SJF, acá no se comete el pecado de ignorar una ráfaga entrante menor. Es el algoritmo matemático que garantiza por excelencia el menor Tiempo Promedio de Espera posible en escenarios de arribos dinámicos.
+
+</details>
+
+---
+
+<details>
 <summary><b>5. Ejercicio 5: Algoritmo por Prioridades</b></summary>
 
 ### a. Diagramas de Gantt
@@ -108,20 +122,6 @@ Si elegís un quantum gigante $\rightarrow$ obtenés FCFS. Si elegís un quantum
 - **Ventaja general:** Otorga el control de urgencia absoluto al SO. Permite frenar todo para despachar procesos críticos inmediatamente (J4 tuvo espera `0` en modo apropiativo).
 - **Cuándo usarlo:** Ejemplos drásticos como un Sistema de Tiempo Real (RTOS) (marcapasos, freno ABS de auto) o comandos masivos de Sistema (Root). Importa la meta crítica de pocos procesos, no la matemática general.
 - **Cuándo NO usarlo:** En servidores en lote o máquinas de uso general. Brinda métricas promedios pobres (el TPE apropiativo de `6.6` es malo) y condena a los usuarios terrenales (como a `J2`) a la terrible **Inanición o Starvation** perpetua si no paran de llegar prioridades altas.
-
-</details>
-
----
-
-<details>
-<summary><b>4. Ejercicio 4: Variante SRTF (Shortest Remaining Time First)</b></summary>
-
-### a. Diagrama de Gantt
-<img src="./P2-ejer4.png" width="600"/>
-
-### b. ¿Qué ventaja ofrece SRTF frente a otros algoritmos?
-- ✔️ **Respuesta interactiva instantánea**: Al ser un modelo *Apropiativo*, si llega repentinamente un trabajito corto (ej. una operación de teclado), el SO pisa el freno, suspende el bloque masivo pesado que estuviese corriendo e inserta el corto. 
-- ✔️ **Mínimo TPE absoluto**: A diferencia del humilde SJF, acá no se comete el pecado de ignorar una ráfaga entrante menor. Es el algoritmo matemático que garantiza por excelencia el menor Tiempo Promedio de Espera posible en escenarios de arribos dinámicos.
 
 </details>
 
