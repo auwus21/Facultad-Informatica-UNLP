@@ -1,79 +1,183 @@
-# 📝 Tema 2: Procesos (Parte 2)
+# 📘 Tema 2 — Parte 2: Planificación y Estados de Procesos
 
-**Materia**: Introducción a los Sistemas Operativos (ISO)
-**Fuente**: *Sistemas Operativos Modernos* (Tanenbaum) y *Sistemas Operativos* (Stallings)
+**Materia:** Introducción a los Sistemas Operativos (ISO) — UNLP 2026  
+**Temas:** Colas de planificación, Schedulers, Comportamiento de procesos, Algoritmos, Política vs Mecanismo, Estados, Transiciones, Swapping
 
 ---
 
-## 1. Colas en la Planificación de Procesos
-Para realizar la planificación, el Sistema Operativo utiliza el PCB de cada proceso como una abstracción del mismo. Los PCB se enlazan en **colas** siguiendo un orden determinado:
+## 🏗️ Colas en la Planificación de Procesos
 
-- **Cola de trabajos (*Job Queue*)**: Contiene los PCB de todos los procesos presentes en el sistema.
-- **Cola de procesos listos (*Ready Queue*)**: Contiene los PCB de los procesos que residen en la memoria principal y están listos/esperando para ejecutarse.
-- **Cola de dispositivos (*Device/IO Queue*)**: Contiene los PCB de los procesos que están esperando por la disponibilidad o respuesta de un dispositivo de E/S.
+Para realizar la planificación, el SO utiliza el **PCB** de cada proceso como abstracción. Los PCB se enlazan en **colas** siguiendo un orden determinado.
 
-## 2. Módulos de la Planificación (Schedulers)
-Son módulos de software del Kernel que realizan tareas de planificación ante eventos como la creación/terminación de procesos, sincronización, eventos de E/S o cuando finaliza el quantum de tiempo. 
+| Cola | Contenido |
+|---|---|
+| **Cola de trabajos (*Job Queue*)** | Todas las PCB de procesos en el sistema. |
+| **Cola de procesos listos (*Ready Queue*)** | PCB de procesos residentes en memoria principal esperando para ejecutarse. |
+| **Cola de dispositivos (*Device Queue*)** | PCB de procesos esperando por un dispositivo de E/S. |
 
-Su nombre proviene de la frecuencia con la que se ejecutan:
-- **Scheduler de Largo Plazo (*Long Term*)**: Controla el grado de multiprogramación (cantidad de procesos en memoria). Elige qué procesos cargar en memoria.
-- **Scheduler de Corto Plazo (*Short Term*)**: Determina cuál de los procesos que están en la cola de listos se ejecutará a continuación en la CPU. Este módulo es donde actúa el *algoritmo de planificación*.
-- **Scheduler de Medio Plazo (*Medium Term* o *Swapping*)**: Reduce el grado de multiprogramación sacando procesos temporalmente de la memoria hacia el disco (*swap out*), y luego trayéndolos de nuevo a memoria (*swap in*) cuando se estabiliza la saturación.
+<img src="./images/t2_colas_planif.png" alt="Colas en la planificación de procesos" width="650"/>
 
-### Otros Módulos Clave:
-- **Dispatcher**: Realiza físicamente el cambio de contexto y salta a ejecutar la instrucción del proceso elegido por el Short Term Scheduler.
-- **Loader**: Es el encargado de cargar físicamente en memoria el programa elegido por el Long Term Scheduler.
+<img src="./images/t2_colas_diagrama.png" alt="Diagrama visual de colas" width="650"/>
 
-## 3. Comportamiento de los Procesos
-A lo largo de su vida, los procesos alternan ráfagas de uso intenso de CPU y ráfagas de espera por operaciones de E/S. Existen dos tipos de procesos según su comportamiento principal:
+---
 
-- **CPU-bound**: Pasan la mayor parte de su tiempo utilizando la CPU (realizando cálculos).
-- **I/O-bound**: Pasan la mayor parte del tiempo esperando por operaciones de E/S (lecturas a disco, red, etc.).
+## ⚙️ Módulos de la Planificación (Schedulers)
 
-> **Nota:** La CPU es excesivamente rápida comparada con la E/S. Se suele priorizar fuertemente a los procesos *I/O-bound* para que envíen sus peticiones rápidamente al dispositivo (manteniéndolo ocupado), permitiendo luego entregarle de lleno la CPU a los procesos *CPU-bound*.
+Son módulos de **software del Kernel** que realizan tareas de planificación. Se ejecutan ante eventos como: creación/terminación de procesos, eventos de sincronización o E/S, finalización de quantum de tiempo.
 
-## 4. Tipos de Algoritmos de Planificación
-Dependiendo de cómo gestionan la expulsión de un proceso de la CPU:
+Su nombre proviene de la **frecuencia de ejecución**:
 
-- **No Apropiativos (*Non-Preemptive*)**: El proceso conserva el uso de la CPU hasta que decide soltarla por su propia cuenta (por llegar a su fin, llamar a exit, o efectuar una espera bloqueante de I/O). No son interrumpidos por el reloj de sistema.
-- **Apropiativos (*Preemptive*)**: Existen situaciones (tiempo consumido o llegada de procesos más prioritarios) donde el proceso actual es obligado a abandonar su ejecución y regresar a la cola de listados.
+| Scheduler | Función |
+|---|---|
+| **Long Term (Largo Plazo)** | Controla el **grado de multiprogramación** (cantidad de procesos en memoria). Puede no existir y ser absorbido por el Short Term. |
+| **Short Term (Corto Plazo)** | Determina cuál de los procesos listos se ejecutará a continuación. Aquí actúa el **algoritmo de planificación**. |
+| **Medium Term (Medio Plazo / Swapping)** | Reduce el grado de multiprogramación sacando procesos de memoria temporalmente (*swap out*) y trayéndolos de vuelta (*swap in*). |
 
-## 5. Ambientes y Algoritmos de Planificación
-Se requiere diferentes algoritmos según el tipo de procesamiento:
+### Otros Módulos
+
+| Módulo | Función |
+|---|---|
+| **Dispatcher** | Realiza el **cambio de contexto**, cambio de modo de ejecución y "despacha" el proceso elegido por el Short Term (salta a la instrucción a ejecutar). |
+| **Loader** | **Carga en memoria** el proceso elegido por el Long Term. |
+
+---
+
+## 📊 Comportamiento de los Procesos
+
+Los procesos alternan **ráfagas de CPU** y **ráfagas de E/S** a lo largo de su vida.
+
+| Tipo | Descripción |
+|---|---|
+| **CPU-bound** | Mayor parte del tiempo **utilizando la CPU** (cálculos intensivos). |
+| **I/O-bound** | Mayor parte del tiempo **esperando por E/S** (disco, red, teclado). |
+
+> 💡 **Concepto clave:** La CPU es mucho más rápida que los dispositivos de E/S. Se debe atender rápidamente a los procesos *I/O-bound* para mantener el dispositivo ocupado y aprovechar la CPU para los *CPU-bound*.
+
+---
+
+## 📊 Algoritmos Apropiativos vs. No Apropiativos
+
+| Tipo | Descripción |
+|---|---|
+| **Apropiativos (*Preemptive*)** | Existen situaciones que hacen que el proceso en ejecución sea **expulsado** de la CPU (por quantum, por prioridad mayor, etc.). |
+| **No Apropiativos (*Non-Preemptive*)** | El proceso se ejecuta hasta que **por su propia cuenta** abandone la CPU: termina (`exit`), se bloquea voluntariamente (`wait`, `sleep`), o solicita E/S bloqueante (`read`, `write`). No hay decisiones de planificación durante interrupciones de reloj. |
+
+---
+
+## 📊 Categorías de Algoritmos según el Ambiente
+
+Metas generales de todos los algoritmos:
+- **Equidad:** Otorgar una parte justa de CPU a cada proceso.
+- **Balance:** Mantener ocupadas todas las partes del sistema.
 
 ### Procesos por Lotes (*Batch*)
-- **Características**: No hay usuarios esperando interactivamente. Usan algoritmos *No Apropiativos*.
-- **Metas**: Maximizar el rendimiento (procesos por hora) y uso de la CPU, minimizando los tiempos de retorno.
-- **Algoritmos Comunes**: FCFS (*First Come First Served*), SJF (*Shortest Job First*).
+
+- No existen usuarios esperando respuesta en una terminal.
+- Se pueden utilizar algoritmos **no apropiativos**.
+- **Metas:** Maximizar rendimiento (trabajos/hora), minimizar tiempo de retorno, mantener CPU ocupada.
+
+| Algoritmo | Descripción |
+|---|---|
+| **FCFS** (*First Come First Served*) | Se atiende por orden de llegada. |
+| **SJF** (*Shortest Job First*) | Se ejecuta primero el proceso más corto. |
 
 ### Procesos Interactivos
-- **Características**: Usuarios o clientes interactivos esperando respuestas rápidas (servidores, sistemas modernos). Necesitan de *Algoritmos Apropiativos* para evitar el acaparamiento de la CPU.
-- **Metas**: Minimizar el tiempo de respuesta y mantener la proporcionalidad frente al usuario (las cosas simples como frenar música o mover un mouse deben verse de inmediato).
-- **Algoritmos Comunes**: Round Robin, Prioridades, SRTF (*Shortest Remaining Time First*), Colas Multinivel.
 
-## 6. Política vs. Mecanismo
-El concepto es fundamental al diseñar sistemas operativos parametrizables:
-- **Mecanismo**: Lo implementa el Kernel de forma invisible a nivel lógico. Define *cómo* se hace (por ejemplo, existe un planificador Round Robin por prioridad y provee la system call para modificarlo).
-- **Política**: Lo definen los usuarios, procesos o administradores en espacio de usuario. Define *qué* hacer (por ejemplo, definir la prioridad manual de un servicio a un valor más alto usando el comando `nice`).
+- Usuarios o clientes esperando respuestas rápidas (servidores modernos).
+- Necesitan algoritmos **apropiativos** para evitar acaparamiento.
+- **Metas:** Minimizar tiempo de respuesta, proporcionalidad (si el usuario hace STOP al reproductor, que pare rápido).
 
-## 7. Estados de un Proceso y Transiciones
-Durante su vida, un proceso transiciona por estados marcados por eventos:
+| Algoritmo | Descripción |
+|---|---|
+| **Round Robin** | Reparto equitativo por quantum de tiempo. |
+| **Prioridades** | Se atiende primero al de mayor prioridad. |
+| **Colas Multinivel** | Varias colas con distintas políticas. |
+| **SRTF** (*Shortest Remaining Time First*) | Se ejecuta el que le quede menos tiempo. |
 
-- **New (Nuevo)**: Proceso recién disparado/creado. Se crean sus componentes (PCB), sin cargarse todavía completamente en memoria.
-- **Ready (Listo)**: El proceso fue cargado (por el loader) en memoria. Se encola en la *Ready Queue* a la espera de que se le asigne tiempo de CPU.
-- **Running (Ejecución)**: El dispatcher le ha cedido la CPU e instrucciones están corriendo física y activamente en el hardware.
-- **Waiting / Blocked (Dormido / En Espera)**: Entrar en pausa forzada esperando que finalice un evento de E/S o una señal, sin ocupar espacio de CPU. 
-- **Swapping (Swap in/Swap out)**: Cuando un proceso ya sea en *Waiting* o *Ready* es movido temporalmente a una partición de disco para liberar memoria principal muy saturada.
-  <br>
-  <img src="./images/pdf2_slide22.png" alt="Diagrama con Swapping" width="600"/>
-- **Zombie / Exit**: Ha terminado y el OS liberó los recursos vitales (memoria, sockets). Pero mantiene un "fantasma" del PCB a la espera de que el proceso padre lo verifique ("recoja" el estatus final).
+---
 
-### Transiciones Principales
-1. **New → Ready**: Por elección del Long Term Scheduler; carga del Loader temporalmente.
-2. **Ready → Running**: Corto Plazo lo elige y el Dispatcher lo ejecuta en CPU.
-3. **Running → Waiting**: El proceso realiza una petición bloqueante de I/O voluntaria o duerme.
-4. **Waiting → Ready**: Finaliza el evento por el que esperaba. Despierta en la cola de listos.
-5. **Running → Ready (Excepción)**: En entornos apropiativos, este cambio ocurre cuando se le agota el tiempo asignado (*quantum*) y se lo interrumpe a la fuerza para regresarlo a la cola.
+## 🔗 Política vs. Mecanismo
 
-### Diagrama General de Transiciones (UNIX)
-<img src="./images/pdf2_slide26.png" alt="Diagrama de Transiciones en UNIX" width="600"/>
+El algoritmo de planificación debe estar **parametrizado**:
+
+| Concepto | Descripción |
+|---|---|
+| **Mecanismo** | Lo implementa el **Kernel**. Define *cómo* se hace (ej: un planificador por prioridades). |
+| **Política** | La definen los **usuarios/procesos/administradores**. Define *qué* hacer (ej: usar `nice` para modificar la prioridad de un proceso). |
+
+En criollo: el kernel te da la herramienta (mecanismo), pero vos decidís cómo usarla (política).
+
+---
+
+## 🎯 Estados de un Proceso
+
+```mermaid
+stateDiagram-v2
+    [*] --> New
+    New --> Ready : Long Term Scheduler\n(Loader carga en memoria)
+    Ready --> Running : Short Term Scheduler\n(Dispatcher asigna CPU)
+    Running --> Waiting : El proceso solicita E/S\no espera un evento
+    Waiting --> Ready : El evento termino\n(vuelve a competir)
+    Running --> Ready : Quantum expirado\n(algoritmo apropiativo)
+    Running --> Zombie : exit()
+    Zombie --> [*]
+```
+
+| Estado | Descripción |
+|---|---|
+| **New (Nuevo)** | Proceso recién creado. Se generan las estructuras asociadas (PCB). Queda en espera de ser cargado en memoria. |
+| **Ready (Listo)** | El Long Term Scheduler lo eligió y el Loader lo cargó en memoria. Solo necesita que se le **asigne CPU**. Está en la *Ready Queue*. |
+| **Running (Ejecución)** | El Short Term Scheduler lo eligió y el Dispatcher le asignó la CPU. Tendrá la CPU hasta que: termine su quantum, termine, o necesite E/S. |
+| **Waiting (Espera)** | El proceso necesita que se cumpla un evento (E/S, señal de otro proceso). Sigue en memoria pero **no tiene la CPU**. Al cumplirse el evento, pasa a Ready. |
+| **Zombie (Exit)** | El proceso ejecutó `exit()`. Ya no existe operativamente, pero se registran datos sobre su uso y código de retorno. Es el **estado final**. |
+
+<img src="./images/t2_modelo_estados.png" alt="Modelo mínimo de estados" width="650"/>
+
+---
+
+## ⚙️ Transiciones entre Estados
+
+| Transición | Descripción |
+|---|---|
+| **New → Ready** | Por elección del Long Term Scheduler: el Loader carga el programa en memoria. |
+| **Ready → Running** | Por elección del Short Term Scheduler: el Dispatcher asigna la CPU. |
+| **Running → Waiting** | El proceso "se pone a dormir", esperando por un evento. |
+| **Waiting → Ready** | Terminó la espera y compite nuevamente por la CPU. |
+| **Running → Ready** | **Caso especial** de algoritmos apropiativos: el proceso termina su quantum sin haber necesitado E/S. Es **expulsado contra su voluntad**. |
+
+---
+
+## ⚙️ Medium Term Scheduler (Swapping)
+
+Si es necesario, reduce el grado de multiprogramación:
+- **Swap out:** Saca temporalmente de memoria los procesos necesarios.
+- **Swap in:** Los vuelve a traer a memoria cuando se estabiliza.
+
+<img src="./images/t2_estados_swapping.png" alt="Diagrama de estados incluyendo swapping" width="650"/>
+
+---
+
+## 🏗️ Diagrama de Transiciones UNIX (9 Estados)
+
+El diagrama completo de UNIX incluye 9 estados:
+
+| # | Estado | Descripción |
+|---|---|---|
+| 1 | Ejecución en modo usuario | El proceso corre instrucciones de usuario. |
+| 2 | Ejecución en modo kernel | El proceso ejecuta código del SO. |
+| 3 | Listo para ejecutar | En memoria, esperando ser elegido. |
+| 4 | En espera (en memoria) | Esperando un evento, reside en RAM. |
+| 5 | Listo (swapped) | Listo pero sacado a disco por el swapper. |
+| 6 | En espera (swapped) | Esperando un evento, sacado a disco. |
+| 7 | Preempted | Retornando de modo kernel a usuario, pero el kernel se apropia y hace context switch. |
+| 8 | Creado (new) | Recién creado, en transición: existe pero no está listo ni dormido. |
+| 9 | Zombie | Ejecutó `exit()`. Se registran datos sobre su uso. Estado final. |
+
+<img src="./images/t2_transiciones_unix.png" alt="Diagrama de transiciones UNIX" width="650"/>
+
+---
+
+## 📚 Recursos y Referencias
+
+- **Stallings, William:** *"Sistemas Operativos: Aspectos internos y principios de diseño"*.
+- **Silberschatz, Galvin, Gagne:** *"Operating Systems Concepts"*.

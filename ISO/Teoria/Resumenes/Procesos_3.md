@@ -1,57 +1,179 @@
-# 📝 Tema 2: Procesos (Parte 3)
+# 📘 Tema 2 — Parte 3: Creación y Terminación de Procesos
 
-**Materia**: Introducción a los Sistemas Operativos (ISO)
-**Fuente**: *Sistemas Operativos Modernos* (Tanenbaum)
+**Materia:** Introducción a los Sistemas Operativos (ISO) — UNLP 2026  
+**Temas:** Creación de procesos, Relación padre-hijo, fork, execve, wait, exit, CreateProcess, System Calls UNIX/Windows
 
 ---
 
-## 1. Creación de Procesos
-En un sistema operativo moderno, **un proceso siempre es creado por otro proceso preexistente**. El proceso creador se denomina **padre** y el nuevo proceso se denomina **hijo**. Esto deriva en la conformación de un *árbol jerárquico de procesos*.
+## 🎯 Creación de Procesos
 
-### Actividades del Sistema Operativo en la Creación:
-- Crear un nuevo bloque de control (PCB) para el proceso.
-- Asignarle un **PID** (*Process IDentification*) único.
-- Asignarle memoria para sus diferentes regiones lógicas (Stack, Datos y Texto).
-- Crear de las estructuras de datos asociadas en base al proceso padre.
+Un proceso **siempre** es creado por otro proceso:
+- El creador se llama **proceso padre**.
+- El creado se llama **proceso hijo**.
+- Se forma un **árbol de procesos** jerárquico.
 
-## 2. Relación entre Procesos Padre e Hijo
-La relación se puede analizar de dos maneras clave:
+```mermaid
+graph TD
+    INIT["init (PID 1)"]
+    INIT --> SHELL["bash (PID 100)"]
+    INIT --> DAEMON["sshd (PID 50)"]
+    SHELL --> P1["ls (PID 200)"]
+    SHELL --> P2["vim (PID 201)"]
+    DAEMON --> P3["ssh session (PID 300)"]
+```
+
+### Actividades en la Creación
+
+**Procedimiento:**
+1. **Crear la PCB** del nuevo proceso.
+2. **Asignar un PID** (*Process Identification*) único.
+3. **Asignar memoria** para sus regiones (Stack, Text, Datos).
+4. **Crear estructuras de datos** asociadas.
+5. Copiar el contexto del padre mediante **fork** (regiones de datos, text y stack).
+
+---
+
+## 🔗 Relación entre Padre e Hijo
 
 ### Con respecto a la Ejecución
-Existen dos grandes posibilidades cuando el padre tiene un hijo:
-1. El padre **continúa ejecutándose concurrentemente** (en paralelo) a su nuevo proceso hijo.
-2. El padre se bloquea y se queda dormido esperando a que termine la ejecución del hijo primero.
+
+| Opción | Descripción |
+|---|---|
+| **Concurrente** | El padre **continúa ejecutándose** en paralelo con su hijo. |
+| **Secuencial** | El padre **espera** a que el hijo (o hijos) terminen para continuar (usando `wait`). |
 
 ### Con respecto al Espacio de Direcciones
-1. **UNIX (Duplicación)**: El proceso hijo nace como un clon directo del proceso padre y se crea su espacio de direcciones **copiando completamente el del padre**.
-2. **Windows (Nuevo Espacio)**: Se crea en blanco un nuevo espacio de direcciones independiente para el nuevo proceso, y se le carga directamente un programa desde cero.
 
-## 3. System Calls de Creación (UNIX vs Windows)
+| Sistema | Estrategia |
+|---|---|
+| **UNIX** | El hijo es un **duplicado** del padre. Se crea un nuevo espacio de direcciones **copiando** el del padre. |
+| **Windows** | Se crea un proceso con un espacio de direcciones **vacío** y se le carga un programa adentro. |
 
-### UNIX: Implementación en 2 Pasos
-En UNIX la creación requiere dos syscalls distintas:
-1. `fork()`: Crea un proceso nuevo que es **idéntico al proceso llamador**. El hijo clonado será inicialmente indistinguible del padre, excepto por su identificador único (PID).
-2. `execve()`: Usualmente se invoca inmediatamente después del `fork()`. Sirve para sobreescribir el espacio de memoria (text, data y stack) del clon hijo con un archivo ejecutable (programa nuevo), inyectando el código para separarse definitivamente del ciclo del padre.
+---
 
-### Windows: Implementación en 1 Paso
-- `CreateProcess()`: Realiza el equivalente a ambas en un solo movimiento. Crea el bloque de proceso y lo rellena con un programa desde un inicio.
+## ⚙️ Creación de Procesos: UNIX vs. Windows
 
-## 4. Profundización: ¿Cómo funciona `fork()`?
-Al invocar `fork()`, el hilo de ejecución original se "parte" en dos ramas.
-La llamada retorna algo a *ambos procesos a la vez*:
-- Si retorna `0`: Esa bifurcación sabe que es el hilo **hijo**.
-- Si retorna un número `>`, `0`: Es el PID que corresponde al **padre** (le indica el identificador de su nuevo bebé).
-- Si da un valor negativo `< 0`: Ocurrió un error en la solicitud y el hijo nunca se llegó a crear.
+| | UNIX (2 syscalls) | Windows (1 syscall) |
+|---|---|---|
+| **Llamada** | `fork()` + `execve()` | `CreateProcess()` |
+| **¿Qué hace?** | `fork()` crea un proceso **idéntico** al padre. `execve()` carga un nuevo programa en el espacio de direcciones. | Crea un nuevo proceso **y** carga el programa en un solo paso. |
 
-### Diagrama de Ejecución
-<img src="./images/pdf3_slide10.png" alt="Diagrama de Ejecución con Fork" width="600"/>
+---
 
-<img src="./images/pdf3_slide11.png" alt="SysCall fork" width="600"/>
+## 📦 Ejemplo: ¿Cómo funciona `fork()`?
 
-## 5. Terminación de Procesos
-Existen factores explícitos para eliminar un proceso del OS:
+`fork()` retorna **valores diferentes** según dónde estés:
 
-- `exit()`: El proceso terminó su ejecución deseada o tuvo una falla grave, y el control retorna al OS. Generalmente retorna un código de salida *(exit code)* informando si la finalización fue exitosa o no.
-- `wait()`: El proceso padre usa esta system call para pausar la ejecución *esperando el código de retorno explícito de exit()* de sus procesos hijos y verificar que finalizaron de manera limpia.
-- `kill()`: Permite abortar a otros procesos (si se tienen los permisos). Muchas veces el padre puede forzar la terminación temprana de la vida del hijo (por ejemplo, si presiona "Cancelar" o la tarea ya no le es requerida).
-   - *Nota*: La muerte del padre, dependiendo del sistema, puede significar la "muerte en cascada" irremediable de los hijos, o la reasignación de los mismos (dejándolos huérfanos hasta que sean capturados por el proceso init central).
+| Valor de retorno | ¿En quién estoy? |
+|---|---|
+| `0` | Estoy en el **proceso hijo**. |
+| `> 0` (PID del hijo) | Estoy en el **proceso padre**. |
+| `< 0` | **Error**: el proceso hijo nunca se creó. |
+
+### Código de Ejemplo
+
+```c
+#include <stdio.h>
+#include <unistd.h>
+#include <sys/wait.h>
+
+int main() {
+    pid_t nue;
+
+    nue = fork();       // Se crea un proceso hijo idéntico
+
+    if (nue == 0) {
+        // --- Código del HIJO ---
+        printf("Soy el hijo, mi PID es %d\n", getpid());
+    } else if (nue > 0) {
+        // --- Código del PADRE ---
+        printf("Soy el padre, mi hijo tiene PID %d\n", nue);
+    } else {
+        // --- Error en el fork ---
+        perror("fork falló");
+        return 1;
+    }
+
+    return 0;
+}
+```
+
+En criollo: `fork()` es como una máquina fotocopiadora — crea una copia exacta del proceso. El original (padre) recibe el PID del hijo; la copia (hijo) recibe 0. A partir de ahí, cada uno sigue su camino.
+
+<img src="./images/t2_fork_ejemplo_code.png" alt="Ejemplo de syscall fork" width="650"/>
+
+---
+
+## ⚙️ Terminación de Procesos
+
+### Salida voluntaria: `exit()`
+
+Al ejecutar `exit()`, se retorna el control al SO. El proceso padre puede esperar recibir un **código de retorno** usando `wait()`.
+
+### Terminación forzada: `kill()`
+
+El proceso padre puede **terminar la ejecución** de sus hijos:
+- La tarea asignada al hijo se terminó.
+- Cuando el padre termina, habitualmente **no se permite a los hijos continuar** → **Terminación en cascada**.
+
+---
+
+## 📦 Ejemplo: `fork()` + `wait()` + `exit()`
+
+<img src="./images/t2_fork_wait_exit.png" alt="Ejemplo fork + wait + exit" width="650"/>
+
+En este patrón:
+1. El padre hace `fork()` para crear al hijo.
+2. El padre hace `wait()` para esperar que el hijo termine.
+3. El hijo hace su trabajo y ejecuta `exit()`.
+4. El padre recibe el código de retorno y continúa.
+
+---
+
+## 📦 Ejemplo: `fork()` + `exec()` (Shell)
+
+Este es el patrón que usa una **CLI (Shell)**:
+
+1. El shell hace `fork()` para crear un proceso hijo.
+2. El hijo hace `execve()` para reemplazar su código con el del programa solicitado (ej: `ls`, `cat`, etc.).
+3. El shell (padre) hace `wait()` para esperar que el comando termine.
+
+<img src="./images/t2_fork_exec_diagrama.png" alt="Diagrama fork + exec" width="650"/>
+
+```mermaid
+sequenceDiagram
+    participant Shell as Shell (padre)
+    participant Hijo as Proceso hijo
+    
+    Shell->>Hijo: fork()
+    Note over Hijo: Copia exacta del shell
+    Hijo->>Hijo: execve("/bin/ls")
+    Note over Hijo: Se reemplaza por "ls"
+    Hijo->>Shell: exit(codigo)
+    Shell->>Shell: wait() retorna
+```
+
+En criollo: el Shell se clona a sí mismo, el clon cambia de identidad (pasa a ser `ls` o lo que sea), lo ejecuta, muere, y el shell original sigue esperando el próximo comando.
+
+---
+
+## 📊 System Calls de Procesos: UNIX vs. Windows
+
+<img src="./images/t2_syscalls_unix.png" alt="System Calls de procesos en UNIX" width="650"/>
+
+<img src="./images/t2_syscalls_windows.png" alt="System Calls de procesos en Windows" width="650"/>
+
+| Operación | UNIX | Windows |
+|---|---|---|
+| Crear proceso | `fork()` | `CreateProcess()` |
+| Reemplazar programa | `execve()` | — (incluido en `CreateProcess`) |
+| Esperar al hijo | `wait()` / `waitpid()` | `WaitForSingleObject()` |
+| Terminar proceso | `exit()` | `ExitProcess()` |
+| Enviar señal / matar | `kill()` | `TerminateProcess()` |
+| Obtener PID | `getpid()` | `GetCurrentProcessId()` |
+
+---
+
+## 📚 Recursos y Referencias
+
+- **Tanenbaum, Andrew S.:** *"Sistemas Operativos Modernos"*.
