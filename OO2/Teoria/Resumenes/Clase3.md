@@ -1,107 +1,400 @@
-# Clase 3: Introducción a los Patrones de Diseño
+# 📘 Clase 3: Introducción a Patrones de Diseño — Adapter & Template Method
 
-El diseño de arquitecturas es abismal y complejo incluso con un puñado de objetos simples. A lo largo del tiempo, distintos programadores recurrentemente sufrieron trabas y problemas comunes, lo cual permitió abstraer lecciones valiosas.
-
-## 🗣️ ¿Qué es verdaderamente un Patrón de Diseño?
-Originalmente propuestos lejos del desarrollo, el arquitecto *Christopher Alexander* los usó en 1977 para el lenguaje de la arquitectura edilicia. Fue recién tras las décadas del '90 cuando el célebre **GoF (Gang of Four - Erich Gamma y co.)** destripó e introdujo permanentemente el formato oficial a objetos en el libro "*Design Patterns*".
-
-> **Definición Clave:** Un patrón describe un núcleo y base abstracta y limpia (una solución genérica) a un problema persistente, pesado y recurre de índole lógica o estructural dentro de un contexto particular; de manera empírica tal que uno pueda clonar teóricamente esa misma morfología de solución repetidas veces adaptándolo a su escenario cotidiano sin llegar jamás a rehacer idénticamente las minucias a cero. 
+**Materia:** Orientación a Objetos 2 (OO2) — UNLP 2026  
+**Docente:** Dra. Alejandra Garrido  
+**Temas:** Origen de los patrones, el catálogo GoF, patrón Adapter (Estructural) y patrón Template Method (Comportamiento).
 
 ---
 
-## 🔌 Patrón Structural: ADAPTER (Adaptador o *Wrapper*)
-*   **Intención Principal:** Su tarea es de fuerza de traducción. Su principal meta es "Convertir" o forzar una interfaz ya existente de una clase (Generalmente cerrada, fea, u originaria de una librería blindada por un *vendor* exógeno del que no somos dueños) artificialmente en otra interfaz que sea **exactamente lo que nuestros clientes o jerarquía principal esperan de origen entender**.
-*   **Logro:** Enchufar y enlazar clases totalmente incompatibles haciéndolas correr fluidamente.
+# Parte A: Introducción a los Patrones de Diseño
 
-**Estructura y Anatomía base del Adapter:**
-```mermaid
-classDiagram
-  class Client { 
-     El código llamador que espera una forma determinada
-  }
-  class Target { 
-     <<interface>> 
-     +request()
-  }
-  class Adaptee { 
-     Clase prexistente incompatible
-     +specificRequest() 
-  }
-  class Adapter { 
-     +request() 
-  }
+## 🏛️ ¿De dónde vienen los Patrones?
 
-  %% Relacionamiento
-  Client --> Target : Usa ciegamente la expectativa
-  Adapter --|> Target : implements (cumple visualmente)
-  Adapter --> Adaptee : invoca / envuelve y enmascara debajo  
-```
+### El origen: Christopher Alexander (Arquitectura)
 
-**Ejemplo Práctico en el PDF Original: (IoT Sensores y Notificación Telegram)**
-El sistema espera por su lógica de eventos original que toda entidad que se intente suscribir formalmente a escuchar ante un `Sensor` obligatoriamente extienda/herede de `Actuador` y que, religiosamente, entienda e implante dentro suyo un método `update(Sensor)`.
-Pero ahora surge un conflicto: necesitamos sumar la biblioteca importada `TelegramNotifier` que funciona maravillosamente enviando mensajes con su propio mandato particular  `sendNotification(id, text)`. Como no somos creadores de esta librería ni podemos alterar su clase nativa obligándola forzosamente a extender y firmar nuestra Interface propia de actuador y que empiece a regirse ante un `update()` caprichoso... la envolvemos para que cuadre perfectita: En un **Adapter**.
+Los patrones de diseño de software nacieron como una adaptación del trabajo del arquitecto **Christopher Alexander**, quien los usaba en arquitectura de espacios físicos.
 
-```java
-// Este Adapter "engaña" a nuestro Sensor.
-public class TelegramAdapter extends Actuador {
-  private TelegramNotifier asistentForeignLibrary; 
-  
-  // Implanta pasivamente el formato exigido Target
-  @Override
-  public void update(Sensor sensor) {
-    // Tras bambalinas asimila los pedazos y efectua una traducción 
-    // a algo que solo la biblioteca gringa incompatible va a asimilar
-    String mensajecito = "Alerta: Cambio en el ambiente a " + sensor.getValor();
-    asistentForeignLibrary.sendNotification("CHAT_GRUPO_DOMOTICO_1", mensajecito);
-  }
-}
-```
+> *"Each pattern describes a problem which occurs over and over again in our environment, and then describes the core of the solution to that problem, in such a way that you can use this solution a million times over, without ever doing it the same way twice."*  
+> — Alexander et al. 1977
+
+### Ejemplo de Alexander: "Luz en dos lados de cada habitación"
+- **Problema:** ¿Cómo diseñar las paredes de cada habitación?
+- **Observación:** Las personas evitan las habitaciones con luz de un solo lado.
+- **Solución:** Ubicar cada habitación con espacio exterior en al menos dos lados y colocar ventanas en esas paredes.
+
+> La solución no dice "poné dos ventanas en la pared norte y sur". Es **suficientemente genérica** para poder aplicarse de diferentes maneras.
 
 ---
 
-## 🖼️ Patrón de Comportamiento: TEMPLATE METHOD
-*   **Intención Principal:** "Plantilla de flujo". El modelo de este patrón fuerza a dictaminar unilateralmente desde una cima abstracta el "esqueleto maestro estructural" general y la línea de transcurso temporal que debe seguir todo el orden y fluir de un algoritmo. Su finalidad es deferir (dejar deliberadamente agujereados) los pasos crudos e implementatorios a manos de sus subclases de manera que **las mismas no tengan chance bajo ningún punto de vista de subvertir ni alterar la coreografía inicial generalizada**.
+### De la arquitectura al software...
 
-**Estructura Base del Template Method:**
-```mermaid
-classDiagram
-  class AbstractClass {
-    Algoritmo Cascaron Mandatorio
-    +templateMethod()
-    _ _ _ _ _ _ _ _ _ _
-    #primitiveOperation1()*
-    #primitiveOperation2()*
-  }
-  class ConcreteClassA {
-    Implementación Particular Inyectada
-    #primitiveOperation1()
-    #primitiveOperation2()
-  }
-  ConcreteClassA --|> AbstractClass
-```
+**Ward Cunningham** y **Kent Beck** (OOPSLA '87) fueron los primeros en proponer el uso de lenguajes de patrones para programas orientados a objetos.
 
-**Ejemplo Práctico en el PDF Original: (El Exportador de Archivos CSV y PDF)**
-Bajo escenarios inmaduros, un programador creando objetos Exportadores a PDF y Formatos tabulares por separado terminaría duplicando groseramente el código "mecánico" perimetral calcado de ambos tales como: *"Abrir y cerrar descriptores de archivos de sistema"*, imprimir *"Preparando Metadatos... cerrando I/O... Guardando al disco."*, sin poder separarlos de la singular y estricta forma de volcar y codear binariamente el flujo diferencial de un renglón PDF text markup versus lo particular de separar comas simples en formato de un renglón estándar CSV.
+Un patrón de software es un **par problema-solución** que:
+- Trata con **problemas recurrentes** y buenas soluciones probadas.
+- La solución es **suficientemente genérica** para poder aplicarse de diferentes maneras.
 
-**Armado de la Solución (Con *Template Method*):**
+---
+
+## 📖 El Catálogo GoF (Gang of Four)
+
+**Gamma, Helms, Johnson, Vlissides:**  
+*"Design Patterns: Elements of Reusable Object-Oriented Software"* (1994)
+
+Cada patrón del catálogo describe una **solución simple y elegante** a un problema específico en el diseño OO, que fue desarrollada y evolucionada en el tiempo, después de rediseñar, fallar y reflexionar.
+
+### Partes de la descripción de un patrón (GoF)
+
+| Sección | Descripción |
+|---|---|
+| **Nombre** | (y otros nombres por los que puede conocerse) |
+| **Intención** | Qué problema resuelve concisamente |
+| **Motivación** | Un escenario concreto que ilustra el problema |
+| **Aplicabilidad** | Cuándo usar el patrón |
+| **Estructura** | Diagrama de clases con los roles |
+| **Participantes** | Responsabilidad de cada rol |
+| **Colaboraciones** | Cómo interactúan los participantes |
+| **Consecuencias** | Pros y contras |
+| **Implementación** | Variantes y consideraciones |
+| **Código** | Ejemplo (C++ en el original) |
+| **Usos Conocidos** | Dónde se usó en sistemas reales |
+| **Patrones Relacionados** | Otros patrones que se complementan |
+
+### 🧠 ¿Qué es importante estudiar y recordar?
+
+1. **Propósito** (intención).
+2. **Estructura:** Clases que componen el patrón (roles), cómo se relacionan (jerarquías, clases abstractas/interfaces, métodos abstractos, composición).
+3. **Variantes de implementación.**
+4. **Consecuencias** positivas y negativas.
+5. **Relación con otros patrones.**
+
+---
+---
+
+# Parte B: Patrón Adapter (Estructural)
+
+## 🎯 Propósito
+
+> **"Convertir" la interfaz de una clase en otra que el cliente espera.** Adapter permite que ciertas clases con interfaces **incompatibles** puedan trabajar en conjunto.
+
+**Aplicabilidad:** Usar Adapter cuando querés usar una clase existente y su interfaz **no es compatible** con lo que necesitás.
+
+En criollo: tenés un enchufe de 3 patas y la pared tiene 2 agujeros. El Adapter es el intermediario que "traduce" las patas para que se conecten.
+
+---
+
+## 📦 Ejemplo del PDF: Sensores y Actuadores (IoT)
+
+### Situación Inicial
+
+Un sistema IoT donde los actuadores se suscriben a los cambios de un sensor:
+
 ```java
-public abstract class ReportExporter {
-  
-  // 1: EL TEMPLATE METHOD MAESTRO EN CUESTIÓN.
-  // Su keyword FINAL prohíbe pisoteos estructurales de los rebeldes hijos a futuro!
-  public final void export(ReportData data, String filePath) {
-    prepareData();       // Func. Compartida
-    openFile(filePath);  // Func. Compartida
-    
-    writeHeader();         // <--- Operación Primitiva Diferida a manos Especiales
-    writeData(data);       // <--- Operación Primitiva Diferida 
-    
-    closeFile();         // Func. Compartida Común 
-  }
+public class Sensor {
+    private List<Actuador> suscriptores = new ArrayList<>();
+    private float valor;
 
-  // 2: Las subclases por culpa del abstracto DEBEN responder si o si a su formato particular:
-  protected abstract void writeHeader();
-  protected abstract void writeData(ReportData data);
+    public void setValor(float unValor) {
+        valor = unValor;
+        this.changed();
+    }
+
+    protected void changed() {
+        suscriptores.stream().forEach(sus -> sus.update(this));
+    }
+
+    public void agregarSuscriptor(Actuador actuador) { ... }
+}
+
+abstract class Actuador {
+    public void update(Sensor sensor) {
+        this.registrarCambio(sensor);
+        this.actuarAnteCambio(sensor);
+    }
+}
+
+class Ventilador extends Actuador {
+    public void actuarAnteCambio(Sensor sensor) {
+        if (sensor.getValor() > 18.5) {
+            this.encenderVentilador();
+        } else {
+            this.apagarVentilador();
+        }
+    }
 }
 ```
-*   **Efecto Clave Subyacente:** Produce una colosal **Inversión de Control ("El Principio de Hollywood")** . En lugar de que la torpe clase hija cliente llame a una biblioteca rutinaria y superior para pedir socorro explícitamente a cada momento que deba imprimir, se genera que la rígida entidad y arquitectura matriz englobadora la llama directamente, subordinándola (*"No nos llames, nosotros te llamamos cuando tu hora haya llegado"*).
+
+### El Problema
+
+Queremos agregar un nuevo actuador que envíe un mensaje por **Telegram** usando una clase `TelegramNotifier` de una librería externa que **no puede cambiarse** (ni su código, ni su jerarquía, ni las interfaces que implementa).
+
+- `Sensor` solo permite objetos `Actuador` como suscriptores.
+- `Sensor` envía el mensaje `update(sensor)` a ellos.
+- Pero `TelegramNotifier` **no es un Actuador** ni entiende `update()`.
+
+### La Solución: Patrón Adapter
+
+Crear una clase que actúe como puente entre ambas interfaces:
+
+```mermaid
+classDiagram
+    class Sensor {
+        -suscriptores: List~Actuador~
+        -valor: float
+        +setValor(float)
+        +agregarSuscriptor(Actuador)
+        #changed()
+    }
+    class Actuador {
+        <<abstract>>
+        +update(sensor: Sensor)
+        +registrarCambio(sensor: Sensor)
+        +actuarAnteCambio(sensor: Sensor)*
+    }
+    class Ventilador {
+        +actuarAnteCambio(sensor: Sensor)
+    }
+    class TelegramAdapter {
+        -telegramNotifier: TelegramNotifier
+        +actuarAnteCambio(sensor: Sensor)
+    }
+    class TelegramNotifier {
+        +sendMessage(text: String)
+    }
+
+    Sensor --> "*" Actuador : suscriptores
+    Actuador <|-- Ventilador
+    Actuador <|-- TelegramAdapter
+    TelegramAdapter --> TelegramNotifier : adapta
+```
+
+`TelegramAdapter` hereda de `Actuador` (para que `Sensor` lo acepte) y delega el trabajo real a `TelegramNotifier` traduciéndole los parámetros.
+
+---
+
+## 🏗️ Estructura Genérica del Patrón
+
+```mermaid
+classDiagram
+    class Target {
+        <<abstract>>
+        +request()*
+    }
+    class Client
+    class Adapter {
+        -adaptee: Adaptee
+        +request()
+    }
+    class Adaptee {
+        +specificRequest()
+    }
+
+    Client --> Target
+    Target <|-- Adapter
+    Adapter --> Adaptee : delega
+```
+
+## 👥 Participantes
+
+| Participante | Responsabilidad |
+|---|---|
+| **Target** | Define la interfaz específica que usa el cliente. |
+| **Client** | Colabora con objetos que satisfacen la interfaz de Target. |
+| **Adaptee** | Define una interfaz existente que **necesita ser adaptada**. |
+| **Adapter** | Adapta la interfaz del Adaptee a la interfaz del Target. |
+
+---
+
+## ✅ Consecuencias
+
+| | Descripción |
+|---|---|
+| ✅ | Una misma clase Adapter puede usarse para **muchos Adaptees** (el Adaptee y todas sus subclases). |
+| ✅ | El Adapter puede **agregar funcionalidad** a los adaptados. |
+| ❌ | Se generan **más objetos intermediarios**. |
+
+### Variantes de implementación:
+- **Pluggable adapters** (adaptadores enchufables).
+- **Parameterized adapters** (adaptadores parametrizados).
+
+---
+---
+
+# Parte C: Patrón Template Method (Comportamiento)
+
+## 🎯 Propósito
+
+> **Definir el esqueleto de un algoritmo en un método, difiriendo algunos pasos a las subclases.**  
+> Template Method permite que las subclases **redefinan ciertos pasos** de un algoritmo **sin cambiar la estructura** del algoritmo.
+
+**Aplicabilidad:** Usar Template Method:
+- Para implementar las partes **invariantes** de un algoritmo una vez y dejar que las subclases implementen los aspectos que varían.
+- Para **evitar duplicación de código** entre subclases.
+- Para **controlar las extensiones** que pueden hacer las subclases.
+
+En criollo: definís la "receta" en la clase padre (los pasos y su orden), pero dejás que cada hijo complete los pasos específicos a su manera.
+
+---
+
+## 📦 Ejemplo del PDF: Exportadores de Reportes
+
+### Situación Inicial (Código Naive — Sin patrón)
+
+Cada exportador (CSV, PDF) repite la misma secuencia de pasos:
+
+```java
+class CsvReportExporterNaive {
+    public void export(ReportData data, String filePath) {
+        // 1. Preparing data (common)
+        // 2. Opening file (common)
+        // 3. Writing CSV header (specific)
+        // 4. Writing CSV data rows (specific)
+        // 5. Writing CSV footer (common)
+        // 6. Closing file (common)
+    }
+}
+
+class PdfReportExporterNaive {
+    public void export(ReportData data, String filePath) {
+        // 1. Preparing data (common)    ← DUPLICADO
+        // 2. Opening file (common)      ← DUPLICADO
+        // 3. Writing PDF header (specific)
+        // 4. Writing PDF data rows (specific)
+        // 5. Writing PDF footer (common) ← DUPLICADO
+        // 6. Closing file (common)      ← DUPLICADO
+    }
+}
+```
+
+### Problemas:
+- **Duplicación de código** en los pasos comunes.
+- Si hay que agregar un **paso nuevo común**, seguimos duplicando.
+- Propenso a **errores** al agregar nuevas subclases que no respeten el orden de los pasos.
+
+---
+
+### La Solución: Aplicar Template Method
+
+```mermaid
+classDiagram
+    class ReportExporter {
+        <<abstract>>
+        +export(data: ReportData, filePath: String)
+        #prepareData(data: ReportData)
+        #openFile(filePath: String)
+        #writeHeader(data: ReportData)*
+        #writeData(data: ReportData)*
+        #writeFooter(data: ReportData)
+        #closeFile(filePath: String)
+    }
+    class CsvReportExporter {
+        #writeHeader(data: ReportData)
+        #writeData(data: ReportData)
+    }
+    class PdfReportExporter {
+        #writeHeader(data: ReportData)
+        #writeData(data: ReportData)
+    }
+    class ExcelReportExporter {
+        #writeHeader(data: ReportData)
+        #writeData(data: ReportData)
+    }
+
+    ReportExporter <|-- CsvReportExporter
+    ReportExporter <|-- PdfReportExporter
+    ReportExporter <|-- ExcelReportExporter
+```
+
+El método `export()` es el **Template Method**: define el esqueleto del algoritmo y llama a los pasos en el orden correcto. Los pasos marcados con `*` son **abstractos** y los implementan las subclases.
+
+---
+
+## 🏗️ Estructura Genérica del Patrón
+
+```mermaid
+classDiagram
+    class AbstractClass {
+        +templateMethod()
+        #primitiveOperation1()*
+        #primitiveOperation2()*
+        #hookMethod()
+    }
+    class ConcreteClassA {
+        #primitiveOperation1()
+        #primitiveOperation2()
+    }
+    class ConcreteClassB {
+        #primitiveOperation1()
+        #primitiveOperation2()
+    }
+
+    AbstractClass <|-- ConcreteClassA
+    AbstractClass <|-- ConcreteClassB
+```
+
+## 👥 Participantes
+
+| Participante | Responsabilidad |
+|---|---|
+| **AbstractClass** | Implementa el **template method** (el esqueleto del algoritmo). Declara las **operaciones primitivas abstractas** que las subclases deben definir. |
+| **ConcreteClass** | Implementa las operaciones primitivas que llevan a cabo los **pasos específicos** del algoritmo. |
+
+---
+
+## ✅ Consecuencias y Colaboraciones
+
+| | Descripción |
+|---|---|
+| ✅ | Técnica fundamental de **reuso de código**. |
+| ✅ | Lleva a tener **inversión de control**: la superclase llama a operaciones definidas en las subclases (Hollywood Principle: "Don't call us, we'll call you"). |
+| ✅ | Controla qué extensiones pueden hacer las subclases: solo pueden variar los pasos definidos como abstractos/hooks. |
+
+### Tipos de operaciones que llama el Template Method
+
+| Tipo | Descripción |
+|---|---|
+| **Operaciones Primitivas** | Son **abstractas** en la AbstractClass. Las subclases **tienen que** definirlas obligatoriamente. |
+| **Hook Methods** | Son **concretas** en la AbstractClass (con implementación default o vacía). Las subclases **pueden** redefinirlas si lo necesitan. |
+
+### Consideración de Implementación:
+> **Minimizar la cantidad de operaciones primitivas** que las subclases deben redefinir. Cuantas menos operaciones haya que redefinir, más simple es agregar una nueva subclase.
+
+---
+
+## 🔗 Template Method en el Ejemplo de Actuadores
+
+El PDF muestra que el patrón Template Method **ya estaba presente** en el ejemplo de Sensores/Actuadores de la Parte B:
+
+```java
+abstract class Actuador {
+    // TEMPLATE METHOD:
+    public void update(Sensor sensor) {
+        this.registrarCambio(sensor);       // Paso común (concreto)
+        this.actuarAnteCambio(sensor);      // Paso variable (primitivo/abstracto)
+    }
+}
+
+class Ventilador extends Actuador {
+    // OPERACIÓN PRIMITIVA:
+    public void actuarAnteCambio(Sensor sensor) {
+        if (sensor.getValor() > 18.5) {
+            this.encenderVentilador();
+        } else {
+            this.apagarVentilador();
+        }
+    }
+}
+```
+
+> `update()` es el Template Method que define el esqueleto (registrar + actuar). `actuarAnteCambio()` es la operación primitiva que cada subclase concreta define. Esto demuestra que **los patrones muchas veces aparecen combinados** en un mismo diseño (acá: Adapter + Template Method).
+
+---
+
+## 📚 Recursos y Referencias del PDF
+
+- **GoF:** *"Design Patterns: Elements of Reusable Object-Oriented Software"* — Gamma, Helms, Johnson, Vlissides.
+- **Ward Cunningham:** *"The Starting Point of Software Patterns"* — [YouTube](https://www.youtube.com/watch?v=_V0kVOLOCrY)
+- **Christopher Alexander:** Keynote en OOPSLA'96 — [YouTube](https://www.youtube.com/watch?v=98LdFA-_zfA)
+- **Scrum Patterns:** [scrumbook.org](https://scrumbook.org/)
+- **PLoP Conferences:** [plopcon.org](https://plopcon.org/)
+- **The Hillside Group:** [hillside.net](https://hillside.net/)
