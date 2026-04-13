@@ -1,111 +1,103 @@
-{Realizar un programa que presente un menú con opciones para: 
-
-a.  Crear un archivo binario de registros no ordenados de empleados y completarlo con 
-datos ingresados desde teclado. De cada empleado se registra: número de empleado, 
-apellido, nombre, edad y DNI. Algunos empleados pueden ingresan el DNI con valor 0, lo 
-que significa que al momento de la carga puede no tenerlo. La carga finaliza cuando se 
-
-ingresa el String ‘fin’ como apellido. 
-b.  Abrir el archivo anteriormente generado y 
-i.  Listar  en  pantalla  los  datos  de  empleados  que  tengan  un  nombre  o  apellido 
-determinado, el cual se proporciona desde el teclado. 
-ii.  Listar en pantalla los empleados de a uno por línea.  
-iii.  Listar en pantalla los empleados mayores de 70 años, próximos a jubilarse. 
-NOTA: El nombre del archivo a crear o utilizar debe ser proporcionado por el usuario.}
-
-program ejer3;
+program GestionEmpleados;
 
 type
-    empleado = record
-        id : integer;
-        apellido : string;
-        nombre : string;
-        edad : integer;
-        dni:integer;
-    end;
-    archivo_empleados = file of empleado;
+  empleado = record
+    nro: integer;
+    apellido: string[25];
+    nombre: string[25];
+    edad: integer;
+    dni: string[10];
+  end;
 
-procedure  cargarEmpleados(var arch:archivo_empleados);
 var
-    emp:empleado;
+  arch: file of empleado;
+  e: empleado;
+  opcion: integer;
+  nombreArchivo, busqueda: string;
+
+procedure crearArchivo;
 begin
-    rewrite(arch);
-    reset(arch);
-    writeln('Ingrese el apellido: ');
-    readln(emp.apellido);
-    while (emp.apellido<>'fin') do begin
-        writeln('Ingrese el ID del empleado: ');
-        readln(emp.id);
-        writeln('Ingrese el nombre: ');
-        readln(emp.nombre);
-        writeln('Ingrese el edad: ');
-        readln(emp.edad);
-        writeln('Ingrese el D.N.I: ');
-        readln(emp.dni);
-        writeln('---------------------------------');
-        writeln('Ingrese el apellido: ');
-        readln(emp.apellido);
-    end;
-    write(arch,emp);
+  write('Ingrese nombre del archivo: ');
+  readln(nombreArchivo);
+  assign(arch, nombreArchivo);
+  rewrite(arch);
+
+  writeln('Ingrese los datos del empleado (apellido "fin" para terminar)');
+  write('Apellido: ');
+  readln(e.apellido);
+  while (e.apellido <> 'fin') do
+  begin
+    write('Nombre: '); readln(e.nombre);
+    write('Número de empleado: '); readln(e.nro);
+    write('Edad: '); readln(e.edad);
+    write('DNI: '); readln(e.dni);
+    write(arch, e);
+    writeln('---');
+    write('Apellido: ');
+    readln(e.apellido);
+  end;
+  close(arch);
 end;
 
-var
-  nombre_fisico: string;
-  opcion: integer;
-  apellido: string;
-  arch_empleados: archivo_empleados;
+procedure buscarPorNombreApellido;
+begin
+  write('Ingrese nombre o apellido a buscar: ');
+  readln(busqueda);
+  assign(arch, nombreArchivo);
+  reset(arch);
+  while not eof(arch) do
+  begin
+    read(arch, e);
+    if (e.nombre = busqueda) or (e.apellido = busqueda) then
+    begin
+      writeln('Empleado: ', e.nro, ', ', e.apellido, ', ', e.nombre, ', Edad: ', e.edad, ', DNI: ', e.dni);
+    end;
+  end;
+  close(arch);
+end;
+
+procedure listarTodos;
+begin
+  assign(arch, nombreArchivo);
+  reset(arch);
+  while not eof(arch) do
+  begin
+    read(arch, e);
+    writeln(e.nro, ' - ', e.apellido, ', ', e.nombre, ' - Edad: ', e.edad, ' - DNI: ', e.dni);
+  end;
+  close(arch);
+end;
+
+procedure listarJubilables;
+begin
+  assign(arch, nombreArchivo);
+  reset(arch);
+  while not eof(arch) do
+  begin
+    read(arch, e);
+    if e.edad > 70 then
+      writeln('Jubilable: ', e.nro, ' - ', e.apellido, ', ', e.nombre, ' - Edad: ', e.edad);
+  end;
+  close(arch);
+end;
 
 begin
-  writeln('Ingrese el nombre del archivo: ');
-  readln(nombre_fisico);
-  
-  assign(arch_empleados, nombre_fisico);
-
   repeat
     writeln;
-    writeln('----- Menu Interactivo -----');
-    writeln('Seleccione una Opcion');
-    writeln('1 : Crear Archivo Binario');
-    writeln('2 : Leer Archivo Binario');
-    writeln('0 : Salir Del menu');
-    writeln('----------------------------');
+    writeln('MENU');
+    writeln('1. Crear archivo de empleados');
+    writeln('2. Buscar por nombre o apellido');
+    writeln('3. Listar todos los empleados');
+    writeln('4. Listar empleados mayores de 70 años');
+    writeln('0. Salir');
+    write('Opción: ');
     readln(opcion);
-    
 
     case opcion of
-      1: cargarEmpleados(arch_empleados);
-      
-      2: 
-        begin
-          writeln;
-          writeln('----- Leer Archivo Binario -----');
-          writeln('1 : Listar Por Apellido ');
-          writeln('2 : Listar Empleados ');
-          writeln('3 : Listar Empleados A Jubilarse');
-          writeln('----------------------------');
-          readln(opcion);
-          
-          case opcion of 
-            1: 
-              begin
-                writeln('Ingrese un Apellido: ');
-                readln(apellido);
-                //imprimirPorApellido(arch_empleados, apellido);
-              end;
-            2: write('test 2') ; //listarEmpleados(arch_empleados);
-            3: write('test 3'); //listarAJubilarse(arch_empleados);
-          else 
-            writeln('Opcion invalida del submenu. Volviendo al menu principal...');
-          end;
-          
-        end;
-        
-      0: writeln('Cerrando el programa... ¡Exitos!');
-      
-    else 
-      writeln('Error: Ingrese una opcion valida (1, 2 o 0 para salir).');
+      1: crearArchivo;
+      2: buscarPorNombreApellido;
+      3: listarTodos;
+      4: listarJubilables;
     end;
-
-  until opcion = 0; 
-
+  until opcion = 0;
 end.

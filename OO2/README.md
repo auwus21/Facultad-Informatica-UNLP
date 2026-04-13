@@ -19,6 +19,7 @@ Contiene los resúmenes y apuntes teóricos de las clases.
   * [Clase 1: Introducción a Refactoring](Teoria/Resumenes/Clase1.md)
   * [Clase 2: Catálogo de Refactoring y Herramientas](Teoria/Resumenes/Clase2.md)
   * [Clase 3: Introducción a Patrones de Diseño](Teoria/Resumenes/Clase3.md)
+  * [Clase 4: Composite, Factory Method & Builder](Teoria/Resumenes/Clase4.md)
 * **Material Oficial Cátedra:**
   * [Directorio de PDFs y Diapositivas](Teoria/Material_Original/)
 
