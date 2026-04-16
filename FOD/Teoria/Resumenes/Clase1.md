@@ -1,126 +1,158 @@
-# 📚 Fundamentos de Organización de Datos (FOD) - Clase 1
+# 📘 Clase 1: Archivos y Operaciones Básicas
 
-> **Resumen: Introducción a Archivos en Pascal** 🚀  
-> Este apunte resume los conceptos iniciales sobre el manejo de archivos físicos y lógicos, sus tipos y las operaciones fundamentales.
-
-En Pascal, la memoria principal es volátil. Para que la información persista, utilizamos **Archivos** físicos almacenados en disco.
+**Materia:** Fundamentos de Organización de Datos (FOD) — UNLP 2026  
+**Temas:** Persistencia de datos, Archivos físicos y lógicos, Conceptos Básicos de BD, Acceso a Archivos, Operaciones Básicas Pascal
 
 ---
 
-## 1️⃣ Tipos de Archivos
-Existen principalmente dos formas de manejar archivos en Pascal:
+## 🎯 Conceptos Básicos de Base de Datos
 
-1. **Archivos de Texto (`Text`):** Caracteres estructurados en líneas. Lectura/escritura con conversión automática de tipos (convierte un entero a texto visual por ejemplo). Acceso *exclusivamente secuencial*.
-2. **Archivos Tipados / Longitud Fija (`File of <tipo_dato>`):** Almacenan directamente los bytes de una estructura (record, integer, etc.). Permiten leer y escribir bloques exactos de memoria. Tienen acceso secuencial y **directo** (mediante `seek`).
+Una **Base de Datos** es una colección de archivos diseñados para servir a múltiples aplicaciones. Es una colección coherente de datos relacionados con significados inherentes (no es un conjunto aleatorio de datos). Representa aspectos del mundo real y está diseñada para un propósito específico.
 
-### 💡 Ejemplo de Definición Lógica
+En criollo: Una base de datos no es meter información suelta en una carpeta, sino organizar información con sentido para que un programa pueda consultarla y modificarla con un propósito claro.
+
+> *"Una BD está sustentada físicamente en archivos en dispositivos de almacenamiento persistente de datos."*
+
+## 🏗️ Archivos y Organización
+
+Un **archivo** es una colección de registros que abarcan entidades con un aspecto común guardados en almacenamiento secundario.
+
+### Organización Lógica
+
+*   **Campo:** Unidad lógica más pequeña y significativa de un archivo.
+*   **Registro:** Conjunto de campos agrupados que definen un elemento del archivo.
+
+```mermaid
+classDiagram
+    Archivo "1" *-- "n" Registro : Contiene
+    Registro "1" *-- "n" Campo : Se divide en
+```
+
+---
+
+## ⚙️ Tipos de Acceso y Organización
+
+Dependiendo de cómo se leen o escriben los datos, existen distintas estrategias:
+
+| Forma de Acceso | Descripción |
+|---|---|
+| **Serie** | Cada registro es accesible sólo luego de procesar su antecesor. Acceso secuencial físico. |
+| **Secuencial (Indizado)** | Los registros son accesibles en el orden de alguna clave. Acceso secuencial lógico (ej. índice de un libro). |
+| **Directo** | Se accede a un registro determinado sin necesidad de pasar por los anteriores. |
+
+---
+
+## 💻 Operaciones Básicas con Archivos en Pascal
+
+Todo archivo tiene **dos niveles**: el Físico (en el disco) y el Lógico (en nuestro programa). El Sistema Operativo se encarga de usar **Buffers** (memoria intermedia en RAM) para agilizar el proceso de lectura/escritura y reducir los accesos al disco rígido.
+
+### 1. Declaración y Enlace Físico-Lógico
+Pascal necesita que declaremos la variable de archivo y la enlacemos a un nombre en el disco mediante la operación `Assign`.
+
 ```pascal
-type
-    persona = record
-        dni: string[8];
-        apellido: string[25];
-        nombre: string[25];
-        direccion: string[25];
-        sexo: char;
+Type 
+    emple = record
+        nombre: string [20];
+        edad: integer;
     end;
+    empleado = file of emple;
 
-    // Se define el TIPO de archivo físico
-    archivo_personas = file of persona;
-    archivo_enteros  = file of integer;
-
-var 
-    personas: archivo_personas; // Variable lógica para manipular el archivo
-    enteros: archivo_enteros;
+Var 
+    arch_emp: empleado;
+Begin
+    Assign( arch_emp, 'Personas_empleados.dat' );
+End;
 ```
+
+### 2. Apertura y Creación
+Antes de leer o escribir, debemos abrir el archivo.
+
+| Comando | Acción |
+|---|---|
+| `Rewrite(archivo)` | Crea el archivo lógico nuevo en disco. Si ya existe, lo pisa (solo escritura inicial). |
+| `Reset(archivo)` | Abre un archivo existente para operaciones de Lectura y Escritura. |
+| `Close(archivo)` | Cierra el archivo y le coloca la marca de **EOF (End Of File)**. |
+
+### 3. Lectura y Escritura de datos
+Estas operaciones leen y escriben a través del Buffer, y no directamente sobre el disco inmediatamente. La variable usada para leer o escribir debe coincidir con el tipo base del archivo (ej. el registro `emple`).
+
+*   `Read(archivo, variable)`
+*   `Write(archivo, variable)`
+
+### 4. Operaciones Adicionales y Funciones útiles
+El Sistema Operativo nos permite navegar dentro del archivo. Se trata al archivo como un vector de registros de tamaño variable donde la primera posición es 0.
+
+*   `EOF(archivo)`: Devuelve *True* si llegamos al final del archivo. ¡Siempre hay que preguntar primero antes de leer!
+*   `FileSize(archivo)`: Devuelve el tamaño del archivo (cantidad total de registros).
+*   `FilePos(archivo)`: Retorna la posición relativa en la que nos encontramos (empieza en 0).
+*   `Seek(archivo, posición)`: Procedimiento que mueve el puntero lógico hacia una posición específica dentro del archivo, útil para el **acceso directo**.
 
 ---
 
-## 2️⃣ Operaciones Básicas
+## 📦 Ejemplo 1: Crear un Archivo
 
-Para trabajar con un archivo, el programa debe cumplir este ciclo de vida: **Enlazar -> Abrir -> Procesar -> Cerrar**.
+### Situación Inicial
+Tenemos variables definidas en el programa, pero queremos guardar esa información en disco duro. Tenemos un archivo numérico, `archivo = file of integer`.
 
-### 🔗 1. Enlace Físico - Lógico (`assign`)
-Le decimos al programa qué archivo físico del disco duro corresponde a nuestra variable lógica en Pascal.
-```pascal
-assign(personas, 'C:\archivos\personas.dat');
-assign(enteros, nombre_variable_con_ruta);
-```
-
-### 🚪 2. Apertura (`rewrite` / `reset`)
-* **`rewrite(nombre_logico)`**: **Crea** un archivo nuevo. Ojo: ¡Si el archivo ya existía y tenía datos, los pisa y lo deja vacío!
-* **`reset(nombre_logico)`**: **Abre** un archivo existente preparándolo para lectura/escritura. (Da error si el archivo no existe físicamente).
-
-### 📖 3. Procesamiento (`read` / `write`)
-* **`read(nombre_logico, var_dato)`**: Lee del archivo y lo guarda en la variable. El puntero del archivo avanza automáticamente a la siguiente posición.
-* **`write(nombre_logico, var_dato)`**: Graba el valor de la variable en la posición actual del puntero, y luego el puntero avanza.
-
-### 🔒 4. Cierre (`close`)
-Es **obligatorio** cerrar los archivos al terminar de usarlos. El cierre empaqueta los buffers que quedaron en memoria RAM y los graba de forma definitiva en el disco. Si no haces el `close`, podés perder información.
-```pascal
-close(personas);
-```
-
----
-
-## 3️⃣ Operaciones Adicionales (Control y Punteros)
-
-* **`eof(nombre_logico)`** *(End Of File)*: Devuelve `TRUE` si el puntero se encuentra al final del archivo (fuera del último dato). Útil para el `while not eof(arch) do`.
-* **`fileSize(nombre_logico)`**: Devuelve la **cantidad total de registros** del archivo.
-* **`filePos(nombre_logico)`**: Devuelve la **posición actual del puntero** en el archivo. (Las posiciones se numeran desde `0` hasta `N-1`).
-* **`seek(nombre_logico, pos)`**: Mueve el puntero internamente a la posición que se indique. Este es el que permite el **acceso directo**.
-  * 🌟 *Tip clásico:* `seek(arch, fileSize(arch));` mueve el puntero directo al final del archivo para agregar cosas nuevas.
-
----
-
-## 💻 4️⃣ Ejemplo Integrador: Creación y Carga de un Archivo
-Este es el típico esqueleto de código para pedirle datos al usuario por teclado y crear un archivo nuevo guardándolos secuencialmente.
+### La Solución
+Pedimos los números y guardamos de manera secuencial hasta que se ingrese un 0.
 
 ```pascal
-program creacion_archivo;
+Program Generar_Archivo;
 type 
-    persona = record
-        dni: string[8];
-        apellidoyNombre: string[30];
-        direccion: string[40];
-        sexo : char;
-        salario: real;
-    end;
-    archivo_personas = file of persona;
-
+    archivo = file of integer; 
 var 
-    personas: archivo_personas;
-    nombre_fisico: string[12];
-    per: persona;
-
-begin 
-    write('Ingrese el nombre del archivo: ');
-    readln(nombre_fisico);
+    arc_logico: archivo;        
+    nro: integer;               
+    arc_fisico: string[12];     
+begin
+    write( 'Ingrese el nombre del archivo:' );
+    read( arc_fisico );
+    assign( arc_logico, arc_fisico );
     
-    // 1. Enlace
-    assign(personas, nombre_fisico);
+    rewrite( arc_logico ); { se crea el archivo vacío }
     
-    // 2. Apertura (Crea el archivo en blanco)
-    rewrite(personas);
-
-    // 3. Procesamiento interactivo
-    write('Ingrese el dni de la persona: ');
-    readln(per.dni); 
-    
-    while (per.dni <> '') do begin
-        // Leer el resto del registro...
-        write('Ingrese el apellido y nombre: '); readln(per.apellidoyNombre);
-        write('Ingrese la dirección: ');         readln(per.direccion);
-        write('Ingrese el sexo: ');              readln(per.sexo);
-        write('Ingrese el salario: ');           readln(per.salario);
-        
-        // Escribir físicamente al disco
-        write(personas, per);
-        
-        write('Ingrese otro dni o presione enter para terminar: ');
-        readln(per.dni);
+    read( nro ); { se obtiene de teclado el primer valor }
+    while nro <> 0 do begin
+        write( arc_logico, nro ); { escribe en el archivo }
+        read( nro );
     end;
-    
-    // 4. Cierre vital
-    close(personas);
+    close( arc_logico );  { guardamos el EOF y cerramos }
 end.
 ```
+
+## 📦 Ejemplo 2: Actualización in situ (Modificación)
+
+### El Problema
+Queremos aumentarle el salario a todos los empleados guardados en el archivo un 10%. Para actualizar, debemos leer el registro, alterarlo en RAM, y volver a re-escribirlo en la MISMA posición del archivo.
+
+### La Solución
+Leemos con secuencialidad, modificamos, y usamos un `Seek` al elemento anterior (porque al hacer el `read` inicial el puntero del SO ya avanzó uno).
+
+```pascal
+Procedure actualizar (Var Emp: empleados);
+var E: registro;
+begin
+    Reset( Emp ); { Abrimos en lectura/escritura }
+    while not eof( Emp ) do begin
+        Read( Emp, E); { el puntero avanza de i a i+1 }
+        
+        { Actualizamos la variable local en RAM }
+        E.salario := E.salario * 1.1;    
+        
+        { Volvemos el puntero hacia atrás de i+1 a i }
+        Seek( Emp,  filepos(Emp) - 1 ); 
+        
+        { Reescribimos y pisamos el viejo valor. El puntero vuelve a avanzar. }
+        Write( Emp, E ); 
+    end;
+    close( Emp );
+end;
+```
+
+---
+
+## 📚 Recursos y Referencias
+
+- **Cátedra FOD (UNLP):** *"Organización de Datos - Clase 1: Archivos y Básica"*. 2026.
+- Oficial UNLP (Descargas): Modificadores, apuntes y PDFs extra de `https://asignaturas.info.unlp.edu.ar`.

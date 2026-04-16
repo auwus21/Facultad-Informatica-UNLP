@@ -47,6 +47,20 @@ Repositorio de estudio personal para la materia **Fundamentos de Organización d
   </tr>
 </table>
 
+<table>
+  <tr>
+    <td width="900">
+      <h3>📄 <a href="Teoria/Resumenes/Clase3.md">Clase 3: Arquitectura, Tipos y Eliminación de Archivos</a></h3>
+      <blockquote>El viaje de un Byte, organización física y estructuración, manejo de bajas lógicas/físicas y recuperación del espacio.</blockquote>
+      <p>
+        <img src="https://img.shields.io/badge/Estructura-2C3E50?style=flat-square" />
+        <img src="https://img.shields.io/badge/Claves-2C3E50?style=flat-square" />
+        <img src="https://img.shields.io/badge/Eliminacion-2980B9?style=flat-square" />
+      </p>
+    </td>
+  </tr>
+</table>
+
 <br>
 
 📁 [Ver Material Oficial de la Cátedra](Teoria/Material_Original/)
