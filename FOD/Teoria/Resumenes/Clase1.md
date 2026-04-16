@@ -1,54 +1,78 @@
-# 📘 Clase 1: Archivos y Operaciones Básicas
+# 📘 Clase 1: Archivos, Topología y Operaciones Básicas
 
 **Materia:** Fundamentos de Organización de Datos (FOD) — UNLP 2026  
-**Temas:** Persistencia de datos, Archivos físicos y lógicos, Conceptos Básicos de BD, Acceso a Archivos, Operaciones Básicas Pascal
+**Temas:** Base de Datos, Topología de Discos, Buffers, Tipos de Acceso, Operaciones en Pascal
 
 ---
 
-## 🎯 Conceptos Básicos de Base de Datos
+## Parte A: Persistencia y Organización Física
 
-Una **Base de Datos** es una colección de archivos diseñados para servir a múltiples aplicaciones. Es una colección coherente de datos relacionados con significados inherentes (no es un conjunto aleatorio de datos). Representa aspectos del mundo real y está diseñada para un propósito específico.
+### 🎯 Bases de Datos y Almacenamiento
 
-En criollo: Una base de datos no es meter información suelta en una carpeta, sino organizar información con sentido para que un programa pueda consultarla y modificarla con un propósito claro.
+Una **Base de Datos** representa aspectos del mundo real (Universo de Discurso) y no debe confundirse con un conjunto aleatorio de datos.
 
-> *"Una BD está sustentada físicamente en archivos en dispositivos de almacenamiento persistente de datos."*
+> *"Es una colección de archivos diseñados para servir a múltiples aplicaciones. Una colección coherente de datos con significados inherentes, sustentados físicamente en archivos en dispositivos de almacenamiento persistente."*
 
-## 🏗️ Archivos y Organización
+En criollo: Para que sea base de datos, la info tiene que tener lógica y relación entre sí. Cuando la memoria RAM se queda corta o apagamos la PC, necesitamos enviar este Universo al almacenamiento persistente.
 
-Un **archivo** es una colección de registros que abarcan entidades con un aspecto común guardados en almacenamiento secundario.
+### 🏗️ Topología del Disco Rígido
 
-### Organización Lógica
+Para comprender la persistencia de los objetos o archivos, debemos entender el Hardware del Almacenamiento Secundario. El disco rígido se divide en varias partes geométricas electromagnéticas:
 
-*   **Campo:** Unidad lógica más pequeña y significativa de un archivo.
-*   **Registro:** Conjunto de campos agrupados que definen un elemento del archivo.
+| Componente | Descripción |
+|---|---|
+| **Plato** | Disco físico circular; un disco duro puede tener varios platos apilados. |
+| **Superficie** | Cada plato tiene dos superficies (arriba y abajo) leídas por cabezales. |
+| **Pista** | Círculos concéntricos trazados en una superficie donde se guardan los datos. |
+| **Sector** | Porciones o "porciones de torta" en las que se divide una pista. |
+| **Cilindro** | Conjunto de pistas que se alinean verticalmente a lo largo de todos los platos. |
+
+### ⚙️ Organización Lógica
+
+Un archivo es una secuencia de bytes para el disco duro, pero el software impone límites:
+1. **Archivo de texto:** Pura secuencia ininterrumpida. No se determina fácil el inicio/fin.
+2. **Campos:** La unidad más pequeña y lógicamente significativa.
+3. **Registro:** Conjuntos cerrados de campos que agrupan a una entidad.
+
+---
+
+## Parte B: Acceso y Manipulación
+
+### 📊 Tipos de Accesos a un Archivo
+
+No todos los programas leen los discos de la misma manera:
+
+| Tipo | Método de Búsqueda |
+|---|---|
+| **Secuencial Físico (Serie)** | Acceso a los registros uno tras otro rigurosamente en el orden de los bytes físicos en disco. |
+| **Secuencial Indizado (Lógico)** | Acceso en secuencia pero dictado por una estructura externa ordenada por clave (como el índice de un libro). |
+| **Directo** | Se salta matemáticamente al registro deseado ignorando por completo a sus predecesores. |
+
+### 🧠 El Papel de los Buffers
+
+El pasaje entre Disco y Programa es lento. Acá interviene el **Buffer de E/S**.
+
+> *"El Buffer es una memoria intermedia (en RAM) gestionada por el Sistema Operativo, donde los datos residen provisoriamente hasta ser enviados masivamente al Almacenamiento."*
 
 ```mermaid
-classDiagram
-    Archivo "1" *-- "n" Registro : Contiene
-    Registro "1" *-- "n" Campo : Se divide en
+graph LR
+    A[(Disco Rígido)] <--> B[Buffer de Salida]
+    B --> C((Programa))
+    A <--> D[Buffer de Entrada]
+    C --> D
 ```
+En criollo: Es como cargar una carretilla con ladrillos. En vez de llevar un byte por vez, llenamos el buffer, y el SO descarga toda la carretilla en el disco de un solo viaje, salvando inmenso tiempo del controlador mecánico.
 
 ---
 
-## ⚙️ Tipos de Acceso y Organización
+## Parte C: Operaciones Básicas en Pascal
 
-Dependiendo de cómo se leen o escriben los datos, existen distintas estrategias:
+### 1. Dos Niveles: Lógico vs Físico
+Para operar en Pascal, debemos armar un puente entre:
+- Nombre lógico: La `variable` dentro de tu código (`arch_emp`).
+- Nombre Físico: El archivo metido en el disco rígido (`C:\empleados.dat`).
 
-| Forma de Acceso | Descripción |
-|---|---|
-| **Serie** | Cada registro es accesible sólo luego de procesar su antecesor. Acceso secuencial físico. |
-| **Secuencial (Indizado)** | Los registros son accesibles en el orden de alguna clave. Acceso secuencial lógico (ej. índice de un libro). |
-| **Directo** | Se accede a un registro determinado sin necesidad de pasar por los anteriores. |
-
----
-
-## 💻 Operaciones Básicas con Archivos en Pascal
-
-Todo archivo tiene **dos niveles**: el Físico (en el disco) y el Lógico (en nuestro programa). El Sistema Operativo se encarga de usar **Buffers** (memoria intermedia en RAM) para agilizar el proceso de lectura/escritura y reducir los accesos al disco rígido.
-
-### 1. Declaración y Enlace Físico-Lógico
-Pascal necesita que declaremos la variable de archivo y la enlacemos a un nombre en el disco mediante la operación `Assign`.
-
+Usamos la instrucción `Assign` para anclarlos:
 ```pascal
 Type 
     emple = record
@@ -57,102 +81,86 @@ Type
     end;
     empleado = file of emple;
 
-Var 
-    arch_emp: empleado;
+Var arch_emp: empleado;
 Begin
-    Assign( arch_emp, 'Personas_empleados.dat' );
+    Assign( arch_emp, 'C:\empleados.dat' );
 End;
 ```
 
-### 2. Apertura y Creación
-Antes de leer o escribir, debemos abrir el archivo.
-
-| Comando | Acción |
+### 2. Apertura y Cierre
+| Comando | Acción en Buffers |
 |---|---|
-| `Rewrite(archivo)` | Crea el archivo lógico nuevo en disco. Si ya existe, lo pisa (solo escritura inicial). |
-| `Reset(archivo)` | Abre un archivo existente para operaciones de Lectura y Escritura. |
-| `Close(archivo)` | Cierra el archivo y le coloca la marca de **EOF (End Of File)**. |
+| `Rewrite(arch)` | Puesta a cero. Crea el archivo vacío; si existe, ¡lo destruye y pisa! |
+| `Reset(arch)` | Abre un archivo existente garantizando lectura y escritura sin borrar nada. |
+| `Close(arch)` | Ordena purgar buffers y escribe la marca de Cierre/EOF definitiva en el último byte. |
 
-### 3. Lectura y Escritura de datos
-Estas operaciones leen y escriben a través del Buffer, y no directamente sobre el disco inmediatamente. La variable usada para leer o escribir debe coincidir con el tipo base del archivo (ej. el registro `emple`).
-
-*   `Read(archivo, variable)`
-*   `Write(archivo, variable)`
-
-### 4. Operaciones Adicionales y Funciones útiles
-El Sistema Operativo nos permite navegar dentro del archivo. Se trata al archivo como un vector de registros de tamaño variable donde la primera posición es 0.
-
-*   `EOF(archivo)`: Devuelve *True* si llegamos al final del archivo. ¡Siempre hay que preguntar primero antes de leer!
-*   `FileSize(archivo)`: Devuelve el tamaño del archivo (cantidad total de registros).
-*   `FilePos(archivo)`: Retorna la posición relativa en la que nos encontramos (empieza en 0).
-*   `Seek(archivo, posición)`: Procedimiento que mueve el puntero lógico hacia una posición específica dentro del archivo, útil para el **acceso directo**.
+### 3. Operaciones de Movimiento y Estado
+Recordá preguntar `EOF` *antes* de intentar leer, para no tirar excepciones del sistema.
+*   `Read(arch, var)` y `Write(arch, var)`: Comunican al Buffer en RAM, avanzando en +1 el puntero virtual.
+*   `Seek(arch, posicion)`: Salta el puntero lógico. La primera posición **siempre es cero (0)**.
+*   `FileSize(arch)` y `FilePos(arch)`.
 
 ---
 
-## 📦 Ejemplo 1: Crear un Archivo
+## 📦 Ejemplos Fundamentales: Algoritmia Inicial
 
-### Situación Inicial
-Tenemos variables definidas en el programa, pero queremos guardar esa información en disco duro. Tenemos un archivo numérico, `archivo = file of integer`.
-
-### La Solución
-Pedimos los números y guardamos de manera secuencial hasta que se ingrese un 0.
-
+### Ejemplo 1: Crear un Archivo
+Este algoritmo toma datos ciegamente del teclado hasta leer un `0` y los guarda.
 ```pascal
-Program Generar_Archivo;
-type 
-    archivo = file of integer; 
-var 
-    arc_logico: archivo;        
-    nro: integer;               
-    arc_fisico: string[12];     
+program Generar_Archivo;
+type archivo = file of integer; 
+var arc_logico: archivo; nro: integer; arc_fisico: string[12];     
 begin
-    write( 'Ingrese el nombre del archivo:' );
-    read( arc_fisico );
-    assign( arc_logico, arc_fisico );
+    write('Ingrese nombre:'); read(arc_fisico);
+    assign(arc_logico, arc_fisico);
+    rewrite(arc_logico); { Inicializa disco }
     
-    rewrite( arc_logico ); { se crea el archivo vacío }
-    
-    read( nro ); { se obtiene de teclado el primer valor }
+    read(nro);
     while nro <> 0 do begin
-        write( arc_logico, nro ); { escribe en el archivo }
-        read( nro );
+        write(arc_logico, nro); 
+        read(nro);
     end;
-    close( arc_logico );  { guardamos el EOF y cerramos }
+    close(arc_logico);  { Grabamos marca de fin }
 end.
 ```
 
-## 📦 Ejemplo 2: Actualización in situ (Modificación)
+### Ejemplo 2: Recorrido (Impresión Física)
+Para mostrar lo que hicimos, usamos `reset` para no borrar el contenido.
+```pascal
+Procedure Recorrido(var arc_logico: archivo);
+var  nro: integer;
+begin
+    reset(arc_logico); 
+    while not eof(arc_logico) do begin
+        read(arc_logico, nro); { Avanza a la derecha }
+        write(nro);            { Presenta en pantalla }
+    end;
+    close(arc_logico);
+end;
+```
 
-### El Problema
-Queremos aumentarle el salario a todos los empleados guardados en el archivo un 10%. Para actualizar, debemos leer el registro, alterarlo en RAM, y volver a re-escribirlo en la MISMA posición del archivo.
-
-### La Solución
-Leemos con secuencialidad, modificamos, y usamos un `Seek` al elemento anterior (porque al hacer el `read` inicial el puntero del SO ya avanzó uno).
+### Ejemplo 3: Actualizar In-Situ (Modificación)
+Queremos recorrer e infundir un 10% de aumento a todos los salarios.
+Dado que `Read` estira el puntero a la próxima variable, si hacemos `Write` directo, pisaríamos a la persona errónea. ¡Es vital corregir el puntero con `Seek(pos - 1)`!
 
 ```pascal
-Procedure actualizar (Var Emp: empleados);
+Procedure actualizar(Var Emp: empleados);
 var E: registro;
 begin
-    Reset( Emp ); { Abrimos en lectura/escritura }
-    while not eof( Emp ) do begin
-        Read( Emp, E); { el puntero avanza de i a i+1 }
-        
-        { Actualizamos la variable local en RAM }
+    Reset(Emp); 
+    while not eof(Emp) do begin
+        Read(Emp, E);           { puntero salta a POS=1 }
         E.salario := E.salario * 1.1;    
         
-        { Volvemos el puntero hacia atrás de i+1 a i }
-        Seek( Emp,  filepos(Emp) - 1 ); 
-        
-        { Reescribimos y pisamos el viejo valor. El puntero vuelve a avanzar. }
-        Write( Emp, E ); 
+        Seek(Emp, filepos(Emp) - 1); { puntero retrocede a POS=0 }
+        Write(Emp, E);          { Sobrescribe y de paso salta a POS=1 }
     end;
-    close( Emp );
+    close(Emp);
 end;
 ```
 
 ---
 
 ## 📚 Recursos y Referencias
-
-- **Cátedra FOD (UNLP):** *"Organización de Datos - Clase 1: Archivos y Básica"*. 2026.
-- Oficial UNLP (Descargas): Modificadores, apuntes y PDFs extra de `https://asignaturas.info.unlp.edu.ar`.
+- **Cátedra FOD (UNLP):** *"Organización de Datos - Clase 1: Fundamentos y Básico"*. 2026.
+- Resolucion y práctica: `https://asignaturas.info.unlp.edu.ar` (Extracción Moodle).
