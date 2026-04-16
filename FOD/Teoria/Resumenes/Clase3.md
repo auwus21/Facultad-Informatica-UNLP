@@ -1,119 +1,172 @@
 # 📘 Clase 3: Arquitectura, Tipos y Eliminación de Archivos
 
 **Materia:** Fundamentos de Organización de Datos (FOD) — UNLP 2026  
-**Temas:** El viaje de un Byte, Estructuras y Campos Fijos/Variables, Claves y Performance, Bajas y Fragmentación.
+**Temas:** Viaje del Byte, Archivo Lógico/Físico, Clasificación de Archivos y Registros, Claves y Performance, Bajas Lógicas y Físicas, Manejo de Espacios y Fragmentación.
 
 ---
 
-## 🚀 El Viaje de un Byte
+## Parte A: Conceptos Arquitectónicos Básicos
 
-**Motivación:** La memoria RAM es rápida e inmediata para acceder pero cuesta más dinero, siendo escasa y muy volátil. El almacenamiento Secundario (Discos) soluciona los problemas de volatilización pero su acceso es un cuello de botella. ¿Qué sucede, entonces, cuando Pascal usa `Write(ar, 'P')` para escribir datos?
+### 🎯 Diferencia entre Memoria RAM y Almacenamiento Secundario
 
-### Participantes del ecosistema de transferencia
+La **memoria primaria (RAM)** es veloz y de simple acceso, pero presenta tres grandes limitantes: es muy volátil (los datos se pierden al cortar la energía), tiene una capacidad limitada y un costo monetario más alto. Por consiguiente, es obligatorio recurrir al **almacenamiento secundario (Discos)**. 
+
+> *"El acceso secundario es tan 'lento' que es imprescindible enviar y recuperar grandes agrupaciones de datos con 'inteligencia' para reducir al mínimo las llamadas a los discos".*
+
+Esto obliga a organizar la información en **archivos**, entendidos en dos visiones claras:
+
+| Concepto | Descripción |
+|---|---|
+| **Archivo Físico** | El que existe de verdad en el almacenamiento secundario. Es el archivo tal como lo conoce el Sistema Operativo, residiendo en pistas y sectores definidos por una FAT. |
+| **Archivo Lógico** | La estructura tal cual es mapeada y vista por nuestro programa (ej. mediante una variable en Pascal). Nos libera de tener que lidiar con la posición del cilindro. |
+
+---
+
+## ⚙️ El Viaje de un Byte
+
+**Motivación:** Comprender todo el aparato que se enciende cuando ejecutamos un simple `Write(archivo, byte)` en Pascal. Las fases están fuertemente delegadas a los administradores de bajo y abstracto nivel.
+
+### Actores del Ecosistema
 
 | Componente | Rol / Responsabilidad |
 |---|---|
-| **Sistema Operativo** | Le transfiere el trabajo al "Administrador de archivos". |
-| **Administrador de Archivos** | Capa procedimental de S.O. Busca el archivo físico global en la FAT, verifica propiedades y obtiene el número del sector real del disco. Manda instrucciones sobre la dirección. |
-| **Buffer de E/S** | Bloque de RAM en tránsito. Administrar buffers significa trabajar con una agrupación grande en RAM y luego transmitir juntos de un golpe en disco para "ganar" tiempo al cuello de botella. |
-| **Procesador de E/S** | Hardware muy independiente a la que la CPU delega la gestión de las señales hacia los pines del puerto (transmite a disco liberando la CPU principal). |
-| **Controlador de Disco** | Entidad de silicio final responsable de encender cabezales: se *Posiciona en Pista*, *Posiciona en Sector* y *Transfiere* físicamente al cilindro final. |
+| **Sistema Operativo** | Recibe nuestro SysCall inicial desde el área de datos del programa y deriva el trabajo a un Administrador específico. |
+| **Administrador de Archivos** | Evalúa la factibilidad. En sus **Capas Superiores** analiza la tabla de archivos abiertos (si es lectura/escritura). En las **Capas Inferiores** se comunica con la FAT para descubrir los componentes magnéticos de cilindros. Su rol principal es reubicar la orden al Procesador. |
+| **Buffer de E/S** | Segmento lógico en memoria que acumula grupos enteros para minimizar latencias. Si no hay espacio, se debe forzar una escritura. |
+| **Procesador de E/S** | Hardware hiper-independiente del microprocesador principal. Recibe la orden del Administrador para que el CPU pueda volver a ejecutar sus tareas sin freezarse. |
+| **Controlador de Disco** | Entidad encargada puramente de operaciones electromagnéticas: Busca la Pista, busca el Sector de la superficie, y finaliza el viaje eléctrico. |
 
 ```mermaid
-graph LR
-    A[Programa Usuario\nvar='P'] --> B[SysCall al\nSist. Operativo]
-    B --> C[Administrador\nde Archivos]
-    C --> D[Buffer en RAM\n'.....P....']
-    D --> E[Procesador E/S]
-    E --> F[Controlador HD\nMovimiento Cabezal]
+graph TD
+    A[Programa Usuario\nvar = 'P'] --> B[Llamada al Sistema Operativo]
+    B --> C[Administrador de Archivos]
+    C --> D[Buffer de Salida en RAM]
+    D --> E[Procesador de Entrada/Salida]
+    E --> F[Controlador de Disco Rígido]
 ```
 
----
+### ⚙️ Procedimiento Oficial (Protocolo de Transmisión del S.O.)
 
-## 🏗️ Archivos Estructurados e Identidad de Campos
-
-Un archivo puede ser simplemente una **Secuencia de bytes** (Archivo de texto o sin formato estricto). Sin embargo, necesitamos estructuras definidas que puedan parsearse y recuperarse adecuadamente.
-
-Cuando usamos registros que guardan campos, hay dos grandes mundos según el pre-conocimiento de longitud:
-
-### Longitud Fija (Predecible)
-
-*   Sabemos que un Nombre siempre ocupará 30 caracteres.
-*   ✅ Permite calcular rápido la memoria u usar la dirección como un vector gigante para accesos directos.
-*   ❌ Desperdicio de espacio (si el nombre es solo "Ana", derrochamos 27 bytes adicionales).
-
-### Longitud Variable (Sin Predictibilidad)
-
-*   Los campos se guardan uno tras otro.
-*   No desperdiciamos memoria, ¡pero el límite entre ellos se borronea!
-
-**Tipos comunes de límites de Longitud Variable:**
-1.  **Indicador de Longitud:** Al inicio de cada campo se usan un byte o entero escondido marcando cuántos bytes lo siguen (Ej: `05_Pablo`).
-2.  **Delimitador:** Un carácter especial de ASCII al final del campo, generalmente ignorado por el dominio (Ej: `Pablo$#@`).
-3.  **Archivo Offset:** Un segundo mini-archivo que se guarda en paralelo y posee como apuntadores el byte de inicio exacto del archivo maestro.
-
-En criollo: Si hacemos espacio delimitado es como un casillero fijo. Si hacemos longitud dinámica o variable es como un acordeón; el sistema tiene que leer sobre la marcha e ir deteniéndose cada vez que vea un carácter trampa o un número que él mismo contó al principio.
+Cuando se dispara la sentencia:
+1. El programa le pide al S.O. escribir del contenido de su variable.
+2. El S.O. transfiere la posta al Administrador de Archivos.
+3. El Administrador verifica la tabla de metadatos (derechos lógicos de Piel L/E).
+4. El Administrador interroga a la FAT por la ruta real de cabezales.
+5. El Administrador graba del registro de RAM al sector de su **Buffer asignado**.
+6. Se envían instrucciones al Procesador de E/S para purgar ese Buffer.
+7. El Procesador de E/S encuentra su brecha sin usar la CPU y lo transfiere al Controlador de disco asincrónicamente.
+8. El Controlador alinea la cabeza lectora y transfiere bits uno a uno.
 
 ---
 
-## 🔑 Claves y Performance
+## Parte B: Organización Lógica y Rendimientos
 
-Una **Clave** identifica al elemento. Las claves definen qué búsquedas haremos y las estrategias para resolver un archivo.
+### 🏗️ Clasificación de Registros y Campos
 
-*   **Clave Única/Primaria:** Identifica a un registro unívoco.
-*   **Clave Secundaria:** Atributo para buscar agrupaciones no-unívocas (Ej: "Buscame en todos los empleados a los de 'Neuquén'").
-*   **Clave Canónica:** Una clave estandarizada obligatoria de validación. Ej: Si ingreso `aBc de FG`, la aplicamos bajo regla para lograr `ABCDEFG` en disco. Siempre buscaremos contra la clave canónica en el motor.
+Un archivo desestructura o delimita su información para ser procesada. Un campo es la mínima unidad de significado. ¿Cómo determinamos dónde empieza o finaliza un campo?
 
-### Reflexión de Performance en Secuencial vs Directo
-
-| Concepto | Fórmula |
+#### Longitud Fija (Predecible)
+El límite está programado rígidamente dentro de la lectura. Por ejemplo: toda cadena usa `string[100]`.
+| | Descripción |
 |---|---|
-| Búsqueda Promedio Secuencial | O(n) iteraciones en disco (Promedio: N/2 asumiendo un solo match). |
-| Búsqueda Directa por Clave Offset | O(1) pero sólo viable en registros de longitud fija (Dirección real en byte = `NRR` * `Tamano del Registro`). |
+| ✅ | Facilidad brutal para accesos directos por tamaño (`Filepos * TamanoBytes`). Las lecturas son siempre las mismas constantes. |
+| ❌ | Desperdicio monstruoso de bytes; rellenando las informaciones cortas con espacios o nulos para llenar el casillero prefijado. |
 
-> *"El acceso directo es preferible sólo cuando se necesitan pocos registros precisos, NO cuando necesitamos la lectura sistemática para una extracción analítica gigante."*
+#### Longitud Variable (No Predecible)
+El campo mide lo estríctamente justo, adaptando su forma como un acordeón (`string`). Requiere reglas para que la computadora no termine tragándose dos campos como si fueran uno solo:
+1. **Indicadores de Longitud (prefijos):** Un byte entero es inserto automáticamente adelante del texto (`04Hola`).
+2. **Delimitadores (sufijos):** Se interpone un carácter no usado que sirve de tope (`Hola#Mundo#`).
+3. **Archivo Paralelo:** Un archivo con vectores con las direcciones de offsets precisas.
 
 ---
 
-## 🗑️ Eliminación de Archivos y Fragmentación
+### 🔑 Claves y Forma Canónica
 
-Los sistemas de bases de datos tienen dos formas grandes e históricas de manejar una petición de eliminación:
+Una **Clave** permite dotar de identidad a un registro particular, buscando extraerlo en un `seek`. 
 
-### Baja Lógica
+- **Clave Primaria (Univoca):** Jamás devuelve dos registros (DNI, Código de producto).
+- **Clave Secundaria:** Propiedades agrupadoras comunes (País, Rubro, Sector).
 
-Las **bajas lógicas** ocurren cuando no se extrae físicamente información almacenada sino que incluimos código invisible en el primer byte del string marcándolo con un carácter trampa o asterísco especial (`*`).
+Para evitar que se carguen "Agustín", " AGUSTIN", "Agustin ", se ideó la **Forma Canónica**.
 
-*   ✅ Es sumamente rápido, requiere una sobreescritura cortita.
-*   ❌ No nos deshacemos de su espacio real originando derroche de espacio y pérdida de performance si iteramos con frecuencia.
+**Motivación:** Estandarizar la forma final de cualquier clave y evitar duplicidades silenciosas.
+**Procedimiento de inserción canónica:**
+1. Al intentar guardar un nombre, derivar aplicando las reglas estándar de filtro (por ejemplo: `Todo a Mayúsculas` + `Trim right`).
+2. Recién luego, somerterse a una lectura completa del dataset.
+3. Si la llave procesada choca, se detiene la inserción inmediatamente. 
 
-### Baja Física - Compactación
+### 📊 Desempeño y Performance Básico (Costos O)
 
-La **baja física** requiere mover información en los discos alterando toda la memoria para destruir todo tipo de rastros. Al originar inestabilidad extrema, la aproximación se realiza clonando un archivo gigante pasandole o "mergenando" únicamente cosas que NO fueron eliminadas y luego pisando o linkeando al clon. Es muy lenta.
+| Modos de Acceso | Rendimiento de Iteración | Pros / Contras |
+|---|---|---|
+| **Acceso Secuencial** | **O(n)**. Mejor caso = 0, Peor caso = n, Promedio = n/2. | ✅ Ideal para procesamiento Batch y liquidaciones en cadena. <br>❌ Si tenemos 50,000 registros, el promedio de `25,000` iteraciones para 1 lectura individual es castigador. |
+| **Acceso Directo (Offset)** | **O(1)**. El S.O. formula `Numero. de Registro * Tamaño`. | ✅ Salto instantáneo y espectacular.<br>❌ Solamente compatible estrictamente usando Longitudes Fijas garantizadas. |
 
-### Recuperación de Espacios con Cabeceras Lista/Pilas
+> *"El acceso directo NO siempre es el más apropiado: Si debes emitir todos los cheques de la empresa, es infinitamente más sano leer secuencialmente el archivo del principio a fin utilizando su Buffer, que andar tirando tiros esporádicos al disco mediante Seek."*
 
-Podemos mezclar la técnica de Baja Lógica con re-utilización futura. El sistema mantiene en el **Header** (Registro NRR 0 típicamente, al principio del archivo cabecera) un puntero hacia el primer registro eliminado disponible. Si un registro se vuelve a reusar o crear, aprovechamos esa posición libre (que marcaba otra). Esto forma el arquetipo de una "lista eslabonada" inserta en las propias entrañas del archivo en forma de pila.
+---
 
-## 📊 Problema de Espacio: Fragmentaciones
+## Parte C: Clases Operativas y Gestión de Bajas
 
-La longitud variable nos otorga un problema único: al rehusar con Cabeceras, necesitamos ver si el "nuevo dato" CABE en el viejo huequito de la Baja de un registro variable viejo. Si "más o menos" entra o sobra un poco, tendremos la famosa **Fragmentación**.
+### 🎯 Tipos de Archivo por "Frecuencia de Cambios"
 
-| Tipo de Fragmentación | Descripción |
+| Tipo de Archivo | Descripción de Comportamiento | 
 |---|---|
-| ✅ **Interna** | El sistema derrochó un poco pero el espacio es inservible e internalizado en su casillero (Aplica más para registros de longitud Fija). |
-| ❌ **Externa** | Espacio libre desperdiciado en medio del archivo al que no le cabe NADA de casualidad, fragmentando todo inútilmente y volviéndose innacesible. |
+| **Estáticos** | Son archivos donde los datos persisten enormemente sin ser alterados o con pocas inserciones. Carecen de estructuras sofisticadas complejas auxiliares. | 
+| **Volátiles** | Son archivos con un nivel de estrés altísimo que experimentan Bajas, Modificaciones y Altas (`ABM` / `CRUD`). Si o si van de la mano de un árbol B o índices fuertes si la velocidad de uso importa. |
 
-### Algoritmos de Resolución (Para Long. Variable)
+### 🗑️ Gestión de la Eliminación (Las Bajas)
 
-Al insertar algo y poseer la lista de bajas, podemos utilizar **Ajustes**:
+Toda estrategia de sustracción debe resolver dos problemas: **esconder lo borrado** e hipotéticamente **reactivar ese espacio muerto**.
 
-1.  **Primer Ajuste:** Barremos la lista de bajados enlazados y al primer bloque en el que el nuevo registro entre en su tamaño, lo metemos como sea y lo sellamos. Originando de peaje fuerte Fragmentación Interna pero excelente ganancia de tiempo sin buscar más nada.
-2.  **Mejor Ajuste:** Barremos TODA la lista disponible buscando aquel espacio libre que se acerque de forma ultra-precisa a los bytes requeridos (se desperdiciará un hilo cortito, y perderemos mucho tiempo en buscar).
-3.  **Peor Ajuste:** Agarraremos siempre de forma forzada el segmento de bajado libre más bestialmente inmenso que tenga el archivo entero... para cortar sus partes usables y fraccionar un nuevo bloque vacío independiente y útil. Produce la tan temida **Fragmentación Externa** y nula Interna.
+| Variante de Baja | Procedimiento | Impacto |
+|---|---|---|
+| **Baja Lógica** | Consiste en marcar artificialmente el byte líder del registro con una estaca nula. (Ejemplo: insertando `*`). Todo sistema `Read()` debe esquivarlo. | ✅ Tiempo constante e insuperable, permitiendo deshacer errores temporalmente.<br>❌ Los volúmenes físicos del disco no decrecen ni en un misero byte jamás. |
+| **Baja Física (Compactación)** | Obliga a clonar y pasar únicamente la data oficial que NO contenga un '*', formando un nuevo archivo sano y volcándolo encima del archivo antiguo arruinado. | ✅ Soluciona a la perfección la eficiencia de tiempos de `Filesize`.<br>❌ Extremadamente costoso, dejándolo solo para mantenimientos programados trimestrales "Por lotes". |
+
+---
+
+## 🏗️ Re-utilización de Espacio y Fragmentación (Reg. Variable)
+
+Para mitigar los baches enormes de las bajas Lógicas, nació la reusabilidad mediante **Lógica de Pilas / Cadenas**: el archivo mantendrá en un encabezado escondido un NRR (Índice libre). 
+
+**Procedimiento de Lista Enlazada de Borrados:**
+1. Tenemos los datos: `1:alfa`, `2:beta`, `3:delta`. Cabecera = -1.
+2. Damos de baja el 2. En `beta` marcamos su flag como eliminado (ej, su byte inicial va a `-1`). Ahora Cabecera = 2.
+3. Si borramos el NRR `4` que agregamos con registro `gamma`, Cabecera dice `4`, y el NRR 4 tendrá un `-1` encadenado señalando "Andate al 2 papá". Pila = `4 -> 2 -> null`.
+4. Cuando alguien pide insertar algo nuevo, el `seek` le arrebata el espacio a la Cabecera (4), y toma del puntero 4 su índice 2, poniéndolo de nueva Cabecera, reciclando los lugares viejos antes de extender el EOF.
+
+Al poseer **Longitud Variable** (Un string 'Ramiro' devorando el agujero que dejó un 'Juan'), el "Insert" no entrará en el huequito viejo. El nuevo elemento "debe caber", sin excepciones. Esta odisea produce descalces métricos denominados **Fragmentaciones**.
+
+### 🧩 Tipos de Fragmentación en BBDD
+
+| Concepto | Definición Clave |
+|---|---|
+| ✅ **Fragmentación Interna** | Ocurre cuando forzamos el espacio a pesar de que "Sobra un cacho de bytes insignificante que queda de relleno". Ese cacho quedó metido dentro del registro pero el SO no lo puede ni usar ni leer. |
+| ❌ **Fragmentación Externa** | Se presenta al dejar en el medio de todo el archivo secuencias desparramadas de espacios "no asignados" que son dolorosamente pymes, impidiendo que los nuevos inserts enanos quepan allí por estricto desperdicio en tierra de nadie. |
+
+### 📊 Políticas de Ajuste de Espacio Variable
+
+Para asignar un agujero de nuestra pila de borrados en el disco frente a un INSERT, existen 3 posturas fundamentales aplicadas por los motores DBMS:
+
+| Política de Asignación | Funcionamiento Interno | Pro / Contra de la Fragmentación |
+|---|---|---|
+| **Primer Ajuste** *(First Fit)* | Barre la lista encadenada de espacios vacíos. Toma la mismísima primera ranura que logre alojar el byte entrante. Toma TODO el espacio aunque sobre, cerrando el trato de inmediato. | ✅ Rápido, no itera nada de más.<br>⛔ Produce inminente **Fragmentación Interna** por llevarse de yapa 5 bytes inútiles. |
+| **Mejor Ajuste** *(Best Fit)* | Barre minuciosa y compulsivamente la lista completa midiendo todos y cada uno de los huecos. Entrega la victoria a aquél "huequito del tamaño más clavado al insert". | ✅ Extremadamente eficiente a nivel bits ocupados.<br>⛔ Requiere escáneres masivos y produce micro-fragmentaciones internas inútiles. |
+| **Peor Ajuste** *(Worst Fit)* | Hace lo inverso a Best: busca el cráter hueco más colosal y grande originado de bajas que exista almacenado. Parte ese cráter a la mitad, usando únicamente lo que requiere y mandando el resto de vuelta al pool común. | ✅ Jamas desperdiciará memoria ajena adentro suyo al fraccionar y partir a la mitad.<br>❌ Produce letal **Fragmentación Externa**. |
+
+---
+
+### ⚠️ Peligros Silenciosos de la Modificación in-situ
+
+Para cerrar el problema de la Organización, modificar `Update` un archivo variable y volátil trae severos problemas colaterales:
+
+1. **Alteración Menor o Mayor**: Un update chico genera fragmentaciones. Si el Update es de tamaño Mayor al que teniamos, el archivo se crashea (ya no puede entrar ahí físicamente) y hay que borrarlo, mandarlo como baja local y tirarlo encadenado al final del EOF.
+2. **Alteraciones en campos de Clave**: Si le damos el permiso al usuario de modificar el código / DNI, se arruina por completo todo el ordenamiento de Merge Secuenciales en el archivo que tanto costo nos dio!
 
 ---
 
 ## 📚 Recursos y Referencias
 
-- **Cátedra FOD (UNLP):** *"Organización de Datos - Clase 3"*. Semestre 2026.
-- Folk-Zoellick: *"Estructuras de Archivos"* (Aspectos teóricos de offset de bajados).
+- **Cátedra FOD (UNLP):** *"Organización de Datos - Clase 3"*. Presentación oficial en PDF.
+- Folk-Zoellick: *"Estructuras de Archivos"*. Referencias base para Ajustes y Pilas Lógicas.
