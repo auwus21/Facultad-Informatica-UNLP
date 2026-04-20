@@ -60,6 +60,23 @@ Cada resumen incluye explicaciones estructuradas, diagramas extraídos de las di
   </tr>
 </table>
 
+<!-- ═══════════════ TEMA 3 ═══════════════ -->
+
+<table>
+  <tr>
+    <td width="900">
+      <h3>📄 <a href="Teoria/Resumenes/Memoria_Tema_3.md">Tema 3: Administración de Memoria</a></h3>
+      <blockquote>Espacio de Direcciones, Segmentación, Paginación, Fragmentación, y estructura TLB.</blockquote>
+      <p>
+        <img src="https://img.shields.io/badge/Memoria-2C3E50?style=flat-square" />
+        <img src="https://img.shields.io/badge/Segmentacion-2C3E50?style=flat-square" />
+        <img src="https://img.shields.io/badge/Paginacion-E67E22?style=flat-square" />
+        <img src="https://img.shields.io/badge/TLB-E67E22?style=flat-square" />
+      </p>
+    </td>
+  </tr>
+</table>
+
 <!-- ═══════════════ CONTEXT SWITCH ═══════════════ -->
 
 <table>
