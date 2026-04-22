@@ -20,6 +20,25 @@ Repositorio de estudio personal para la materia **Introducción a los Sistemas O
 
 <br>
 
+## 📝 Metas: Parcial 1
+
+Checklist de control de estudio enfocado en los temas del primer parcial.
+
+### 📘 Teoría
+- [ ] **Tema 1: Introducción a los SS.OO.** (Hardware, Modos de Ejecución, Syscalls e Interrupciones)
+- [ ] **Tema 2: Procesos** (PCB, Fork/Exec, Jerarquía, Schedulers de corto/mediano/largo plazo)
+- [ ] **Tema 3: Administración de Memoria** (Fragmentación interna/externa, Paginación, Segmentación, TLB)
+
+### 💻 Práctica
+- [ ] **Práctica 1: GNU/Linux** (Pipes, Filtros, Variables de entorno, Permisos, Comandos básicos)
+- [ ] **Práctica 2: Planificación** (Diagramas de Gantt, FCFS, SJF, Round Robin, Prioridades, Inanición)
+
+<br>
+
+---
+
+<br>
+
 ## 📖 Resúmenes de Teoría
 
 Cada resumen incluye explicaciones estructuradas, diagramas extraídos de las diapositivas y conceptos clave del Sistema Operativo. Hacé click en cualquier tema para abrirlo.
