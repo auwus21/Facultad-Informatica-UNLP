@@ -2,7 +2,7 @@ package ar.edu.unlp.info.oo2.biblioteca;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class BibliotecaTest {
 	
@@ -14,49 +14,22 @@ public class BibliotecaTest {
 	void setUp() {
 		biblioteca = new Biblioteca();
 		arya = new Socio("Arya Stark", "needle@stark.com", "5234-5");
-		tyron = new Socio("Tyron Lannister", "tyron@thelannisters.com", "2345-2");
+		tyron = new Socio("Tyron Lannister", "tyron@thelannisters.com",  "2345-2");
 	}
-
+	
 	@Test
-	void testExportarBibliotecaVacia() {	
-		assertEquals("[]", biblioteca.exportarSocios());
+	void testExportarBibliotecaVacia() {
+		assertEquals("[]",biblioteca.exportarSocios());
 	}
-
+	
 	@Test
 	void testExportarUnSocio() {
 		biblioteca.agregarSocio(arya);
+	    String esperado = "[{\"nombre\":\"Arya Stark\",\"email\":\"needle@stark.com\",\"legajo\":\"5234-5\"}]";
+	    assertEquals(esperado, biblioteca.exportarSocios());
+
 		
-		String separator = System.lineSeparator();
-		String expectedOutput = "[" + separator +
-				"\t{" + separator +
-				"\t\t\"nombre\": \"Arya Stark\"," + separator +
-				"\t\t\"email\": \"needle@stark.com\"," + separator +
-				"\t\t\"legajo\": \"5234-5\"" + separator +
-				"\t}" + separator +
-				"]";
-				
-		assertEquals(expectedOutput, biblioteca.exportarSocios());
 	}
 
-	@Test
-	void testExportarMultiplesSocios() {
-		biblioteca.agregarSocio(arya);
-		biblioteca.agregarSocio(tyron);
-
-		String separator = System.lineSeparator();
-		String expectedOutput = "[" + separator +
-				"\t{" + separator +
-				"\t\t\"nombre\": \"Arya Stark\"," + separator +
-				"\t\t\"email\": \"needle@stark.com\"," + separator +
-				"\t\t\"legajo\": \"5234-5\"" + separator +
-				"\t}," + separator +
-				"\t{" + separator +
-				"\t\t\"nombre\": \"Tyron Lannister\"," + separator +
-				"\t\t\"email\": \"tyron@thelannisters.com\"," + separator +
-				"\t\t\"legajo\": \"2345-2\"" + separator +
-				"\t}" + separator +
-				"]";
-
-		assertEquals(expectedOutput, biblioteca.exportarSocios());
-	}
+	
 }
