@@ -25,6 +25,7 @@ Repositorio de estudio personal para la materia **Introducción a los Sistemas O
 Acceso rápido a los exámenes listos para resolver:
 
 - 📝 **[Primer Parcial - Primera Fecha (11/10/2025)](Parciales/2025-10-11_Primer_Parcial/)**
+- 📝 **[Primer Parcial - Primera Fecha (Redictado) (05/05/2025)](Parciales/2025-05-05_Primer_Parcial_Redictado/)**
 - 📁 [Ver directorio completo de Parciales](Parciales/)
 
 ---
