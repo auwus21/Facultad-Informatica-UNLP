@@ -26,6 +26,7 @@ Acceso rápido a los exámenes listos para resolver:
 
 - 📝 **[Primer Parcial - Primera Fecha (11/10/2025)](Parciales/2025-10-11_Primer_Parcial/)**
 - 📝 **[Primer Parcial - Primera Fecha (Redictado) (05/05/2025)](Parciales/2025-05-05_Primer_Parcial_Redictado/)**
+- 📝 **[Primer Parcial - Segunda Fecha (19/05/2025)](Parciales/2025-05-19_Primer_Parcial_Segunda_Fecha/)**
 - 📁 [Ver directorio completo de Parciales](Parciales/)
 
 ---
