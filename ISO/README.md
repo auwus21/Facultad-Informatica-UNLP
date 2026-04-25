@@ -20,6 +20,17 @@ Repositorio de estudio personal para la materia **Introducción a los Sistemas O
 
 <br>
 
+## 📝 Parciales y Evaluaciones
+
+Acceso rápido a los exámenes listos para resolver:
+
+- 📝 **[Primer Parcial - Primera Fecha (11/10/2025)](Parciales/2025-10-11_Primer_Parcial/)**
+- 📁 [Ver directorio completo de Parciales](Parciales/)
+
+---
+
+<br>
+
 ## 📝 Metas: Parcial 1
 
 Checklist de control de estudio enfocado en los temas del primer parcial.
@@ -165,15 +176,7 @@ graph TD
 
 <br>
 
-## 📝 Evaluaciones
 
-Material de preparación extra, simulacros y resolución de exámenes pasados.
-
-📁 [Abrir directorio de Parciales y Evaluaciones](Parciales/)
-
----
-
-<br>
 
 ## 🛠️ Stack Tecnológico
 
