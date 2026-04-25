@@ -169,7 +169,7 @@ graph TD
 
 Material de preparación extra, simulacros y resolución de exámenes pasados.
 
-📁 [Abrir directorio de Evaluaciones](Evaluaciones/)
+📁 [Abrir directorio de Parciales y Evaluaciones](Parciales/)
 
 ---
 
