@@ -12,13 +12,12 @@
 - [ ] c) 1 primaria y 2 extendidas
 - [ ] d) 4 particiones primarias y 1 lógica
 - [ ] e) 3 primarias y 1 lógica
-- [ ] f) a y b son correctas
+- [x] f) a y b son correctas
 - [ ] g) Todas las opciones anteriores son correctas
 - [ ] h) Ninguna opción anterior es correcta
 
-> **Respuesta:**
-> 
-> 
+> **Respuesta: F**
+> ✅ **Correcto (1/1):** MBR soporta hasta 4 particiones primarias o 3 primarias y 1 extendida.
 
 **2) ¿Cuál de las siguientes opciones es correcta acerca del intérprete de comandos en GNU/Linux?**
 - [ ] a) En Linux el intérprete de comandos predeterminado es Bash y no puede cambiarse
@@ -26,41 +25,38 @@
 - [ ] c) Solo el usuario root puede utilizar el intérprete de comandos
 - [ ] d) El intérprete de comandos nos permite interactuar con el kernel del SO
 - [ ] e) a y b son correctas
-- [ ] f) b y d son correctas
+- [x] f) b y d son correctas
 - [ ] g) Todas las opciones anteriores son correctas
 - [ ] h) Ninguna opción anterior es correcta
 
-> **Respuesta:**
-> 
-> 
+> **Respuesta: F**
+> ✅ **Correcto (1/1):** En Linux podemos cambiar el intérprete por usuario, y este es el encargado de interactuar con el Kernel.
 
 **3) ¿Cuál de las siguientes opciones es correcta acerca del manejo de permisos en UNIX?**
 - [ ] a) Se pueden asignar permisos de lectura, escritura y ejecución
 - [ ] b) Si un archivo tiene permisos 666 puede ser ejecutado
 - [ ] c) El comando chmod modifica permisos de archivos
 - [ ] d) El comando chown permite cambiar el propietario de un archivo
-- [ ] e) a y c son correctas
+- [x] e) a y c son correctas
 - [ ] f) a, b y c son correctas
 - [ ] g) Todas las opciones anteriores son correctas
 - [ ] h) Ninguna opción anterior es correcta
 
-> **Respuesta:**
-> 
-> 
+> **Respuesta: E**
+> ✅ **Correcto (1/1):** Ojo, la afirmación "d" también es verdadera (el comando `chown` cambia el propietario). Como no había opción "a, c y d", la "E" engloba las más básicas.
 
 **4) ¿Cuál de las siguientes opciones es correcta acerca del manejo de usuarios en GNU/Linux?**
 - [ ] a) El archivo /etc/passwd almacena la ruta donde se guardan las claves
 - [ ] b) En /etc/passwd se almacenan encriptadas las passwords
 - [ ] c) En /etc/shadow se almacena información del intérprete de comandos del usuario
-- [ ] d) En /etc/shadow se almacenan las claves de cada usuario
+- [x] d) En /etc/shadow se almacenan las claves de cada usuario
 - [ ] e) b y d son correctas
 - [ ] f) c y d son correctas
 - [ ] g) Todas las opciones anteriores son correctas
 - [ ] h) Ninguna opción anterior es correcta
 
-> **Respuesta:**
-> 
-> 
+> **Respuesta: D**
+> ✅ **Correcto (1/1):** Efectivamente la única afirmación verdadera es la D (En `/etc/shadow` se guardan las claves encriptadas).
 
 **5) ¿Cuál de las siguientes opciones es correcta acerca del manejo de procesos en GNU/Linux?**
 - [ ] a) Cada proceso es identificado unívocamente a través de su PID
@@ -69,12 +65,11 @@
 - [ ] d) El comando kill permite terminar un proceso
 - [ ] e) a y b son correctas
 - [ ] f) a, b y c son correctas
-- [ ] g) Todas las opciones anteriores son correctas
+- [x] g) Todas las opciones anteriores son correctas
 - [ ] h) Ninguna opción anterior es correcta
 
-> **Respuesta:**
-> 
-> 
+> **Respuesta: G**
+> ✅ **Correcto (1/1):** Todas las descripciones sobre PIDs, procesos en background (`&`), `ps` y `kill` son ciertas.
 
 **6) ¿Cuál de las siguientes opciones es correcta acerca del manejo de procesos / redirecciones?**
 - [ ] a) Mediante pipe (|) podemos comunicar procesos
@@ -82,16 +77,15 @@
 - [ ] c) Mediante | podemos redirigir la salida de un proceso a otro proceso
 - [ ] d) Mediante > o >> podemos comunicar procesos
 - [ ] e) a y b son correctas
-- [ ] f) a, b y c son correctas
+- [x] f) a, b y c son correctas
 - [ ] g) Todas las opciones anteriores son correctas
 - [ ] h) Ninguna opción anterior es correcta
 
-> **Respuesta:**
-> 
-> 
+> **Respuesta: F**
+> ✅ **Correcto (1/1):** El pipe `|` comunica procesos y el `>` redirige la salida a un archivo. (La "d" era falsa porque `>` y `>>` no comunican procesos entre sí).
 
 **7) ¿Cuál de las siguientes opciones es correcta acerca de las licencias del kernel de GNU/Linux?**
-- [ ] a) Se distribuye bajo licencia GPL
+- [x] a) Se distribuye bajo licencia GPL
 - [ ] b) Se distribuye bajo licencia GPL pero no puede modificarse
 - [ ] c) Se distribuye bajo licencia FOSS
 - [ ] d) Se distribuye libremente
@@ -100,9 +94,8 @@
 - [ ] g) Todas las opciones anteriores son correctas
 - [ ] h) Ninguna opción anterior es correcta
 
-> **Respuesta:**
-> 
-> 
+> **Respuesta: A**
+> ❌ **Incorrecto (0/1):** Elegiste la D. El kernel de Linux se distribuye específicamente bajo la **Licencia Pública General de GNU (GPL)**. La "D" es demasiado genérica y omite el concepto fundamental de la licencia GPL que siempre se evalúa.
 
 **8) ¿Cuáles de las siguientes afirmaciones son correctas acerca de comandos de shell en GNU/Linux?**
 - [ ] a) El comando mv lista los archivos ejecutables
@@ -110,27 +103,25 @@
 - [ ] c) El comando ls lista archivos y directorios
 - [ ] d) El comando cat /etc/passwd muestra el contenido del archivo
 - [ ] e) El comando echo /etc/passwd muestra el contenido del archivo
-- [ ] f) c y d son correctas
+- [x] f) c y d son correctas
 - [ ] g) b y c son correctas
 - [ ] h) Ninguna opción anterior es correcta
 
-> **Respuesta:**
-> 
-> 
+> **Respuesta: F**
+> ✅ **Correcto (1/1):** `ls` lista directorios y `cat` muestra el contenido de archivos.
 
 **9) ¿Cuál de las siguientes opciones es correcta acerca del arranque?**
 - [ ] a) El orden de booteo es: Se ejecuta el código de la BIOS, El hardware lee el sector de arranque, Se carga el kernel, Se carga el gestor de arranque
 - [ ] b) El firmware del BIOS facilita la lectura de file systems
-- [ ] c) UEFI utiliza GPT como mecanismo de particionado
+- [x] c) UEFI utiliza GPT como mecanismo de particionado
 - [ ] d) UEFI no es compatible con MBR tradicional
 - [ ] e) a y b son correctas
 - [ ] f) b y c son correctas
 - [ ] g) Todas las opciones anteriores son correctas
 - [ ] h) Ninguna opción anterior es correcta
 
-> **Respuesta:**
-> 
-> 
+> **Respuesta: C**
+> ❌ **Incorrecto (0/1):** Elegiste la F. La afirmación "b" (El firmware del BIOS facilita la lectura de file systems) es **FALSO**. La clásica BIOS no entiende de Sistemas de Archivos, solo lee sectores crudos del disco (MBR). UEFI sí es capaz de entender sistemas de archivos (FAT32).
 
 **10) ¿Cuál de las siguientes opciones es correcta acerca de comandos en GNU/Linux?**
 - [ ] a) El comando kill permite terminar un proceso
@@ -139,12 +130,11 @@
 - [ ] d) El comando htop permite ver procesos
 - [ ] e) a y b son correctas
 - [ ] f) a, b y c son correctas
-- [ ] g) Todas las opciones anteriores son correctas
+- [x] g) Todas las opciones anteriores son correctas
 - [ ] h) Ninguna opción anterior es correcta
 
-> **Respuesta:**
-> 
-> 
+> **Respuesta: G**
+> ✅ **Correcto (1/1):** `kill`, `ps`, `top` y `htop` son todos comandos válidos para el manejo de procesos.
 
 ---
 
