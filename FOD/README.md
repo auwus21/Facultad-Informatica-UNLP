@@ -75,6 +75,20 @@ Repositorio de estudio personal para la materia **Fundamentos de Organización d
   </tr>
 </table>
 
+<table>
+  <tr>
+    <td width="900">
+      <h3>📄 <a href="Teoria/Resumenes/Clase5.md">Clase 5: Búsqueda de Datos e Índices</a></h3>
+      <blockquote>Utilización de Estructuras Auxiliares, Índices Primarios, Índices Secundarios y Listas Invertidas.</blockquote>
+      <p>
+        <img src="https://img.shields.io/badge/Indices_Primarios-2C3E50?style=flat-square" />
+        <img src="https://img.shields.io/badge/Indices_Secundarios-2C3E50?style=flat-square" />
+        <img src="https://img.shields.io/badge/Listas_Invertidas-2980B9?style=flat-square" />
+      </p>
+    </td>
+  </tr>
+</table>
+
 <br>
 
 📁 [Ver Material Oficial de la Cátedra](Teoria/Material_Original/)
