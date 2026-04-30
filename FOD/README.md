@@ -61,6 +61,20 @@ Repositorio de estudio personal para la materia **Fundamentos de Organización d
   </tr>
 </table>
 
+<table>
+  <tr>
+    <td width="900">
+      <h3>📄 <a href="Teoria/Resumenes/Clase4.md">Clase 4: Búsqueda y Clasificación de Archivos</a></h3>
+      <blockquote>Técnicas de Búsqueda Binaria, Partición y Ordenamiento Externo (Merge Sort) de Archivos masivos en disco.</blockquote>
+      <p>
+        <img src="https://img.shields.io/badge/Busqueda-2C3E50?style=flat-square" />
+        <img src="https://img.shields.io/badge/Clasificacion-2C3E50?style=flat-square" />
+        <img src="https://img.shields.io/badge/MergeSort-2980B9?style=flat-square" />
+      </p>
+    </td>
+  </tr>
+</table>
+
 <br>
 
 📁 [Ver Material Oficial de la Cátedra](Teoria/Material_Original/)
