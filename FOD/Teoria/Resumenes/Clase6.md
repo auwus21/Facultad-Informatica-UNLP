@@ -7,70 +7,98 @@
 
 ## Parte A: Introducción a los Árboles en Disco
 
-### 🎯 Motivación
+### 🎯 Motivación y Problema de los Índices Simples
 
-En las clases anteriores vimos que los Índices arreglan el problema de la Búsqueda Secuencial, pero generan un nuevo problema: **mantener los índices ordenados en disco es excesivamente costoso**.
+En clases anteriores vimos que los índices mejoran drásticamente la búsqueda, pero generan un nuevo cuello de botella: **mantener los índices ordenados linealmente en RAM/Disco es muy costoso** ante inserciones y eliminaciones masivas. 
 
-La solución es utilizar **Árboles**: Estructuras jerárquicas de datos que permiten localizar de forma rápida la información de un archivo, teniendo **intrínsecamente una búsqueda binaria** sin requerir un array contiguo.
-
----
+La solución es utilizar **Árboles**: Estructuras jerárquicas que permiten localizar información de forma logarítmica sin requerir desplazamientos contiguos de datos.
 
 ### 1. Árboles Binarios Paginados
 
-En un árbol binario estándar, cada nodo tiene a lo sumo dos sucesores (Hijo Izquierdo e Hijo Derecho). Su principal inconveniente es que **se desbalancean fácilmente** dependiendo del orden en que lleguen las claves (quedando como una lista enlazada asimétrica).
+En un árbol binario estándar, cada nodo tiene a lo sumo dos sucesores (Hijo Izquierdo e Hijo Derecho).
+*   **Problema Intrínsico:** Se **desbalancean fácilmente** dependiendo del orden en que lleguen las claves (pudiendo degenerar en una lista enlazada O(N)).
+*   **Problema de Almacenamiento (Disco):** Si cada nodo lógico fuera un acceso al disco, bajar por el árbol implicaría demasiados accesos electromecánicos (altísima latencia).
 
-Además, existe un **problema de almacenamiento secundario (Disco)**: si cada nodo es un bloque en el disco, para bajar por el árbol haríamos muchísimas lecturas mecánicas. Para minimizar esto, aplicamos **Paginación**, agrupando varios nodos en un solo bloque o "página" física de memoria.
+**Solución -> Paginación:** Se minimizan los accesos a disco empaquetando o "paginando" múltiples nodos lógicos en un único bloque o *página* física del disco. Al cargar la página en RAM, tenemos acceso local a toda esa rama.
 
 ![Arbol Binario Paginado](./img/arbol_binario_paginado.png)
-> *Ejemplo visual de paginación: Varios nodos lógicos (triángulos) son empaquetados dentro de un único nodo de disco (cuadrado gris).*
 
 **¿Y los Árboles AVL?**
-Son árboles binarios balanceados en altura (`BA(1)`). Mantienen la altura compensada mediante *Rotaciones* estrictas cada vez que se inserta un dato, pero su performance (`1.44 log₂(N+2)`) todavía peca de tener un alto grado de saltos a disco.
+Son árboles binarios con la propiedad estricta de estar *balanceados en altura* (`BA(1)`). Mediante rotaciones aseguran que la rama más larga y la más corta difieran a lo sumo en 1 nivel.
+*   *Rendimiento:* Búsqueda en `1.44 log₂(N+2)`.
+*   *Inconveniente:* Para Bases de Datos masivas, la profundidad sigue siendo excesiva y las rotaciones causan demasiadas escrituras a disco.
 
 ---
 
-## Parte B: Árboles Multicamino
+## Parte B: Árboles Multicamino y Árboles B
 
-Para achicar severamente la altura del árbol (y con ello, achicar los "saltos electromecánicos" en disco), pasamos a los **Árboles Multicamino**. 
-En vez de tener 1 sola clave por nodo que deriva a 2 hijos, generalizamos el concepto para que un nodo tenga **K punteros a hijos** y **K-1 llaves**.
+### 1. Árboles Multicamino
+Para achicar la altura del árbol (y los saltos de disco), generalizamos el árbol binario. Un nodo ahora tiene **K punteros a hijos** y **K-1 llaves (datos)**. Al ser más "ancho", la profundidad disminuye drásticamente.
 
 ![Arbol Multicamino](./img/arbol_multicamino.png)
-> *Al colocar más claves dentro de la misma "Página/Bloque", el árbol se hace mucho más "ancho" y mucho menos "profundo".*
 
----
+### 2. Árboles B (Balanceados)
 
-## Parte C: Árboles B (Balanceados)
+Son árboles multicamino con una construcción especial **Bottom-Up (de abajo hacia arriba)** que garantiza un balance perfecto a bajo costo.
 
-Los **Árboles B** son la evolución final para Bases de Datos. Son árboles multicamino con una construcción especial **de forma ascendente (bottom-up)** que permite mantenerlos estrictamente balanceados a bajísimo costo computacional.
-
-### Propiedades de un Árbol B (Orden M)
-*   **M:** Máxima cantidad de hijos (punteros).
-*   Ningún nodo tiene más de `M` hijos ni más de `M-1` claves.
-*   Todo nodo (menos la raíz y las hojas) tiene como **mínimo** `⌈M/2⌉` hijos (siempre están a la mitad de su capacidad).
-*   **Nivelación Perfecta:** Todos los nodos hoja (terminales) aparecen exactamente al mismo nivel (altura igual).
+**Propiedades de un Árbol B de Orden M:**
+1.  Todo nodo tiene como máximo `M` hijos.
+2.  Todo nodo (excepto raíz y hojas) tiene como **mínimo `⌈M/2⌉` hijos** (al menos la mitad de su capacidad).
+3.  La raíz tiene al menos 2 hijos.
+4.  **Nivelación Perfecta:** Todos los nodos hoja (terminales) están exactamente al mismo nivel.
+5.  Un nodo con `K` hijos contiene exactamente `K-1` registros.
 
 ![Ejemplo de Arbol B](./img/arbol_b_ejemplo.png)
-> *Estructura interna: Cada nodo posee celdas alternadas entre Punteros (Hijos) y Datos (Claves). Se muestra una tabla simulando la RAM que almacena los punteros lógicos y los NRR físicos.*
 
-**¿Por qué son tan rápidos? (Performance)**
-Si armamos un árbol con un Orden de M=512 (es decir, cada bloque del disco rígido puede guardar 511 claves), y tenemos 1 Millón de registros, la altura máxima del árbol será de solo `3.37`. 
-👉 **Con solo 4 lecturas electromecánicas al disco, encontramos cualquier registro entre 1 Millón.**
+#### 🚀 Performance Matemática (Cota de H)
+¿Por qué son tan dominantes? Si armamos un Árbol B con un Orden de `M = 512`, y tenemos `N = 1.000.000` de registros, la altura máxima teórica es `h <= 3.37`. 
+👉 **Solo se requieren 4 lecturas de disco para hallar 1 registro entre un millón.**
+
+#### ⚙️ Operaciones ABM (Alta, Baja, Modificación)
+
+*   **Inserción:**
+    *   *Mejor Caso:* El nodo hoja tiene espacio. Costo: `H` lecturas y `1` escritura.
+    *   *Peor Caso (Overflow):* El nodo hoja está lleno. Se parte a la mitad (**Split/División**), subiendo el elemento medio al nodo padre. Si el padre también está lleno, la división se propaga hasta la raíz (aumentando la altura del árbol). Costo: `2h+1` escrituras.
+*   **Eliminación:**
+    *   Siempre se elimina de un nodo terminal. Si el registro está en un nodo interno, se intercambia previamente con su sucesor más cercano en una hoja.
+    *   *Mejor Caso:* Sobran elementos en el nodo.
+    *   *Peor Caso (Underflow):* El nodo queda con menos de `⌈M/2⌉ - 1` elementos. Existen dos soluciones:
+        1.  **Redistribuir:** Pedirle un elemento prestado a un *nodo adyacente hermano*.
+        2.  **Concatenar (Merge):** Si los hermanos también están al mínimo, se fusionan dos nodos en uno solo, achicando el árbol.
 
 ---
 
-## Parte D: Variantes Avanzadas (B* y B+)
+## Parte C: Variantes Avanzadas (B* y B+)
 
-### 🌳 Árboles B*
-Son un Árbol B estricto donde se exige que **cada nodo esté lleno por lo menos en sus 2/3 partes** (en lugar de la mitad 1/2 del Árbol B normal). Retrasa la necesidad de dividir páginas, mejorando la densidad espacial.
+### 🌳 Árboles B* (Mayor Densidad)
+Es una variante que optimiza el espacio y demora las operaciones costosas de división.
+*   **Regla de Oro:** Cada nodo no está lleno a la mitad (1/2), sino que debe estar **lleno en sus 2/3 partes**.
+*   *Inserción:* Al haber overflow, en lugar de dividir el nodo en 2 nodos al 50%, intenta **Redistribuir** con sus vecinos. Solo cuando 3 nodos seguidos están al tope, se dividen creando uno nuevo (llenando todos a 3/4).
 
-### 🌳 Árboles B+
-El rey de los motores de bases de datos relacionales modernos.
-*   **Diferencia Fundamental:** Todos los registros (los datos reales) **solo residen en las Hojas**.
-*   Los nodos internos son puramente "punteros guía" de enrutamiento.
-*   **Conjunto de Secuencias:** Todas las hojas están enlazadas horizontalmente (como una lista doblemente enlazada). Esto permite hacer **Búsquedas Secuenciales Masivas** rapidísimas saltando de hoja en hoja sin tener que volver a subir a la raíz.
+### 🌳 Árboles B+ (Bases de Datos Relacionales)
+Es el estándar absoluto en bases de datos comerciales. Su diseño resuelve el problema de tener que hacer un recorrido "In-Order" puramente jerárquico para sacar reportes secuenciales.
+
+*   **Diferencia Fundamental:** Todos los registros físicos de datos **SOLO residen en las hojas**. 
+*   **Nodos Internos:** Solo contienen "Separadores" (copias de las claves) que actúan como "Roadmaps" o guías de enrutamiento.
 
 ![Insercion Arbol B+](./img/arbol_b_plus.png)
-> *Mecánica de división en Árbol B+: Cuando una hoja se llena, se divide en dos, la clave media "sube" al nodo padre para rutear, pero a su vez se mantiene "abajo" en la nueva hoja derecha para no perder el dato real.*
+
+#### Conjunto de Secuencias
+Las hojas del Árbol B+ no están aisladas. Están **linkeadas físicamente entre sí** de izquierda a derecha (como una lista doblemente enlazada masiva). 
+*   Esto permite búsquedas específicas usando la jerarquía (O(log N)).
+*   Y permite **procesamientos secuenciales masivos rapidísimos** (como un barrido de tabla) saltando de página en página mediante el puntero horizontal, ignorando la raíz.
+
+#### Árboles B+ de Prefijos Simples
+Para que entren más claves en la memoria RAM, los nodos guía no guardan la clave completa (Ej: `GONZALEZ`), sino el **prefijo mínimo** necesario para separar la decisión (Ej: `GON`), ahorrando masivo espacio interno.
+
+### 🆚 Conclusión Comparativa (B vs B+)
+
+| Característica | Árbol B Tradicional | Árbol B+ |
+|---|---|---|
+| **Ubicación de Datos** | En cualquier nodo (Internos o Hojas) | **SOLO** en Nodos Terminales (Hojas) |
+| **Tiempo de Búsqueda** | Logarítmico | Logarítmico |
+| **Procesamiento Secuencial** | Lento (Requiere subir y bajar recursivamente) | **Muy Rápido** (Saltos por punteros horizontales) |
+| **Mantenimiento (ABM)** | Complejo por underflow interno | Puede requerir un poco más de tiempo por el mantenimiento de la lista secuencial, pero simplifica el código general al estar todo en las hojas. |
 
 ---
 
