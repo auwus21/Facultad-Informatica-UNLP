@@ -78,12 +78,12 @@ Repositorio de estudio personal para la materia **Fundamentos de Organización d
 <table>
   <tr>
     <td width="900">
-      <h3>📄 <a href="Teoria/Resumenes/Clase5.md">Clase 5: Búsqueda de Datos e Índices</a></h3>
-      <blockquote>Utilización de Estructuras Auxiliares, Índices Primarios, Índices Secundarios y Listas Invertidas.</blockquote>
+      <h3>📄 <a href="Teoria/Resumenes/Clase6.md">Clase 6: Árboles y Estructuras Balanceadas</a></h3>
+      <blockquote>Soluciones avanzadas para almacenamiento secundario. Árboles Binarios, Multicaminos, B-Trees y Árboles B+.</blockquote>
       <p>
-        <img src="https://img.shields.io/badge/Indices_Primarios-2C3E50?style=flat-square" />
-        <img src="https://img.shields.io/badge/Indices_Secundarios-2C3E50?style=flat-square" />
-        <img src="https://img.shields.io/badge/Listas_Invertidas-2980B9?style=flat-square" />
+        <img src="https://img.shields.io/badge/Arboles_Binarios-2C3E50?style=flat-square" />
+        <img src="https://img.shields.io/badge/B--Trees-2C3E50?style=flat-square" />
+        <img src="https://img.shields.io/badge/Arbol_B+-2980B9?style=flat-square" />
       </p>
     </td>
   </tr>
