@@ -109,6 +109,23 @@ Cada resumen incluye explicaciones estructuradas, diagramas extraídos de las di
   </tr>
 </table>
 
+<!-- ═══════════════ TEMA 3 PARTE 2 ═══════════════ -->
+
+<table>
+  <tr>
+    <td width="900">
+      <h3>📄 <a href="Teoria/Resumenes/Memoria_Tema_3_Parte2.md">Tema 3 (Parte 2): Memoria Virtual y Reemplazo</a></h3>
+      <blockquote>Memoria Virtual, Page Faults, Conjunto Residente, Algoritmos de Reemplazo (FIFO, LRU, 2da Chance, NRU), Asignación de Marcos.</blockquote>
+      <p>
+        <img src="https://img.shields.io/badge/Memoria_Virtual-2C3E50?style=flat-square" />
+        <img src="https://img.shields.io/badge/Page_Fault-2C3E50?style=flat-square" />
+        <img src="https://img.shields.io/badge/FIFO_LRU-E67E22?style=flat-square" />
+        <img src="https://img.shields.io/badge/Reemplazo-E67E22?style=flat-square" />
+      </p>
+    </td>
+  </tr>
+</table>
+
 <!-- ═══════════════ CONTEXT SWITCH ═══════════════ -->
 
 <table>
