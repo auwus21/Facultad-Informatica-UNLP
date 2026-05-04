@@ -97,30 +97,14 @@ Cada resumen incluye explicaciones estructuradas, diagramas extraídos de las di
 <table>
   <tr>
     <td width="900">
-      <h3>📄 <a href="Teoria/Resumenes/Memoria_Tema_3.md">Tema 3: Administración de Memoria</a></h3>
-      <blockquote>Espacio de Direcciones, Segmentación, Paginación, Fragmentación, y estructura TLB.</blockquote>
+      <h3>📄 <a href="Teoria/Resumenes/Memoria_Tema_3.md">Tema 3: Administración de Memoria (Parte 1 y 2)</a></h3>
+      <blockquote>Espacio de Direcciones, Segmentación, Paginación, Memoria Virtual, Page Faults, TLB, Algoritmos de Reemplazo (FIFO, LRU, etc).</blockquote>
       <p>
         <img src="https://img.shields.io/badge/Memoria-2C3E50?style=flat-square" />
         <img src="https://img.shields.io/badge/Segmentacion-2C3E50?style=flat-square" />
         <img src="https://img.shields.io/badge/Paginacion-E67E22?style=flat-square" />
-        <img src="https://img.shields.io/badge/TLB-E67E22?style=flat-square" />
-      </p>
-    </td>
-  </tr>
-</table>
-
-<!-- ═══════════════ TEMA 3 PARTE 2 ═══════════════ -->
-
-<table>
-  <tr>
-    <td width="900">
-      <h3>📄 <a href="Teoria/Resumenes/Memoria_Tema_3_Parte2.md">Tema 3 (Parte 2): Memoria Virtual y Reemplazo</a></h3>
-      <blockquote>Memoria Virtual, Page Faults, Conjunto Residente, Algoritmos de Reemplazo (FIFO, LRU, 2da Chance, NRU), Asignación de Marcos.</blockquote>
-      <p>
-        <img src="https://img.shields.io/badge/Memoria_Virtual-2C3E50?style=flat-square" />
-        <img src="https://img.shields.io/badge/Page_Fault-2C3E50?style=flat-square" />
-        <img src="https://img.shields.io/badge/FIFO_LRU-E67E22?style=flat-square" />
-        <img src="https://img.shields.io/badge/Reemplazo-E67E22?style=flat-square" />
+        <img src="https://img.shields.io/badge/Memoria_Virtual-E67E22?style=flat-square" />
+        <img src="https://img.shields.io/badge/Page_Fault-E67E22?style=flat-square" />
       </p>
     </td>
   </tr>
