@@ -527,7 +527,7 @@ En criollo: La clase 0 es la basura perfecta para reciclar (nadie la usa y no ha
 **Thrashing** ocurre cuando un sistema pasa **más tiempo paginando** (trayendo y sacando páginas del disco) **que ejecutando instrucciones de procesos**.
 Cuando la tasa de Fallos de Página ($p$) tiende a 1, el Tiempo de Acceso Efectivo (EAT) se dispara, generando una caída dramática en la performance.
 
-<img src="./images/T3M3_P3_Img0.jpeg" width="550"/>
+<img src="./images/T3M3_Slide_3.png" width="550"/>
 
 ### 🔄 El Círculo Vicioso del Thrashing
 ¿Cómo entra un sistema en este estado catastrófico? Generalmente es culpa de una mala interacción entre el planificador de CPU y un algoritmo de reemplazo global:
@@ -539,7 +539,7 @@ Cuando la tasa de Fallos de Página ($p$) tiende a 1, el Tiempo de Acceso Efecti
 5. Baja aún más la utilización de la CPU.
 6. El kernel, viendo que la CPU no se usa, ¡trae aún más procesos! Y el sistema colapsa por completo.
 
-<img src="./images/T3M3_P4_Img0.jpeg" width="550"/>
+<img src="./images/T3M3_Slide_4.png" width="550"/>
 
 > [!TIP]
 > **Solución básica:** Usar **algoritmos de reemplazo local**. Si un proceso entra en thrashing, se le limitan los fallos de página a sus propios marcos, sin robarle a los demás. El sistema se ralentiza, pero al menos el problema es controlable.
@@ -554,7 +554,7 @@ Cuando la tasa de Fallos de Página ($p$) tiende a 1, el Tiempo de Acceso Efecti
 - Cada rutina o función nueva ejecutada representa una "nueva localidad".
 - **Objetivo del SO:** Asegurar que **todas las páginas de la localidad actual de un proceso estén cargadas en RAM**. Si el Conjunto Residente del proceso cubre su localidad actual, los *page faults* serán mínimos. Si el tamaño asignado es menor a la localidad, el proceso sufrirá *thrashing* constantemente.
 
-<img src="./images/T3M3_P9_Img0.jpeg" width="550"/>
+<img src="./images/T3M3_Slide_9.png" width="550"/>
 
 ---
 
@@ -568,7 +568,7 @@ Se define una "ventana de observación" ($\Delta$) que contiene las últimas $k$
 - **Implementación:** El SO monitorea cada proceso y le asigna tantos marcos como requiera su WS actual ($WSS_i$).
 - **Control de Demanda ($D$):** Si la suma total de todos los marcos demandados ($D$) supera la memoria física disponible ($m$), habrá thrashing. En este caso, el SO elige un proceso, lo suspende (lo saca al Swap) y reasigna sus marcos a los demás.
 
-<img src="./images/T3M3_P15_Img1.jpeg" width="550"/>
+<img src="./images/T3M3_Slide_15.png" width="550"/>
 
 > [!WARNING]
 > **El problema del Working Set:** Es operativamente *muy costoso* mantener un registro móvil de la ventana $\Delta$ y calcular las referencias exactas para cientos de procesos en tiempo real.
@@ -581,7 +581,7 @@ Se establecen límites deseables (un Máximo y un Mínimo):
 - **Si la PFF actual < Límite Mínimo:** El proceso casi no falla. Esto indica que **le sobran marcos** que no está usando. El SO le quita marcos para prestárselos a otro.
 - Si un proceso supera el máximo y no quedan marcos libres en todo el sistema, se suspende a algún proceso.
 
-<img src="./images/T3M3_P21_Img1.jpeg" width="550"/>
+<img src="./images/T3M3_Slide_21.png" width="550"/>
 
 ---
 
@@ -607,7 +607,7 @@ A nivel lógico, cada proceso se siente dueño de su memoria aislada. Pero a niv
 - **Compartición de Código (Solo-Lectura):** Si 5 usuarios ejecutan el mismo editor de texto, el ejecutable (`.exe`) se carga **una sola vez en RAM**. Los 5 procesos apuntan a los mismos marcos de código, ahorrando muchísima memoria. Los datos (variables), en cambio, están en páginas privadas exclusivas de cada uno.
 - **En Windows:** Los 2 GB superiores de memoria virtual (Memoria del Kernel) son accesibles por todos los procesos; sus tablas de páginas (PDE/PTE) apuntan siempre a las mismas tablas del sistema.
 
-<img src="./images/T3M3_P29_Img1.jpeg" width="550"/>
+<img src="./images/T3M3_Slide_29.png" width="550"/>
 
 ---
 
@@ -620,7 +620,7 @@ Técnica espectacular que permite asociar el contenido completo de un archivo en
 - Cuando la página se modifica y debe ser guardada, **no va al Swap**, sino que sobrescribe el archivo original.
 - Es la base principal para cargar dinámicamente Librerías Compartidas (**DLLs**) en Windows y Linux.
 
-<img src="./images/T3M3_P32_Img0.jpeg" width="550"/>
+<img src="./images/T3M3_Slide_32.png" width="550"/>
 
 ---
 
@@ -635,7 +635,7 @@ Es una optimización brillante fundamental para la creación rápida de procesos
   2. El Kernel intercepta la falla, nota que es una página COW, y en ese preciso instante **clona el marco físico conflictivo**, dándole una copia privada a quien intentó escribir.
   3. Luego ajusta los permisos a lectura/escritura y reanuda el proceso transparente y silenciosamente.
 
-<img src="./images/T3M3_P36_Img1.jpeg" width="550"/>
+<img src="./images/T3M3_Slide_36.png" width="550"/>
 
 ---
 
@@ -648,7 +648,7 @@ Puede ser una partición dedicada y cruda (Linux) o un archivo enorme en el sist
 - Respuesta: Cuando una página está en el Swap y su bit **V=0**, la MMU (hardware) asume que la PTE es inválida y **descarta todos los demás bits**. ¡El Kernel aprovecha astutamente todos esos 31 bits inútiles de la entrada de la tabla para **anotar las coordenadas físicas del disco**!
 - Cuando ocurre el Page Fault, el Kernel lee la PTE, extrae las coordenadas grabadas, y manda al disco a traer el contenido.
 
-<img src="./images/T3M3_P39_Img0.jpeg" width="550"/>
+<img src="./images/T3M3_Slide_39.png" width="550"/>
 
 ### El Swap en Linux
 Linux permite definir múltiples áreas de Swap (en un array llamado `swap_info`).
@@ -657,6 +657,6 @@ Cuando Linux desaloja una página y pone el bit `V=0`, en los bits restantes de 
 1. **El número del área de swap** (índice del array `swap_info`).
 2. **El desplazamiento (slot index)** exacto dentro de ese disco. (Usa 24 bits para esto, lo que pone el límite matemático del área de Swap individual en 64 GB).
 
-<img src="./images/T3M3_P40_Img1.jpeg" width="550"/>
+<img src="./images/T3M3_Slide_40.png" width="550"/>
 
 </details>
