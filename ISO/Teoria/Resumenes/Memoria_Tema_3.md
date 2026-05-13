@@ -517,3 +517,103 @@ En criollo: La clase 0 es la basura perfecta para reciclar (nadie la usa y no ha
 
 </details>
 
+
+
+<details>
+<summary><b>🛠️ Parte 3: Thrashing, Working Set y Temas Avanzados</b></summary>
+
+## 💥 Hiperpaginación o Thrashing
+
+**Thrashing** ocurre cuando un sistema pasa **más tiempo paginando** (trayendo y sacando páginas del disco) **que ejecutando instrucciones de procesos**.
+Consecuencia principal:
+- La **productividad de la CPU cae en picada**.
+- El **uso del disco (swap) se satura**.
+
+### El Círculo Vicioso del Thrashing
+1. El kernel monitorea la CPU y nota baja utilización (porque los procesos esperan I/O del disco).
+2. Para "ayudar", aumenta el grado de multiprogramación (trae más procesos a memoria).
+3. Si el algoritmo de reemplazo es **Global**, el nuevo proceso empieza a hacer page-faults y le "roba" marcos a los procesos que ya estaban.
+4. Los procesos antiguos se quedan sin sus páginas vitales, hacen más page-faults, y se encolan en el disco.
+5. Baja aún más la utilización de la CPU.
+6. El kernel, viendo que la CPU no se usa, ¡trae aún más procesos! Y el sistema colapsa.
+
+> **Solución básica:** Usar **algoritmos de reemplazo local**. Si un proceso entra en thrashing, al menos no le roba marcos a los demás.
+
+---
+
+## 📍 El Modelo de Localidad (Cercanía)
+
+> *"Los procesos no acceden a su memoria de forma completamente aleatoria. Tienden a concentrarse en grupos de páginas."*
+
+- **Principio de Localidad:** En cortos períodos de tiempo, un proceso solo necesita referenciar a un pequeño subconjunto de sus páginas (ej. las variables locales de una función, o un loop pequeño).
+- Para prevenir el thrashing, el Kernel debe asegurar que **todas las páginas de la "localidad actual" estén cargadas en RAM**. Si lo logra, los page faults serán mínimos.
+
+---
+
+## 🧮 Estrategias: Working Set y PFF
+
+### 1️⃣ Modelo del Working Set (Conjunto de Trabajo)
+Se define una "ventana de tiempo" ($\Delta$) que contiene las $k$ referencias de memoria más recientes.
+- **Working Set (WS):** Es el conjunto de páginas referenciadas dentro de esa ventana $\Delta$.
+- **El SO calcula el WS de cada proceso** y le asigna exactamente esa cantidad de marcos.
+- Si la suma total de marcos demandados por todos los WS supera la RAM física ($D > m$), el SO **suspende un proceso** (lo saca a swap) para evitar el thrashing.
+- *Problema:* Es muy costoso medir y mantener la ventana móvil para todos los procesos.
+
+### 2️⃣ PFF (Frecuencia de Fallos de Página / Page Fault Frequency)
+En lugar de mirar qué páginas se usan, **mide directamente cuántos fallos de página** hace el proceso.
+Se definen dos umbrales (Mínimo y Máximo):
+- **Si la PFF > Máx:** El proceso sufre muchos page faults, significa que **le faltan marcos** → Se le otorgan más.
+- **Si la PFF < Mín:** El proceso casi no falla, significa que **le sobran marcos** → Se le quitan marcos para dárselos a otro.
+- Si un proceso supera el máximo y no hay marcos libres, se lo suspende.
+
+---
+
+## 👻 El Demonio de Paginación (Paging Daemon)
+
+Es un proceso especial del SO (ej. `kswapd` en Linux) que corre en el fondo ayudando a administrar la memoria.
+- Se despierta cuando hay **poca memoria libre** o cuando hay tiempo de CPU ocioso.
+- **Limpia páginas:** Escribe las páginas con bit `M=1` (sucias) al disco de forma preventiva, pasándolas a estado "limpio". Así, cuando haya un page fault urgente, el sistema puede sobreescribir ese marco sin perder tiempo guardándolo en disco en el momento crítico.
+- **Demora la liberación:** No borra las páginas inmediatamente, armando una "bolsa de reserva" por si el proceso las vuelve a necesitar rápido.
+
+---
+
+## 🤝 Memoria Compartida
+
+Múltiples procesos pueden compartir un mismo marco físico de memoria. Esto se logra haciendo que una entrada de la **Tabla de Páginas de P1** apunte al mismo Marco Físico que la **Tabla de Páginas de P2**.
+- **Código:** Si 10 personas abren Word, no se cargan 10 copias del ejecutable. Todos comparten las páginas de código en *solo-lectura*, pero tienen sus propias páginas de *datos* (variables) privadas.
+- En **Windows (32 bits)**, los 2GB superiores (Memoria de Kernel) son mapeados exactamente a los mismos marcos físicos para TODOS los procesos.
+
+---
+
+## 📁 Mapeo de Archivos en Memoria (Memory-Mapped Files)
+
+Permite asociar el contenido de un archivo en el disco **directamente a una región de la memoria virtual** de un proceso.
+- En vez de leer el archivo con `read()`, el programa simplemente accede a variables en la memoria (lo que dispara page-faults que traen el archivo desde el disco).
+- Si modificás la memoria, eventualmente el SO lo escribe al archivo original (no usa el área normal de swap, usa el archivo mapeado).
+- Fundamental para cargar **DLLs** o librerías compartidas.
+
+---
+
+## 🎭 Copy-on-Write (Copia en Escritura)
+
+Optimización brillante utilizada por la syscall `fork()` en Linux.
+- Cuando un padre hace `fork()`, el SO **NO copia físicamente la memoria** hacia el hijo.
+- En cambio, ambas tablas de páginas apuntan a los **mismos marcos físicos** y se marcan como *solo-lectura*.
+- Si el padre o el hijo **intentan modificar** (escribir) algo, el hardware genera una interrupción por violación de acceso.
+- El SO interviene, crea (ahora sí) una **copia independiente de esa página en particular**, ajusta los punteros, y los deja escribir en su copia privada.
+- Es extremadamente eficiente porque la gran mayoría de las veces el hijo hace un `exec()` inmediato, por lo que duplicar toda la memoria habría sido un desperdicio enorme.
+
+---
+
+## 💾 Área de Intercambio (Swap) en Profundidad
+
+El swap almacena páginas que fueron echadas de la RAM.
+Puede ser una partición dedicada (común en Linux) o un archivo normal (ej. `pagefile.sys` en Windows).
+
+**¿Cómo sabe el SO dónde está la página en el disco si no está en RAM?**
+Cuando una página es desalojada a swap, en su entrada de la Tabla de Páginas (PTE) el **bit V (Valid) se pone en 0**. 
+Al estar en 0, el hardware ignora el resto de los bits de esa PTE. **El Kernel aprovecha esos bits inútiles** para anotar las coordenadas del disco (ej: *Área de swap N, Slot X*). Así sabe exactamente dónde ir a buscarla cuando ocurra el page fault.
+
+En **Linux**, existe un arreglo `swap_info` que controla las distintas particiones de swap. Cada partición se divide en "slots" del mismo tamaño que las páginas (4KB), y el PTE guarda un índice a ese arreglo y un desplazamiento al slot correspondiente.
+
+</details>

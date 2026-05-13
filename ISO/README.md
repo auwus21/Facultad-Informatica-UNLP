@@ -97,14 +97,15 @@ Cada resumen incluye explicaciones estructuradas, diagramas extraídos de las di
 <table>
   <tr>
     <td width="900">
-      <h3>📄 <a href="Teoria/Resumenes/Memoria_Tema_3.md">Tema 3: Administración de Memoria (Parte 1 y 2)</a></h3>
-      <blockquote>Espacio de Direcciones, Segmentación, Paginación, Memoria Virtual, Page Faults, TLB, Algoritmos de Reemplazo (FIFO, LRU, etc).</blockquote>
+      <h3>📄 <a href="Teoria/Resumenes/Memoria_Tema_3.md">Tema 3: Administración de Memoria (Partes 1, 2 y 3)</a></h3>
+      <blockquote>Espacio de Direcciones, Segmentación, Paginación, Memoria Virtual, Page Faults, Thrashing, Working Set y Memoria Compartida.</blockquote>
       <p>
         <img src="https://img.shields.io/badge/Memoria-2C3E50?style=flat-square" />
         <img src="https://img.shields.io/badge/Segmentacion-2C3E50?style=flat-square" />
         <img src="https://img.shields.io/badge/Paginacion-E67E22?style=flat-square" />
         <img src="https://img.shields.io/badge/Memoria_Virtual-E67E22?style=flat-square" />
         <img src="https://img.shields.io/badge/Page_Fault-E67E22?style=flat-square" />
+        <img src="https://img.shields.io/badge/Thrashing_y_WS-E67E22?style=flat-square" />
       </p>
     </td>
   </tr>
