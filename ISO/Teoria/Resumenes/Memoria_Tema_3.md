@@ -527,7 +527,7 @@ En criollo: La clase 0 es la basura perfecta para reciclar (nadie la usa y no ha
 **Thrashing** ocurre cuando un sistema pasa **más tiempo paginando** (trayendo y sacando páginas del disco) **que ejecutando instrucciones de procesos**.
 Cuando la tasa de Fallos de Página ($p$) tiende a 1, el Tiempo de Acceso Efectivo (EAT) se dispara, generando una caída dramática en la performance.
 
-<img src="./images/T3M3_Slide_3.png" width="550"/>
+
 
 ### 🔄 El Círculo Vicioso del Thrashing
 ¿Cómo entra un sistema en este estado catastrófico? Generalmente es culpa de una mala interacción entre el planificador de CPU y un algoritmo de reemplazo global:
@@ -539,7 +539,7 @@ Cuando la tasa de Fallos de Página ($p$) tiende a 1, el Tiempo de Acceso Efecti
 5. Baja aún más la utilización de la CPU.
 6. El kernel, viendo que la CPU no se usa, ¡trae aún más procesos! Y el sistema colapsa por completo.
 
-<img src="./images/T3M3_Slide_4.png" width="550"/>
+
 
 > [!TIP]
 > **Solución básica:** Usar **algoritmos de reemplazo local**. Si un proceso entra en thrashing, se le limitan los fallos de página a sus propios marcos, sin robarle a los demás. El sistema se ralentiza, pero al menos el problema es controlable.
@@ -554,7 +554,7 @@ Cuando la tasa de Fallos de Página ($p$) tiende a 1, el Tiempo de Acceso Efecti
 - Cada rutina o función nueva ejecutada representa una "nueva localidad".
 - **Objetivo del SO:** Asegurar que **todas las páginas de la localidad actual de un proceso estén cargadas en RAM**. Si el Conjunto Residente del proceso cubre su localidad actual, los *page faults* serán mínimos. Si el tamaño asignado es menor a la localidad, el proceso sufrirá *thrashing* constantemente.
 
-<img src="./images/T3M3_Slide_9.png" width="550"/>
+
 
 ---
 
