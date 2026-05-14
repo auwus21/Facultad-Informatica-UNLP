@@ -130,11 +130,12 @@
 - [ ] d) El comando htop permite ver procesos
 - [ ] e) a y b son correctas
 - [ ] f) a, b y c son correctas
-- [x] g) Todas las opciones anteriores son correctas
+- [ ] g) Todas las opciones anteriores son correctas
 - [ ] h) Ninguna opción anterior es correcta
 
-> **Respuesta: G**
-> ✅ **Correcto (1/1):** `kill`, `ps`, `top` y `htop` son todos comandos válidos para el manejo de procesos.
+> **Respuesta:**
+> 
+> 
 
 ---
 

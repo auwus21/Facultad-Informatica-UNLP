@@ -118,6 +118,22 @@ Cada resumen incluye explicaciones estructuradas, código Java y resúmenes de l
   </tr>
 </table>
 
+<!-- ═══════════════ CLASE 6.2 ═══════════════ -->
+
+<table>
+  <tr>
+    <td width="900">
+      <h3>📄 <a href="Teoria/Resumenes/Clase6_2.md">Clase 6.2: BuildHeap y HeapSort</a></h3>
+      <blockquote>Construcción eficiente de heaps en O(n), demostración del teorema y algoritmo HeapSort in-place.</blockquote>
+      <p>
+        <img src="https://img.shields.io/badge/BuildHeap-2ECC71?style=flat-square" />
+        <img src="https://img.shields.io/badge/HeapSort-2C3E50?style=flat-square" />
+        <img src="https://img.shields.io/badge/O(n)_Lineal-2ECC71?style=flat-square" />
+      </p>
+    </td>
+  </tr>
+</table>
+
 <br>
 
 > 📂 **Material oficial de cátedra (PDFs):** [Abrir directorio](Teoria/Material_Original/)

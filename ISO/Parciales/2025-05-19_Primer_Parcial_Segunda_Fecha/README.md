@@ -8,17 +8,17 @@
 ## Parte A — GNU / Linux
 
 **1) ¿Cuál de las siguientes opciones es correcta acerca de los discos en GNU/Linux?**
-- [x] a) Para instalar Linux como minimo necesitamos una partición partición raiz (/)
-- [ ] b) Mediante UUID debemos indicar qué disco debe ir conectado como master
-- [ ] c) Siempre se debe definir un algún punto de montaje para la para el "/home archivo
+- [] a) Para instalar Linux como minimo necesitamos una partición partición raiz (/home)
+- [] b) Mediante UUID debemos indicar qué disco debe ir conectado como master
+- [X]c) Siempre se debe definir un algún punto de montaje para la para el "/home archivo
 - [ ] d) No es posible particionar un disco en Linux
 - [ ] e) a, b, d son correctas
 - [ ] f) a, c, d son correctas
 - [ ] g) Todas las opciones anteriores son correctas
 - [ ] h) Ninguna opción anterior es correcta
 
-> **Respuesta: A**
-> ✅ **Correcto (1/1):** Para instalar Linux, lo único estrictamente obligatorio es la partición raíz `/`.
+> **Respuesta: C*
+> 
 
 **2) ¿Cuál de las siguientes opciones es correcta acerca de la instalación de Sistemas Operativos?**
 - [ ] a) En un mismo equipo pueden existir instalaciones de distintos S.O.
@@ -31,7 +31,7 @@
 - [ ] h) Ninguna opción anterior es correcta
 
 > **Respuesta: E**
-> ❌ **Incorrecto (0/1):** Elegiste la F. La respuesta correcta es la E. La afirmación "d" es falsa porque no se puede instalar "cualquier distribución en cualquier arquitectura" (ej. no podés correr x86 en ARM). La "a", "b" y "c" sí son ciertas.
+
 
 **3) ¿Cuál de las siguientes opciones es correcta acerca del manejo de permisos en UNIX?**
 - [ ] a) Solo se pueden asignar permisos de lectura y escritura
@@ -43,7 +43,7 @@
 - [ ] g) Ninguna opción anterior es correcta
 
 > **Respuesta: B**
-> ❌ **Incorrecto (0/1):** Elegiste la G. Sin embargo, la afirmación "b" (Los permisos se asignan a los archivos y/o carpetas) es totalmente verdadera (las carpetas son archivos en Unix). Por lo tanto, la opción correcta era la B.
+>
 
 **4) ¿Cuál de las siguientes opciones es correcta acerca del manejo de usuarios en GNU/Linux?**
 - [ ] a) En el archivo /etc/passwd se almacena información acerca del nombre de usuario
@@ -56,7 +56,6 @@
 - [ ] h) Todas las opciones son correctas
 
 > **Respuesta: F**
-> ✅ **Correcto (1/1):** Las afirmaciones "a", "b" y "c" referidas a `/etc/passwd` son ciertas. Solo lo puede modificar el root, así que la "d" es falsa.
 
 **5) ¿Cuál de las siguientes opciones es correcta acerca del manejo de procesos en GNU/Linux?**
 - [ ] a) Por defecto tienen 1 solo archivo abierto (stdfile)
@@ -69,7 +68,6 @@
 - [ ] h) Ninguna opción anterior es correcta
 
 > **Respuesta: F**
-> ✅ **Correcto (1/1):** `bg` ejecuta procesos parados en background, y `fg` los trae al foreground. "a" y "d" son falsas.
 
 **6) Luego de la ejecución del siguiente comando: `chmod 754` sobre el archivo `file.txt`. ¿Cuál de las siguientes opciones es correcta si listamos el estado del archivo?**
 - [ ] a) `-rw-rw-rw- 1 user group 4 may 19 10:30 file.txt`
@@ -78,21 +76,19 @@
 - [ ] d) `d-rw-rw-r-- 1 user group 4 may 19 18:30 file.txt`
 
 > **Respuesta: B**
-> ❌ **Incorrecto (0/1):** Elegiste la C. La C indica un directorio (`d` al principio) pero el nombre indica `file.txt`. Los permisos 754 corresponden a `rwx` (7), `r-x` (5) y `r--` (4) sobre un archivo normal (`-`), por lo tanto la correcta es la B.
 
 **7) ¿Cuál de las siguientes opciones es correcta acerca del Kernel de Linux?**
 - [ ] a) Es de tipo monolitico hibrido
 - [ ] b) La imagen del kernel se encuentra en /boot
 - [ ] c) Es distribuido bajo la licencia GPL (General Public License)
 - [ ] d) Su código es privado y no se puede ver
-- [ ] e) a y b son correctos
+- [x] e) a y b y c son correctos
 - [ ] f) b y d son correctos
-- [x] g) b y c son correctas
+- [ ] g) b y c son correctas
 - [ ] h) Todas las opciones anteriores son correctas
 - [ ] i) Ninguna de las anteriores es correcta
 
-> **Respuesta: G**
-> ✅ **Correcto (1/1):** La imagen suele estar en `/boot` y el código está bajo GPL.
+> **Respuesta: E**
 
 **8) El siguiente comando: `ls | wc -l > $HOME/elementos-en-directorio.txt`**
 - [ ] a) Retorna la cantidad de usuarios en el sistema
@@ -102,7 +98,7 @@
 - [ ] e) Ninguna opción anterior es correcta
 
 > **Respuesta: B**
-> ❌ **Incorrecto (0/1):** Elegiste la C. El comando `wc -l` cuenta la CANTIDAD de líneas (es decir, la cantidad de elementos), no guarda el listado de archivos en sí. Por lo tanto la correcta es la B.
+
 
 **9) ¿Cuál de las siguientes opciones es correcta acerca de UEFI y GPT?**
 - [ ] a) UEFI es el sucesor de BIOS
@@ -115,7 +111,7 @@
 - [ ] h) Ninguna opción anterior es correcta
 
 > **Respuesta: G**
-> ❌ **Incorrecto (0/1):** Elegiste la E. UEFI es totalmente compatible con discos MBR tradicionales (mediante su módulo CSM/Legacy Boot), por lo que la "d" también era cierta, haciendo que TODAS sean correctas (G).
+
 
 **10) ¿Cuáles de los siguientes son considerados editores de texto en GNU/Linux?**
 - [ ] a) cat
@@ -129,7 +125,6 @@
 - [ ] i) ninguna es correcta
 
 > **Respuesta: F**
-> ✅ **Correcto (1/1):** Tanto `vim` como `nano` son reconocidos editores de texto.
 
 ---
 

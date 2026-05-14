@@ -13,10 +13,10 @@
 - [ ] d) La tabla de particiones ocupa 64 bytes del MBR
 - [ ] e) a, c y d son correctas
 - [ ] f) b y d son correctas
-- [ ] g) Todas las opciones anteriores son correctas
+- [X] g) Todas las opciones anteriores son correctas
 - [ ] h) Ninguna opción anterior es correcta
 
-> **Respuesta:**
+> **Respuesta: G**
 >
 > 
 
@@ -25,11 +25,11 @@
 - [ ] b) En Linux podemos elegir un intérprete de comandos distinto para cada usuario
 - [ ] c) No puede haber usuarios del sistema que no posean ningún intérprete de comandos
 - [ ] d) a, b y c son correctas
-- [ ] e) a y b son correctas
+- [X ] e) a y b son correctas
 - [ ] f) Todas las opciones anteriores son correctas
 - [ ] g) Ninguna opción anterior es correcta
 
-> **Respuesta:**
+> **Respuesta: E**
 >
 > 
 
