@@ -111,6 +111,23 @@ Cada resumen incluye explicaciones estructuradas, diagramas extraídos de las di
   </tr>
 </table>
 
+<!-- ═══════════════ TEMA 4 ═══════════════ -->
+
+<table>
+  <tr>
+    <td width="900">
+      <h3>📄 <a href="Teoria/Resumenes/Entrada_Salida_Tema_4.md">Tema 4: Subsistema de Entrada / Salida (E/S)</a></h3>
+      <blockquote>Clasificación de dispositivos, Capas de software de E/S, Drivers, Ciclo de vida de una petición y Optimización de performance.</blockquote>
+      <p>
+        <img src="https://img.shields.io/badge/Entrada_Salida-2C3E50?style=flat-square" />
+        <img src="https://img.shields.io/badge/Drivers-2C3E50?style=flat-square" />
+        <img src="https://img.shields.io/badge/Buffering-E67E22?style=flat-square" />
+        <img src="https://img.shields.io/badge/DMA-E67E22?style=flat-square" />
+      </p>
+    </td>
+  </tr>
+</table>
+
 <!-- ═══════════════ CONTEXT SWITCH ═══════════════ -->
 
 <table>
