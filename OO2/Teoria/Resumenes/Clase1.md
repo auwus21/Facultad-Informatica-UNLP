@@ -1,7 +1,6 @@
 # 📘 Clase 1: Introducción a Refactoring
 
-**Materia:** Orientación a Objetos 2 (OO2) — UNLP 2026  
-**Docente:** Dra. Alejandra Garrido  
+**Materia:** Orientación a Objetos 2 (OO2) — UNLP  
 **Tema Central:** La evolución del software, las Leyes de Lehman, definición formal de Refactoring y primeros refactorings del catálogo.
 
 ---
@@ -12,185 +11,198 @@ El software **no es estático**. Por más bien diseñado que esté, inevitableme
 
 ### Leyes de Lehman (Evolución del Software)
 
-| Ley | Año | Enunciado |
-|---|---|---|
-| **Continuing Change** | 1974 | Los sistemas deben adaptarse continuamente o se vuelven progresivamente **menos satisfactorios**. |
-| **Continuing Growth** | 1991 | La funcionalidad de un sistema debe ser **incrementada continuamente** para mantener la satisfacción del cliente. |
-| **Increasing Complexity** | 1974 | A medida que un sistema evoluciona, su complejidad se **incrementa**, a menos que se trabaje activamente para evitarlo. |
-| **Declining Quality** | 1996 | La calidad de un sistema va a ir **declinando** a menos que se haga un mantenimiento riguroso. |
-
-> **En criollo:** Si no cuidás tu código activamente, se pudre solo. No alcanza con que funcione hoy.
+| Ley | Año | Enunciado | Explicación en lenguaje claro |
+|---|---|---|---|
+| **Continuing Change** *(Cambio Continuo)* | 1974 | Un sistema que se utiliza debe sufrir modificaciones continuas o se volverá progresivamente **menos satisfactorio**. | El entorno del usuario cambia, aparecen nuevas necesidades y regulaciones. Si el sistema no se adapta, muere. |
+| **Continuing Growth** *(Crecimiento Continuo)* | 1991 | La funcionalidad de un sistema debe ser **incrementada continuamente** para mantener la satisfacción del cliente. | Los usuarios demandan nuevas características y mejoras funcionales a lo largo del tiempo. |
+| **Increasing Complexity** *(Complejidad Creciente)* | 1974 | A medida que un sistema evoluciona, su complejidad se **incrementa**, a menos que se trabaje activamente para evitarlo. | Agregar código nuevo sin reestructurar degrada la arquitectura original. El refactoring combate esta ley. |
+| **Declining Quality** *(Calidad Declinante)* | 1996 | La calidad de un sistema va a ir **declinando** a menos que se haga un mantenimiento riguroso y adaptativo. | La acumulación de parches rápidos y código desorganizado degrada la mantenibilidad del sistema. |
 
 ---
 
 ## 💰 El Costo del Mantenimiento
 
-El mantenimiento del software tiene distintas categorías:
-- **Correctivo:** Arreglar bugs.
-- **Evolutivo:** Agregar funcionalidad nueva.
-- **Adaptativo:** Adaptar a nuevos entornos (librerías, OS, etc.).
-- **Perfectivo:** Mejorar rendimiento o legibilidad.
-- **Preventivo:** Limpiar código para evitar problemas futuros.
+El mantenimiento del software consume la mayor parte del presupuesto del ciclo de vida de un sistema. Se clasifica en:
+*   **Correctivo:** Corregir defectos (bugs).
+*   **Evolutivo:** Agregar nuevas funcionalidades solicitadas por el cliente.
+*   **Adaptativo:** Modificar el sistema para que funcione en nuevos entornos (bases de datos, hardware, librerías).
+*   **Perfectivo:** Mejorar características no funcionales como la legibilidad o el rendimiento.
+*   **Preventivo:** Reestructurar el código existente para facilitar su mantenimiento futuro.
 
-> **Dato clave del PDF:** Entender código existente consume el **50% del tiempo de mantenimiento**. Por eso escribir código legible no es un lujo, es una necesidad económica.
+> [!IMPORTANT]
+> **El factor de legibilidad:** Entender código existente consume el **50% del tiempo de mantenimiento**. Escribir código legible y autodocumentado tiene un impacto directo y positivo en los costos de desarrollo.
 
 ---
 
-## 🍝 El Problema: Big Ball of Mud
+## 🍝 El Problema: Big Ball of Mud (Gran Bola de Barro)
 
-Cuando nadie cuida la arquitectura del software, se termina generando lo que Brian Foote y Joe Yoder llamaron un **"Big Ball of Mud"** (Gran Bola de Barro): un sistema sin estructura reconocible, donde todo depende de todo y cualquier cambio rompe otra cosa.
+Cuando no se realiza un mantenimiento arquitectónico y preventivo continuo, los sistemas tienden a convertirse en un **Big Ball of Mud**:
+*   Sistemas que carecen de una arquitectura limpia y definida.
+*   Código spaghetti donde todo está acoplado con todo.
+*   Cualquier cambio pequeño produce efectos colaterales (bugs) en partes inesperadas.
 
-### Diseñar es difícil
-
-- Los elementos distintivos de la arquitectura **no surgen hasta después de tener código que funciona**.
-- No se trata solo de agregar, sino de **adaptar, transformar, mejorar**.
-- Construir el sistema perfecto **es imposible**.
-- Los errores y el cambio **son inevitables** → hay que aprender del feedback.
-
-> *"Reusable software is the result of many design iterations. Some of these iterations occur after the software has been reused"* — Bill Opdyke, 1992.
+### Heurísticas de Diseño
+*   Los elementos clave de la arquitectura **no surgen de antemano de forma perfecta**, sino que se descubren y refinan a medida que el código funciona y evoluciona.
+*   Construir el sistema perfecto en la primera iteración es imposible; se aprende del **feedback** y del reuso.
 
 ---
 
 ## 🔧 Refactoring: Definición Formal
 
 ### Como sustantivo:
-> **Refactoring** es una transformación que se realiza en la estructura interna del software para hacerlo **fácil de entender** y **más barato de modificar**, y que **preserva el comportamiento observable**.
+> Un **Refactoring** es una transformación que se realiza en la estructura interna del software para hacerlo **más fácil de entender** y **más barato de modificar**, sin alterar su **comportamiento observable**.
 
-Cada refactoring tiene:
-- Un **nombre** específico con el que está catalogado.
-- Una secuencia de **pasos ordenados** ("mecánica").
-
-### Como proceso:
-Es el proceso a través del cual se cambia un sistema de software:
-- Para mejorar la organización, legibilidad, adaptabilidad y mantenibilidad del código **luego de que fue escrito**.
-- Que **NO altera el comportamiento externo** del sistema.
+### Como verbo (Proceso):
+> Es el proceso de cambiar un sistema de software para mejorar su estructura interna, legibilidad y mantenibilidad **luego de haber sido escrito**, sin alterar el comportamiento externo.
 
 ### Regla de oro:
-> Si el comportamiento cambia (no compila, no pasa los tests), entonces el cambio **NO fue un refactoring**.
+> Si el comportamiento cambia (se rompen tests de unidad, cambian las salidas ante las mismas entradas), la transformación **NO** es un refactoring.
 
 ---
 
-## ⚙️ Estructura de un Refactoring
+## ⚙️ Estructura de un Refactoring del Catálogo
 
-Todo refactoring del catálogo tiene dos componentes fundamentales:
-
-| Componente | Descripción |
-|---|---|
-| **Precondiciones** | Condiciones que se verifican **antes** de aplicar el cambio para asegurar que es seguro hacerlo. |
-| **Mecánica** | Pasos ordenados que cuidan la preservación del comportamiento. Después de cada paso: **compilar y testear**. |
+Todo refactoring documentado formalmente posee:
+1.  **Nombre:** Un identificador claro en el catálogo de Fowler (ej. *Extract Method*).
+2.  **Precondiciones:** Condiciones que deben cumplirse antes del cambio para garantizar la seguridad de la transformación.
+3.  **Mecánica:** Pasos ordenados a seguir. Después de cada paso, se debe **compilar y correr los tests** para detectar fallas tempranas.
 
 ---
 
-## 📦 Ejemplo del PDF: Jerarquía Product (HotelStay / CarRental)
+## 📦 Caso de Estudio: Jerarquía `Product`
 
-El PDF presenta una jerarquía con `Product`, `HotelStay` y `CarRental` para descubrir y aplicar los primeros refactorings paso a paso.
+Para ilustrar los primeros refactorings, analizamos una jerarquía de productos de reserva vacacionales compuesta por `Product`, `HotelStay` y `CarRental`.
 
-### Situación Inicial
+### Código Inicial (Sucio)
 
 ```java
-// HotelStay
-public double cost;   // Variable pública repetida
-startDate() { return timePeriod.start; }
-endDate()   { return timePeriod.end; }
-price()     { return timePeriod.duration() * hotel.nightPrice() * hotel.discountRate(); }
-priceFactor() { return cost / this.price(); }
+// HotelStay.java
+public class HotelStay {
+    public double cost; // Violación de encapsulamiento (pública)
+    private TimePeriod timePeriod;
+    private Hotel hotel;
 
-// CarRental
-public double cost;   // Variable pública repetida
-startDate() { return timePeriod.start; }
-endDate()   { return timePeriod.end; }
-price()     { return company.price() * company.promotionRate(); }
-cost()      { return cost; }
+    public Date startDate() {
+        return timePeriod.getStart();
+    }
+
+    public Date endDate() {
+        return timePeriod.getEnd();
+    }
+
+    public double price() {
+        return timePeriod.duration() * hotel.nightPrice() * hotel.discountRate();
+    }
+
+    public double priceFactor() {
+        return cost / this.price();
+    }
+}
+
+// CarRental.java
+public class CarRental {
+    public double cost; // Violación de encapsulamiento y duplicado
+    private TimePeriod timePeriod;
+    private RentalCompany company;
+
+    public Date startDate() {
+        return timePeriod.getStart();
+    }
+
+    public Date endDate() {
+        return timePeriod.getEnd();
+    }
+
+    public double price() {
+        return company.price() * company.promotionRate();
+    }
+
+    public double cost() {
+        return cost;
+    }
+}
 ```
 
-### Code Smells detectados:
-1. La variable `cost` está declarada como **pública** → rompe el **encapsulamiento**.
-2. La variable `cost` está **repetida** en ambas subclases → **código duplicado**.
-3. Los métodos `startDate()` y `endDate()` son **idénticos** en ambas → **código duplicado**.
+### Code Smells (Malos Olores) Detectados:
+1.  **Romper Encapsulamiento:** La variable `cost` es pública en ambas clases.
+2.  **Código Duplicado:**
+    *   La variable `cost` está repetida en ambas clases.
+    *   Los métodos `startDate()` y `endDate()` son idénticos en su lógica y estructura en ambas subclases.
 
 ---
 
-## 📚 Catálogo: Primeros Refactorings Presentados
+## 🛠️ Catálogo: Refactorings Aplicados
 
-### 1. Encapsulate Field (p.206)
+### 1. Encapsulate Field *(Encapsular Campo)*
+*   **Problema:** Un campo es público, lo que permite el acoplamiento directo de clientes externos y dificulta el cambio interno.
+*   **Precondiciones:** Ninguna compleja.
+*   **Mecánica:**
+    1.  Si hay referencias directas externas, crear métodos de acceso (`get` / `set`).
+    2.  Reemplazar todas las referencias directas al campo por llamadas a los accessors creados.
+    3.  Cambiar la visibilidad del campo a `private`.
+    4.  Compilar y testear.
 
-**Problema:** Variable de instancia pública.
+```java
+// Antes
+public double cost;
 
-**Mecánica:**
-1. Si no existen referencias externas a la variable → cambiar a `private` directamente.
-2. Si existen referencias → crear getters/setters, cambiar todas las referencias externas por invocaciones a los métodos, y luego cambiar la visibilidad a `private`.
-3. Compilar y testear.
+// Después
+private double cost;
+public double getCost() { return this.cost; }
+public void setCost(double cost) { this.cost = cost; }
+```
 
----
+### 2. Pull Up Field *(Subir Campo)*
+*   **Problema:** Dos o más subclases tienen el mismo campo declarativamente idéntico.
+*   **Precondiciones:**
+    *   Los campos representan semánticamente lo mismo.
+    *   Tienen el mismo nombre y tipo (si no, renombrarlos antes).
+    *   No debe existir un campo con ese nombre en la superclase.
+*   **Mecánica:**
+    1.  Declarar el campo en la superclase común.
+    2.  Si es necesario que las subclases lo accedan directamente, declararlo como `protected`.
+    3.  Eliminar el campo de las subclases.
+    4.  Compilar y testear.
 
-### 2. Pull Up Field (p.320)
+```mermaid
+classDiagram
+    class Product {
+        #cost: double
+    }
+    class HotelStay {
+        -timePeriod: TimePeriod
+        -hotel: Hotel
+    }
+    class CarRental {
+        -timePeriod: TimePeriod
+        -company: RentalCompany
+    }
+    Product <|-- HotelStay
+    Product <|-- CarRental
+```
 
-**Problema:** La misma variable de instancia está repetida en varias subclases.
+### 3. Pull Up Method *(Subir Método)*
+*   **Problema:** Métodos idénticos en subclases de una misma jerarquía.
+*   **Precondiciones:**
+    *   El comportamiento y la signatura deben ser idénticos.
+    *   Los recursos que utiliza el método (atributos, otros métodos) deben ser accesibles desde la superclase (subir variables necesarias a la superclase primero, o declarar métodos abstractos en ella).
+*   **Mecánica:**
+    1.  Crear el método en la superclase con el cuerpo idéntico.
+    2.  Borrar el método en una de las subclases, compilar y testear.
+    3.  Repetir para las demás subclases.
 
-**Precondiciones:**
-- La variable se usa **de la misma manera** en las subclases (semánticamente representan lo mismo).
-- La variable comparte el **mismo nombre y tipo** en las subclases (si no, renombrar antes).
-- La variable con ese nombre **no debe existir** ya en la superclase.
+```java
+// En la clase abstracta Product
+public abstract class Product {
+    protected double cost;
+    protected TimePeriod timePeriod; // Subido previamente mediante Pull Up Field
 
-**Mecánica:**
-1. Crear una nueva variable de instancia en la superclase.
-2. Si la variable en las subclases es `private`, declararla como `protected` para que las subclases puedan referenciarla.
-3. Borrar la variable de las subclases.
-4. Compilar y testear.
+    public Date startDate() {
+        return timePeriod.getStart();
+    }
 
----
-
-### 3. Pull Up Method (p.322)
-
-**Problema:** El mismo método está repetido en varias subclases.
-
-**Precondiciones:**
-- El cuerpo de los métodos debe ser **idéntico**.
-- La signatura debe ser **idéntica** (si no, renombrar antes).
-- Debe haber una **superclase común**.
-- No debe haber **conflicto** con métodos de la superclase.
-- Todos los elementos a los que accede el método deben ser **accesibles desde la superclase**.
-
-**Mecánica:**
-1. Si el método referencia variables que aún no están en la superclase → aplicar `Pull Up Field` primero.
-2. Crear un método en la superclase (`Product`) y copiar el cuerpo.
-3. Borrar el método de una de las subclases.
-4. Compilar y testear.
-5. Repetir para cada subclase hasta que solo quede el método en la superclase.
-
----
-
-## 🧠 Características del Refactoring (Resumen)
-
-### ¿Qué implica?
-- Eliminar duplicaciones.
-- Simplificar lógicas complejas.
-- Clarificar códigos oscuros.
-
-### ¿Cuándo aplicarlo?
-- ✅ Una vez que tengo **código que funciona y pasa los tests**.
-- ✅ Cuando encuentro **código difícil de entender** (ugly code).
-- ✅ Cuando tengo que hacer un cambio y **necesito reorganizar primero**.
-
-### ¿Cómo ayuda?
-- Introduce mecanismos que solucionan problemas de diseño.
-- A través de **cambios pequeños** (muchos cambios pequeños son más seguros que un gran cambio).
-- Cada pequeño cambio pone en evidencia **otros cambios necesarios**.
-
----
-
-## 👃 Bad Smells (Code Smells)
-
-Son indicios de problemas en el código que requieren la aplicación de refactorings. Listado inicial presentado en esta clase:
-
-| Code Smell | Descripción breve |
-|---|---|
-| **Romper encapsulamiento** | Variables públicas expuestas. |
-| **Código duplicado** | El mismo código aparece en muchos lugares. |
-| **Clase larga** | Una clase intenta hacer demasiado trabajo. |
-| **Método largo** | Un método tiene demasiadas líneas. |
-| **Switch statements** | Condicionales que discriminan tipos de objetos. |
-| **Clase de datos** | Solo tiene variables y getters/setters. |
-| **No "es un"** | Herencia mal aplicada. |
-
-> El catálogo completo de Code Smells y sus refactorings asociados se desarrolla en profundidad en la **Clase 2**.
+    public Date endDate() {
+        return timePeriod.getEnd();
+    }
+}
+```

@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=20&pause=1000&color=E74C3C&center=true&vCenter=true&repeat=true&width=600&height=45&lines=Refactoring+%7C+Code+Smells+%7C+Clean+Code;Adapter+%7C+Template+Method+%7C+Composite;Factory+Method+%7C+Builder+%7C+Strategy;Resumenes+completos+clase+por+clase" />
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=20&pause=1000&color=E74C3C&center=true&vCenter=true&repeat=true&width=600&height=45&lines=Refactoring+%7C+Code+Smells+%7C+Testing;Adapter+%7C+Template+Method+%7C+Composite;Factory+Method+%7C+Builder+%7C+Strategy;State+%7C+Decorator+%7C+Proxy+%7C+Frameworks" />
 </p>
 
 ---
@@ -20,103 +20,27 @@ Repositorio de estudio personal para la materia **Orientación a Objetos 2**, co
 
 <br>
 
-## 📖 Resúmenes de Teoría
+## 📖 Resúmenes de Teoría Completa
 
-Cada resumen incluye **diagramas UML**, **tablas comparativas**, **código Java** del antes y después,  y explicaciones en lenguaje simple. Hacé click en cualquier clase para abrirlo.
+Cada resumen incluye **diagramas UML**, **código Java** (antes/después de refactorizar) y explicaciones estructuradas clase por clase. Hacé click en cualquier clase para abrir su resumen:
 
-<br>
-
-<!-- ═══════════════ CLASE 1 ═══════════════ -->
-
-<table>
-  <tr>
-    <td width="900">
-      <h3>📄 <a href="Teoria/Resumenes/Clase1.md">Clase 1 — Introducción a Refactoring</a></h3>
-      <blockquote>¿Por qué el software se degrada con el tiempo? ¿Cómo podemos mejorar código existente sin romperlo?</blockquote>
-      <p>
-        <img src="https://img.shields.io/badge/Leyes_de_Lehman-2C3E50?style=flat-square" />
-        <img src="https://img.shields.io/badge/Big_Ball_of_Mud-2C3E50?style=flat-square" />
-        <img src="https://img.shields.io/badge/Encapsulate_Field-E74C3C?style=flat-square" />
-        <img src="https://img.shields.io/badge/Pull_Up_Field-E74C3C?style=flat-square" />
-        <img src="https://img.shields.io/badge/Pull_Up_Method-E74C3C?style=flat-square" />
-      </p>
-    </td>
-  </tr>
-</table>
-
-<!-- ═══════════════ CLASE 2 ═══════════════ -->
-
-<table>
-  <tr>
-    <td width="900">
-      <h3>📄 <a href="Teoria/Resumenes/Clase2.md">Clase 2 — Catálogo de Refactoring & Herramientas</a></h3>
-      <blockquote>El catálogo completo de malos olores, las técnicas para eliminarlos, y un ejemplo integrador paso a paso con el Club de Tenis 🎾</blockquote>
-      <p>
-        <img src="https://img.shields.io/badge/7_Code_Smells-2C3E50?style=flat-square" />
-        <img src="https://img.shields.io/badge/Código_CLEAN-2C3E50?style=flat-square" />
-        <img src="https://img.shields.io/badge/2_Sombreros-2C3E50?style=flat-square" />
-        <img src="https://img.shields.io/badge/AST-2C3E50?style=flat-square" />
-      </p>
-      <p>
-        <img src="https://img.shields.io/badge/Extract_Method-E74C3C?style=flat-square" />
-        <img src="https://img.shields.io/badge/Move_Method-E74C3C?style=flat-square" />
-        <img src="https://img.shields.io/badge/Replace_Temp_with_Query-E74C3C?style=flat-square" />
-        <img src="https://img.shields.io/badge/Replace_Conditional_w/_Polymorphism-E74C3C?style=flat-square" />
-      </p>
-    </td>
-  </tr>
-</table>
-
-<!-- ═══════════════ CLASE 3 ═══════════════ -->
-
-<table>
-  <tr>
-    <td width="900">
-      <h3>📄 <a href="Teoria/Resumenes/Clase3.md">Clase 3 — Intro a Patrones: Adapter & Template Method</a></h3>
-      <blockquote>Del mundo de la arquitectura al software: el origen de los patrones, el catálogo GoF, y los dos primeros patrones de diseño.</blockquote>
-      <p>
-        <img src="https://img.shields.io/badge/Christopher_Alexander-2C3E50?style=flat-square" />
-        <img src="https://img.shields.io/badge/Catálogo_GoF-2C3E50?style=flat-square" />
-      </p>
-      <p>
-        <img src="https://img.shields.io/badge/Adapter-8E44AD?style=flat-square" />
-        <sub>estructural · interfaces incompatibles</sub>
-        &nbsp;&nbsp;
-        <img src="https://img.shields.io/badge/Template_Method-E67E22?style=flat-square" />
-        <sub>comportamiento · esqueleto de algoritmo</sub>
-      </p>
-    </td>
-  </tr>
-</table>
-
-<!-- ═══════════════ CLASE 4 ═══════════════ -->
-
-<table>
-  <tr>
-    <td width="900">
-      <h3>📄 <a href="Teoria/Resumenes/Clase4.md">Clase 4 — Composite, Factory Method & Builder</a></h3>
-      <blockquote>Tres patrones nuevos del GoF: cómo armar árboles parte-todo, delegar la creación de objetos, y separar construcción de representación.</blockquote>
-      <p>
-        <img src="https://img.shields.io/badge/Composite-8E44AD?style=flat-square" />
-        <sub>estructural · jerarquías parte-todo</sub>
-      </p>
-      <p>
-        <img src="https://img.shields.io/badge/Factory_Method-E74C3C?style=flat-square" />
-        <sub>creacional · delegar instanciación</sub>
-        &nbsp;&nbsp;
-        <img src="https://img.shields.io/badge/Builder-E74C3C?style=flat-square" />
-        <sub>creacional · construcción paso a paso</sub>
-      </p>
-      <p>
-        <img src="https://img.shields.io/badge/⚠️_Errores_comunes_de_parciales_y_finales-E74C3C?style=flat-square" />
-      </p>
-    </td>
-  </tr>
-</table>
+| Clase | Tema Principal | Refactorings / Patrones Clave | Link |
+|:---:|---|---|:---:|
+| **1** | Introducción a Refactoring | Leyes de Lehman · *Encapsulate Field* · *Pull Up Field* · *Pull Up Method* | [📄](Teoria/Resumenes/Clase1.md) |
+| **2** | Catálogo de Refactoring | Clasificación de *Code Smells* · *Extract Method* · *Move Method* · *Replace Temp with Query* | [📄](Teoria/Resumenes/Clase2.md) |
+| **3** | Intro a Patrones de Diseño | Origen GoF · Patrón **Adapter** · Patrón **Template Method** | [📄](Teoria/Resumenes/Clase3.md) |
+| **4** | Estructurales & Creacionales | Patrón **Composite** · Patrón **Factory Method** · Patrón **Builder** | [📄](Teoria/Resumenes/Clase4.md) |
+| **5** | Profundización de Composite | Variante Segura (*Safe*) vs Transparente (*Transparent*) · Reglas de Composición | [📄](Teoria/Resumenes/Clase5.md) |
+| **6** | Comportamiento | Patrón **Strategy** · Patrón **State** (Manejo de transiciones) | [📄](Teoria/Resumenes/Clase6.md) |
+| **7** | Testing Avanzado | **Test Doubles** (Dummies, Fakes, Stubs, Spies, Mocks) · JUnit 5 + Mockito | [📄](Teoria/Resumenes/Clase7.md) |
+| **8** | Estructurales Avanzados | Patrón **Decorator** · Patrón **Proxy** (Virtual, Protección y Remoto) | [📄](Teoria/Resumenes/Clase8.md) |
+| **9** | Refactoring to Patterns | Joshua Kerievsky · Recetas para evolucionar código sucio hacia patrones | [📄](Teoria/Resumenes/Clase9.md) |
+| **10** | Concepto de Frameworks I | Inversión de Control (IoC) · Frozen & Hot Spots · Servidor Mono-hilo | [📄](Teoria/Resumenes/Clase10.md) |
+| **11** | Concepto de Frameworks II | Frameworks de **Caja Blanca** (herencia) vs **Caja Negra** (composición) | [📄](Teoria/Resumenes/Clase11.md) |
 
 <br>
 
-> 📂 **Material oficial de cátedra (PDFs):** [Abrir directorio](Teoria/Material_Original/)
+> 📂 **Material oficial de cátedra (PDFs originales):** [Abrir directorio](Teoria/Material_Original/)
 
 ---
 
@@ -126,15 +50,18 @@ Cada resumen incluye **diagramas UML**, **tablas comparativas**, **código Java*
 
 | # | Tema | Contenido | Link |
 |:-:|---|---|:-:|
-| **1** | Red Social (repaso OO1) | Proyecto Java · Herencia · Polimorfismo | [📁](Practicas/Practica_1/) |
+| **1** | Red Social (Repaso) | Proyecto Java · Herencia · Polimorfismo | [📁](Practicas/Practica_1/) |
 | **2** | Refactoring | Resolución de ejercicios de Code Smells (antes/después en `.md`) | [📁](Practicas/Practica_2/) |
 | **3** | Patrones (Biblioteca BJSON) | Proyecto Maven · Strategy · Tests JUnit 5 · Diagrama UML | [📁](Practicas/Practica_3/) |
+| **4** | Frameworks | Cuadernillo y PDFs explicativos | [📁](Practicas/Practica_4/) |
 
 ---
 
 <br>
 
-## 🧩 Mapa de Patrones Cubiertos
+## 🧩 Mapa de Patrones de Diseño Cubiertos
+
+El siguiente diagrama sintetiza los patrones GoF estudiados en la cursada, clasificados por su propósito:
 
 ```mermaid
 graph TB
@@ -146,19 +73,25 @@ graph TB
     subgraph "🏛️ Estructurales"
         AD["Adapter"]
         CO["Composite"]
+        DE["Decorator"]
+        PR["Proxy"]
     end
 
     subgraph "⚡ Comportamiento"
         TM["Template Method"]
         ST["Strategy"]
+        SE["State"]
     end
 
     style FM fill:#E74C3C,stroke:#C0392B,color:#fff
     style BU fill:#E74C3C,stroke:#C0392B,color:#fff
     style AD fill:#8E44AD,stroke:#7D3C98,color:#fff
     style CO fill:#8E44AD,stroke:#7D3C98,color:#fff
+    style DE fill:#8E44AD,stroke:#7D3C98,color:#fff
+    style PR fill:#8E44AD,stroke:#7D3C98,color:#fff
     style TM fill:#E67E22,stroke:#D35400,color:#fff
     style ST fill:#E67E22,stroke:#D35400,color:#fff
+    style SE fill:#E67E22,stroke:#D35400,color:#fff
 ```
 
 ---
@@ -167,7 +100,7 @@ graph TB
 
 ## 📝 Evaluaciones
 
-Material de preparación extra, simulacros y resolución de exámenes pasados.
+Material de preparación extra, simulacros y resolución de exámenes parciales anteriores.
 
 📁 [Abrir directorio de Evaluaciones](Evaluaciones/)
 
@@ -182,7 +115,7 @@ Material de preparación extra, simulacros y resolución de exámenes pasados.
 </p>
 
 <p align="center">
-  <sub><b>Java 17</b> · <b>Eclipse IDE</b> · <b>Maven</b> · <b>JUnit 5</b> · <b>Git & GitHub</b></sub>
+  <sub><b>Java 17</b> · <b>Eclipse IDE</b> · <b>Maven</b> · <b>JUnit 5</b> · <b>Mockito</b> · <b>Git & GitHub</b></sub>
 </p>
 
 ---
@@ -194,5 +127,5 @@ Material de preparación extra, simulacros y resolución de exámenes pasados.
 <p align="center">
   <sub>Repositorio de uso personal y académico · Material de cátedra © sus respectivos autores</sub>
   <br>
-  <sub>Hecho con 🧡 por <a href="https://github.com/auwus21">@auwus21</a></sub>
+  <sub>Hecho con 💜 por <a href="https://github.com/auwus21">@auwus21</a></sub>
 </p>
