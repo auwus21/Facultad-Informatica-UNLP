@@ -20,23 +20,36 @@ Repositorio de estudio personal para la materia **Orientación a Objetos 2**, co
 
 <br>
 
-## 📖 Resúmenes de Teoría Completa
+## 📖 Resúmenes de Teoría Completa (Organizados por Ejes Temáticos)
 
-Cada resumen incluye **diagramas UML**, **código Java** (antes/después de refactorizar) y explicaciones estructuradas clase por clase. Hacé click en cualquier clase para abrir su resumen:
+Cada resumen incluye **diagramas UML**, **código Java** (antes/después de refactorizar) y explicaciones estructuradas. Hacé click en cualquier tema para abrir su resumen:
 
+### 🧩 Eje 1: Refactoring y Diseño Emergente
 | Clase | Tema Principal | Refactorings / Patrones Clave | Link |
 |:---:|---|---|:---:|
-| **1** | Introducción a Refactoring | Leyes de Lehman · *Encapsulate Field* · *Pull Up Field* · *Pull Up Method* | [📄](Teoria/Resumenes/Clase1.md) |
-| **2** | Catálogo de Refactoring | Clasificación de *Code Smells* · *Extract Method* · *Move Method* · *Replace Temp with Query* | [📄](Teoria/Resumenes/Clase2.md) |
-| **3** | Intro a Patrones de Diseño | Origen GoF · Patrón **Adapter** · Patrón **Template Method** | [📄](Teoria/Resumenes/Clase3.md) |
-| **4** | Estructurales & Creacionales | Patrón **Composite** · Patrón **Factory Method** · Patrón **Builder** | [📄](Teoria/Resumenes/Clase4.md) |
-| **5** | Profundización de Composite | Variante Segura (*Safe*) vs Transparente (*Transparent*) · Reglas de Composición | [📄](Teoria/Resumenes/Clase5.md) |
-| **6** | Comportamiento | Patrón **Strategy** · Patrón **State** (Manejo de transiciones) | [📄](Teoria/Resumenes/Clase6.md) |
-| **7** | Testing Avanzado | **Test Doubles** (Dummies, Fakes, Stubs, Spies, Mocks) · JUnit 5 + Mockito | [📄](Teoria/Resumenes/Clase7.md) |
-| **8** | Estructurales Avanzados | Patrón **Decorator** · Patrón **Proxy** (Virtual, Protección y Remoto) | [📄](Teoria/Resumenes/Clase8.md) |
-| **9** | Refactoring to Patterns | Joshua Kerievsky · Recetas para evolucionar código sucio hacia patrones | [📄](Teoria/Resumenes/Clase9.md) |
-| **10** | Concepto de Frameworks I | Inversión de Control (IoC) · Frozen & Hot Spots · Servidor Mono-hilo | [📄](Teoria/Resumenes/Clase10.md) |
-| **11** | Concepto de Frameworks II | Frameworks de **Caja Blanca** (herencia) vs **Caja Negra** (composición) | [📄](Teoria/Resumenes/Clase11.md) |
+| **1** | Introducción a Refactoring | Leyes de Lehman · *Encapsulate Field* · *Pull Up Field* · *Pull Up Method* | [📄](Teoria/Resumenes/1_Refactoring/Clase1_Intro.md) |
+| **2** | Catálogo de Refactoring | Clasificación de *Code Smells* · *Extract Method* · *Move Method* · *Replace Temp with Query* | [📄](Teoria/Resumenes/1_Refactoring/Clase2_Catalogo.md) |
+| **9** | Refactoring to Patterns | Joshua Kerievsky · Recetas para evolucionar código sucio hacia patrones | [📄](Teoria/Resumenes/1_Refactoring/Clase9_RefactoringToPatterns.md) |
+
+### ⚡ Eje 2: Patrones de Diseño (Design Patterns)
+| Clase | Tema Principal | Refactorings / Patrones Clave | Link |
+|:---:|---|---|:---:|
+| **3** | Intro a Patrones de Diseño | Origen GoF · Patrón **Adapter** · Patrón **Template Method** | [📄](Teoria/Resumenes/2_Patrones/Clase3_Adapter_TemplateMethod.md) |
+| **4** | Estructurales & Creacionales | Patrón **Composite** · Patrón **Factory Method** · Patrón **Builder** | [📄](Teoria/Resumenes/2_Patrones/Clase4_Composite_Factory_Builder.md) |
+| **5** | Profundización de Composite | Variante Segura (*Safe*) vs Transparente (*Transparent*) · Reglas de Composición | [📄](Teoria/Resumenes/2_Patrones/Clase5_Composite_Profundo.md) |
+| **6** | Comportamiento | Patrón **Strategy** · Patrón **State** (Manejo de transiciones) | [📄](Teoria/Resumenes/2_Patrones/Clase6_Strategy_State.md) |
+| **8** | Estructurales Avanzados | Patrón **Decorator** · Patrón **Proxy** (Virtual, Protección y Remoto) | [📄](Teoria/Resumenes/2_Patrones/Clase8_Decorator_Proxy.md) |
+
+### 🧪 Eje 3: Pruebas Unitarias Avanzadas (Testing)
+| Clase | Tema Principal | Refactorings / Patrones Clave | Link |
+|:---:|---|---|:---:|
+| **7** | Testing Avanzado | **Test Doubles** (Dummies, Fakes, Stubs, Spies, Mocks) · JUnit 5 + Mockito | [📄](Teoria/Resumenes/3_Testing/Clase7_TestDoubles.md) |
+
+### 🏗️ Eje 4: Arquitectura de Frameworks
+| Clase | Tema Principal | Refactorings / Patrones Clave | Link |
+|:---:|---|---|:---:|
+| **10** | Concepto de Frameworks I | Inversión de Control (IoC) · Frozen & Hot Spots · Servidor Mono-hilo | [📄](Teoria/Resumenes/4_Frameworks/Clase10_Conceptos_Basicos.md) |
+| **11** | Concepto de Frameworks II | Frameworks de **Caja Blanca** (herencia) vs **Caja Negra** (composición) | [📄](Teoria/Resumenes/4_Frameworks/Clase11_CajaBlanca_CajaNegra.md) |
 
 <br>
 
