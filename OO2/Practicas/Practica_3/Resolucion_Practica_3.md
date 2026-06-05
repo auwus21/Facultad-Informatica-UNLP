@@ -244,6 +244,74 @@ classDiagram
 *   **Reuso de Comportamiento:** La clase `Pantano` solo redefine `getProporcionAgua()` retornando `0.7`. El cálculo de su proporción de tierra se delega automáticamente a la superclase `Topografia`, retornando `1.0 - 0.7 = 0.3` de forma heredada y reutilizable.
 *   **Igualdad:** Se sobrescribe `equals(Object)` en `Pantano` para que sea igual únicamente a otras instancias de `Pantano`.
 
+---
+
+## Ejercicio 5: Sustancias químicas
+
+### 📊 Diagrama de Clases (UML) con Composite
+
+Para modelar sustancias que pueden ser simples (átomos) o compuestas recursivamente por la unión de otras sustancias (uniones químicas), se implementa el patrón **Composite**:
+
+```mermaid
+classDiagram
+    class Sustancia {
+        <<abstract>>
+        +getNombre()* String
+        +formula()* String
+        +pesoMolecular()* int
+        +carga()* int
+        +esMetal()* boolean
+        +esValida()* boolean
+        +esPura()* boolean
+        +esMolecular() boolean
+        +esIonica() boolean
+    }
+
+    class Atomo {
+        -nombre: String
+        -simbolo: String
+        -pesoAtomico: int
+        -carga: int
+        -esMetal: boolean
+        +Atomo(nombre: String, simbolo: String, pesoAtomico: int, carga: int, esMetal: boolean)
+        +getNombre() String
+        +formula() String
+        +pesoMolecular() int
+        +carga() int
+        +esMetal() boolean
+        +esValida() boolean
+        +esPura() boolean
+    }
+
+    class UnionQuimica {
+        -nombre: String
+        -lista: List~Sustancia~
+        +UnionQuimica(nombre: String)
+        +agregarSustancia(s: Sustancia) void
+        +getNombre() String
+        +formula() String
+        +pesoMolecular() int
+        +carga() int
+        +esMetal() boolean
+        +esValida() boolean
+        +esPura() boolean
+    }
+
+    Atomo --|> Sustancia
+    UnionQuimica --|> Sustancia
+    UnionQuimica o--> "*" Sustancia : contiene
+```
+
+### 🗒️ Roles del Patrón Composite
+*   **Component (Componente):** La clase abstracta `Sustancia`. Define la interfaz común y métodos comunes (como `esMolecular()` y `esIonica()`).
+*   **Leaf (Hoja):** La clase `Atomo`. Representa los átomos simples e indivisibles de la tabla periódica.
+*   **Composite (Compuesto):** La clase `UnionQuimica`. Representa las uniones complejas de múltiples sustancias (átomos o subuniones), delegando recursivamente cálculos de peso, carga, y fórmulas.
+
+### 🗒️ Detalles de Diseño
+*   **Validación de Combinación (esValida):** Una unión química es válida si todos sus componentes son válidos recursivamente y **no contiene más de un metal directo** (evitando la combinación Metal + Metal).
+*   **Algoritmo de Fórmulas Dinámico:** En `UnionQuimica`, el método `formula()` cuenta los componentes usando un `LinkedHashMap` para mantener el orden, agrupando y agregando paréntesis de forma recursiva sólo para subuniones que se repitan (por ejemplo, `Ca(OH)2`).
+
+
 
 
 
