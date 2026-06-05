@@ -311,6 +311,98 @@ classDiagram
 *   **Validación de Combinación (esValida):** Una unión química es válida si todos sus componentes son válidos recursivamente y **no contiene más de un metal directo** (evitando la combinación Metal + Metal).
 *   **Algoritmo de Fórmulas Dinámico:** En `UnionQuimica`, el método `formula()` cuenta los componentes usando un `LinkedHashMap` para mantener el orden, agrupando y agregando paréntesis de forma recursiva sólo para subuniones que se repitan (por ejemplo, `Ca(OH)2`).
 
+---
+
+## Ejercicio 6: SubteWay
+
+### 📊 Diagrama de Clases (UML) con Builder
+
+Para desacoplar el proceso de construcción paso a paso de un sandwich complejo (`Sandwich`) de su representación y las variaciones particulares de cada menú, se implementa el patrón **Builder**:
+
+```mermaid
+classDiagram
+    class Sandwich {
+        -pan: String
+        -precioPan: double
+        -aderezo: String
+        -precioAderezo: double
+        -principal: String
+        -precioPrincipal: double
+        -adicional: String
+        -precioAdicional: double
+        +getPrecio() double
+        +getPan() String
+        +setPan(pan: String, precio: double) void
+        +getAderezo() String
+        +setAderezo(aderezo: String, precio: double) void
+        +getPrincipal() String
+        +setPrincipal(principal: String, precio: double) void
+        +getAdicional() String
+        +setAdicional(adicional: String, precio: double) void
+    }
+
+    class SandwichBuilder {
+        <<abstract>>
+        #sandwich: Sandwich
+        +crearNuevoSandwich() void
+        +getSandwich() Sandwich
+        +buildPan()* void
+        +buildAderezo()* void
+        +buildPrincipal()* void
+        +buildAdicional()* void
+    }
+
+    class ClasicoBuilder {
+        +buildPan() void
+        +buildAderezo() void
+        +buildPrincipal() void
+        +buildAdicional() void
+    }
+
+    class VegetarianoBuilder {
+        +buildPan() void
+        +buildAderezo() void
+        +buildPrincipal() void
+        +buildAdicional() void
+    }
+
+    class VeganoBuilder {
+        +buildPan() void
+        +buildAderezo() void
+        +buildPrincipal() void
+        +buildAdicional() void
+    }
+
+    class SinTaccBuilder {
+        +buildPan() void
+        +buildAderezo() void
+        +buildPrincipal() void
+        +buildAdicional() void
+    }
+
+    class SubteWayDirector {
+        -builder: SandwichBuilder
+        +SubteWayDirector(builder: SandwichBuilder)
+        +setBuilder(builder: SandwichBuilder) void
+        +construirSandwich() void
+        +getSandwich() Sandwich
+    }
+
+    ClasicoBuilder --|> SandwichBuilder
+    VegetarianoBuilder --|> SandwichBuilder
+    VeganoBuilder --|> SandwichBuilder
+    SinTaccBuilder --|> SandwichBuilder
+    SubteWayDirector o--> "1" SandwichBuilder : usa
+    SandwichBuilder o--> "1" Sandwich : construye/retorna
+```
+
+### 🗒️ Roles del Patrón Builder
+*   **Product (Producto):** La clase `Sandwich`, que representa el objeto complejo en construcción con sus ingredientes y cálculo de precio total.
+*   **Builder (Constructor abstracto):** La clase abstracta `SandwichBuilder`. Define el protocolo común de pasos de construcción (`buildPan()`, `buildAderezo()`, etc.) y provee el método para recuperar el producto final.
+*   **Concrete Builder (Constructores concretos):** `ClasicoBuilder`, `VegetarianoBuilder`, `VeganoBuilder` y `SinTaccBuilder`. Implementan los pasos específicos del menú (ej. `VeganoBuilder` agrega pan integral, salsa criolla, milanesa de gírgolas y no tiene adicionales).
+*   **Director:** La clase `SubteWayDirector`. Controla la secuencia ordenada de los pasos de construcción, asegurando que se invoquen en la secuencia adecuada para ensamblar el sandwich.
+
+
 
 
 
