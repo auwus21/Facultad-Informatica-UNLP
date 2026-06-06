@@ -557,6 +557,90 @@ classDiagram
     *   `Puntaje` ordena películas no reproducidas por puntaje de mayor a menor y desempata por año de estreno.
 *   **Facilidad de Extensión (Open/Closed Principle):** Se pueden agregar nuevos criterios de sugerencia implementando la interfaz `CriterioSugerencia`, sin necesidad de modificar el decodificador existente ni las otras estrategias.
 
+---
+
+## Ejercicio 10: Calculadora
+
+### 📊 Diagrama de Clases (UML) con State
+
+Para modelar la lógica de transiciones de una calculadora tradicional, gestionando el ingreso de operandos, operadores y capturando errores de forma polimórfica sin llenar de bifurcaciones condicionales la clase de negocio, se implementa el patrón **State**:
+
+```mermaid
+classDiagram
+    class Calculadora {
+        -acumulado: double
+        -state: CalculadoraState
+        +Calculadora()
+        +getResultado() String
+        +resultado() String
+        +borrar() void
+        +setValor(unValor: double) void
+        +mas() void
+        +menos() void
+        +por() void
+        +dividido() void
+        #setState(state: CalculadoraState) void
+        +getAcumulado() double
+        +setAcumulado(acumulado: double) void
+    }
+
+    class CalculadoraState {
+        <<abstract>>
+        +setValor(calc: Calculadora, unValor: double) void
+        +mas(calc: Calculadora) void
+        +menos(calc: Calculadora) void
+        +por(calc: Calculadora) void
+        +dividido(calc: Calculadora) void
+        +getResultado(calc: Calculadora)* String
+        +borrar(calc: Calculadora) void
+    }
+
+    class IdleState {
+        +setValor(calc: Calculadora, unValor: double) void
+        +mas(calc: Calculadora) void
+        +menos(calc: Calculadora) void
+        +por(calc: Calculadora) void
+        +dividido(calc: Calculadora) void
+        +getResultado(calc: Calculadora) String
+    }
+
+    class WaitingForValueState {
+        -operacion: Operacion
+        +WaitingForValueState(operacion: Operacion)
+        +setValor(calc: Calculadora, unValor: double) void
+        +getResultado(calc: Calculadora) String
+    }
+
+    class ErrorState {
+        +getResultado(calc: Calculadora) String
+    }
+
+    class Operacion {
+        <<enumeration>>
+        SUMA
+        RESTA
+        MULTIPLICACION
+        DIVISION
+        +aplicar(a: double, b: double)* double
+    }
+
+    Calculadora o--> "1" CalculadoraState : state
+    CalculadoraState <|-- IdleState
+    CalculadoraState <|-- WaitingForValueState
+    CalculadoraState <|-- ErrorState
+    WaitingForValueState o--> "1" Operacion : operacion
+```
+
+### 🗒️ Roles del Patrón State
+*   **Context (Contexto):** La clase `Calculadora`. Mantiene el acumulador del cálculo actual (`acumulado`) y delega el protocolo completo a su estado activo.
+*   **State (Estado abstracto):** La clase abstracta `CalculadoraState`. Define el comportamiento por defecto de lanzar un error (`ErrorState`) para cualquier comando de operación inesperado. Esto simplifica drásticamente el código de las subclases concretas.
+*   **Concrete States (Estados concretos):**
+    *   `IdleState`: Representa el reposo. Permite la asignación directa de valores y la selección de operadores matemáticos, transicionando a `WaitingForValueState`.
+    *   `WaitingForValueState`: Espera obligatoriamente un operando numérico. Si recibe `setValor(x)`, aplica la operación y retorna a `IdleState`. Si recibe cualquier otro método, transiciona inmediatamente a `ErrorState` (heredado por defecto de `CalculadoraState`).
+    *   `ErrorState`: Captura fallos (como división por cero o transiciones inválidas). Solo permite salir del error y volver a 0 mediante `borrar()`.
+*   **Encapsulamiento Matemático (Enum):** La enumeración `Operacion` encapsula la lógica aritmética y el control de división por cero de manera independiente, permitiendo a `WaitingForValueState` ser reutilizable para cualquier operador.
+
+
 
 
 
