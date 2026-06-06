@@ -402,6 +402,92 @@ classDiagram
 *   **Concrete Builder (Constructores concretos):** `ClasicoBuilder`, `VegetarianoBuilder`, `VeganoBuilder` y `SinTaccBuilder`. Implementan los pasos específicos del menú (ej. `VeganoBuilder` agrega pan integral, salsa criolla, milanesa de gírgolas y no tiene adicionales).
 *   **Director:** La clase `SubteWayDirector`. Controla la secuencia ordenada de los pasos de construcción, asegurando que se invoquen en la secuencia adecuada para ensamblar el sandwich.
 
+---
+
+## Ejercicio 8: ToDoItem
+
+### 📊 Diagrama de Clases (UML) con State
+
+Para modelar las transiciones de estado de un ítem de tarea de manera dinámica, evitando estructuras condicionales complejas que dependan de flags internas, se implementa el patrón **State**:
+
+```mermaid
+classDiagram
+    class ToDoItem {
+        -name: String
+        -comments: List~String~
+        -state: ToDoItemState
+        -startTime: Instant
+        -endTime: Instant
+        +ToDoItem(name: String)
+        +start() void
+        +togglePause() void
+        +finish() void
+        +workedTime() Duration
+        +addComment(comment: String) void
+        #setState(state: ToDoItemState) void
+        #setStartTime(startTime: Instant) void
+        #setEndTime(endTime: Instant) void
+        +getStartTime() Instant
+        +getEndTime() Instant
+    }
+
+    class ToDoItemState {
+        <<interface>>
+        +start(item: ToDoItem)* void
+        +togglePause(item: ToDoItem)* void
+        +finish(item: ToDoItem)* void
+        +workedTime(item: ToDoItem)* Duration
+        +addComment(item: ToDoItem, comment: String)* void
+    }
+
+    class PendingState {
+        +start(item: ToDoItem) void
+        +togglePause(item: ToDoItem) void
+        +finish(item: ToDoItem) void
+        +workedTime(item: ToDoItem) Duration
+        +addComment(item: ToDoItem, comment: String) void
+    }
+
+    class InProgressState {
+        +start(item: ToDoItem) void
+        +togglePause(item: ToDoItem) void
+        +finish(item: ToDoItem) void
+        +workedTime(item: ToDoItem) Duration
+        +addComment(item: ToDoItem, comment: String) void
+    }
+
+    class PausedState {
+        +start(item: ToDoItem) void
+        +togglePause(item: ToDoItem) void
+        +finish(item: ToDoItem) void
+        +workedTime(item: ToDoItem) Duration
+        +addComment(item: ToDoItem, comment: String) void
+    }
+
+    class FinishedState {
+        +start(item: ToDoItem) void
+        +togglePause(item: ToDoItem) void
+        +finish(item: ToDoItem) void
+        +workedTime(item: ToDoItem) Duration
+        +addComment(item: ToDoItem, comment: String) void
+    }
+
+    ToDoItem o--> "1" ToDoItemState : state
+    PendingState ..|> ToDoItemState
+    InProgressState ..|> ToDoItemState
+    PausedState ..|> ToDoItemState
+    FinishedState ..|> ToDoItemState
+```
+
+### 🗒️ Roles del Patrón State
+*   **Context (Contexto):** La clase `ToDoItem`. Mantiene la referencia a la instancia del estado actual (`state`) y expone la interfaz para los clientes, delegando todo el comportamiento de negocio al estado.
+*   **State (Estado abstracto):** La interfaz `ToDoItemState`. Declara los métodos correspondientes a cada acción que cambia su comportamiento según el estado del contexto.
+*   **Concrete States (Estados concretos):** Las clases `PendingState`, `InProgressState`, `PausedState` y `FinishedState`. Cada una de ellas implementa las reglas de transición y la lógica de negocio válida para esa etapa en particular:
+    *   `PendingState` permite iniciar la tarea y registrar el tiempo de comienzo, lanzando errores al intentar pausar o pedir el tiempo trabajado.
+    *   `InProgressState` y `PausedState` permiten pausar (alternar), registrar comentarios y finalizar (guardando el tiempo final). Calculan el tiempo trabajado de forma dinámica usando `Instant.now()`.
+    *   `FinishedState` calcula la duración estática final (entre `startTime` y `endTime`), ignora los nuevos comentarios y lanza errores si se intenta pausar.
+
+
 
 
 
