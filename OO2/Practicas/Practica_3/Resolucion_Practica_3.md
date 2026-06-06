@@ -487,6 +487,77 @@ classDiagram
     *   `InProgressState` y `PausedState` permiten pausar (alternar), registrar comentarios y finalizar (guardando el tiempo final). Calculan el tiempo trabajado de forma dinámica usando `Instant.now()`.
     *   `FinishedState` calcula la duración estática final (entre `startTime` y `endTime`), ignora los nuevos comentarios y lanza errores si se intenta pausar.
 
+---
+
+## Ejercicio 9: Decodificador de películas
+
+### 📊 Diagrama de Clases (UML) con Strategy
+
+Para permitir que el algoritmo de recomendación de películas varíe dinámicamente y sea fácilmente extensible a nuevos criterios sin acoplamiento rígido en la clase principal, se implementa el patrón **Strategy**:
+
+```mermaid
+classDiagram
+    class Pelicula {
+        -titulo: String
+        -anioEstreno: int
+        -puntaje: double
+        -similares: List~Pelicula~
+        +Pelicula(titulo: String, puntaje: double, anioEstreno: int)
+        +agregarSimilar(pelicula: Pelicula) void
+        +getTitulo() String
+        +getAnioEstreno() int
+        +getPuntaje() double
+        +getSimilares() List~Pelicula~
+    }
+
+    class Decodificador {
+        -grilla: List~Pelicula~
+        -reproducidas: List~Pelicula~
+        -sugerencia: CriterioSugerencia
+        +Decodificador()
+        +agregarPelicula(pelicula: Pelicula) void
+        +reproducir(pelicula: Pelicula) void
+        +setCriterioSugerencia(sugerencia: CriterioSugerencia) void
+        +sugerencia() List~Pelicula~
+        +getGrilla() List~Pelicula~
+        +getReproducidas() List~Pelicula~
+    }
+
+    class CriterioSugerencia {
+        <<interface>>
+        +obtenerSugerencias(decodificador: Decodificador)* List~Pelicula~
+    }
+
+    class Novedad {
+        +obtenerSugerencias(decodificador: Decodificador) List~Pelicula~
+    }
+
+    class Similaridad {
+        +obtenerSugerencias(decodificador: Decodificador) List~Pelicula~
+    }
+
+    class Puntaje {
+        +obtenerSugerencias(decodificador: Decodificador) List~Pelicula~
+    }
+
+    Decodificador o--> "1" CriterioSugerencia : sugerencia
+    Decodificador --> "*" Pelicula : grilla / reproducidas
+    Pelicula --> "*" Pelicula : similares
+    Novedad ..|> CriterioSugerencia
+    Similaridad ..|> CriterioSugerencia
+    Puntaje ..|> CriterioSugerencia
+```
+
+### 🗒️ Roles del Patrón Strategy
+*   **Context (Contexto):** La clase `Decodificador`. Mantiene la grilla de películas del catálogo, la lista de películas ya vistas por el usuario, y delega la responsabilidad de sugerir películas a la estrategia actualmente activa (`sugerencia`).
+*   **Strategy (Estrategia abstracta):** La interfaz `CriterioSugerencia`. Declara una interfaz común para todos los algoritmos de recomendación soportados (`obtenerSugerencias()`).
+*   **Concrete Strategies (Estrategias concretas):** Las clases `Novedad`, `Similaridad` y `Puntaje`. Cada una encapsula un algoritmo de filtrado, ordenación y selección específico de 3 películas:
+    *   `Novedad` selecciona películas no reproducidas ordenadas de más reciente a más antigua.
+    *   `Similaridad` busca y ordena las películas similares a las que ya vio el usuario, excluyendo las vistas.
+    *   `Puntaje` ordena películas no reproducidas por puntaje de mayor a menor y desempata por año de estreno.
+*   **Facilidad de Extensión (Open/Closed Principle):** Se pueden agregar nuevos criterios de sugerencia implementando la interfaz `CriterioSugerencia`, sin necesidad de modificar el decodificador existente ni las otras estrategias.
+
+
 
 
 
