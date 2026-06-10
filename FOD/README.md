@@ -78,12 +78,68 @@ Repositorio de estudio personal para la materia **Fundamentos de Organización d
 <table>
   <tr>
     <td width="900">
+      <h3>📄 <a href="Teoria/Resumenes/Clase5.md">Clase 5: Búsqueda e Índices</a></h3>
+      <blockquote>Estructuras de índices primarios y secundarios, operaciones básicas y resolución de ocurrencias mediante Listas Invertidas.</blockquote>
+      <p>
+        <img src="https://img.shields.io/badge/Indices-2C3E50?style=flat-square" />
+        <img src="https://img.shields.io/badge/Indice_Secundario-2C3E50?style=flat-square" />
+        <img src="https://img.shields.io/badge/Listas_Invertidas-2980B9?style=flat-square" />
+      </p>
+    </td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <td width="900">
       <h3>📄 <a href="Teoria/Resumenes/Clase6.md">Clase 6: Árboles y Estructuras Balanceadas</a></h3>
       <blockquote>Soluciones avanzadas para almacenamiento secundario. Árboles Binarios, Multicaminos, B-Trees y Árboles B+.</blockquote>
       <p>
         <img src="https://img.shields.io/badge/Arboles_Binarios-2C3E50?style=flat-square" />
         <img src="https://img.shields.io/badge/B--Trees-2C3E50?style=flat-square" />
         <img src="https://img.shields.io/badge/Arbol_B+-2980B9?style=flat-square" />
+      </p>
+    </td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <td width="900">
+      <h3>📄 <a href="Teoria/Resumenes/Clase7.md">Clase 7: Árboles B</a></h3>
+      <blockquote>Propiedades formales de Árboles B de orden M, representación en Pascal, e inserción y eliminación con traza de Overflow/Underflow.</blockquote>
+      <p>
+        <img src="https://img.shields.io/badge/Arboles_B-2C3E50?style=flat-square" />
+        <img src="https://img.shields.io/badge/Overflow-2C3E50?style=flat-square" />
+        <img src="https://img.shields.io/badge/Underflow-2980B9?style=flat-square" />
+      </p>
+    </td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <td width="900">
+      <h3>📄 <a href="Teoria/Resumenes/Clase8.md">Clase 8: Árboles B+</a></h3>
+      <blockquote>Variante optimizada para BD relacionales. Diferencias entre Conjunto Índice y Conjunto Secuencia, inserción con copias y recorrido secuencial rápido.</blockquote>
+      <p>
+        <img src="https://img.shields.io/badge/Arboles_B+-2C3E50?style=flat-square" />
+        <img src="https://img.shields.io/badge/Conjunto_Secuencia-2C3E50?style=flat-square" />
+        <img src="https://img.shields.io/badge/Secuencial-2980B9?style=flat-square" />
+      </p>
+    </td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <td width="900">
+      <h3>📄 <a href="Teoria/Resumenes/Clase9.md">Clase 9: Dispersión (Hashing)</a></h3>
+      <blockquote>Técnicas de dispersión estática y dinámica. Algoritmo y traza detallada de Hashing Extensible (dirección global y local).</blockquote>
+      <p>
+        <img src="https://img.shields.io/badge/Hashing-2C3E50?style=flat-square" />
+        <img src="https://img.shields.io/badge/Hashing_Extensible-2C3E50?style=flat-square" />
+        <img src="https://img.shields.io/badge/Colisiones-2980B9?style=flat-square" />
       </p>
     </td>
   </tr>
