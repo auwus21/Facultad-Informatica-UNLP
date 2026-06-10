@@ -134,6 +134,101 @@ Cada resumen incluye explicaciones estructuradas, código Java y resúmenes de l
   </tr>
 </table>
 
+<!-- ═══════════════ CLASE 9 ═══════════════ -->
+
+<table>
+  <tr>
+    <td width="900">
+      <h3>📄 <a href="Teoria/Resumenes/Clase9.md">Clase 9: Análisis de Algoritmos y Tiempos de Ejecución</a></h3>
+      <blockquote>Notación Big-Oh, algoritmos iterativos y recursivos, y el Teorema Maestro.</blockquote>
+      <p>
+        <img src="https://img.shields.io/badge/Complejidad-2C3E50?style=flat-square" />
+        <img src="https://img.shields.io/badge/Teorema_Maestro-2ECC71?style=flat-square" />
+        <img src="https://img.shields.io/badge/Big--O-2ECC71?style=flat-square" />
+      </p>
+    </td>
+  </tr>
+</table>
+
+<!-- ═══════════════ CLASE 10 ═══════════════ -->
+
+<table>
+  <tr>
+    <td width="900">
+      <h3>📄 <a href="Teoria/Resumenes/Clase10.md">Clase 10: Grafos — Conceptos Básicos y Representaciones</a></h3>
+      <blockquote>Definición de grafos, terminología y representaciones en memoria (matrices vs listas).</blockquote>
+      <p>
+        <img src="https://img.shields.io/badge/Grafos-2ECC71?style=flat-square" />
+        <img src="https://img.shields.io/badge/Matriz_de_Adyacencia-2C3E50?style=flat-square" />
+        <img src="https://img.shields.io/badge/Lista_de_Adyacencia-2C3E50?style=flat-square" />
+      </p>
+    </td>
+  </tr>
+</table>
+
+<!-- ═══════════════ CLASE 11 Y 12 ═══════════════ -->
+
+<table>
+  <tr>
+    <td width="900">
+      <h3>📄 <a href="Teoria/Resumenes/Clase11_12.md">Clase 11 y 12: Recorridos de Grafos en JAVA (DFS y BFS)</a></h3>
+      <blockquote>Implementación práctica de DFS y BFS y aplicaciones de búsqueda de caminos en Java.</blockquote>
+      <p>
+        <img src="https://img.shields.io/badge/DFS_y_BFS-2ECC71?style=flat-square" />
+        <img src="https://img.shields.io/badge/Backtracking-2ECC71?style=flat-square" />
+        <img src="https://img.shields.io/badge/Java_API-2C3E50?style=flat-square" />
+      </p>
+    </td>
+  </tr>
+</table>
+
+<!-- ═══════════════ CLASE 13 ═══════════════ -->
+
+<table>
+  <tr>
+    <td width="900">
+      <h3>📄 <a href="Teoria/Resumenes/Clase13.md">Clase 13: Grafos — Orden Topológico</a></h3>
+      <blockquote>Ordenación lineal de dependencias, algoritmo de Kahn y DFS con pila.</blockquote>
+      <p>
+        <img src="https://img.shields.io/badge/Orden_Topológico-2ECC71?style=flat-square" />
+        <img src="https://img.shields.io/badge/DAG-2C3E50?style=flat-square" />
+      </p>
+    </td>
+  </tr>
+</table>
+
+<!-- ═══════════════ CLASE 14 ═══════════════ -->
+
+<table>
+  <tr>
+    <td width="900">
+      <h3>📄 <a href="Teoria/Resumenes/Clase14.md">Clase 14: Caminos Mínimos (Dijkstra y Floyd)</a></h3>
+      <blockquote>Algoritmo de Dijkstra para origen único y Floyd-Warshall para todos los pares.</blockquote>
+      <p>
+        <img src="https://img.shields.io/badge/Dijkstra-2ECC71?style=flat-square" />
+        <img src="https://img.shields.io/badge/Floyd--Warshall-2C3E50?style=flat-square" />
+        <img src="https://img.shields.io/badge/Caminos_Mínimos-2ECC71?style=flat-square" />
+      </p>
+    </td>
+  </tr>
+</table>
+
+<!-- ═══════════════ CLASE 15 ═══════════════ -->
+
+<table>
+  <tr>
+    <td width="900">
+      <h3>📄 <a href="Teoria/Resumenes/Clase15.md">Clase 15: Árbol Abarcador Mínimo (Prim y Kruskal)</a></h3>
+      <blockquote>Construcción del MST utilizando los algoritmos de Prim y Kruskal.</blockquote>
+      <p>
+        <img src="https://img.shields.io/badge/MST-2ECC71?style=flat-square" />
+        <img src="https://img.shields.io/badge/Prim-2C3E50?style=flat-square" />
+        <img src="https://img.shields.io/badge/Kruskal-2C3E50?style=flat-square" />
+      </p>
+    </td>
+  </tr>
+</table>
+
 <br>
 
 > 📂 **Material oficial de cátedra (PDFs):** [Abrir directorio](Teoria/Material_Original/)
