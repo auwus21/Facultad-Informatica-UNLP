@@ -180,3 +180,77 @@ La Entrada/Salida es el factor que más degrada la performance de un sistema. Co
 4. **Usar DMA (Direct Memory Access)**: Incorporar un chip inteligente auxiliar que se encarga de transferir datos del periférico directo a la RAM física sin intervención continua de la CPU, interrumpiendo a la CPU únicamente cuando la transferencia completa del bloque ha finalizado.
 
 </details>
+
+<br>
+
+<details>
+<summary><b>🔌 Parte 2: Anexo I — Arquitectura de Hardware de E/S (Mapeo de Memoria, Registros y Técnicas de I/O)</b></summary>
+
+## 🏗️ Hardware de Entrada/Salida
+
+La comunicación entre la CPU y los controladores de dispositivos se basa en un conjunto de componentes físicos:
+- **Buses**: Canales de comunicación compartidos (de datos, direcciones y control) que interconectan la CPU, la memoria y los controladores de E/S.
+- **Controladores (Controladoras)**: Chips o circuitos integrados que actúan como la interfaz lógica del hardware físico. Traducen las órdenes de la CPU en señales eléctricas de bajo nivel específicas del dispositivo.
+- **Puertos de E/S / Registros**: Puntos de conexión lógicos formados por un conjunto de registros internos en la controladora (de estado, control, entrada de datos y salida de datos).
+
+---
+
+## 🔄 Comunicación CPU - Controladora
+
+Para ejecutar un comando o transferir datos, la CPU escribe y lee en los registros de la controladora:
+1. **Registros de Control**: La CPU escribe en ellos para ordenar acciones (ej: "hacer girar el disco", "escribir bloque").
+2. **Registros de Estado**: La CPU lee de ellos para verificar la situación actual (ej: si el dispositivo está ocupado, listo, o si ocurrió un error).
+3. **Registros de Datos (Entrada/Salida)**: Se usan para transferir los bytes de información hacia o desde la CPU.
+
+### ⚙️ Comandos de E/S emitidos por la CPU:
+- **Control**: Indican al dispositivo qué tarea realizar (ej: rebobinar cinta, buscar pista).
+- **Test**: Comprueban estados específicos (ej: verificar si la impresora tiene papel o corriente).
+- **Read / Write**: Inician la transferencia física de información.
+
+---
+
+## 🗺️ Mapeo de E/S: Memory-Mapped I/O vs. Isolated I/O
+
+Existen dos filosofías de diseño de hardware para direccionar y acceder a los registros de las controladoras:
+
+| Atributo | Correspondencia en Memoria (Memory-Mapped I/O) | E/S Aislada (Isolated I/O / Puertos de E/S) |
+|---|---|---|
+| **Espacio de direcciones** | Compartido. Los registros de la controladora ocupan un rango de direcciones del mismo mapa de memoria física de la RAM. | Separado. Los dispositivos tienen un mapa de direcciones exclusivo e independiente del de la RAM (Puertos de E/S). |
+| **Instrucciones de CPU** | Instrucciones estándar de memoria (ej. `MOV` en assembler). No se requieren comandos específicos. | Instrucciones especiales y dedicadas exclusivas de E/S (ej: `IN` y `OUT` en x86). |
+| **Líneas de control de bus** | La CPU utiliza las mismas señales de lectura/escritura de memoria. | Se requieren líneas de control físicas adicionales en el bus para indicar si el acceso es a memoria o a E/S. |
+| **Pros y Contras** | ✔️ Flexibilidad absoluta (se pueden usar todos los modos de direccionamiento y operaciones de memoria). <br>❌ Consume espacio del mapa de memoria RAM. | ✔️ No desperdicia espacio de direccionamiento de RAM. <br>❌ Conjunto de instrucciones de E/S muy limitado y rígido. |
+
+---
+
+## 🔄 Técnicas de I/O en Hardware
+
+Para gestionar la transferencia de datos entre la memoria principal y el periférico, existen tres técnicas clásicas:
+
+### 1️⃣ E/S Programada (Programmed I/O) y Polling (Espera Activa)
+La CPU toma el control directo y total de la operación:
+1. La CPU emite un comando de lectura/escritura a la controladora.
+2. La CPU entra en un bucle cerrado chequeando repetidamente el registro de estado de la controladora (**Polling / Busy-wait**).
+3. Cuando el dispositivo cambia su estado a "Listo", la CPU lee/escribe el dato de la controladora y lo guarda en la RAM.
+- **Desventaja**: Desperdicia masivamente ciclos de reloj de la CPU en una espera inactiva.
+
+### 2️⃣ E/S Manejada por Interrupciones (Interrupt-Driven I/O)
+Evita que la CPU espere bloqueada al dispositivo lento:
+1. La CPU emite el comando a la controladora y continúa ejecutando otros procesos o tareas productivas.
+2. Cuando la controladora termina la transferencia del dato, envía una señal física de **Interrupción** a la CPU a través del bus.
+3. La CPU detiene temporalmente su ejecución, salva su contexto mínimo, atiende la interrupción (ejecutando el driver del dispositivo para transferir el dato a RAM) y luego retoma su tarea original.
+- **Ventaja**: Mucho más eficiente que la E/S programada.
+- **Desventaja**: Sigue consumiendo tiempo de CPU para transferir el dato byte por byte (o bloque por bloque) a la memoria RAM.
+
+### 3️⃣ DMA (Direct Memory Access)
+Diseñado para transferencias masivas de alta velocidad (como discos rígidos o tarjetas de red), delegando el control en un chip especializado (Controlador DMA):
+1. La CPU configura el controlador DMA indicando:
+   - El tipo de operación (Lectura/Escritura).
+   - La dirección del dispositivo de E/S.
+   - La dirección inicial en memoria RAM.
+   - La cantidad de bytes/bloques a transferir.
+2. El controlador DMA toma el control del bus y realiza la transferencia completa de datos directamente entre el periférico y la memoria principal, **sin intervención de la CPU**.
+3. La CPU solo es interrumpida **una única vez** al final, cuando todo el bloque de datos ha terminado de ser transferido a la RAM.
+- **Ventaja**: Máxima eficiencia, liberando casi por completo a la CPU del movimiento de datos pesados.
+
+</details>
+

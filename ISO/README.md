@@ -128,7 +128,42 @@ Cada resumen incluye explicaciones estructuradas, diagramas extraídos de las di
   </tr>
 </table>
 
+<!-- ═══════════════ TEMA 5 ═══════════════ -->
+
+<table>
+  <tr>
+    <td width="900">
+      <h3>📄 <a href="Teoria/Resumenes/FileSystem_Tema_5.md">Tema 5: Administración de Sistemas de Archivos (File Systems)</a></h3>
+      <blockquote>Concepto de archivo, atributos, directorios, rutas, seguridad y derechos de acceso. Estructura de volumen y i-nodos en UNIX. FAT12/16/32 y NTFS en Windows.</blockquote>
+      <p>
+        <img src="https://img.shields.io/badge/File_System-2C3E50?style=flat-square" />
+        <img src="https://img.shields.io/badge/I--Nodo-2C3E50?style=flat-square" />
+        <img src="https://img.shields.io/badge/FAT-E67E22?style=flat-square" />
+        <img src="https://img.shields.io/badge/NTFS-E67E22?style=flat-square" />
+      </p>
+    </td>
+  </tr>
+</table>
+
+<!-- ═══════════════ TEMA 6 ═══════════════ -->
+
+<table>
+  <tr>
+    <td width="900">
+      <h3>📄 <a href="Teoria/Resumenes/Buffer_Cache_Tema_6.md">Tema 6: Caché de Disco (Buffer Cache)</a></h3>
+      <blockquote>Estructura del Buffer Cache en UNIX System V, cabeceras (headers), Hash Queues, Free List, estados de buffers y los 5 escenarios del algoritmo de asignación de bloques.</blockquote>
+      <p>
+        <img src="https://img.shields.io/badge/Buffer_Cache-2C3E50?style=flat-square" />
+        <img src="https://img.shields.io/badge/Hash_Queue-2C3E50?style=flat-square" />
+        <img src="https://img.shields.io/badge/Free_List-E67E22?style=flat-square" />
+        <img src="https://img.shields.io/badge/LRU-E67E22?style=flat-square" />
+      </p>
+    </td>
+  </tr>
+</table>
+
 <!-- ═══════════════ CONTEXT SWITCH ═══════════════ -->
+
 
 <table>
   <tr>

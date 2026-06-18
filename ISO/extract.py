@@ -8,5 +8,5 @@ for page in reader.pages:
     if extracted:
         text += extracted + "\n"
 
-with open(sys.argv[2], "w") as f:
+with open(sys.argv[2], "w", encoding="utf-8") as f:
     f.write(text)
