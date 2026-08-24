@@ -4,7 +4,7 @@
 
 <p align="center">
   <a href="#-segundo-año"><img src="https://img.shields.io/badge/📗_Segundo_Año-3_materias-6C3483?style=for-the-badge" /></a>
-  <a href="#-tercer-año"><img src="https://img.shields.io/badge/📘_Tercer_Año-1_materia-2980B9?style=for-the-badge" /></a>
+  <a href="#-tercer-año"><img src="https://img.shields.io/badge/📘_Tercer_Año-2_materias-2980B9?style=for-the-badge" /></a>
   <img src="https://img.shields.io/badge/Status-En%20curso%202026-1ABC9C?style=for-the-badge" />
 </p>
 
@@ -108,6 +108,29 @@
   </tr>
 </table>
 
+<p align="center"><i>Segundo Semestre</i></p>
+
+<table align="center">
+  <tr>
+    <td align="center" width="400">
+      <br>
+      <a href="./PC">
+        <img src="https://img.shields.io/badge/⚡_PC-Programación_Concurrente-1B4F72?style=for-the-badge" />
+      </a>
+      <br><br>
+      <p><b>Memoria compartida</b>, <b>semáforos</b>, <b>monitores</b>,<br><b>pasaje de mensajes</b> y sincronización.</p>
+      <p>
+        <img src="https://skillicons.dev/icons?i=c,java,linux" height="30" />
+        &nbsp;&nbsp;
+        <img src="https://img.shields.io/badge/Resúmenes-📁-1ABC9C?style=flat-square" />
+        <img src="https://img.shields.io/badge/Prácticas-📁-E8DAEF?style=flat-square" />
+      </p>
+      <br>
+    </td>
+    <td width="400"></td>
+  </tr>
+</table>
+
 <br>
 
 ---
@@ -129,6 +152,10 @@
 │   ├── Practicas/
 │   └── Evaluaciones/
 ├── 📂 OO2/               → Orientación a Objetos 2
+│   ├── Teoria/
+│   ├── Practicas/
+│   └── Evaluaciones/
+├── 📂 PC/                → Programación Concurrente
 │   ├── Teoria/
 │   ├── Practicas/
 │   └── Evaluaciones/
