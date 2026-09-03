@@ -1,0 +1,1610 @@
+{
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/extract.py": {
+    "mtime": 1787570230.1922488,
+    "hash": "2e93f09b90d58c7413cdf0d219cf8a59"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Practicas/Practica_1/RedSocial/src/test/java/io/github/unlp_oo/RedSocial/PersonaTest.java": {
+    "mtime": 1775475196.1115887,
+    "hash": "b6b5d874f27a8483f650c31606279240"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Practicas/Practica_1/RedSocial/src/main/java/io/github/unlp_oo/RedSocial/Publicacion.java": {
+    "mtime": 1775475196.1108232,
+    "hash": "4f6ea09265dac413d294686611bc5463"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Practicas/Practica_1/RedSocial/src/main/java/io/github/unlp_oo/RedSocial/Usuario.java": {
+    "mtime": 1775475196.1111917,
+    "hash": "89fd5fb73fd9912e2e1f277f22eee6f5"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Practicas/Practica_1/RedSocial/src/main/java/io/github/unlp_oo/RedSocial/Tweet.java": {
+    "mtime": 1775475196.111111,
+    "hash": "2eb43e71a7948bf25d0512eee8c63d91"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Practicas/Practica_1/RedSocial/src/main/java/io/github/unlp_oo/RedSocial/ReTweet.java": {
+    "mtime": 1776090764.1925662,
+    "hash": "7e4d00fad0b8bc9f6bd9e9facd02408f"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Practicas/Practica_1/RedSocial/src/main/java/io/github/unlp_oo/RedSocial/Sistema.java": {
+    "mtime": 1775475196.1110256,
+    "hash": "de9a98bd029eca6dd82322281042a196"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Practicas/Practica_3/ej5-sustancias/src/test/java/ar/edu/unlp/info/oo2/sustancias/SustanciaTest.java": {
+    "mtime": 1787570230.2670722,
+    "hash": "375b42882d458ce8d2259d9915443021"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Practicas/Practica_3/ej5-sustancias/src/main/java/ar/edu/unlp/info/oo2/sustancias/UnionQuimica.java": {
+    "mtime": 1787570230.2665706,
+    "hash": "714e10d40fb0956bfb9836835454a1d8"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Practicas/Practica_3/ej5-sustancias/src/main/java/ar/edu/unlp/info/oo2/sustancias/Sustancia.java": {
+    "mtime": 1787570230.2664933,
+    "hash": "0c62da7f67c4e6f05301f30d9edaba55"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Practicas/Practica_3/ej5-sustancias/src/main/java/ar/edu/unlp/info/oo2/sustancias/Atomo.java": {
+    "mtime": 1787570230.2664154,
+    "hash": "065eee24e542ea93b98178acc0fca14f"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Practicas/Practica_3/ej2-sueldos/src/test/java/ar/edu/unlp/info/oo2/sueldos/EmpleadoTest.java": {
+    "mtime": 1787570230.2611694,
+    "hash": "73475c27ebdba324fbca0e9d8426b5b0"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Practicas/Practica_3/ej2-sueldos/src/main/java/ar/edu/unlp/info/oo2/sueldos/Temporario.java": {
+    "mtime": 1787570230.2606988,
+    "hash": "cfe542340855636db58cf1fd16897d80"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Practicas/Practica_3/ej2-sueldos/src/main/java/ar/edu/unlp/info/oo2/sueldos/Planta.java": {
+    "mtime": 1787570230.26061,
+    "hash": "41eac764f670f903e3dc575d027d2dea"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Practicas/Practica_3/ej2-sueldos/src/main/java/ar/edu/unlp/info/oo2/sueldos/Empleado.java": {
+    "mtime": 1787570230.2604053,
+    "hash": "da4db5796c78029d65cbd69fd34c91c8"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Practicas/Practica_3/ej2-sueldos/src/main/java/ar/edu/unlp/info/oo2/sueldos/Pasante.java": {
+    "mtime": 1787570230.260525,
+    "hash": "e15fb72a1df50bbc66f5e0ed31eb23f1"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Practicas/Practica_3/ej1-biblioteca/src/test/java/ar/edu/unlp/info/oo2/biblioteca/BibliotecaTest.java": {
+    "mtime": 1776346563.968291,
+    "hash": "87e09c82655620d2ac1570cf9f3da0a0"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Practicas/Practica_3/ej1-biblioteca/src/main/java/ar/edu/unlp/info/oo2/biblioteca/Socio.java": {
+    "mtime": 1775259160.0,
+    "hash": "3f6e62bc4ce04c9f9fd69d1ca1a16d72"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Practicas/Practica_3/ej1-biblioteca/src/main/java/ar/edu/unlp/info/oo2/biblioteca/Biblioteca.java": {
+    "mtime": 1776347197.5166044,
+    "hash": "c1cdcf3b553627b5cd561de09d9b292d"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Practicas/Practica_3/ej1-biblioteca/src/main/java/ar/edu/unlp/info/oo2/biblioteca/JsonSimpleAdapter.java": {
+    "mtime": 1776347907.720047,
+    "hash": "a75c0d0ff5367ac00b953da949cd5221"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Practicas/Practica_3/ej1-biblioteca/src/main/java/ar/edu/unlp/info/oo2/biblioteca/VoorheesExporter.java": {
+    "mtime": 1775259136.0,
+    "hash": "dcb57722cf31aa04451c073dfaa07b71"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Practicas/Practica_3/ej1-biblioteca/src/main/java/ar/edu/unlp/info/oo2/biblioteca/Exporter.java": {
+    "mtime": 1775259124.0,
+    "hash": "962b7d78f3644625bfcb800e01588987"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Practicas/Practica_3/ej3-media-player/src/test/java/ar/edu/unlp/info/oo2/mediaplayer/MediaPlayerTest.java": {
+    "mtime": 1787570230.2632208,
+    "hash": "d9bef48aca15883cd05a6d9704e58068"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Practicas/Practica_3/ej3-media-player/src/main/java/ar/edu/unlp/info/oo2/mediaplayer/Audio.java": {
+    "mtime": 1787570230.2623148,
+    "hash": "8a08d5c74f758db3f5137b3a71f80a00"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Practicas/Practica_3/ej3-media-player/src/main/java/ar/edu/unlp/info/oo2/mediaplayer/Video.java": {
+    "mtime": 1787570230.2625792,
+    "hash": "7cccf1cbd1bb77045eaa56f2f8431660"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Practicas/Practica_3/ej3-media-player/src/main/java/ar/edu/unlp/info/oo2/mediaplayer/MediaPlayer.java": {
+    "mtime": 1787570230.2625034,
+    "hash": "8231c7f1ccd1d6dbec51a7f24e1a07db"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Practicas/Practica_3/ej3-media-player/src/main/java/ar/edu/unlp/info/oo2/mediaplayer/Media.java": {
+    "mtime": 1787570230.262399,
+    "hash": "bfa94e064e11a1e42d5392cfb02c3f30"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Practicas/Practica_3/ej3-media-player/src/main/java/ar/edu/unlp/info/oo2/mediaplayer/VideoStreamAdapter.java": {
+    "mtime": 1787570230.262748,
+    "hash": "6fb58d32037dff47f78eae3094d896d7"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Practicas/Practica_3/ej3-media-player/src/main/java/ar/edu/unlp/info/oo2/mediaplayer/VideoStream.java": {
+    "mtime": 1787570230.2626607,
+    "hash": "97e4d534b347a9b5f78097af165ed855"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Practicas/Practica_3/ej8-todoitem/src/test/java/ar/edu/unlp/info/oo2/todoitem/ToDoItemTest.java": {
+    "mtime": 1787570230.271522,
+    "hash": "5c4b56015d36ce48b55ac9476642071e"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Practicas/Practica_3/ej8-todoitem/src/main/java/ar/edu/unlp/info/oo2/todoitem/ToDoItem.java": {
+    "mtime": 1787570230.2709026,
+    "hash": "06aaee7d2254cdf4b1185439244408e6"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Practicas/Practica_3/ej8-todoitem/src/main/java/ar/edu/unlp/info/oo2/todoitem/FinishedState.java": {
+    "mtime": 1787570230.2704034,
+    "hash": "6bb7457a9d748d76a8caac212414af34"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Practicas/Practica_3/ej8-todoitem/src/main/java/ar/edu/unlp/info/oo2/todoitem/ToDoItemState.java": {
+    "mtime": 1787570230.2709854,
+    "hash": "855a16ae8c4ba85f9f5012a2d9419c4f"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Practicas/Practica_3/ej8-todoitem/src/main/java/ar/edu/unlp/info/oo2/todoitem/PendingState.java": {
+    "mtime": 1787570230.270815,
+    "hash": "87b61ed2e2c688caaf199b1cd814be8d"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Practicas/Practica_3/ej8-todoitem/src/main/java/ar/edu/unlp/info/oo2/todoitem/PausedState.java": {
+    "mtime": 1787570230.270731,
+    "hash": "94a3e55524a38a9c69c4081127cd7ea5"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Practicas/Practica_3/ej8-todoitem/src/main/java/ar/edu/unlp/info/oo2/todoitem/InProgressState.java": {
+    "mtime": 1787570230.2706523,
+    "hash": "38777a625536d544d8f0eab152c38f3b"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Practicas/Practica_3/ej9-decodificador/src/test/java/ar/edu/unlp/info/oo2/decodificador/DecodificadorTest.java": {
+    "mtime": 1787570230.2736669,
+    "hash": "c29c4485878b9302c63229651a863c93"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Practicas/Practica_3/ej9-decodificador/src/main/java/ar/edu/unlp/info/oo2/decodificador/CriterioSugerencia.java": {
+    "mtime": 1787570230.2727637,
+    "hash": "6111e0ccfccdd7f37e0e77c4f3a9f59f"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Practicas/Practica_3/ej9-decodificador/src/main/java/ar/edu/unlp/info/oo2/decodificador/Pelicula.java": {
+    "mtime": 1787570230.273034,
+    "hash": "802f82a9d8ba8151535bfdae5326eb13"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Practicas/Practica_3/ej9-decodificador/src/main/java/ar/edu/unlp/info/oo2/decodificador/Similaridad.java": {
+    "mtime": 1787570230.27319,
+    "hash": "9b63ef6673c6cdaf3f090ccf6f65a955"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Practicas/Practica_3/ej9-decodificador/src/main/java/ar/edu/unlp/info/oo2/decodificador/Puntaje.java": {
+    "mtime": 1787570230.273112,
+    "hash": "3f6b658ba56cf0e5668698517a40afcc"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Practicas/Practica_3/ej9-decodificador/src/main/java/ar/edu/unlp/info/oo2/decodificador/Decodificador.java": {
+    "mtime": 1787570230.2728562,
+    "hash": "8a0e59bf021faffcfae98f69cdfd5208"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Practicas/Practica_3/ej9-decodificador/src/main/java/ar/edu/unlp/info/oo2/decodificador/Novedad.java": {
+    "mtime": 1787570230.272946,
+    "hash": "ac8722fc3ff41a2f6e93a68b886caa75"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Practicas/Practica_3/ej4-topografias/src/test/java/ar/edu/unlp/info/oo2/topografias/TopografiaTest.java": {
+    "mtime": 1787570230.2653103,
+    "hash": "d07fb9dad971af87eef7a68f3fd4fc5b"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Practicas/Practica_3/ej4-topografias/src/main/java/ar/edu/unlp/info/oo2/topografias/Tierra.java": {
+    "mtime": 1787570230.2646518,
+    "hash": "1dd0052bea2de24c0f753e5bf02c9b60"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Practicas/Practica_3/ej4-topografias/src/main/java/ar/edu/unlp/info/oo2/topografias/Topografia.java": {
+    "mtime": 1787570230.2647443,
+    "hash": "1b6eead63430249a4fb2435d8858891c"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Practicas/Practica_3/ej4-topografias/src/main/java/ar/edu/unlp/info/oo2/topografias/Pantano.java": {
+    "mtime": 1787570230.2645562,
+    "hash": "f47a15e3cc5c8d07fabd55984a49b373"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Practicas/Practica_3/ej4-topografias/src/main/java/ar/edu/unlp/info/oo2/topografias/Agua.java": {
+    "mtime": 1787570230.264478,
+    "hash": "55acb5575869ce1c444ab7f5c0568683"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Practicas/Practica_3/ej4-topografias/src/main/java/ar/edu/unlp/info/oo2/topografias/TopografiaMixta.java": {
+    "mtime": 1787570230.2648294,
+    "hash": "d26ce34df29650c9c971b0f336c4d176"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Practicas/Practica_3/ej10-calculadora/src/test/java/ar/edu/unlp/info/oo2/calculadora/CalculadoraTest.java": {
+    "mtime": 1787570230.2591841,
+    "hash": "44a207900f0f7228cb5ed8a81fbf0536"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Practicas/Practica_3/ej10-calculadora/src/main/java/ar/edu/unlp/info/oo2/calculadora/Operacion.java": {
+    "mtime": 1787570230.258571,
+    "hash": "c85496b92df638ce04624d3958e3da52"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Practicas/Practica_3/ej10-calculadora/src/main/java/ar/edu/unlp/info/oo2/calculadora/ErrorState.java": {
+    "mtime": 1787570230.2584028,
+    "hash": "32da8d2d0ac0f205657161fcceea4e97"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Practicas/Practica_3/ej10-calculadora/src/main/java/ar/edu/unlp/info/oo2/calculadora/WaitingForValueState.java": {
+    "mtime": 1787570230.2586505,
+    "hash": "eb9e8f8f7ec6bb82b7165e974957e39b"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Practicas/Practica_3/ej10-calculadora/src/main/java/ar/edu/unlp/info/oo2/calculadora/Calculadora.java": {
+    "mtime": 1787570230.258244,
+    "hash": "e0b4aac2007858140535e684a60e74a9"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Practicas/Practica_3/ej10-calculadora/src/main/java/ar/edu/unlp/info/oo2/calculadora/CalculadoraState.java": {
+    "mtime": 1787570230.2583282,
+    "hash": "6d895367d256470badeaf7e58a70c4df"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Practicas/Practica_3/ej10-calculadora/src/main/java/ar/edu/unlp/info/oo2/calculadora/IdleState.java": {
+    "mtime": 1787570230.2584867,
+    "hash": "5f985609a2104dbe883ac85bb0c246b0"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Practicas/Practica_3/ej6-subteway/src/test/java/ar/edu/unlp/info/oo2/subteway/SubteWayTest.java": {
+    "mtime": 1787570230.2690642,
+    "hash": "e45865d122f3350b0a739f8680e7552c"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Practicas/Practica_3/ej6-subteway/src/main/java/ar/edu/unlp/info/oo2/subteway/SinTaccBuilder.java": {
+    "mtime": 1787570230.26838,
+    "hash": "8765e513e1a393c755e22914ccbe9e40"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Practicas/Practica_3/ej6-subteway/src/main/java/ar/edu/unlp/info/oo2/subteway/VeganoBuilder.java": {
+    "mtime": 1787570230.2685256,
+    "hash": "c054db15e3dbbcd0ad9ddf5af0f8fb2c"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Practicas/Practica_3/ej6-subteway/src/main/java/ar/edu/unlp/info/oo2/subteway/ClasicoBuilder.java": {
+    "mtime": 1787570230.2681565,
+    "hash": "2cae3cb7b50fa40dee918a63815ab494"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Practicas/Practica_3/ej6-subteway/src/main/java/ar/edu/unlp/info/oo2/subteway/Sandwich.java": {
+    "mtime": 1787570230.2682338,
+    "hash": "9870f73d8fd706c7ea74e6e1af4424ad"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Practicas/Practica_3/ej6-subteway/src/main/java/ar/edu/unlp/info/oo2/subteway/VegetarianoBuilder.java": {
+    "mtime": 1787570230.268596,
+    "hash": "86e7333a8109a9f715303f8a48789d5e"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Practicas/Practica_3/ej6-subteway/src/main/java/ar/edu/unlp/info/oo2/subteway/SubteWayDirector.java": {
+    "mtime": 1787570230.2684538,
+    "hash": "602705617cea4363a59de57104b28198"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Practicas/Practica_3/ej6-subteway/src/main/java/ar/edu/unlp/info/oo2/subteway/SandwichBuilder.java": {
+    "mtime": 1787570230.2683086,
+    "hash": "7d2e533468c18edcef3bd848f8bc4641"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Practicas/Practica_2/ej5-productos/src/test/java/ar/edu/info/unlp/refactoring/ejercicio1/CarRentalTest.java": {
+    "mtime": 1787570230.2449815,
+    "hash": "5c0c3bd11bb4fd637652172edcb93bfe"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Practicas/Practica_2/ej5-productos/src/test/java/ar/edu/info/unlp/refactoring/ejercicio1/HotelStayTest.java": {
+    "mtime": 1787570230.2451353,
+    "hash": "4b91ed410ec7647c0e2af91bbdb35249"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Practicas/Practica_2/ej5-productos/src/main/java/ar/edu/info/unlp/refactoring/ejercicio1/Product.java": {
+    "mtime": 1787570230.2443697,
+    "hash": "a7144a6305b15a8661708b6cfa2b51c6"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Practicas/Practica_2/ej5-productos/src/main/java/ar/edu/info/unlp/refactoring/ejercicio1/Hotel.java": {
+    "mtime": 1787570230.2442095,
+    "hash": "a76e15c6e7f300c73cabb4827317e197"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Practicas/Practica_2/ej5-productos/src/main/java/ar/edu/info/unlp/refactoring/ejercicio1/TimePeriod.java": {
+    "mtime": 1787570230.2444549,
+    "hash": "51020f030bdbf2775b1933df95dd54dd"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Practicas/Practica_2/ej5-productos/src/main/java/ar/edu/info/unlp/refactoring/ejercicio1/HotelStay.java": {
+    "mtime": 1787570230.2442884,
+    "hash": "dca42f999df7c0fac2163385d0c36b79"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Practicas/Practica_2/ej5-productos/src/main/java/ar/edu/info/unlp/refactoring/ejercicio1/Company.java": {
+    "mtime": 1787570230.2441313,
+    "hash": "8f98cc986d3a8be43ebb97d1492c8374"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Practicas/Practica_2/ej5-productos/src/main/java/ar/edu/info/unlp/refactoring/ejercicio1/CarRental.java": {
+    "mtime": 1787570230.2440495,
+    "hash": "9cd7bcaff92c861846840a4cd43e5eff"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/AyED/Parciales/Parcial-1/src/main/java/parcial_10__5_2025/ParcialArboles.java": {
+    "mtime": 1779315821.4783425,
+    "hash": "a1bfb1563b44e9fa05a789cf8aefc523"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/AyED/Parciales/Parcial-1/src/main/java/parcial_10__5_2025/GeneralTree.java": {
+    "mtime": 1779315821.4782531,
+    "hash": "3e263f9ffab93c0705613342db589e2d"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/AyED/Practicas/Practica-1-Introduccion/practica1/Alumno.java": {
+    "mtime": 1779315821.550061,
+    "hash": "c837ef66d5cdb6824453917ba314d214"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/AyED/Practicas/Practica-1-Introduccion/practica1/AplicacionDePrueba.java": {
+    "mtime": 1779315821.5501485,
+    "hash": "7a2ef57c59ad49953242a31ce4f3c1bb"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/AyED/Practicas/Practica-1-Introduccion/tp1/ejercicio5/Resultados.java": {
+    "mtime": 1779315821.6147337,
+    "hash": "44debe10b8592b9270acaf02efd92b23"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/AyED/Practicas/Practica-1-Introduccion/tp1/ejercicio5/DatosArreglo.java": {
+    "mtime": 1779315821.614634,
+    "hash": "65fd4ccc3e599e536e1704a02c4a8aa7"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/AyED/Practicas/Practica-1-Introduccion/tp1/ejercicio2/Ejercicio2.java": {
+    "mtime": 1779315821.6140888,
+    "hash": "56e4eba01bb4b0e5be41205ddd7b63a0"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/AyED/Practicas/Practica-1-Introduccion/tp1/ejercicio3/Estudiante.java": {
+    "mtime": 1779315821.6142144,
+    "hash": "e58922750cc18b04a654c342e1314578"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/AyED/Practicas/Practica-1-Introduccion/tp1/ejercicio3/Profesor.java": {
+    "mtime": 1779315821.6142924,
+    "hash": "3607c61bceaef83478c5e9677164ce25"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/AyED/Practicas/Practica-1-Introduccion/tp1/ejercicio3/Test.java": {
+    "mtime": 1779315821.6143696,
+    "hash": "965719adda942e3623b15e9ea737f75a"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/AyED/Practicas/Practica-1-Introduccion/tp1/ejercicio4/SwapValores.java": {
+    "mtime": 1779315821.614501,
+    "hash": "4256c1cbfa7052d33dd084dcec4291f3"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/AyED/Practicas/Practica-1-Introduccion/tp1/ejercicio1/Ejercicio1.java": {
+    "mtime": 1779315821.6139538,
+    "hash": "df63417903750bc9dcec09a2f1cb3ec1"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/AyED/Practicas/Practica-1-Introduccion/tp1/ejercicio6/Ejer6.java": {
+    "mtime": 1779315821.61493,
+    "hash": "8af0733ce1e341008e9854151078c77a"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/AyED/Practicas/Practica-1-Introduccion/tp1/ejercicio8/Queue.java": {
+    "mtime": 1779315821.6156707,
+    "hash": "9a60c261680ab0c2caafb47d5bd17ed3"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/AyED/Practicas/Practica-1-Introduccion/tp1/ejercicio8/DoubleEndedQueue.java": {
+    "mtime": 1779315821.6155903,
+    "hash": "de5b941634861dd19a40c14ce839f658"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/AyED/Practicas/Practica-1-Introduccion/tp1/ejercicio8/CircularQueue.java": {
+    "mtime": 1779315821.6155157,
+    "hash": "54ed71134ba42892abcb305835cd8ca0"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/AyED/Practicas/Practica-1-Introduccion/tp1/ejercicio9/TestBalanceo.java": {
+    "mtime": 1779315821.6158097,
+    "hash": "44555d497052cba151f6b9dead34a127"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/AyED/Practicas/Practica-1-Introduccion/tp1/ejercicio7/TestEstudiante.java": {
+    "mtime": 1779315821.6153107,
+    "hash": "9d0557341778eefe172367a14397c145"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/AyED/Practicas/Practica-1-Introduccion/tp1/ejercicio7/TestCapicua.java": {
+    "mtime": 1779315821.6152222,
+    "hash": "e75606319e71705816228771e35d90ee"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/AyED/Practicas/Practica-1-Introduccion/tp1/ejercicio7/TestArrayList.java": {
+    "mtime": 1779315821.6151364,
+    "hash": "912c3c0efc0efbdbc5e586d46f120d3e"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/AyED/Practicas/Practica-1-Introduccion/tp1/ejercicio7/TestLinkedList.java": {
+    "mtime": 1779315821.6153915,
+    "hash": "15632dd2d2c624aa62af340b4a5db703"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/AyED/Practicas/Practica-1-Introduccion/tp1/ejercicio7/Estudiante.java": {
+    "mtime": 1779315821.6150544,
+    "hash": "ebb5272aa0ac3b761c21281c3eb5c816"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/AyED/Practicas/Practica-3-Arboles-Generales/src/main/java/tp3/ejercicio2/RecorridosAG.java": {
+    "mtime": 1779315821.6207957,
+    "hash": "d5128afc054325e5f357696185b31b3b"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/AyED/Practicas/Practica-3-Arboles-Generales/src/main/java/tp3/ejercicio4/AreaEmpresa.java": {
+    "mtime": 1779315821.621012,
+    "hash": "4fda36467b089a251e9611bc6cd41fec"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/AyED/Practicas/Practica-3-Arboles-Generales/src/main/java/tp3/ejercicio4/AnalizadorArbol.java": {
+    "mtime": 1779315821.62093,
+    "hash": "c4d25c28125afa6eb2507d2bafab7fba"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/AyED/Practicas/Practica-3-Arboles-Generales/src/main/java/tp3/ejercicio1/GeneralTree.java": {
+    "mtime": 1779315821.6206553,
+    "hash": "83c8a2477a6ea24ca2ff3247b62a2547"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/AyED/Practicas/Practica-3-Arboles-Generales/src/main/java/tp3/ejercicio6/RedDeAguaPotable.java": {
+    "mtime": 1779315821.6211436,
+    "hash": "0665b48568d9ce9c7591df425be6f1c9"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/AyED/Practicas/Practica-3-Arboles-Generales/src/main/java/tp3/ejercicio7/Caminos.java": {
+    "mtime": 1779315821.621279,
+    "hash": "dc24f7a95349dcf1e8053c22e7da7dc0"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/AyED/Practicas/Practica-2-\u00c1rboles-Binarios/src/main/java/tp2/ejercicio5/ProfundidadDeArbolBinario.java": {
+    "mtime": 1779315821.6185074,
+    "hash": "22db7e1a307689b81ac62347e5ce0010"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/AyED/Practicas/Practica-2-\u00c1rboles-Binarios/src/main/java/tp2/ejercicio3/ContadorArbol.java": {
+    "mtime": 1779315821.618229,
+    "hash": "6ebc119c61df0147ff56b76fee2a3973"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/AyED/Practicas/Practica-2-\u00c1rboles-Binarios/src/main/java/tp2/ejercicio4/RedBinariaLlena.java": {
+    "mtime": 1779315821.618364,
+    "hash": "c8283d73a9d38e207efd4a27f019c63b"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/AyED/Practicas/Practica-2-\u00c1rboles-Binarios/src/main/java/tp2/ejercicio1/BinaryTree.java": {
+    "mtime": 1779315821.6180992,
+    "hash": "cc06f5c281cbb12ff14e726b35f2b323"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/AyED/Practicas/Practica-2-\u00c1rboles-Binarios/src/main/java/tp2/ejercicio6/Transformacion.java": {
+    "mtime": 1779315821.618646,
+    "hash": "3c18b6260a34ea7faa4a27178ed2a58e"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/AyED/Practicas/Practica-2-\u00c1rboles-Binarios/src/main/java/tp2/ejercicio7/ParcialArboles.java": {
+    "mtime": 1779315821.618797,
+    "hash": "4d95776682541f59d0023c1d50006687"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/README.md": {
+    "mtime": 1787570625.6798143,
+    "hash": "3a8b781c58468fd514cce678e43c6301"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/PC/README.md": {
+    "mtime": 1787571001.0687296,
+    "hash": "2a09495a73dd5ad6a02ef36fb7045c12"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/PC/Practicas/Practica_1/README.md": {
+    "mtime": 1787582505.8902516,
+    "hash": "686cb6d7092422692518847f1b1d0f64"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/PC/Teoria/Resumenes/Clase1_Fundamentos_Concurrencia.md": {
+    "mtime": 1787570917.5425239,
+    "hash": "17f4fd1f82f32896f4a6f3e922281a90"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/FOD/README.md": {
+    "mtime": 1787570483.7134864,
+    "hash": "ecde1d353993c4e816a9ad26f753ea9f"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/FOD/Teoria/Resumenes/Clase1.md": {
+    "mtime": 1776363757.7039604,
+    "hash": "2f9dd30fb5bb93d3e5080b07173b0723"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/FOD/Teoria/Resumenes/Clase4.md": {
+    "mtime": 1777573176.7439492,
+    "hash": "8da745338e2cb5d243c57e9d5469802d"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/FOD/Teoria/Resumenes/Clase3.md": {
+    "mtime": 1776363651.8550577,
+    "hash": "952337ae2f1f2171fed93784a11f9057"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/FOD/Teoria/Resumenes/Clase6.md": {
+    "mtime": 1777574466.379243,
+    "hash": "1f7ee19a242cd82dd1bcd32def771c40"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/FOD/Teoria/Resumenes/Clase2.md": {
+    "mtime": 1776363759.7196176,
+    "hash": "7a4c880a4b7ce1c1765a56868e2000ce"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/README.md": {
+    "mtime": 1787570230.1913474,
+    "hash": "364d1c631695eb9836b2aaa8c507572b"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Parciales/README.md": {
+    "mtime": 1777570915.2060547,
+    "hash": "7183dcba7f32e76e6b67f7fbe5bc56f4"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Parciales/2025-10-11_Primer_Parcial/README.md": {
+    "mtime": 1779315821.626978,
+    "hash": "1cbdb83b55ff9546f274f299fbf2aa33"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Parciales/2025-05-05_Primer_Parcial_Redictado/README.md": {
+    "mtime": 1779315821.6263926,
+    "hash": "73c98e333d932c9a2c767929f6912491"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Parciales/2025-05-19_Primer_Parcial_Segunda_Fecha/README.md": {
+    "mtime": 1779315821.6266382,
+    "hash": "bd3448214505026f4d6cd678c965474c"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Practicas/Practica_1/README.md": {
+    "mtime": 1775513751.4006894,
+    "hash": "705ed67e8530baa3d0b92080d2e6ad5e"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Practicas/Practica_1/Explicacion.md": {
+    "mtime": 1787570230.189856,
+    "hash": "a037f1c0e13d250fba0d34e0395dee4d"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Practicas/Practica_3/Explicacion.md": {
+    "mtime": 1787570230.1901762,
+    "hash": "8658ffa1111e6e7e7a36dd6f58d89ecb"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Practicas/Practica_4/README.md": {
+    "mtime": 1787570230.1905136,
+    "hash": "2a90861dea1cd4519f71d8c8551e0f6d"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Practicas/Practica_4/Explicacion.md": {
+    "mtime": 1787570230.1903644,
+    "hash": "0f81b066f0cd175673d0228897c004b0"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Practicas/Practica_2/README.md": {
+    "mtime": 1776122346.5074809,
+    "hash": "f1f77d283ab6bc283593b4a3396d36ff"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Practicas/Practica_2/Explicacion.md": {
+    "mtime": 1787570230.1899903,
+    "hash": "a918b87bc5ad3e3e5e783942085f6dce"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/Memoria_Tema_3.md": {
+    "mtime": 1778707717.0067153,
+    "hash": "e4a69b41feb89a78b928e6825be61579"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/FileSystem_Tema_5.md": {
+    "mtime": 1787570230.1919096,
+    "hash": "8be4714be30548c9d2e25d888e5519a5"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/Context_Switch_Round_Robin.md": {
+    "mtime": 1775515808.2036045,
+    "hash": "2f5ed3e2b46ed3ecd99752019731b95d"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/Procesos_Tema_2.md": {
+    "mtime": 1776118564.8694665,
+    "hash": "76af759232e16d7b325e37ec89c1d59e"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/Entrada_Salida_Tema_4.md": {
+    "mtime": 1787570230.1917424,
+    "hash": "107ca540f55136c7a4a45b9d7f0d2d1d"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/Introduccion_Tema_1.md": {
+    "mtime": 1776118564.8684866,
+    "hash": "2dac3d3d7e0adf2fccc926cc1902b1e4"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/Buffer_Cache_Tema_6.md": {
+    "mtime": 1787570230.191506,
+    "hash": "a54d627c71f68653e0a5aaa844c85495"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/README.md": {
+    "mtime": 1787570230.2770607,
+    "hash": "0389c041f357d6ad2d6cc00d1b74b9bb"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Practicas/Practica_1/Cuadernillo Semestral de Actividades - Repaso 2026 (PUBLICO).md": {
+    "mtime": 1775562389.501614,
+    "hash": "7947de3e30cdf27676b0a08a9f853da9"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Practicas/Practica_1/RedSocial/README.md": {
+    "mtime": 1775475196.110249,
+    "hash": "2fbd3447b0413f42545b768c5db9e660"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Practicas/Practica_3/Resolucion_Practica_3.md": {
+    "mtime": 1787570230.256132,
+    "hash": "a9478884b16ddc76ebfdbeb65bb2c187"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Practicas/Practica_2/Resolucion_Practica_2.md": {
+    "mtime": 1787570230.2431486,
+    "hash": "f98d631ed880d7d3de313e750a763116"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Teoria/Resumenes/Guia_Completa_OO2.md": {
+    "mtime": 1787570230.3203833,
+    "hash": "92014f2335d5ae1ccf270ca7e4cba46b"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Teoria/Resumenes/1_Refactoring/Clase9_RefactoringToPatterns.md": {
+    "mtime": 1787570230.3193374,
+    "hash": "e02380c57cdc5335b9b9120a4f6e4cfe"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Teoria/Resumenes/1_Refactoring/Clase1_Intro.md": {
+    "mtime": 1787570230.3189425,
+    "hash": "f7974bb6c4d6927cda1171f28d47d553"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Teoria/Resumenes/1_Refactoring/Clase2_Catalogo.md": {
+    "mtime": 1787570230.3192334,
+    "hash": "78649a09c11a87ef6b33743997af3f64"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Teoria/Resumenes/2_Patrones/Clase5_Composite_Profundo.md": {
+    "mtime": 1787570230.319696,
+    "hash": "1be03bf5a41093c183daba5458fb1523"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Teoria/Resumenes/2_Patrones/Clase8_Decorator_Proxy.md": {
+    "mtime": 1787570230.3198917,
+    "hash": "db506d6e9775ae2c8b14f26891544517"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Teoria/Resumenes/2_Patrones/Clase4_Composite_Factory_Builder.md": {
+    "mtime": 1787570230.3195992,
+    "hash": "3814982d8393e1ee33d7ce43984bad9d"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Teoria/Resumenes/2_Patrones/Clase3_Adapter_TemplateMethod.md": {
+    "mtime": 1787570230.3194928,
+    "hash": "b195704c045a4afd6f0c0ad411e0c0c9"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Teoria/Resumenes/2_Patrones/Clase6_Strategy_State.md": {
+    "mtime": 1787570230.3197935,
+    "hash": "16a2fd995f76f60be674da0affa6fa5c"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Teoria/Resumenes/4_Frameworks/Clase11_CajaBlanca_CajaNegra.md": {
+    "mtime": 1787570230.3202703,
+    "hash": "b464cad366c7d18220efffdb9b694221"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Teoria/Resumenes/4_Frameworks/Clase10_Conceptos_Basicos.md": {
+    "mtime": 1787570230.320177,
+    "hash": "da7371135deff8b26c3d1371cf1ce2f6"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Teoria/Resumenes/3_Testing/Clase7_TestDoubles.md": {
+    "mtime": 1787570230.3200366,
+    "hash": "6265e75536410ff10703a5bf5e80cadb"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/AyED/README.md": {
+    "mtime": 1787570230.1885037,
+    "hash": "b01037668897b127ccc3b7ab3fce2b41"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/AyED/Teoria/Resumenes/Clase10.md": {
+    "mtime": 1787570230.188688,
+    "hash": "c5e115408d280ce6f226eef1c616c7e8"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/AyED/Teoria/Resumenes/Clase14.md": {
+    "mtime": 1787570230.1891177,
+    "hash": "11a8bdd9a7ce39b26bac11aa4a7cdc8c"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/AyED/Teoria/Resumenes/Clase15.md": {
+    "mtime": 1787570230.1892624,
+    "hash": "2bf9fde9cad1986694332e2bd8b65f60"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/AyED/Teoria/Resumenes/Resolucion_Ejercicio4.md": {
+    "mtime": 1787570230.1895254,
+    "hash": "02c2970a51711aa655156da8e053f3f6"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/AyED/Teoria/Resumenes/Clase11_12.md": {
+    "mtime": 1787570230.1888356,
+    "hash": "c0701998d3c45722aa166132b98acd6c"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/AyED/Teoria/Resumenes/Clase5.md": {
+    "mtime": 1776092218.9396465,
+    "hash": "78a9ee1448e29ec6acaa20b93943fbc7"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/AyED/Teoria/Resumenes/Clase1.md": {
+    "mtime": 1776091060.7799108,
+    "hash": "7f1d39912ae203b59dab0b992d1f7239"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/AyED/Teoria/Resumenes/Clase6_2.md": {
+    "mtime": 1779315821.6254406,
+    "hash": "23aa77e823816a13042c3aead6c55359"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/AyED/Teoria/Resumenes/Clase4.md": {
+    "mtime": 1776092129.9656858,
+    "hash": "38ff0146c301b263d40bb7e2edf12a42"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/AyED/Teoria/Resumenes/Clase3.md": {
+    "mtime": 1776091138.0238912,
+    "hash": "2518115590ced110d2a88e96449c010e"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/AyED/Teoria/Resumenes/Clase6.md": {
+    "mtime": 1776092312.3128355,
+    "hash": "55a1cec2ad717d96940684f91152a060"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/AyED/Teoria/Resumenes/Clase2.md": {
+    "mtime": 1776091102.8617606,
+    "hash": "811030371ed57cb49b23d0fc392318b9"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/AyED/Teoria/Resumenes/Clase9.md": {
+    "mtime": 1787570230.1893904,
+    "hash": "336a219e5208eca2c07a5fa90d3de64e"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/AyED/Teoria/Resumenes/Clase13.md": {
+    "mtime": 1787570230.188977,
+    "hash": "c0debd1082ac4764126f5fcd8b77e673"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/PC/Practicas/Practica_1/Practica-1---Variables-compartidas.pdf": {
+    "mtime": 1787581081.9299564,
+    "hash": "38a9fb7514dbae82e21fb51fe5c44109"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/PC/Practicas/Practica_1/Explicacin-1---Variables-Compartidas.pdf": {
+    "mtime": 1787581108.8539507,
+    "hash": "e6bd684b3aea02c572e05efc07071cba"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/PC/Teoria/Material_Original/2026---Clase-1---Programacin-Concurrente----Presentacin-usada-en-la-clase.pdf": {
+    "mtime": 1787570711.2245777,
+    "hash": "2106726177baf3711e922ad5884c296a"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/PC/Teoria/Material_Original/Teoria-1---Programacin-Concurrente---2026.pdf": {
+    "mtime": 1787570682.907043,
+    "hash": "d0241eaa4955f2959e3fbd2e56d24218"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/FOD/Practicas/Practica_1/FOD - Practica 1 - Archivos.pdf": {
+    "mtime": 1775475196.0890622,
+    "hash": "b228282333db44fbb9c435cacaa962d8"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/FOD/Teoria/Material_Original/clase_5.pdf": {
+    "mtime": 1777572461.6207392,
+    "hash": "241140894a0de3ecf8d876816c9c18e3"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/FOD/Teoria/Material_Original/clase_4.pdf": {
+    "mtime": 1777572446.192824,
+    "hash": "fe2bae96686d04f62498c3b08958ca41"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/FOD/Teoria/Material_Original/clase_6.pdf": {
+    "mtime": 1777572035.1216893,
+    "hash": "e39cf03cefe643623c73851931852671"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/FOD/Teoria/Material_Original/clase_3.pdf": {
+    "mtime": 1776361632.3594155,
+    "hash": "f80cc8ed952bbebf35168f681e982419"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/FOD/Teoria/Material_Original/clase_2.pdf": {
+    "mtime": 1776361976.6064014,
+    "hash": "5f8e1b259afb202137dab79fd42b140a"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/FOD/Teoria/Material_Original/clase_1.pdf": {
+    "mtime": 1776362002.2082362,
+    "hash": "bb2f56750781c9780afaff1923719ed0"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Practicas/Practica_1/Trabajo Pr\u00e1ctico - 1.pdf": {
+    "mtime": 1775475196.0975752,
+    "hash": "1369270ce8467f25b15a0b843b6f9d8d"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Practicas/Practica_1/Explicacion Practica 1.pdf": {
+    "mtime": 1775475196.0955827,
+    "hash": "310da4635ea5e1d84fc7528885026410"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Practicas/Practica_2/Tr\u00e1bajo Pr\u00e1ctico - 2.pdf": {
+    "mtime": 1775689383.545214,
+    "hash": "b8f1bed368c9d79402a33e66cf3ecaf1"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Practicas/Practica_2/Explicacion practica 2.pdf": {
+    "mtime": 1775475196.0967038,
+    "hash": "41e5cdd4b8ca458b553d3661615e007f"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Practicas/Practica_2/Explicacion 3 - Procesos.pdf": {
+    "mtime": 1779315821.6286204,
+    "hash": "f3834be6fbded5cc7ff7b3afab41a8ca"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Practicas/Practica_2/4 - Memoria.pdf": {
+    "mtime": 1779315821.627783,
+    "hash": "c17266937eb1067d31b3963a5e639302"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Material_Original/Tema_2/Tema 2 - Procesos - 2.pptx.pdf": {
+    "mtime": 1775509425.5128384,
+    "hash": "9e61fd320674862b68a79a53a911515b"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Material_Original/Tema_2/Tema 2 - Procesos - 1.pdf": {
+    "mtime": 1775475196.1082556,
+    "hash": "eddfbd1e542bf05ca1c20e843057f73c"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Material_Original/Tema_2/Tema 2 - Procesos - 3.pdf": {
+    "mtime": 1775509426.4415646,
+    "hash": "b49ab26ac9bc63b6e6fdf90325461d4d"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Material_Original/Tema_4/Tema 4 - IO - 1.pdf": {
+    "mtime": 1779315064.0143104,
+    "hash": "2cbb9f55e46d9aabe23369d829e40e58"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Material_Original/Tema_3/Tema 3 - Memoria - 1.pdf": {
+    "mtime": 1776719073.9551463,
+    "hash": "59aaefda7016b8db43c24faf2f5ee239"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Material_Original/Tema_3/Tema 3 - Memoria - 2.pdf": {
+    "mtime": 1777929080.5789523,
+    "hash": "a37057633a4fc104913111cedd9dc6fe"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Material_Original/Tema_3/Tema_3 - Memoria - 3.pdf": {
+    "mtime": 1778707163.7214007,
+    "hash": "527d70f352c5facf8ffa5447ae2be6a2"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Material_Original/Tema_1/Tema 1 - Introduccion - Anexo Arq.pdf": {
+    "mtime": 1775475196.1046166,
+    "hash": "e3b7f9c1bdbc199c83ae10f8d623a95b"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Material_Original/Tema_1/Tema 1- Introduccion - Anexo Syscalls.pdf": {
+    "mtime": 1775475196.106036,
+    "hash": "38de197cafa56a0701aafc41dea9f36b"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Material_Original/Tema_1/Tema 1 - Introduccion - 2.pdf": {
+    "mtime": 1775475196.1024573,
+    "hash": "835888ab4e9c4d55a0543d1df8a5144d"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Material_Original/Tema_1/Tema 1 - Introduccion - 1.pdf": {
+    "mtime": 1775475196.0995684,
+    "hash": "a570a011e61e3f8d384ccacdbf0a0836"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Practicas/Practica_3/Cuadernillo Semestral de Actividades - Patrones 2026 (PUBLICO).pdf": {
+    "mtime": 1787570230.2556193,
+    "hash": "35442c2cfa11e5b72b5385fb66b5f76e"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Practicas/Practica_4/Cuadernillo Semestral de Actividades - Frameworks 2026 (PUBLICO).pdf": {
+    "mtime": 1787570230.2761443,
+    "hash": "8cef9ec426115c8750f8778703a970b7"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Practicas/Practica_2/Cuadernillo Semestral de Actividades - Refactoring 2026 (PUBLICO).pdf": {
+    "mtime": 1787570230.2421234,
+    "hash": "f8c676adae0249a99eaab287e7378b99"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Practicas/Explicaciones_Practica/Explicacion 07 - Semana 4 de Mayo.pdf": {
+    "mtime": 1787570230.2172506,
+    "hash": "9aded5bd80c7aacc39dc2baf31e1e149"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Practicas/Explicaciones_Practica/Explicacion 04 - Semana 13 Abril.pdf": {
+    "mtime": 1787570230.206506,
+    "hash": "0a3ef61bada56f2627ca8019b77ebeea"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Practicas/Explicaciones_Practica/Explicacion 01 - Semana 16 Marzo.pdf": {
+    "mtime": 1787570230.195416,
+    "hash": "71f8be2a845995e13e125dbee81e7273"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Practicas/Explicaciones_Practica/Explicacion 08 - Semana 11 de mayo.pdf": {
+    "mtime": 1787570230.2225213,
+    "hash": "93b3e8bed3b1522852db8a9eed9bc59a"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Practicas/Explicaciones_Practica/Explicacion 06 - Semana 27 de Abril.pdf": {
+    "mtime": 1787570230.2112873,
+    "hash": "ffda1e7462224e2ef91129e09a8d6f61"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Practicas/Explicaciones_Practica/Explicacion 05 - Semana 20 Abril.pdf": {
+    "mtime": 1787570230.2076886,
+    "hash": "819161960f2287c30c04875b288bbff4"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Practicas/Explicaciones_Practica/Explicaci\u00f3n 09 - Semana 18 de mayo.pdf": {
+    "mtime": 1787570230.2303524,
+    "hash": "c637700550324547d6c27f1c88be1366"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Practicas/Explicaciones_Practica/templates-herencia-composicion_2026.pdf": {
+    "mtime": 1787570230.23758,
+    "hash": "1be5eef522352f8a8f55d7313583f379"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Practicas/Explicaciones_Practica/Explicacion 03 - Semana 6 abril.pdf": {
+    "mtime": 1787570230.2021682,
+    "hash": "5cacf68240a0c0aac63e965ec8022e73"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Practicas/Explicaciones_Practica/Explicacion 02 - Semana 30 Marzo.pdf": {
+    "mtime": 1787570230.1983428,
+    "hash": "c579c0ad0cfcab09cb404455c85f883e"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Teoria/Material_Original/Clase_2/Refactoring-clase2.pdf": {
+    "mtime": 1775475662.9298222,
+    "hash": "322cc9036fc9938e60d6e5bda1155404"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Teoria/Material_Original/Clase_2/3-Refactoring-Tools-clase2.pdf": {
+    "mtime": 1775475697.2927039,
+    "hash": "b025f06494328da2769f445e814e6063"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Teoria/Material_Original/Clase_2/2-Slides-Catalogo-clase2.pdf": {
+    "mtime": 1775475679.908614,
+    "hash": "3b4a36909c88fd250d23c7ccd8ace0f1"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Teoria/Material_Original/Clase_10/Frameworks I.pdf": {
+    "mtime": 1787570230.2797234,
+    "hash": "e3714e26eb447493a00f1df8492d3c03"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Teoria/Material_Original/Clase_10/OO2_ SingleThreadEchoServer.pdf": {
+    "mtime": 1787570230.2801511,
+    "hash": "8031616326aa2844276f3988766a83c5"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Teoria/Material_Original/Clase_5/Composite2026 (1).pdf": {
+    "mtime": 1787570230.290316,
+    "hash": "e0f5c598e1dbc0fc8688a43e8fdd2c0f"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Teoria/Material_Original/Clase_4/Composite+FactoryMethod+Builder2026 (2).pdf": {
+    "mtime": 1776080225.0600522,
+    "hash": "0a3c414934add3b565a90db3b08b969c"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Teoria/Material_Original/Clase_3/IntroPatrones-Adapter-Template-clase3.pdf": {
+    "mtime": 1787570230.2868936,
+    "hash": "893fef66a230ba6b85301c52aa435ec3"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Teoria/Material_Original/Clase_11/Frameworks II.pdf": {
+    "mtime": 1787570230.2825992,
+    "hash": "8548aa2576e0c51c45ac78ee0d0b6aa2"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Teoria/Material_Original/Libros/Libro Patrones de disen\u0303o.pdf": {
+    "mtime": 1775488118.141559,
+    "hash": "b3a632ec2cb941ba43174ccd3414cefb"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Teoria/Material_Original/Clase_8/decorator_proxy.pdf": {
+    "mtime": 1787570230.3126473,
+    "hash": "15dabfa3561a76607c69857db720bfc8"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Teoria/Material_Original/Clase_6/Pattern-Strategy-State.pdf": {
+    "mtime": 1787570230.298625,
+    "hash": "599fec4f74479b407891d6a34330ad01"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Teoria/Material_Original/Clase_1/Intro a refactoring clase1.pdf": {
+    "mtime": 1775475458.0739126,
+    "hash": "16d59c5c783914ef67cb92c9f4606639"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Teoria/Material_Original/Clase_7/CapituloTestDouble.pdf": {
+    "mtime": 1787570230.3008494,
+    "hash": "7605292cd250d83c9877799e8fafc046"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Teoria/Material_Original/Clase_7/TestDoublePattern2026.pdf": {
+    "mtime": 1787570230.3023274,
+    "hash": "df4ffcf7d4f3e3c9091905af46d30d4d"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Teoria/Material_Original/Clase_9/Clase-Refactoring-to-patterns_2026.pdf": {
+    "mtime": 1787570230.3187017,
+    "hash": "7816b43cef085b17e3cc3e8997843adc"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/AyED/Parciales/Parcial AYED 10_5_2025.pdf": {
+    "mtime": 1779315821.4770668,
+    "hash": "a716cab98f407a3de7177733312c7822"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/AyED/Practicas/Practica-4-Colas-de-Prioridades-Heap/AyED 2026 - Ejercitaci\u00f3n de Heap (2).pdf": {
+    "mtime": 1779315821.6220045,
+    "hash": "8a153f6c2d2cdeb38f12abf856d700d9"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/AyED/Practicas/Practica-1-Introduccion/2026_TP1_Listas (1).pdf": {
+    "mtime": 1779315821.5498877,
+    "hash": "78206d14647e2425f5289ba78cb53bbf"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/AyED/Practicas/Practica-3-Arboles-Generales/2026_TP3_AG.pdf": {
+    "mtime": 1779315821.6197367,
+    "hash": "80ee058922dfc4443aef486ac3e14655"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/AyED/Practicas/Practica-2-\u00c1rboles-Binarios/2026_TP2_AB (1).pdf": {
+    "mtime": 1779315821.6170113,
+    "hash": "e0f2e78c9fe0ddbc3115161de3916b46"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/AyED/Practicas/Practica-2-\u00c1rboles-Binarios/2026_TP2_AB (3).pdf": {
+    "mtime": 1779315821.6176524,
+    "hash": "e0f2e78c9fe0ddbc3115161de3916b46"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/AyED/Teoria/Material_Original/Clase_2/CLASE 2.2 - Herencia en Colas - Pilas y Java List.pdf": {
+    "mtime": 1775475196.0834022,
+    "hash": "b21d60b1effb4e55a744a4d69fe2dbe0"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/AyED/Teoria/Material_Original/Clase_2/CLASE 2.1 - Herencia y Abstractas.pdf": {
+    "mtime": 1775475196.079915,
+    "hash": "dcc5db6d4f222b27672f5358bbd67076"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/AyED/Teoria/Material_Original/Clase_5/CLASE 5 - Arboles Generales.pdf": {
+    "mtime": 1776090521.7363777,
+    "hash": "19348b980c49b7ad480cb103aa40d366"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/AyED/Teoria/Material_Original/Clase_4/CLASE 4 - Arboles Binarios y de Expresi\u00f3n en JAVA.pdf": {
+    "mtime": 1776090456.0295093,
+    "hash": "81dcd8113b59e6183d783344d13c67d5"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/AyED/Teoria/Material_Original/Clase_3/CLASE 3.1 - Arboles Binarios (1).pdf": {
+    "mtime": 1775475196.0858836,
+    "hash": "bad864e7e7f11fa6725bdeeaa6e7146d"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/AyED/Teoria/Material_Original/Clase_3/CLASE 3.2 - Arboles de Expresi\u00f3n (1).pdf": {
+    "mtime": 1775475196.0875652,
+    "hash": "bf85131cca991df3f1f67af6c2e778df"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/AyED/Teoria/Material_Original/Clase_8/CLASE 8.1 - Interfaces en Java + comparable.pdf": {
+    "mtime": 1779315821.6252956,
+    "hash": "b5e7b81ae14ecd4b5e87121fb46e722e"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/AyED/Teoria/Material_Original/Clase_6/CLASE 6.1 - Colas de prioridad - Heap - Definici\u00f3n y Operaciones b\u00e1sicas.pdf": {
+    "mtime": 1776090528.7743309,
+    "hash": "93b343d044e0e42d79ad3f639f94d0e4"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/AyED/Teoria/Material_Original/Clase_6/CLASE 6.2 - Colas de prioridad - BuildHeap - HeapSort.pdf": {
+    "mtime": 1779315821.6242356,
+    "hash": "a72b8f2f552ae1d8a78792f6bf6fbdee"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/AyED/Teoria/Material_Original/Clase_1/CLASE 1.1 - Creando clases - static - parametros-1 (1).pdf": {
+    "mtime": 1775475196.0779212,
+    "hash": "8c90bd17b66717b5dba3bbee960bb047"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/FOD/Teoria/Resumenes/img/arbol_binario_paginado.png": {
+    "mtime": 1777573984.0330472,
+    "hash": "6d7ff5971958b0a6a4c83f40c879ece2"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/FOD/Teoria/Resumenes/img/arbol_multicamino.png": {
+    "mtime": 1777573984.0353975,
+    "hash": "d6ac26b7b764c7734fd031253ae91d64"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/FOD/Teoria/Resumenes/img/arbol_b_plus.png": {
+    "mtime": 1777573984.0398579,
+    "hash": "4c493150f6ee7ce3a7113e0bc029e787"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/FOD/Teoria/Resumenes/img/arbol_b_ejemplo.png": {
+    "mtime": 1777573984.0377166,
+    "hash": "850d2a6e74f6d10f1bc0a857fa6ea205"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Practicas/Practica_2/P2-ejer3-ii.png": {
+    "mtime": 1776120600.4980335,
+    "hash": "cec3b7dba71feb923872d08a8b7fa2f3"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Practicas/Practica_2/P2-ejer4.png": {
+    "mtime": 1776121628.352292,
+    "hash": "32d4c14f1f7604307ccfd38d1445f0ea"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Practicas/Practica_2/P2-ejer3-iv.png": {
+    "mtime": 1776120518.993141,
+    "hash": "c8e445ea4dec45144504390272b534a7"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Practicas/Practica_2/P2-ejer5-a-i.png": {
+    "mtime": 1776121842.3157809,
+    "hash": "249bc49944558eb0ea420511a077bf1c"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Practicas/Practica_2/P2-ejer3-iii.png": {
+    "mtime": 1776120809.9699569,
+    "hash": "da74bf11299e0bcf95be56433636d2b3"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Practicas/Practica_2/P2-ejer5-a-ii.png": {
+    "mtime": 1776121919.090151,
+    "hash": "de99cc89f17d61a253e6abd605e2a558"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Practicas/Practica_2/P2-ejer-7-a.png": {
+    "mtime": 1776123669.25645,
+    "hash": "c2086d634016311c431121df41e298af"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Practicas/Practica_2/P2-ejer3-i.png": {
+    "mtime": 1776120518.993141,
+    "hash": "c8e445ea4dec45144504390272b534a7"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3_P30_Img1.jpeg": {
+    "mtime": 1776719317.1952465,
+    "hash": "8442b1d2267b48d2363157ef0627d059"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M2_P20_Img0.jpeg": {
+    "mtime": 1777929226.7066703,
+    "hash": "5d8f0a2455e4f73b6108afd7c1086006"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M3_P10_Img0.jpeg": {
+    "mtime": 1778707284.2125793,
+    "hash": "5d8f0a2455e4f73b6108afd7c1086006"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M3_P25_Img0.jpeg": {
+    "mtime": 1778707284.222196,
+    "hash": "5d8f0a2455e4f73b6108afd7c1086006"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M3_P40_Img1.jpeg": {
+    "mtime": 1778707284.2322435,
+    "hash": "5d63b25603de72f55ff656db22cdde17"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/t1_ejemplo_ejecucion.png": {
+    "mtime": 1776115742.205226,
+    "hash": "e863dbc22dbfacb83aee17d900ee0885"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M2_P15_Img0.jpeg": {
+    "mtime": 1777929226.7032576,
+    "hash": "5d8f0a2455e4f73b6108afd7c1086006"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M3_P8_Img0.jpeg": {
+    "mtime": 1778707284.2114923,
+    "hash": "5d8f0a2455e4f73b6108afd7c1086006"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M3_P31_Img0.jpeg": {
+    "mtime": 1778707284.2268107,
+    "hash": "5d8f0a2455e4f73b6108afd7c1086006"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3_P22_Img0.jpeg": {
+    "mtime": 1776719317.1903071,
+    "hash": "fde1433e3f6adfef336c053ac76d12ac"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M3_P28_Img0.jpeg": {
+    "mtime": 1778707284.2233932,
+    "hash": "5d8f0a2455e4f73b6108afd7c1086006"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M2_P8_Img1.jpeg": {
+    "mtime": 1777929226.6983225,
+    "hash": "c99c318b922ccaf58e1669ef6f0f225e"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/t2_fork_exec_diagrama.png": {
+    "mtime": 1776116770.4646447,
+    "hash": "279019475e05b8cbb0b2e79e03107ef9"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M2_P18_Img0.jpeg": {
+    "mtime": 1777929226.7052147,
+    "hash": "5d8f0a2455e4f73b6108afd7c1086006"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/t1_syscall_categorias_unix.png": {
+    "mtime": 1776115743.1395085,
+    "hash": "fb38c64b166262becbb9c4b09fb5e34b"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M3_P5_Img0.jpeg": {
+    "mtime": 1778707284.2091196,
+    "hash": "5d8f0a2455e4f73b6108afd7c1086006"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M3_P23_Img1.jpeg": {
+    "mtime": 1778707284.2200391,
+    "hash": "f8b4836b2493c3de23790e71b4c938b6"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M2_P3_Img0.jpeg": {
+    "mtime": 1777929226.6949403,
+    "hash": "5d8f0a2455e4f73b6108afd7c1086006"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M2_P13_Img1.jpeg": {
+    "mtime": 1777929226.702193,
+    "hash": "ada090af3cc7644e28079245e10cb45b"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M2_P13_Img0.jpeg": {
+    "mtime": 1777929226.702068,
+    "hash": "5d8f0a2455e4f73b6108afd7c1086006"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M3_P23_Img0.jpeg": {
+    "mtime": 1778707284.2199192,
+    "hash": "5d8f0a2455e4f73b6108afd7c1086006"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M3_P5_Img1.jpeg": {
+    "mtime": 1778707284.209257,
+    "hash": "7e68f8a72cc4b2cda658ca927bc46ae6"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M3_P37_Img0.jpeg": {
+    "mtime": 1778707284.230274,
+    "hash": "5d8f0a2455e4f73b6108afd7c1086006"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M3_P28_Img1.jpeg": {
+    "mtime": 1778707284.2234962,
+    "hash": "88bed86da7a2165d32ed0a91640d3fe7"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M2_P8_Img0.jpeg": {
+    "mtime": 1777929226.6982012,
+    "hash": "5d8f0a2455e4f73b6108afd7c1086006"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M3_P16_Img0.jpeg": {
+    "mtime": 1778707284.215451,
+    "hash": "5d8f0a2455e4f73b6108afd7c1086006"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M2_P26_Img0.jpeg": {
+    "mtime": 1777929226.7108736,
+    "hash": "5d8f0a2455e4f73b6108afd7c1086006"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3_P47_Img0.jpeg": {
+    "mtime": 1776719317.2044458,
+    "hash": "b6cd1eb46bf28ecee5665ff00ac8d80c"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/t1_procesamiento_interrupcion.png": {
+    "mtime": 1776115742.5945063,
+    "hash": "f5c4ae3c8f369cf1a2c627a329ec8a93"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M2_P15_Img1.jpeg": {
+    "mtime": 1777929226.7033653,
+    "hash": "f3384754f42165c4a14164f0c32a7559"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M3_P40_Img0.jpeg": {
+    "mtime": 1778707284.232115,
+    "hash": "5d8f0a2455e4f73b6108afd7c1086006"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M3_P3_Img0.jpeg": {
+    "mtime": 1778707284.2079892,
+    "hash": "5d8f0a2455e4f73b6108afd7c1086006"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M2_P5_Img0.jpeg": {
+    "mtime": 1777929226.6966028,
+    "hash": "5d8f0a2455e4f73b6108afd7c1086006"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3_P30_Img0.jpeg": {
+    "mtime": 1776719317.1950855,
+    "hash": "b433cb9c492aa1511bcf4aaa72ca09a7"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/t2_transiciones_unix.png": {
+    "mtime": 1776116770.2346642,
+    "hash": "22d652eeb49a380be134c1d91ce4a541"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3_P40_Img0.jpeg": {
+    "mtime": 1776719317.200681,
+    "hash": "2190e6efbbb55e7c20cee0edfa71d813"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3_P31_Img1.jpeg": {
+    "mtime": 1776719317.1960516,
+    "hash": "d176c868b4faa7f0dbf029ecd0d4c695"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/t2_colas_planif.png": {
+    "mtime": 1776116770.0631192,
+    "hash": "a96e7b2c5207739e2d0d05dc8b6f559c"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3_P54_Img0.jpeg": {
+    "mtime": 1776719317.2073903,
+    "hash": "cf4bd0c18e7bbf563b79294eae4fa91c"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M2_P21_Img0.jpeg": {
+    "mtime": 1777929226.7071402,
+    "hash": "5d8f0a2455e4f73b6108afd7c1086006"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M3_P11_Img0.jpeg": {
+    "mtime": 1778707284.213035,
+    "hash": "5d8f0a2455e4f73b6108afd7c1086006"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M3_P9_Img0.jpeg": {
+    "mtime": 1778707284.212085,
+    "hash": "5d8f0a2455e4f73b6108afd7c1086006"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M3_P30_Img0.jpeg": {
+    "mtime": 1778707284.2259429,
+    "hash": "5d8f0a2455e4f73b6108afd7c1086006"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M3_P24_Img0.jpeg": {
+    "mtime": 1778707284.2214954,
+    "hash": "5d8f0a2455e4f73b6108afd7c1086006"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M2_P14_Img0.jpeg": {
+    "mtime": 1777929226.7026904,
+    "hash": "5d8f0a2455e4f73b6108afd7c1086006"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M3_Slide_39.png": {
+    "mtime": 1778707600.0729527,
+    "hash": "3d7dbef225583e206c369e07f6b89cba"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3_P23_Img0.jpeg": {
+    "mtime": 1776719317.1913772,
+    "hash": "002c57b5048fd0d936c48b6534dcf4a4"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M3_P4_Img0.jpeg": {
+    "mtime": 1778707284.2085917,
+    "hash": "5d8f0a2455e4f73b6108afd7c1086006"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M2_P2_Img0.jpeg": {
+    "mtime": 1777929226.6942468,
+    "hash": "5d8f0a2455e4f73b6108afd7c1086006"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M3_P29_Img0.jpeg": {
+    "mtime": 1778707284.2239141,
+    "hash": "5d8f0a2455e4f73b6108afd7c1086006"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M3_P36_Img1.jpeg": {
+    "mtime": 1778707284.2295005,
+    "hash": "8e8976435265d60b3a7bf65cffcce2e9"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T4IO_Slide_29.png": {
+    "mtime": 1779315821.6469398,
+    "hash": "17d36a6cc9e91f2a539392291bc42805"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M2_P19_Img0.jpeg": {
+    "mtime": 1777929226.7059188,
+    "hash": "5d8f0a2455e4f73b6108afd7c1086006"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M2_P19_Img1.jpeg": {
+    "mtime": 1777929226.7060962,
+    "hash": "6677cb3e4df32e82271ea4cf43bab98d"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M3_P36_Img0.jpeg": {
+    "mtime": 1778707284.2294004,
+    "hash": "5d8f0a2455e4f73b6108afd7c1086006"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M2_P9_Img0.jpeg": {
+    "mtime": 1777929226.6992898,
+    "hash": "5d8f0a2455e4f73b6108afd7c1086006"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M3_P29_Img1.jpeg": {
+    "mtime": 1778707284.2240124,
+    "hash": "e496d6f281b09cd959df0baa68e0f177"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/t2_estados_swapping.png": {
+    "mtime": 1776116770.1804287,
+    "hash": "cc44d4846e38101eef8a40e488806803"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M2_P12_Img0.jpeg": {
+    "mtime": 1777929226.701651,
+    "hash": "5d8f0a2455e4f73b6108afd7c1086006"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M2_P2_Img1.jpeg": {
+    "mtime": 1777929226.69436,
+    "hash": "2cd43632c3de28f376c149e63b6322d6"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M3_P22_Img0.jpeg": {
+    "mtime": 1778707284.2190912,
+    "hash": "5d8f0a2455e4f73b6108afd7c1086006"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/t1_helloworld_32bit.png": {
+    "mtime": 1776115743.5534062,
+    "hash": "1ca25eab0fc16ebfe8e383c974a23a4c"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M3_P17_Img0.jpeg": {
+    "mtime": 1778707284.2164428,
+    "hash": "5d8f0a2455e4f73b6108afd7c1086006"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/t2_pcb_campos.png": {
+    "mtime": 1776116769.7784162,
+    "hash": "7afa3c8b24a783fa122e3c9e4d9823f7"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M3_Slide_15.png": {
+    "mtime": 1778707599.8235981,
+    "hash": "7f5636856123fc02500f1096e9f215e2"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M3_Slide_29.png": {
+    "mtime": 1778707599.9330623,
+    "hash": "143a5de20fcf8d692ad229bf2ebe567c"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3_P52_Img0.jpeg": {
+    "mtime": 1776719317.2066092,
+    "hash": "0db1c65d23a4fc3ead5d650ed6f63451"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/t2_context_switch.png": {
+    "mtime": 1776116769.94887,
+    "hash": "5da642dfb510b80207e10115db679bbb"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M2_P14_Img1.jpeg": {
+    "mtime": 1777929226.7028248,
+    "hash": "17a82a94f860fd257c52d40af9c18f95"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M3_P2_Img0.jpeg": {
+    "mtime": 1778707284.206611,
+    "hash": "5d8f0a2455e4f73b6108afd7c1086006"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M3_P41_Img0.jpeg": {
+    "mtime": 1778707284.2326958,
+    "hash": "5d8f0a2455e4f73b6108afd7c1086006"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M2_P4_Img0.jpeg": {
+    "mtime": 1777929226.6960585,
+    "hash": "5d8f0a2455e4f73b6108afd7c1086006"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/t2_multiprogramacion.png": {
+    "mtime": 1776116769.7189832,
+    "hash": "bda3ca5765179079c85af20bdb0eb4bd"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3_P10_Img0.jpeg": {
+    "mtime": 1776719317.1829386,
+    "hash": "c7d58ded246abd1bf6deb6baf3c78a91"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M3_P11_Img1.jpeg": {
+    "mtime": 1778707284.2131784,
+    "hash": "002b52e3015ccd705ef509411d3ea8c2"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3_P31_Img0.jpeg": {
+    "mtime": 1776719317.1959195,
+    "hash": "a053dafb2be931e569c3349b345d84ab"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M3_P42_Img1.jpeg": {
+    "mtime": 1778707284.2332244,
+    "hash": "02c9da92bfae472985eb63300775905a"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/t2_syscalls_unix.png": {
+    "mtime": 1776116770.5686164,
+    "hash": "c0a2f9219ff06df4125755509e888cee"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M3_P27_Img0.jpeg": {
+    "mtime": 1778707284.2230859,
+    "hash": "5d8f0a2455e4f73b6108afd7c1086006"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M3_P38_Img1.jpeg": {
+    "mtime": 1778707284.2308304,
+    "hash": "8b6e6e58e4bbaee37f16cea2e33eec06"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M2_P17_Img0.jpeg": {
+    "mtime": 1777929226.7044299,
+    "hash": "5d8f0a2455e4f73b6108afd7c1086006"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M3_P33_Img0.jpeg": {
+    "mtime": 1778707284.2279184,
+    "hash": "5d8f0a2455e4f73b6108afd7c1086006"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M2_P22_Img0.jpeg": {
+    "mtime": 1777929226.7077932,
+    "hash": "5d8f0a2455e4f73b6108afd7c1086006"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M3_P12_Img0.jpeg": {
+    "mtime": 1778707284.2135932,
+    "hash": "5d8f0a2455e4f73b6108afd7c1086006"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/t1_syscall_read.png": {
+    "mtime": 1776115743.0448997,
+    "hash": "c1eca84fb907c5e0a92d4ffda410484e"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3_P39_Img0.jpeg": {
+    "mtime": 1776719317.2002366,
+    "hash": "5858d07ac844fb9e9937b3f390d1f3b7"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M3_Slide_32.png": {
+    "mtime": 1778707599.977176,
+    "hash": "a01549e10e72b4969d71bad26d9dd729"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M3_P35_Img1.jpeg": {
+    "mtime": 1778707284.2290008,
+    "hash": "3caa6c4c68261e5550632262fbfc062d"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M3_P21_Img1.jpeg": {
+    "mtime": 1778707284.2185261,
+    "hash": "98bd31dcc23c1679f562381ea8f1cce4"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/t2_fork_wait_exit.png": {
+    "mtime": 1776116770.385736,
+    "hash": "96cd3f33ef02904651edde9be4a34822"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M2_P1_Img0.jpeg": {
+    "mtime": 1777929226.6935256,
+    "hash": "5d8f0a2455e4f73b6108afd7c1086006"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M3_P7_Img0.jpeg": {
+    "mtime": 1778707284.210368,
+    "hash": "5d8f0a2455e4f73b6108afd7c1086006"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/t1_multiples_prioridades.png": {
+    "mtime": 1776115742.7167308,
+    "hash": "a2b414b97874a987f8119af0ccfcdd13"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T4IO_Slide_20.png": {
+    "mtime": 1779315821.6453176,
+    "hash": "1fdc4e18eefacc254dd00b5c8f9e267d"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M3_P14_Img0.jpeg": {
+    "mtime": 1778707284.2146814,
+    "hash": "5d8f0a2455e4f73b6108afd7c1086006"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M3_Slide_21.png": {
+    "mtime": 1778707599.8772652,
+    "hash": "4530a919ac52803093d70a3adba048bf"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3_P51_Img0.jpeg": {
+    "mtime": 1776719317.2061563,
+    "hash": "17a82a94f860fd257c52d40af9c18f95"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M2_P24_Img0.jpeg": {
+    "mtime": 1777929226.70929,
+    "hash": "5d8f0a2455e4f73b6108afd7c1086006"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M2_P11_Img0.jpeg": {
+    "mtime": 1777929226.701097,
+    "hash": "5d8f0a2455e4f73b6108afd7c1086006"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M3_P21_Img0.jpeg": {
+    "mtime": 1778707284.218419,
+    "hash": "5d8f0a2455e4f73b6108afd7c1086006"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M3_P35_Img0.jpeg": {
+    "mtime": 1778707284.2288933,
+    "hash": "5d8f0a2455e4f73b6108afd7c1086006"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/t1_maquina_hipotetica.png": {
+    "mtime": 1776115742.1142886,
+    "hash": "d74d9226baba248cba432f8a1867ddc6"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/t2_fork_ejemplo_code.png": {
+    "mtime": 1776116770.2958052,
+    "hash": "fa7f82fd7eeb28efff70e648c66392f5"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T4IO_Slide_31.png": {
+    "mtime": 1779315821.6501942,
+    "hash": "03221d5f6ccf5c56c12cdffcd123f41f"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M3_P19_Img0.jpeg": {
+    "mtime": 1778707284.2173488,
+    "hash": "5d8f0a2455e4f73b6108afd7c1086006"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M3_Slide_36.png": {
+    "mtime": 1778707600.026197,
+    "hash": "fe73986a28454c4451dd8aa8aa226a39"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M3_P12_Img1.jpeg": {
+    "mtime": 1778707284.2137105,
+    "hash": "a02b880fc0c47144231ff9aa2dafe374"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3_P32_Img0.jpeg": {
+    "mtime": 1776719317.196437,
+    "hash": "c821419bb19dc70489c198e6b961e4fa"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/t1_flujo_con_interrupciones.png": {
+    "mtime": 1776115742.3984184,
+    "hash": "0e5507f904891b5ddfe63a4b2836d42c"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3_P13_Img0.jpeg": {
+    "mtime": 1776719317.1847005,
+    "hash": "7e64e96a4bd18df49a4881f785d80e29"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/t2_espacio_direcciones.png": {
+    "mtime": 1776116769.8979988,
+    "hash": "08ea1f864d9bfcbe31c07a71122bfe15"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M2_P17_Img1.jpeg": {
+    "mtime": 1777929226.7045412,
+    "hash": "69acfe50d427bb7c8580824ab34c7854"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M3_P38_Img0.jpeg": {
+    "mtime": 1778707284.2306952,
+    "hash": "5d8f0a2455e4f73b6108afd7c1086006"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M2_P7_Img0.jpeg": {
+    "mtime": 1777929226.697837,
+    "hash": "5d8f0a2455e4f73b6108afd7c1086006"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M3_P42_Img0.jpeg": {
+    "mtime": 1778707284.233123,
+    "hash": "5d8f0a2455e4f73b6108afd7c1086006"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T4IO_Slide_32.png": {
+    "mtime": 1779315821.6528838,
+    "hash": "d0eee55ea0a86f03bed4c19224d77c70"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M3_P1_Img0.jpeg": {
+    "mtime": 1778707284.205846,
+    "hash": "5d8f0a2455e4f73b6108afd7c1086006"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M3_P32_Img0.jpeg": {
+    "mtime": 1778707284.227449,
+    "hash": "5d8f0a2455e4f73b6108afd7c1086006"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T4IO_Slide_7.png": {
+    "mtime": 1779315821.6543572,
+    "hash": "4275b8168c0f67c9f190adbf18eed979"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M3_P26_Img0.jpeg": {
+    "mtime": 1778707284.2225122,
+    "hash": "5d8f0a2455e4f73b6108afd7c1086006"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M2_P16_Img0.jpeg": {
+    "mtime": 1777929226.7039733,
+    "hash": "5d8f0a2455e4f73b6108afd7c1086006"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3_P38_Img0.jpeg": {
+    "mtime": 1776719317.1997674,
+    "hash": "6b375f2890109d34319f169d1a2b9427"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/t1_helloworld_64bit.png": {
+    "mtime": 1776115743.680783,
+    "hash": "190a803e6e6a014adaa833c23e711ad1"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M2_P23_Img0.jpeg": {
+    "mtime": 1777929226.7084582,
+    "hash": "5d8f0a2455e4f73b6108afd7c1086006"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M3_P13_Img0.jpeg": {
+    "mtime": 1778707284.2142587,
+    "hash": "5d8f0a2455e4f73b6108afd7c1086006"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M2_P0_Img0.jpeg": {
+    "mtime": 1777929226.6916378,
+    "hash": "2730158dc423696f1a2a183503612ce8"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M3_P6_Img0.jpeg": {
+    "mtime": 1778707284.2099025,
+    "hash": "5d8f0a2455e4f73b6108afd7c1086006"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M2_P25_Img1.jpeg": {
+    "mtime": 1777929226.7100697,
+    "hash": "643ec2b0984b7f2c47f8976eb4ff6fe1"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M3_P15_Img1.jpeg": {
+    "mtime": 1778707284.2151241,
+    "hash": "9ad1de5caaf8571aa3a3eaaab946a289"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/t2_syscalls_windows.png": {
+    "mtime": 1776116770.6878104,
+    "hash": "da5274a4fc9e19b06617aacf7fb55495"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3_P44_Img0.jpeg": {
+    "mtime": 1776719317.2032301,
+    "hash": "929c7442d5f70ed4998ad0919a248fec"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M3_P15_Img0.jpeg": {
+    "mtime": 1778707284.2150135,
+    "hash": "5d8f0a2455e4f73b6108afd7c1086006"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/t2_modelo_estados.png": {
+    "mtime": 1776116770.0072293,
+    "hash": "67327911acac71370c438948c279c656"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M2_P25_Img0.jpeg": {
+    "mtime": 1777929226.7099268,
+    "hash": "5d8f0a2455e4f73b6108afd7c1086006"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M3_P34_Img0.jpeg": {
+    "mtime": 1778707284.228472,
+    "hash": "5d8f0a2455e4f73b6108afd7c1086006"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/t2_colas_diagrama.png": {
+    "mtime": 1776116770.116151,
+    "hash": "71178db6c4cce9c9b698347ca61b9aa9"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M2_P10_Img0.jpeg": {
+    "mtime": 1777929226.7005935,
+    "hash": "5d8f0a2455e4f73b6108afd7c1086006"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M3_P23_Img2.jpeg": {
+    "mtime": 1778707284.220174,
+    "hash": "d24bcb1a2cd8278384d75d3da191109e"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M3_P20_Img0.jpeg": {
+    "mtime": 1778707284.2179024,
+    "hash": "5d8f0a2455e4f73b6108afd7c1086006"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3_P30_Img2.jpeg": {
+    "mtime": 1776719317.1953797,
+    "hash": "79e7f487c7c8d7660c8e086cabe2d9e3"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3_P0_Img0.jpeg": {
+    "mtime": 1776719317.175906,
+    "hash": "2730158dc423696f1a2a183503612ce8"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/t1_flujo_sin_interrupciones.png": {
+    "mtime": 1776115742.3370402,
+    "hash": "0faa0eb400f59e3321bdb05ed0207a44"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/t1_clases_interrupciones.png": {
+    "mtime": 1776115742.2791398,
+    "hash": "6f545f33dea983b721787cec74b8e691"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3_P27_Img0.jpeg": {
+    "mtime": 1776719317.1932337,
+    "hash": "53bddf56945fcf1c3913add4e687500e"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M3_P18_Img0.jpeg": {
+    "mtime": 1778707284.216984,
+    "hash": "5d8f0a2455e4f73b6108afd7c1086006"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M3_P39_Img0.jpeg": {
+    "mtime": 1778707284.2316825,
+    "hash": "5d8f0a2455e4f73b6108afd7c1086006"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M2_P6_Img0.jpeg": {
+    "mtime": 1777929226.6971781,
+    "hash": "5d8f0a2455e4f73b6108afd7c1086006"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M3_P0_Img0.jpeg": {
+    "mtime": 1778707284.2039945,
+    "hash": "2730158dc423696f1a2a183503612ce8"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/ISO/Teoria/Resumenes/images/T3M3_Slide_40.png": {
+    "mtime": 1778707600.1408625,
+    "hash": "ba78e40a405b228bf6a22de32b63814c"
+  },
+  "/Users/agustinolthoff/Desktop/Facultad-Informatica-UNLP/OO2/Practicas/Practica_1/RedSocial/Captura de pantalla 2026-03-26 a la(s) 1.02.54\u202fp.\u00a0m..png": {
+    "mtime": 1775475196.1101558,
+    "hash": "2e85c179ac768a5ee798892a947d0541"
+  }
+}
