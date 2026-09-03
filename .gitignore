@@ -19,3 +19,9 @@ __pycache__/
 
 # === Logs / Temp files ===
 *.log
+
+# === graphify ===
+# Internal sidecars: machine-specific paths and per-run scratch state
+graphify-out/.graphify_*
+# Extraction cache: large, regenerable, local to this machine
+graphify-out/cache/
